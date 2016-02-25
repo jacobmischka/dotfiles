@@ -10,7 +10,7 @@
 
 #PS1='[\u@\h \W]\$ '
 #white bold user:dir$ prompt
-export PS1='\[\e[1;37m\]\u:\W\$\[\e[0m\] '
+export PS1='\[\e[1;37m\][\u@\h \W]\$\[\e[0m\] '
 
 export GOPATH=$HOME/go
 export GEMPATH=$HOME/.gem/ruby/2.3.0/bin
