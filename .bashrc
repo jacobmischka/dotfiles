@@ -20,7 +20,6 @@ export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PAGER=/bin/less
 
-
 alias ls="ls --color=auto"
 alias ll="ls -l"
 alias la="ls -a"
@@ -34,3 +33,4 @@ mkcd(){
 	mkdir -p "$1" && cd -P "$1"
 }
 
+eval "$(thefuck --alias)"
