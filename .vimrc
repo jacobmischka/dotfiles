@@ -88,11 +88,6 @@ set nobomb                      " do not write utf-8 BOM!
 set fileencodings=ucs-bom,utf-8,iso-8859-1
                                 " order to detect Unicodeyness
 
-" tab completion
-set wildmenu                    " show a menu of completions like zsh
-set wildmode=full               " complete longest common prefix first
-set wildignore+=.*.sw*,__pycache__,*.pyc
-                                " ignore junk files
 set complete-=i                 " don't try to tab-complete #included files
 set completeopt-=preview        " preview window is super annoying
 
@@ -104,63 +99,6 @@ set foldlevel=99
 set timeoutlen=1000             " wait 1s for mappings to finish
 set ttimeoutlen=100             " wait 0.1s for xterm keycodes to finish
 set nrformats-=octal            " don't try to auto-increment 'octal'
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
-" Pathogen; load all bundles
-call pathogen#infect()
-
-" SuperTab and tab completion; use omni completion but fall back to completion
-" based on the current buffer's syntax keywords
-"let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-set omnifunc=syntaxcomplete#Complete
-autocmd FileType *
-    \ call SuperTabChain(&omnifunc, "<c-p>") |
-    \ call SuperTabSetDefaultCompletionType("<c-x><c-u>")
-
-" Syntastic
-" Don't bother flaking on :wq because I won't even see it!
-let g:syntastic_check_on_wq = 0
-" Only use flake8 for Python -- running `python` itself may or may not work
-" because versions, and pylint is a beast
-let g:syntastic_python_checkers = ['flake8']
-" Stupid Unicode tricks
-let g:syntastic_error_symbol = "☠"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "☢"
-let g:syntastic_style_warning_symbol = "☹"
-
-" Jedi
-" this doesn't fly with the yelp codebase
-let g:jedi#popup_on_dot = 0
-" messing with my completeopt is super rude
-let g:jedi#auto_vim_configuration = 0
-" signatures are kind of annoying and unusably slow in a big codebase
-let g:jedi#show_call_signatures = 0
-
-" Python-mode; disable linting, use syntastic
-let g:pymode_lint = 0
-" Aaand the rope stuff conflicts with jedi, surprise
-let g:pymode_rope = 0
-" Rope is fucking idiotic and keeps recursively reading my entire home
-" directory.  This at least tells it not to search upwards looking for a
-" .ropeproject marker.
-let g:pymode_rope_lookup_project = 0
-" This is pretty fucking annoying too
-let g:pymode_rope_complete_on_dot = 0
-
-" Airline; use powerline-style glyphs and colors
-let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
-
-" Ctrl-P settings
-let g:ctrlp_custom_ignore = { 'dir': '\v[\/](build|[.]git)$' }
-" Try to tame it a bit on very large projects
-let g:ctrlp_max_files = 50000
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_dotfiles = 1
-let g:ctrlp_lazy_update = 100
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
