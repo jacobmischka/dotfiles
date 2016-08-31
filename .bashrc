@@ -20,6 +20,7 @@ export PATH=$HOMEPATH:$VENVPATH:$GOPATH/bin:$GEMPATH:$PATH
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PAGER=/bin/less
+export ANDROID_HOME=/opt/android-sdk
 
 alias ls="ls --color=auto"
 alias ll="ls -l"
