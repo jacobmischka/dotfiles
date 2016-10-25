@@ -29,6 +29,7 @@ alias grep="grep --color=auto"
 alias pacman="sudo pacman --color=auto"
 alias xclip="xclip -selection clipboard"
 alias open="xdg-open"
+alias yarn="PREFIX=$HOME/.local yarn"
 
 mkcd(){
 	mkdir -p "$1" && cd -P "$1"
