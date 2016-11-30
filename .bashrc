@@ -24,9 +24,9 @@ export VISUAL=/usr/bin/vim
 export PAGER=/bin/less
 
 alias ls="ls --color=auto"
-alias ll="ls -l"
+alias ll="ls -lh"
 alias la="ls -a"
-alias lal="ls -al"
+alias lal="ls -alh"
 alias grep="grep --color=auto"
 alias pacman="sudo pacman --color=auto"
 alias xclip="xclip -selection clipboard"
