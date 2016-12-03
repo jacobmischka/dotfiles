@@ -12,6 +12,7 @@
 #white bold user:dir$ prompt
 export PS1='\[\e[1;37m\][\u@\h \W]\$\[\e[0m\] '
 
+# Paths
 export GOPATH=$HOME/go
 export GEMPATH=$HOME/.gem/ruby/2.3.0/bin
 export VENVPATH=./venv/bin
@@ -19,9 +20,12 @@ export HOMEPATH=$HOME/.local/bin
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROIDPATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export PATH=$HOMEPATH:$VENVPATH:$GOPATH/bin:$GEMPATH:$ANDROIDPATH:$PATH
+
+# Tools
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PAGER=/bin/less
+export NOTES_EDITOR=atom
 
 alias ls="ls --color=auto"
 alias ll="ls -lh"
