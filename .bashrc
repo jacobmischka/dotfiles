@@ -8,6 +8,10 @@
 # Open new tab in current directory
 [[ -f /etc/profile.d/vte.sh ]] && . /etc/profile.d/vte.sh
 
+# fzf extensions
+[[ -f /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
+[[ -f /usr/share/fzf/completion.bash ]] && . /usr/share/fzf/completion.bash
+
 #PS1='[\u@\h \W]\$ '
 #white bold user:dir$ prompt
 export PS1='\[\e[1;37m\][\u@\h \W]\$\[\e[0m\] '
