@@ -14,7 +14,14 @@
 
 #PS1='[\u@\h \W]\$ '
 #white bold user:dir$ prompt
-export PS1='$( tput setaf 208; tput bold )[\u@\h \W]\$$( tput sgr0 ) '
+orange_color(){
+	tput setaf 208
+	tput bold
+}
+reset_color(){
+	tput sgr0
+}
+export PS1='\[$(orange_color)\][\u@\h \W]\$ \[$(reset_color)\]'
 
 # Paths
 export GOPATH=$HOME/go
