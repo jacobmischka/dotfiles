@@ -14,7 +14,7 @@
 
 #PS1='[\u@\h \W]\$ '
 #white bold user:dir$ prompt
-export PS1='\[\e[1;37m\][\u@\h \W]\$\[\e[0m\] '
+export PS1='$( tput setaf 208; tput bold )[\u@\h \W]\$$( tput sgr0 ) '
 
 # Paths
 export GOPATH=$HOME/go
