@@ -47,9 +47,14 @@ alias pacman="sudo pacman --color=auto"
 alias xclip="xclip -selection clipboard"
 alias open="xdg-open"
 alias venv="python -m venv"
+alias gh="github_clone"
 
 mkcd(){
 	mkdir -p "$1" && cd -P "$1"
+}
+
+github_clone(){
+	git clone "git@github.com:$1.git"
 }
 
 eval "$(thefuck --alias)"
