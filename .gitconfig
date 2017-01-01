@@ -8,7 +8,7 @@
 [push]
 	default = simple
 [commit]
-	gpgsign = false
+	gpgsign = true
 [diff]
 	compactionHeuristic = true
 
