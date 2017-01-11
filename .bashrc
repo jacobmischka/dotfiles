@@ -36,7 +36,6 @@ export PATH=$HOMEPATH:$VENVPATH:$GOPATH/bin:$GEMPATH:$ANDROIDPATH:$PATH
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PAGER=/bin/less
-#export NOTES_EDITOR=atom
 
 alias ls="ls --color=auto"
 alias ll="ls -lh"
@@ -47,7 +46,11 @@ alias pacman="sudo pacman --color=auto"
 alias xclip="xclip -selection clipboard"
 alias open="xdg-open"
 alias venv="python -m venv"
+alias fuck="thefuck"
 alias gh="github_clone"
+alias strip="trim"
+alias c="xclip"
+alias tc="trim | xclip"
 
 mkcd(){
 	mkdir -p "$1" && cd -P "$1"
@@ -57,4 +60,6 @@ github_clone(){
 	git clone "git@github.com:$1.git"
 }
 
-eval "$(thefuck --alias)"
+trim(){
+	sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr -d '\n'
+}
