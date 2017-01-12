@@ -25,12 +25,11 @@ export PS1='\[$(orange_color)\][\u@\h \W]\$ \[$(reset_color)\]'
 
 # Paths
 export GOPATH=$HOME/go
-export GEMPATH=$HOME/.gem/ruby/2.3.0/bin
 export VENVPATH=./venv/bin
 export HOMEPATH=$HOME/.local/bin
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROIDPATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-export PATH=$HOMEPATH:$VENVPATH:$GOPATH/bin:$GEMPATH:$ANDROIDPATH:$PATH
+export PATH=$HOMEPATH:$VENVPATH:$GOPATH/bin:$ANDROIDPATH:$PATH
 
 # Tools
 export EDITOR=/usr/bin/vim
