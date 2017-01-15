@@ -57,6 +57,7 @@ alias fuck="thefuck"
 alias gh="github_clone"
 alias strip="trim"
 alias c="xclip"
+alias p="xclip -o"
 alias tc="trim | xclip"
 
 # Functions
