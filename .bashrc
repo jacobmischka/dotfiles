@@ -18,9 +18,11 @@ orange_color(){
 	tput setaf 208
 	tput bold
 }
+
 reset_color(){
 	tput sgr0
 }
+
 export PS1='\[$(orange_color)\][\u@\h \W]\$ \[$(reset_color)\]'
 
 # Paths
@@ -37,6 +39,12 @@ export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PAGER=/bin/less
 
+# Other exports
+
+# Remove duplicates from bash history
+export HISTCONTROL=ignoreboth:erasedups
+
+# Aliases
 alias ls="ls --color=auto"
 alias ll="ls -lh"
 alias la="ls -a"
@@ -52,6 +60,7 @@ alias strip="trim"
 alias c="xclip"
 alias tc="trim | xclip"
 
+# Functions
 mkcd(){
 	mkdir -p "$1" && cd -P "$1"
 }
