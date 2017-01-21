@@ -72,3 +72,7 @@ github_clone(){
 trim(){
 	sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr -d '\n'
 }
+
+normalize_whitespace(){
+	tr '[:space:]' ' '
+}
