@@ -58,6 +58,7 @@ alias strip="trim"
 alias c="xclip"
 alias p="xclip -o"
 alias tc="trim | xclip"
+alias cve="ctrl_v_enter"
 
 # Functions
 mkcd(){
@@ -74,4 +75,19 @@ trim(){
 
 normalize_whitespace(){
 	tr '[:space:]' ' '
+}
+
+ctrl_v_enter(){
+	sleep 2
+
+	ITERATIONS=$1
+
+	if [ -z $ITERATIONS ]; then
+		ITERATIONS=20
+	fi
+
+	for i in $(seq $ITERATIONS); do
+		xdotool key ctrl+v Return
+		sleep 0.01
+	done
 }
