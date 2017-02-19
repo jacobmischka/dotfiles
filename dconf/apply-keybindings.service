@@ -1,0 +1,9 @@
+[Unit]
+Description=Apply exported keybindings with dconf
+
+[Service]
+Type=oneshot
+ExecStart=/home/mischka/.dotfiles/dconf/apply.sh
+
+[Install]
+WantedBy=default.target
