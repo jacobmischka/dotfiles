@@ -8,7 +8,7 @@
 # Open new tab in current directory
 [[ -f /etc/profile.d/vte.sh ]] && . /etc/profile.d/vte.sh
 
-# Git completion
+# Git prompt
 [[ -f /usr/share/git/completion/git-prompt.sh ]] && . /usr/share/git/completion/git-prompt.sh
 
 # fzf extensions
@@ -37,18 +37,18 @@ export HISTCONTROL=ignoreboth:erasedups
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWCOLORHINTS=true
+export GIT_PS1_SHOWUPSTREAM="auto"
 
-orange_color(){
+export PROMPT_COMMAND='__git_ps1 "\[$(orange_color)\][\u@\h \W\[$(reset_color)\]" "\[$(orange_color)\]]\$ \[$(reset_color)\]"'
+
+function orange_color(){
 	tput setaf 208
 	tput bold
 }
 
-reset_color(){
+function reset_color(){
 	tput sgr0
 }
-
-# export PS1='$(get_git_branch)
-export PROMPT_COMMAND='__git_ps1 "\[$(orange_color)\][\u@\h \W\[$(reset_color)\]" "\[$(orange_color)\]]\$ \[$(reset_color)\]"'
 
 # Aliases
 alias ls="ls --color=auto"
@@ -60,7 +60,6 @@ alias pacman="sudo pacman --color=auto"
 alias xclip="xclip -selection clipboard"
 alias open="xdg-open"
 alias venv="python -m venv"
-alias fuck="thefuck"
 alias gh="github_clone"
 alias strip="trim"
 alias c="xclip"
@@ -100,6 +99,3 @@ function ctrl_v_enter(){
 	done
 }
 
-function get_git_branch(){
-	declare -F __git_ps1 &>/dev/null && __git_ps1 " (%s)"
-}
