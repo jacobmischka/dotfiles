@@ -39,11 +39,15 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWCOLORHINTS=true
 export GIT_PS1_SHOWUPSTREAM="auto"
 
-export PROMPT_COMMAND='__git_ps1 "\[$(orange_color)\][\u@\h \W\[$(reset_color)\]" "\[$(orange_color)\]]\$ \[$(reset_color)\]"'
+export PS1='\[$(orange_color)\][\u@\h \W\[$(reset_color)\]\[$(purple_color)\]$(__git_ps1 " (%s)")\[$(orange_color)\]]\$ \[$(reset_color)\]'
 
 function orange_color(){
 	tput setaf 208
 	tput bold
+}
+
+function purple_color(){
+	tput setaf 165
 }
 
 function reset_color(){
@@ -97,5 +101,28 @@ function ctrl_v_enter(){
 		xdotool key ctrl+v Return
 		sleep 0.01
 	done
+}
+
+function print_colors(){
+	print_foreground_colors
+	print_background_colors
+}
+
+function print_foreground_colors(){
+	for C in {0..255}; do
+		tput setaf $C
+		echo -n "$C "
+	done
+	tput sgr0
+	echo
+}
+
+function print_background_colors(){
+	for C in {0..255}; do
+		tput setab $C
+		echo -n "$C "
+	done
+	tput sgr0
+	echo
 }
 
