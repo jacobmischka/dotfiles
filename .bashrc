@@ -8,22 +8,13 @@
 # Open new tab in current directory
 [[ -f /etc/profile.d/vte.sh ]] && . /etc/profile.d/vte.sh
 
+# Git completion
+[[ -f /usr/share/git/completion/git-prompt.sh ]] && . /usr/share/git/completion/git-prompt.sh
+
 # fzf extensions
 [[ -f /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
 [[ -f /usr/share/fzf/completion.bash ]] && . /usr/share/fzf/completion.bash
 
-#PS1='[\u@\h \W]\$ '
-#white bold user:dir$ prompt
-orange_color(){
-	tput setaf 208
-	tput bold
-}
-
-reset_color(){
-	tput sgr0
-}
-
-export PS1='\[$(orange_color)\][\u@\h \W]\$ \[$(reset_color)\]'
 
 # Paths
 export GOPATH=$HOME/go
@@ -41,6 +32,23 @@ export PAGER=/bin/less
 
 # Remove duplicates from bash history
 export HISTCONTROL=ignoreboth:erasedups
+
+# PS1
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWCOLORHINTS=true
+
+orange_color(){
+	tput setaf 208
+	tput bold
+}
+
+reset_color(){
+	tput sgr0
+}
+
+# export PS1='$(get_git_branch)
+export PROMPT_COMMAND='__git_ps1 "\[$(orange_color)\][\u@\h \W\[$(reset_color)\]" "\[$(orange_color)\]]\$ \[$(reset_color)\]"'
 
 # Aliases
 alias ls="ls --color=auto"
@@ -61,23 +69,23 @@ alias tc="trim | xclip"
 alias cve="ctrl_v_enter"
 
 # Functions
-mkcd(){
+function mkcd(){
 	mkdir -p "$1" && cd -P "$1"
 }
 
-github_clone(){
+function github_clone(){
 	git clone "git@github.com:$1.git"
 }
 
-trim(){
+function trim(){
 	sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr -d '\n'
 }
 
-normalize_whitespace(){
+function normalize_whitespace(){
 	tr '[:space:]' ' '
 }
 
-ctrl_v_enter(){
+function ctrl_v_enter(){
 	sleep 2
 
 	ITERATIONS=$1
@@ -90,4 +98,8 @@ ctrl_v_enter(){
 		xdotool key ctrl+v Return
 		sleep 0.01
 	done
+}
+
+function get_git_branch(){
+	declare -F __git_ps1 &>/dev/null && __git_ps1 " (%s)"
 }
