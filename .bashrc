@@ -39,20 +39,20 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWCOLORHINTS=true
 export GIT_PS1_SHOWUPSTREAM="auto"
 
-export PS1='\[$(orange_color)\][\u@\h \W\[$(reset_color)\]\[$(purple_color)\]$(__git_ps1 " (%s)")\[$(orange_color)\]]\$ \[$(reset_color)\]'
+ORANGE="\[$(tput setaf 208; tput bold)\]"
+YELLOW="\[$(tput setaf 190)\]"
+MAGENTA="\[$(tput setaf 162)\]"
 
-function orange_color(){
-	tput setaf 208
-	tput bold
-}
+GIT_PROMPT_COLOR="\[$(tput setaf 82)\]"
+RESET="\[$(tput sgr0)\]"
 
-function purple_color(){
-	tput setaf 165
-}
+TIMESTAMP="[${YELLOW}\A${RESET}] "
 
-function reset_color(){
-	tput sgr0
-}
+# Reset color before output
+trap 'tput sgr0' DEBUG
+
+export PS1="\$([[ -n \$PS1_SHOW_TIMESTAMP ]] && echo '$TIMESTAMP')${ORANGE}\h \W${RESET}${GIT_PROMPT_COLOR}\$(__git_ps1 ' %s' | tr -d '=')${RESET}${ORANGE} \$ ${RESET}${MAGENTA}"
+
 
 # Aliases
 alias ls="ls --color=auto"
@@ -125,4 +125,3 @@ function print_background_colors(){
 	tput sgr0
 	echo
 }
-
