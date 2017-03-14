@@ -29,6 +29,7 @@ export VISUAL=/usr/bin/vim
 export PAGER=/bin/less
 
 # Other exports
+export PIPENV_VENV_IN_PROJECT=1
 
 # Remove duplicates from bash history
 export HISTCONTROL=ignoreboth:erasedups
