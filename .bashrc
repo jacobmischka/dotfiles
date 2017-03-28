@@ -71,6 +71,7 @@ alias c="xclip"
 alias p="xclip -o"
 alias tc="trim | xclip"
 alias cve="ctrl_v_enter"
+alias today="date -I | tc"
 
 # Functions
 function mkcd(){
