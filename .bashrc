@@ -43,18 +43,17 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 ORANGE="\[$(tput setaf 208)\]"
 YELLOW="\[$(tput setaf 190)\]"
 MAGENTA="\[$(tput setaf 162)\]"
+GREEN="\[$(tput setaf 154)\]"
 GREY="\[$(tput setaf 245)\]"
 BOLD="\[$(tput bold)\]"
-
-GIT_PROMPT_COLOR="\[$(tput setaf 82)\]"
 RESET="\[$(tput sgr0)\]"
 
 TIMESTAMP="[${YELLOW}\A${RESET}] "
 
 # Reset color before output
-trap 'tput sgr0' DEBUG
+# trap 'tput sgr0' DEBUG
 
-export PS1="\$([[ -n \$PS1_SHOW_TIMESTAMP ]] && echo '$TIMESTAMP')${GREY}\h ${ORANGE}${BOLD}\W${RESET}${GIT_PROMPT_COLOR}\$(__git_ps1 ' %s' | tr -d '=')${RESET}${BOLD} \$ ${RESET}"
+export PS1="\$([[ -n \$PS1_SHOW_TIMESTAMP ]] && echo '$TIMESTAMP')${GREY}\h ${ORANGE}${BOLD}\W${RESET}${GREEN}\$(__git_ps1 ' %s' | tr -d '=')${RESET}${BOLD} \$ ${RESET}"
 
 
 # Aliases
