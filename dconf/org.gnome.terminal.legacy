@@ -43,7 +43,7 @@ background-color='#1b1918'
 [profiles:/:92bfad8e-97d0-42e5-8626-70cc52f06e9e]
 foreground-color='#f8f8f2'
 visible-name='Base 16 Monokai Darker'
-palette=['#181818', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f8f8f2', '#272822', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f9f8f5']
+palette=['#181818', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f8f8f2', '#585858', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f9f8f5']
 use-theme-colors=false
 scrollback-unlimited=true
 use-theme-background=false
