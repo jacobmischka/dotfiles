@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Jacob Mischka
-	email = jacobmischka@gmail.com
+	email = jacob@mischka.me
 [core]
 	editor = vim
 	pager = diff-so-fancy | less --tabs=4
