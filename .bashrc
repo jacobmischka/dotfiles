@@ -22,7 +22,8 @@ export HOMEPATH=$HOME/.local/bin
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROIDPATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export YARNPATH=$HOME/.config/yarn/global/node_modules/.bin
-export PATH=$HOMEPATH:$YARNPATH:$GOPATH/bin:$ANDROIDPATH:$PATH
+export CARGOPATH=$HOME/.cargo/bin
+export PATH=$HOMEPATH:$YARNPATH:$CARGOPATH:$GOPATH/bin:$ANDROIDPATH:$PATH
 
 # Tools
 export EDITOR=/usr/bin/vim
