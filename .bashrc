@@ -77,23 +77,23 @@ alias cve="ctrl_v_enter"
 alias today="date -I | tc"
 
 # Functions
-function mkcd(){
+function mkcd() {
 	mkdir -p "$1" && cd -P "$1"
 }
 
-function github_clone(){
+function github_clone() {
 	git clone "git@github.com:$1.git"
 }
 
-function trim(){
+function trim() {
 	sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | tr -d '\n'
 }
 
-function normalize_whitespace(){
+function normalize_whitespace() {
 	tr '[:space:]' ' '
 }
 
-function ctrl_v_enter(){
+function ctrl_v_enter() {
 	sleep 2
 
 	ITERATIONS=$1
@@ -108,12 +108,12 @@ function ctrl_v_enter(){
 	done
 }
 
-function print_colors(){
+function print_colors() {
 	print_foreground_colors
 	print_background_colors
 }
 
-function print_foreground_colors(){
+function print_foreground_colors() {
 	for C in {0..255}; do
 		tput setaf $C
 		echo -n "$C "
@@ -122,7 +122,7 @@ function print_foreground_colors(){
 	echo
 }
 
-function print_background_colors(){
+function print_background_colors() {
 	for C in {0..255}; do
 		tput setab $C
 		echo -n "$C "
