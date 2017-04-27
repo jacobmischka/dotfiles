@@ -130,3 +130,7 @@ function print_background_colors(){
 	tput sgr0
 	echo
 }
+
+function swap_red_blue() {
+	convert $1 -separate -swap 0,2 -combine -colorspace sRGB $1
+}
