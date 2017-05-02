@@ -116,6 +116,10 @@ let g:mapleader = ","
 " Swaps selection with buffer
 vnoremap <C-X> <Esc>`.``gvP``P
 
+" Copy to clipboard with Ctrl+C
+" I'd prefer Ctrl+Shift+C, but it seems that's not possible in vim.
+vnoremap <C-S-C> "+y
+
 " ctrl-arrow in normal mode to switch windows; overrides ctrl-left/right for
 " moving by words, but i tend to use those only in insert mode
 noremap <C-Left> <C-W><Left>
