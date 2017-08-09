@@ -21,14 +21,18 @@ export GOPATH=$HOME/go
 export HOMEPATH=$HOME/.local/bin
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROIDPATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-export YARNPATH=$HOME/.config/yarn/global/node_modules/.bin
+export NPMPATH=$HOME/.npm-global/bin
+export YARNPATH=$HOME/.yarn/bin
 export CARGOPATH=$HOME/.cargo/bin
-export PATH=$HOMEPATH:$YARNPATH:$CARGOPATH:$GOPATH/bin:$ANDROIDPATH:$PATH
+export PATH=$HOMEPATH:$YARNPATH:$NPMPATH:$CARGOPATH:$GOPATH/bin:$ANDROIDPATH:$PATH
 
 # Tools
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PAGER=/bin/less
+
+# NPM
+export NPM_CONFIG_PREFIX=~/.npm-global
 
 # Other exports
 export PIPENV_VENV_IN_PROJECT=1
