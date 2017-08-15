@@ -36,6 +36,7 @@ export NPM_CONFIG_PREFIX=~/.npm-global
 
 # Other exports
 export PIPENV_VENV_IN_PROJECT=1
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Remove duplicates from bash history
 export HISTCONTROL=ignoreboth:erasedups
