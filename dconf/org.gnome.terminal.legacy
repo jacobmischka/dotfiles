@@ -7,6 +7,15 @@ use-theme-colors=false
 foreground-color='rgb(255,255,255)'
 scrollback-unlimited=true
 
+[profiles:/:a4abbe49-d5a8-4654-9653-3b9ba9c12b11]
+background-color='rgb(0,0,0)'
+default-size-columns=120
+use-theme-colors=false
+default-size-rows=40
+foreground-color='rgb(255,255,255)'
+visible-name='Big'
+scrollback-lines=100000
+
 [profiles:/:8bd408b7-d301-45ce-812e-d88ae57e3cd1]
 foreground-color='#7ea2b4'
 visible-name='Base 16 Atelier Lakeside Dark'
@@ -18,17 +27,6 @@ bold-color-same-as-fg=true
 bold-color='#7ea2b4'
 background-color='#161b1d'
 
-[profiles:/:a60108c6-1617-492a-950e-2061f9edf72e]
-foreground-color='#d0d0d0'
-visible-name='Base 16 Isotope Dark'
-palette=['#000000', '#ff0000', '#33ff00', '#ff0099', '#0066ff', '#cc00ff', '#00ffff', '#d0d0d0', '#808080', '#ff0000', '#33ff00', '#ff0099', '#0066ff', '#cc00ff', '#00ffff', '#ffffff']
-use-theme-colors=false
-scrollback-unlimited=true
-use-theme-background=false
-bold-color-same-as-fg=true
-bold-color='#d0d0d0'
-background-color='#000000'
-
 [profiles:/:a2d855d9-34e7-4503-80a9-59af474a036f]
 foreground-color='#a8a19f'
 visible-name='Base 16 Atelier Forest Dark'
@@ -39,6 +37,17 @@ use-theme-background=false
 bold-color-same-as-fg=true
 bold-color='#a8a19f'
 background-color='#1b1918'
+
+[profiles:/:a60108c6-1617-492a-950e-2061f9edf72e]
+foreground-color='#d0d0d0'
+visible-name='Base 16 Isotope Dark'
+palette=['#000000', '#ff0000', '#33ff00', '#ff0099', '#0066ff', '#cc00ff', '#00ffff', '#d0d0d0', '#808080', '#ff0000', '#33ff00', '#ff0099', '#0066ff', '#cc00ff', '#00ffff', '#ffffff']
+use-theme-colors=false
+scrollback-unlimited=true
+use-theme-background=false
+bold-color-same-as-fg=true
+bold-color='#d0d0d0'
+background-color='#000000'
 
 [profiles:/:92bfad8e-97d0-42e5-8626-70cc52f06e9e]
 foreground-color='#f8f8f2'
@@ -102,3 +111,4 @@ background-color='#181818'
 [/]
 schema-version=uint32 3
 default-show-menubar=false
+theme-variant='system'

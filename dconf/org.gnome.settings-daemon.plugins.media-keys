@@ -1,9 +1,14 @@
 [/]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-increase-text-size='<Alt><Super>bracketright'
-on-screen-keyboard='<Alt><Super>k'
 decrease-text-size='<Alt><Super>bracketleft'
+next='<Super>bracketright'
+play='<Super>backslash'
 toggle-contrast='<Alt><Super>backslash'
+volume-up='<Super>KP_Add'
+volume-down='<Super>KP_Subtract'
+increase-text-size='<Alt><Super>bracketright'
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+previous='<Super>bracketleft'
+on-screen-keyboard='<Alt><Super>k'
 
 [custom-keybindings/custom1]
 binding='<Super>t'
