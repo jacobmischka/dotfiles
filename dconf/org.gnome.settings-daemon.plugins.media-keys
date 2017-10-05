@@ -3,10 +3,11 @@ decrease-text-size='<Alt><Super>bracketleft'
 next='<Super>bracketright'
 play='<Super>backslash'
 toggle-contrast='<Alt><Super>backslash'
-volume-up='<Super>KP_Add'
-volume-down='<Super>KP_Subtract'
+volume-up='<Super>equal'
+volume-down='<Super>minus'
 increase-text-size='<Alt><Super>bracketright'
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+volume-mute='<Super>0'
 previous='<Super>bracketleft'
 on-screen-keyboard='<Alt><Super>k'
 
