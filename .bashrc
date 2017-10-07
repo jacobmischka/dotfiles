@@ -27,8 +27,8 @@ export CARGOPATH=$HOME/.cargo/bin
 export PATH=$HOMEPATH:$YARNPATH:$NPMPATH:$CARGOPATH:$GOPATH/bin:$ANDROIDPATH:$PATH
 
 # Tools
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 export PAGER=/bin/less
 
 # NPM

@@ -3,7 +3,7 @@
 	name = Jacob Mischka
 	email = jacob@mischka.me
 [core]
-	editor = vim
+	editor = nvim
 	pager = diff-so-fancy | less --tabs=4
 [push]
 	default = simple

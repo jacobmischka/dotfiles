@@ -1,4 +1,4 @@
-" Eevee's vimrc
+" Current config assumes nvim and vim-plug
 
 " vim mode preferred!
 set nocompatible
@@ -76,7 +76,7 @@ set virtualedit=block           " allow moving visual block into the void
 
 
 " gui stuff
-set ttymouse=xterm2             " force mouse support for screen
+" set ttymouse=xterm2             " force mouse support for screen
 set mouse=a                     " terminal mouse when possible
 set guifont=Source\ Code\ Pro\ 9
                                 " nice fixedwidth font
@@ -239,3 +239,29 @@ highlight DiffText   ctermbg=53
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:jsx_ext_required = 0
+
+map <C-H> <Plug>(wintabs_previous)
+map <C-L> <Plug>(wintabs_next)
+map <C-T>c <Plug>(wintabs_close)
+map <C-T>o <Plug>(wintabs_only)
+map <C-W>c <Plug>(wintabs_close_window)
+map <C-W>o <Plug>(wintabs_only_window)
+command! Tabc WintabsCloseVimtab
+command! Tabo WintabsOnlyVimtab
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'zefei/vim-wintabs'
+Plug 'jiangmiao/auto-pairs'
+Plug 'w0rp/ale'
+Plug 'scrooloose/nerdtree'
+
+call plug#end()
+
+execute pathogen#infect()
