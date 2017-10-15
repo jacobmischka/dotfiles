@@ -250,8 +250,8 @@ map <C-T>o <Plug>(wintabs_only)
 map <C-W>c <Plug>(wintabs_close_window)
 map <C-W>o <Plug>(wintabs_only_window)
 map <C-_> <leader>c<space>
-"map <C-\\> :NerdTREEToggle<CR>
-"map <C-\|> :NerdTREEFind<CR>
+map \ :NERDTreeToggle<CR>
+map \| :NERDTreeFind<CR>
 command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
 
@@ -265,6 +265,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'autozimu/LanguageClient-neovim'
 
 call plug#end()
 
