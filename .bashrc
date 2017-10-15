@@ -63,6 +63,7 @@ export PS1="\$([[ -n \$PS1_SHOW_TIMESTAMP ]] && echo '$TIMESTAMP')${GREY}\h ${OR
 
 
 # Aliases
+alias vim="nvim"
 alias ls="ls --color=auto"
 alias ll="ls -lh"
 alias la="ls -a"
