@@ -80,6 +80,7 @@ alias p="xclip -o"
 alias tc="trim | xclip"
 alias cve="ctrl_v_enter"
 alias today="date -I | tc"
+alias smartify="smartypants -a qBDeu"
 
 # Functions
 function mkcd() {
