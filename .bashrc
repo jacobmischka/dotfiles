@@ -140,3 +140,7 @@ function print_background_colors() {
 function swap_red_blue() {
 	convert "$1" -separate -swap 0,2 -combine -colorspace sRGB "$1"
 }
+
+smartify_selection() {
+	p | smartify | c
+}
