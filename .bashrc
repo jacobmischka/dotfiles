@@ -144,3 +144,7 @@ function swap_red_blue() {
 smartify_selection() {
 	p | smartify | c
 }
+
+cheatsh() {
+	curl "cheat.sh/$1"
+}
