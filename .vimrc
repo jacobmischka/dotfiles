@@ -243,6 +243,7 @@ endif
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:jsx_ext_required = 0
 
+map <C-P> :FZF<CR>
 map <C-H> <Plug>(wintabs_previous)
 map <C-L> <Plug>(wintabs_next)
 map <C-T>c <Plug>(wintabs_close)
@@ -257,7 +258,6 @@ command! Tabo WintabsOnlyVimtab
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'zefei/vim-wintabs'
@@ -266,6 +266,7 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'autozimu/LanguageClient-neovim'
+Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 
 call plug#end()
 
