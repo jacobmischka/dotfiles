@@ -78,8 +78,6 @@ set virtualedit=block           " allow moving visual block into the void
 " gui stuff
 " set ttymouse=xterm2             " force mouse support for screen
 set mouse=a                     " terminal mouse when possible
-set guifont=Source\ Code\ Pro\ 9
-                                " nice fixedwidth font
 
 " unicode
 set encoding=utf-8              " best default encoding
@@ -99,6 +97,7 @@ set foldlevel=99
 set timeoutlen=1000             " wait 1s for mappings to finish
 set ttimeoutlen=100             " wait 0.1s for xterm keycodes to finish
 set nrformats-=octal            " don't try to auto-increment 'octal'
+set grepprg=rg\ --vimgrep
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -119,32 +118,6 @@ vnoremap <C-X> <Esc>`.``gvP``P
 " Copy to clipboard with Ctrl+C
 " I'd prefer Ctrl+Shift+C, but it seems that's not possible in vim.
 vnoremap <C-S-C> "+y
-
-" ctrl-arrow in normal mode to switch windows; overrides ctrl-left/right for
-" moving by words, but i tend to use those only in insert mode
-noremap <C-Left> <C-W><Left>
-noremap <C-Right> <C-W><Right>
-noremap <C-Up> <C-W><Up>
-noremap <C-Down> <C-W><Down>
-
-" -/= to navigate tabs
-nnoremap - :tabprevious<CR>
-nnoremap = :tabnext<CR>
-
-" Bind gb to toggle between the last two tabs
-map gb :exe "tabn ".g:ltv<CR>
-function! Setlasttabpagevisited()
-    let g:ltv = tabpagenr()
-endfunction
-
-augroup localtl
-    autocmd!
-    autocmd TabLeave * call Setlasttabpagevisited()
-augroup END
-autocmd VimEnter * let g:ltv = 1
-
-" Abbreviation to make `:e %%/...` edit in same directory
-cabbr <expr> %% expand('%:.:h')
 
 """ For plugins
 " gundo
@@ -206,7 +179,6 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 set t_Co=256  " force 256 colors
-colorscheme molokai
 
 if has("autocmd")
   " Filetypes and indenting settings
@@ -267,7 +239,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'autozimu/LanguageClient-neovim'
 Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
+
+let g:gruvbox_italic=1
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 
 execute pathogen#infect()
