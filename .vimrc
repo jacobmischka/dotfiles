@@ -205,6 +205,7 @@ highlight DiffDelete ctermbg=52
 highlight DiffChange ctermbg=17
 highlight DiffText   ctermbg=53
 
+imap <C-BS> <C-W>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Last but not least, allow for local overrides
@@ -214,19 +215,6 @@ endif
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:jsx_ext_required = 0
-
-map <C-P> :FZF<CR>
-map <C-H> <Plug>(wintabs_previous)
-map <C-L> <Plug>(wintabs_next)
-map <C-T>c <Plug>(wintabs_close)
-map <C-T>o <Plug>(wintabs_only)
-map <C-W>c <Plug>(wintabs_close_window)
-map <C-W>o <Plug>(wintabs_only_window)
-map <C-_> <leader>c<space>
-map \ :NERDTreeToggle<CR>
-map \| :NERDTreeFind<CR>
-command! Tabc WintabsCloseVimtab
-command! Tabo WintabsOnlyVimtab
 
 call plug#begin('~/.vim/plugged')
 
@@ -243,8 +231,33 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()
 
+execute pathogen#infect()
+
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
-execute pathogen#infect()
+map <C-P> :FZF<CR>
+map <C-H> <Plug>(wintabs_previous)
+map <C-L> <Plug>(wintabs_next)
+map <C-T>c <Plug>(wintabs_close)
+map <C-T>o <Plug>(wintabs_only)
+map <C-W>c <Plug>(wintabs_close_window)
+map <C-W>o <Plug>(wintabs_only_window)
+map <C-_> <leader>c<space>
+map \ :NERDTreeToggle<CR>
+map \| :NERDTreeFind<CR>
+command! Tabc WintabsCloseVimtab
+command! Tabo WintabsOnlyVimtab
+
+set hidden
+
+" rust: https://github.com/rust-lang-nursery/rls
+" php: https://github.com/felixfbecker/php-language-server
+let g:LanguageClient_serverCommands = {
+	\ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+	\ 'php': ['php ~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php']
+\ }
+
+let g:LanguageClient_autoStart=1
+
