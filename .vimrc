@@ -229,6 +229,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'autozimu/LanguageClient-neovim'
 Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 Plug 'morhetz/gruvbox'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
