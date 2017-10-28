@@ -39,7 +39,7 @@ export PIPENV_VENV_IN_PROJECT=1
 
 # Remove duplicates from bash history
 export HISTCONTROL=ignoreboth:erasedups
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # PS1
 export GIT_PS1_SHOWDIRTYSTATE=true

@@ -225,6 +225,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'autozimu/LanguageClient-neovim'
 Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 Plug 'morhetz/gruvbox'
@@ -236,6 +237,9 @@ execute pathogen#infect()
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
+
+let NERDTreeShowHidden=1
+let g:NERDTreeShowIgnoredStatus=1
 
 map <C-P> :FZF<CR>
 map <C-H> <Plug>(wintabs_previous)
