@@ -88,6 +88,7 @@ set fileencodings=ucs-bom,utf-8,iso-8859-1
 
 set complete-=i                 " don't try to tab-complete #included files
 set completeopt-=preview        " preview window is super annoying
+set updatetime=250
 
 " miscellany
 set autoread                    " reload changed files
@@ -230,6 +231,7 @@ Plug 'autozimu/LanguageClient-neovim'
 Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
