@@ -116,10 +116,6 @@ let g:mapleader = ","
 " Swaps selection with buffer
 vnoremap <C-X> <Esc>`.``gvP``P
 
-" Copy to clipboard with Ctrl+C
-" I'd prefer Ctrl+Shift+C, but it seems that's not possible in vim.
-vnoremap <C-S-C> "+y
-
 """ For plugins
 " gundo
 noremap ,u :GundoToggle<CR>
@@ -170,6 +166,64 @@ if has("python")
 endif
 
 
+
+" Ctrl+backspace delete word
+" Doesn't work in gnome-terminal, works in neovim-qt
+imap <C-BS> <C-W>
+
+" System clipboard
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+yg_
+nnoremap <leader>y "+y
+
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+imap <C-C> "+y
+imap <C-X> "+x
+inoremap <C-Q> <C-V>
+cnoremap <C-Q> <C-V>
+imap <C-V> <C-R>+
+cmap <C-V> <C-R>+
+
+" From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
+" Alt-j/k deletes blank line below/above, and Ctrl-j/k inserts.
+nnoremap <silent><A-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+
+" Plugins
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'editorconfig/editorconfig-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'zefei/vim-wintabs'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+Plug 'w0rp/ale'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'autozimu/LanguageClient-neovim'
+Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
+Plug 'morhetz/gruvbox'
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-airline/vim-airline'
+Plug 'severin-lemaignan/vim-minimap'
+
+" Requires `npm i -g livedown`
+Plug 'shime/vim-livedown'
+
+call plug#end()
+
+execute pathogen#infect()
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and syntax
 " in GUI or color console, enable coloring and search highlighting
@@ -195,6 +249,10 @@ if has("autocmd")
     \ endif
 endif " has("autocmd")
 
+let g:gruvbox_italic=1
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+
 " trailing whitespace and column; must define AFTER colorscheme, setf, etc!
 hi ColorColumn ctermbg=black guibg=darkgray
 hi WhitespaceEOL ctermbg=red guibg=red
@@ -206,43 +264,10 @@ highlight DiffDelete ctermbg=52
 highlight DiffChange ctermbg=17
 highlight DiffText   ctermbg=53
 
-imap <C-BS> <C-W>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Last but not least, allow for local overrides
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
-endif
-
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:jsx_ext_required = 0
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'zefei/vim-wintabs'
-Plug 'jiangmiao/auto-pairs'
-Plug 'w0rp/ale'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'autozimu/LanguageClient-neovim'
-Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
-Plug 'morhetz/gruvbox'
-Plug 'airblade/vim-gitgutter'
-Plug 'terryma/vim-multiple-cursors'
-
-call plug#end()
-
-execute pathogen#infect()
-
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
-
 let NERDTreeShowHidden=1
 let g:NERDTreeShowIgnoredStatus=1
+
+let g:jsx_ext_required = 0
 
 map <C-P> :FZF<CR>
 map <C-H> <Plug>(wintabs_previous)
@@ -257,14 +282,25 @@ map \| :NERDTreeFind<CR>
 command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
 
+nmap <C-M> :LivedownToggle<CR>
+
 set hidden
+
+let g:ale_linters = {
+\	'html': ['eslint']
+\}
 
 " rust: https://github.com/rust-lang-nursery/rls
 " php: https://github.com/felixfbecker/php-language-server
 let g:LanguageClient_serverCommands = {
-	\ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-	\ 'php': ['php ~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php']
-\ }
+\	'rust': ['rustup', 'run', 'nightly', 'rls'],
+\	'php': ['php ~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php']
+\}
 
 let g:LanguageClient_autoStart=1
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Last but not least, allow for local overrides
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
