@@ -35,6 +35,7 @@ export PAGER=/bin/less
 export NPM_CONFIG_PREFIX=~/.npm-global
 
 # Other exports
+export JAVA_HOME=/usr/lib/jvm/default
 export PIPENV_VENV_IN_PROJECT=1
 
 # Remove duplicates from bash history
