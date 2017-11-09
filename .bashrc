@@ -31,6 +31,9 @@ export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export PAGER=/bin/less
 
+# Custom tools
+export DEV_BROWSER=firefox-nightly
+
 # NPM
 export NPM_CONFIG_PREFIX=~/.npm-global
 
