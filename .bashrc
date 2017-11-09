@@ -32,7 +32,7 @@ export VISUAL=/usr/bin/nvim
 export PAGER=/bin/less
 
 # Custom tools
-export DEV_BROWSER=firefox-nightly
+export DEV_BROWSER=firefox-developer
 
 # NPM
 export NPM_CONFIG_PREFIX=~/.npm-global
