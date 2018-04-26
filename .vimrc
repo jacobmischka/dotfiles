@@ -43,6 +43,9 @@ set showmatch                   " show matching brackets while typing
 set cursorline                  " highlight current line
 set display=lastline,uhex       " show last line even if too long; use <xx>
 
+" Naive native indent guides
+" set list lcs=tab:\|\
+
 " regexes
 set incsearch                   " do incremental searching
 set ignorecase                  " useful more often than not
@@ -99,6 +102,9 @@ set timeoutlen=1000             " wait 1s for mappings to finish
 set ttimeoutlen=100             " wait 0.1s for xterm keycodes to finish
 set nrformats-=octal            " don't try to auto-increment 'octal'
 set grepprg=rg\ --vimgrep
+
+set splitright
+set splitbelow
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -176,10 +182,28 @@ vnoremap <leader>y "+y
 nnoremap <leader>Y "+yg_
 nnoremap <leader>y "+y
 
+vnoremap <leader>x "+x
+nnoremap <leader>X "+xg_
+nnoremap <leader>x "+x
+
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
+
+" Stamping (replace word with yanked text)
+nnoremap S "_diwP
+vnoremap S "_d"0P
+
+" Copy current paths to system clipboard
+" Relative path
+nnoremap <leader>cf :let @+=expand("%")<CR>
+" Absolute path
+nnoremap <leader>cF :let @+=expand("%:p")<CR>
+" Basename
+nnoremap <leader>ct :let @+=expand("%:t)<CR>
+" Parent directory
+nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 
 imap <C-C> "+y
 imap <C-X> "+x
@@ -188,13 +212,38 @@ cnoremap <C-Q> <C-V>
 imap <C-V> <C-R>+
 cmap <C-V> <C-R>+
 
-" From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
-" Alt-j/k deletes blank line below/above, and Ctrl-j/k inserts.
-nnoremap <silent><A-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><A-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+" Saving
+nmap <C-S> :w<CR>
+imap <C-S> <Esc>:w<CR>i
 
+" From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
+" Shift-Alt-j/k deletes blank line below/above, and Alt-j/k inserts.
+nnoremap <silent><S-A-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><S-A-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+" Move lines
+" From http://vim.wikia.com/wiki/Moving_lines_up_or_down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Workarounds for HTML indenting not working how I expect
+nmap <C-CR> i<CR><Esc>O
+imap <C-CR> <Esc>a<CR><Esc>O
+
+nnoremap <C-A> ddO
+
+inoremap <silent><F2> <Esc>v`^me<Esc>gi<C-o>:call Ender()<CR>
+function! Ender()
+	let endchar = nr2char(getchar())
+	execute "normal \<End>a".endchar
+	normal `e
+endfunction
 
 " Plugins
 
@@ -216,6 +265,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'wakatime/vim-wakatime'
+Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tpope/vim-sensible'
+Plug 'chaoren/vim-wordmotion'
 
 " Requires `npm i -g livedown`
 Plug 'shime/vim-livedown'
@@ -269,6 +324,10 @@ let g:NERDTreeShowIgnoredStatus=1
 
 let g:jsx_ext_required = 0
 
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_guide_size = 1
+
 map <C-P> :FZF<CR>
 map <C-H> <Plug>(wintabs_previous)
 map <C-L> <Plug>(wintabs_next)
@@ -282,9 +341,11 @@ map \| :NERDTreeFind<CR>
 command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
 
-nmap <C-M> :LivedownToggle<CR>
+" nmap <C-M> :LivedownToggle<CR>
 
 set hidden
+
+let g:javascript_plugin_flow = 1
 
 let g:ale_linters = {
 \	'html': ['eslint']
