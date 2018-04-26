@@ -1,14 +1,8 @@
 {
-	"extends": "stylelint-config-standard",
+	"extends": "stylelint-config-recommended",
 	"rules": {
 		"indentation": "tab",
 		"color-hex-case": "lower",
-		"at-rule-empty-line-before": "always",
-		"rule-empty-line-before": ["always-multi-line", {
-			"except": [
-				"first-nested"
-			]
-		}],
 		"max-empty-lines": 3
 	}
 }
