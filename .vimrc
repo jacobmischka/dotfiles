@@ -126,6 +126,9 @@ vnoremap <C-X> <Esc>`.``gvP``P
 " gundo
 noremap ,u :GundoToggle<CR>
 
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous autocmds
@@ -203,8 +206,8 @@ nnoremap <leader>cF :let @+=expand("%:p")<CR>
 " Basename
 nnoremap <leader>ct :let @+=expand("%:t)<CR>
 " Parent directory
-nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 
+nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 imap <C-C> "+y
 imap <C-X> "+x
 inoremap <C-Q> <C-V>
@@ -260,20 +263,34 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'autozimu/LanguageClient-neovim'
 Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
-Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-sensible'
 Plug 'chaoren/vim-wordmotion'
 
+" Requires some semi-trivial manual setup afterward
+" Mainly just running `./install.py --clang-completer`
+" https://github.com/valloric/youcompleteme#ubuntu-linux-x64
+"
+" Also required the following alias on Arch:
+" `ln -s /usr/lib/libtinfo.so.6 /usr/lib/libtinfo.so.5`
+Plug 'valloric/youcompleteme'
+
 " Requires `npm i -g livedown`
 Plug 'shime/vim-livedown'
+
+" Colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'joshdick/onedark.vim'
+Plug 'chriskempson/base16-vim'
+
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -304,9 +321,24 @@ if has("autocmd")
     \ endif
 endif " has("autocmd")
 
+if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+if (has("termguicolors"))
+	set termguicolors
+endif
+
+let g:onedark_terminal_italics=1
+
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+
+colorscheme base16-monokai
 
 " trailing whitespace and column; must define AFTER colorscheme, setf, etc!
 hi ColorColumn ctermbg=black guibg=darkgray
@@ -321,6 +353,7 @@ highlight DiffText   ctermbg=53
 
 let NERDTreeShowHidden=1
 let g:NERDTreeShowIgnoredStatus=1
+let g:NERDTreeMouseMode = 3
 
 let g:jsx_ext_required = 0
 
