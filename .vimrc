@@ -239,7 +239,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nmap <C-CR> i<CR><Esc>O
 imap <C-CR> <Esc>a<CR><Esc>O
 
-nnoremap <C-A> ddO
+nnoremap <C-A> cc
 
 inoremap <silent><F2> <Esc>v`^me<Esc>gi<C-o>:call Ender()<CR>
 function! Ender()
@@ -357,13 +357,17 @@ let g:NERDTreeMouseMode = 3
 
 let g:jsx_ext_required = 0
 
+" Remove escape delay to reenter normal mode
+" https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+set timeoutlen=1000 ttimeoutlen=0
+
 "let g:indent_guides_enable_on_vim_startup = 1
 "let g:indent_guides_start_level = 2
 "let g:indent_guides_guide_size = 1
-
 map <C-P> :FZF<CR>
 map <C-H> <Plug>(wintabs_previous)
 map <C-L> <Plug>(wintabs_next)
+map <C-T>w <Plug>(wintabs_close)
 map <C-T>c <Plug>(wintabs_close)
 map <C-T>o <Plug>(wintabs_only)
 map <C-W>c <Plug>(wintabs_close_window)
