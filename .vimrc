@@ -319,6 +319,9 @@ if has("autocmd")
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+  " Set filetypes based on extension
+  autocmd BufNewFile,BufRead *.html set filetype=html.javascript
 endif " has("autocmd")
 
 if (has("nvim"))
