@@ -272,6 +272,7 @@ Plug 'tpope/vim-surround'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-sensible'
 Plug 'chaoren/vim-wordmotion'
+Plug 'kshenoy/vim-signature'
 
 " Requires some semi-trivial manual setup afterward
 " Mainly just running `./install.py --clang-completer`
