@@ -322,6 +322,7 @@ if has("autocmd")
 
   " Set filetypes based on extension
   autocmd BufNewFile,BufRead *.html set filetype=html.javascript
+  autocmd BufNewFile,BufRead *.cool set filetype=scala
 endif " has("autocmd")
 
 if (has("nvim"))
