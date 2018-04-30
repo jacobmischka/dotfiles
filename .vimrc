@@ -6,17 +6,17 @@ set nocompatible
 " set xterm title, and inform vim of screen/tmux's syntax for doing the same
 set titlestring=vim\ %{expand(\"%t\")}
 if &term =~ "^screen"
-    " pretend this is xterm.  it probably is anyway, but if term is left as
-    " `screen`, vim doesn't understand ctrl-arrow.
-    if &term == "screen-256color"
-        set term=xterm-256color
-    else
-        set term=xterm
-    endif
+" pretend this is xterm.  it probably is anyway, but if term is left as
+" `screen`, vim doesn't understand ctrl-arrow.
+if &term == "screen-256color"
+	set term=xterm-256color
+else
+	set term=xterm
+endif
 
-    " gotta set these *last*, since `set term` resets everything
-    set t_ts=k
-    set t_fs=\
+" gotta set these *last*, since `set term` resets everything
+set t_ts=k
+set t_fs=\
 endif
 set title
 
@@ -89,8 +89,6 @@ set nobomb                      " do not write utf-8 BOM!
 set fileencodings=ucs-bom,utf-8,iso-8859-1
                                 " order to detect Unicodeyness
 
-set complete-=i                 " don't try to tab-complete #included files
-set completeopt-=preview        " preview window is super annoying
 set updatetime=250
 
 " miscellany
@@ -217,7 +215,7 @@ cmap <C-V> <C-R>+
 
 " Saving
 nmap <C-S> :w<CR>
-imap <C-S> <Esc>:w<CR>i
+imap <C-S> <Esc>:w<CR>a
 
 " From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
 " Shift-Alt-j/k deletes blank line below/above, and Alt-j/k inserts.
@@ -235,11 +233,9 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-" Workarounds for HTML indenting not working how I expect
-nmap <C-CR> i<CR><Esc>O
-imap <C-CR> <Esc>a<CR><Esc>O
-
 nnoremap <C-A> cc
+
+nnoremap <CR> i<CR><Esc>
 
 inoremap <silent><F2> <Esc>v`^me<Esc>gi<C-o>:call Ender()<CR>
 function! Ender()
@@ -280,7 +276,7 @@ Plug 'kshenoy/vim-signature'
 "
 " Also required the following alias on Arch:
 " `ln -s /usr/lib/libtinfo.so.6 /usr/lib/libtinfo.so.5`
-Plug 'valloric/youcompleteme'
+" Plug 'valloric/youcompleteme'
 
 " Requires `npm i -g livedown`
 Plug 'shime/vim-livedown'
@@ -290,12 +286,49 @@ Plug 'morhetz/gruvbox'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'joshdick/onedark.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'jacoborus/tender.vim'
+Plug 'dracula/vim'
+Plug 'nightsense/carbonized'
+Plug 'NLKNguyen/papercolor-theme'
 
 Plug 'ryanoasis/vim-devicons'
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
 execute pathogen#infect()
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#sources = {}
+let g:deoplete#sources.javascript = ['LanguageClient']
+let g:deoplete#sources.css = ['LanguageClient']
+
+set hidden
+
+let g:javascript_plugin_flow = 1
+
+let g:ale_linters = {
+\	'html': ['eslint']
+\}
+
+" rust: https://github.com/rust-lang-nursery/rls
+" php: https://github.com/felixfbecker/php-language-server
+" javascript: https://github.com/sourcegraph/javascript-typescript-langserver
+" css: https://github.com/vscode-langservers/vscode-css-languageserver-bin
+let g:LanguageClient_serverCommands = {
+\	'rust': ['rustup', 'run', 'nightly', 'rls'],
+\	'php': ['php ~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php'],
+\	'javascript': ['javascript-typescript-stdio'],
+\	'css': ['css-languageserver', '--stdio']
+\}
+
+let g:LanguageClient_autoStart=1
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and syntax
@@ -322,8 +355,12 @@ if has("autocmd")
     \ endif
 
   " Set filetypes based on extension
-  autocmd BufNewFile,BufRead *.html set filetype=html.javascript
+  autocmd BufNewFile,BufRead *.html set filetype=html.javascript.css
   autocmd BufNewFile,BufRead *.cool set filetype=scala
+
+  " Manually sync syntax in Vue files
+  " https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
+  autocmd FileType vue syntax sync fromstart
 endif " has("autocmd")
 
 if (has("nvim"))
@@ -338,10 +375,15 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
+let $FZF_DEFAULT_COMMAND = 'rg --files --follow'
+
 let g:onedark_terminal_italics=1
 
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
+
+let g:enable_bold_font = 1
+let g:enable_italic_font = 1
 
 colorscheme base16-monokai
 
@@ -386,22 +428,7 @@ command! Tabo WintabsOnlyVimtab
 
 " nmap <C-M> :LivedownToggle<CR>
 
-set hidden
 
-let g:javascript_plugin_flow = 1
-
-let g:ale_linters = {
-\	'html': ['eslint']
-\}
-
-" rust: https://github.com/rust-lang-nursery/rls
-" php: https://github.com/felixfbecker/php-language-server
-let g:LanguageClient_serverCommands = {
-\	'rust': ['rustup', 'run', 'nightly', 'rls'],
-\	'php': ['php ~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php']
-\}
-
-let g:LanguageClient_autoStart=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Last but not least, allow for local overrides
