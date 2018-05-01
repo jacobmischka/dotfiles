@@ -291,6 +291,7 @@ Plug 'jacoborus/tender.vim'
 Plug 'dracula/vim'
 Plug 'nightsense/carbonized'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'liuchengxu/space-vim-dark'
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -385,7 +386,7 @@ let g:gruvbox_contrast_dark='hard'
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
 
-colorscheme base16-monokai
+colorscheme space-vim-dark
 
 " trailing whitespace and column; must define AFTER colorscheme, setf, etc!
 hi ColorColumn ctermbg=black guibg=darkgray
@@ -393,10 +394,10 @@ hi WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+\%#\@<!$/
 
 " molokai's diff coloring is terrible
-highlight DiffAdd    ctermbg=22
-highlight DiffDelete ctermbg=52
-highlight DiffChange ctermbg=17
-highlight DiffText   ctermbg=53
+" highlight DiffAdd    ctermbg=22
+" highlight DiffDelete ctermbg=52
+" highlight DiffChange ctermbg=17
+" highlight DiffText   ctermbg=53
 
 let g:NERDTreeShowHidden=1
 let g:NERDTreeShowIgnoredStatus=1
