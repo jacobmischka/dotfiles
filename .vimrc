@@ -193,8 +193,8 @@ vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
 " Stamping (replace word with yanked text)
-nnoremap S "_diwP
-vnoremap S "_d"0P
+nnoremap <leader>S "_diwP
+vnoremap <leader>S "_d"0P
 
 " Copy current paths to system clipboard
 " Relative path
@@ -255,9 +255,11 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
+" Plug 'scrooloose/nerdcommenter'
+Plug 'Shougo/context_filetype.vim'
+Plug 'kana/vim-repeat'
+Plug 'tyru/caw.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'autozimu/LanguageClient-neovim'
 Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
@@ -270,16 +272,7 @@ Plug 'tpope/vim-sensible'
 Plug 'chaoren/vim-wordmotion'
 Plug 'kshenoy/vim-signature'
 
-" Requires some semi-trivial manual setup afterward
-" Mainly just running `./install.py --clang-completer`
-" https://github.com/valloric/youcompleteme#ubuntu-linux-x64
-"
-" Also required the following alias on Arch:
-" `ln -s /usr/lib/libtinfo.so.6 /usr/lib/libtinfo.so.5`
-" Plug 'valloric/youcompleteme'
-
-" Requires `npm i -g livedown`
-Plug 'shime/vim-livedown'
+Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -296,6 +289,8 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim'
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 
 call plug#end()
 
@@ -306,6 +301,7 @@ let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources = {}
 let g:deoplete#sources.javascript = ['LanguageClient']
 let g:deoplete#sources.css = ['LanguageClient']
+call deoplete#custom#option('auto_complete_delay', 100)
 
 set hidden
 
@@ -321,7 +317,6 @@ let g:ale_linters = {
 " css: https://github.com/vscode-langservers/vscode-css-languageserver-bin
 let g:LanguageClient_serverCommands = {
 \	'rust': ['rustup', 'run', 'nightly', 'rls'],
-\	'php': ['php ~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php'],
 \	'javascript': ['javascript-typescript-stdio'],
 \	'css': ['css-languageserver', '--stdio']
 \}
@@ -421,7 +416,7 @@ map <C-T>c <Plug>(wintabs_close)
 map <C-T>o <Plug>(wintabs_only)
 map <C-W>c <Plug>(wintabs_close_window)
 map <C-W>o <Plug>(wintabs_only_window)
-map <C-_> <leader>c<space>
+map <C-_> gcc
 map \ :NERDTreeToggle<CR>
 map \| :NERDTreeFind<CR>
 command! Tabc WintabsCloseVimtab
