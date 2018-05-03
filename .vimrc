@@ -307,21 +307,32 @@ set hidden
 
 let g:javascript_plugin_flow = 1
 
+let g:ale_completion_enabled = 1
 let g:ale_linters = {
 \	'html': ['eslint']
+\}
+let g:ale_pattern_options = {
+\	'\.min.js$': {'ale_enabled': 0},
+\	'node_modules': {'ale_enabled': 0},
+\	'build': {'ale_enabled': 0}
 \}
 
 " rust: https://github.com/rust-lang-nursery/rls
 " php: https://github.com/felixfbecker/php-language-server
-" javascript: https://github.com/sourcegraph/javascript-typescript-langserver
+" javascript/ts: https://github.com/sourcegraph/javascript-typescript-langserver
+" javascript/flow: https://github.com/flowtype/flow-language-server
 " css: https://github.com/vscode-langservers/vscode-css-languageserver-bin
+
+" Alternatives:
+" 'javascript.typescript': ['javascript-typescript-stdio'],
+
 let g:LanguageClient_serverCommands = {
 \	'rust': ['rustup', 'run', 'nightly', 'rls'],
-\	'javascript': ['javascript-typescript-stdio'],
+\	'javascript': ['flow-language-server', '--stdio'],
 \	'css': ['css-languageserver', '--stdio']
 \}
 
-let g:LanguageClient_autoStart=1
+let g:LanguageClient_autoStart = 1
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -430,4 +441,7 @@ command! Tabo WintabsOnlyVimtab
 " Last but not least, allow for local overrides
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
+endif
+if filereadable(expand("./.vimrc.local"))
+	source ./.vimrc.local
 endif
