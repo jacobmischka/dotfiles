@@ -296,7 +296,6 @@ call plug#end()
 
 execute pathogen#infect()
 
-let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources = {}
 let g:deoplete#sources.javascript = ['LanguageClient']
@@ -307,7 +306,7 @@ set hidden
 
 let g:javascript_plugin_flow = 1
 
-let g:ale_completion_enabled = 1
+" let g:ale_completion_enabled = 1
 let g:ale_linters = {
 \	'html': ['eslint']
 \}
@@ -316,6 +315,8 @@ let g:ale_pattern_options = {
 \	'node_modules': {'ale_enabled': 0},
 \	'build': {'ale_enabled': 0}
 \}
+let g:ale_lint_delay = 500
+" let g:ale_lint_on_text_changed = 'never'
 
 " rust: https://github.com/rust-lang-nursery/rls
 " php: https://github.com/felixfbecker/php-language-server
@@ -362,12 +363,18 @@ if has("autocmd")
     \ endif
 
   " Set filetypes based on extension
-  autocmd BufNewFile,BufRead *.html set filetype=html.javascript.css
+
+  " I'd like to do html.javascript.css, but for some reason the deoplete
+  " provider for css is breaking quoted attribute entry, making it jump to 1:1
+  autocmd BufNewFile,BufRead *.html set filetype=html.javascript
   autocmd BufNewFile,BufRead *.cool set filetype=scala
 
   " Manually sync syntax in Vue files
   " https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
   autocmd FileType vue syntax sync fromstart
+
+  " Enable deoplete in insert mode
+  autocmd InsertEnter * call deoplete#enable()
 endif " has("autocmd")
 
 if (has("nvim"))
