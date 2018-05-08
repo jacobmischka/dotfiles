@@ -353,7 +353,9 @@ if has("autocmd")
   filetype plugin indent on
 
   " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  autocmd FileType text,markdown setlocal textwidth=78
+  autocmd FileType text,markdown setlocal spell spelllang=en_us
+
 
   " When editing a file, always jump to the last known cursor position.
   autocmd BufReadPost *
@@ -398,7 +400,19 @@ let g:gruvbox_contrast_dark='hard'
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
 
-colorscheme space-vim-dark
+" Helpers in case I feel like changing between light and dark themes
+function! DarkTheme()
+	colorscheme space-vim-dark
+	set background=dark
+endfunction
+
+function! LightTheme()
+	colorscheme PaperColor
+	set background=light
+endfunction
+
+" Default to dark theme
+call DarkTheme()
 
 " trailing whitespace and column; must define AFTER colorscheme, setf, etc!
 hi ColorColumn ctermbg=black guibg=darkgray
