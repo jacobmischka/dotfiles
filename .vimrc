@@ -264,6 +264,7 @@ Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-surround'
@@ -271,6 +272,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-sensible'
 Plug 'chaoren/vim-wordmotion'
 Plug 'kshenoy/vim-signature'
+Plug 'ap/vim-css-color'
 
 Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 
