@@ -406,6 +406,9 @@ let g:enable_italic_font = 1
 function! DarkTheme()
 	colorscheme space-vim-dark
 	set background=dark
+	if exists(":AirlineTheme")
+		AirlineTheme dark
+	endif
 endfunction
 
 function! LightTheme()
