@@ -430,9 +430,8 @@ match WhitespaceEOL /\s\+\%#\@<!$/
 " highlight DiffChange ctermbg=17
 " highlight DiffText   ctermbg=53
 
-let g:NERDTreeShowHidden=1
-let g:NERDTreeShowIgnoredStatus=1
-let g:NERDTreeMouseMode = 3
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDSpaceDelims = 1
 
 let g:jsx_ext_required = 0
