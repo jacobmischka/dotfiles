@@ -360,6 +360,12 @@ endif
 
 set t_Co=256  " force 256 colors
 
+function! SourceIfExists(path)
+	if filereadable(expand(a:path))
+		execute 'source' expand(a:path)
+	endif
+endfunction
+
 if has("autocmd")
   " Filetypes and indenting settings
   filetype plugin indent on
@@ -388,6 +394,9 @@ if has("autocmd")
 
   " Enable deoplete in insert mode
   autocmd InsertEnter * call deoplete#enable()
+
+  autocmd DirChanged * call SourceIfExists("./.vimrc.local")
+
 endif " has("autocmd")
 
 if (has("nvim"))
@@ -473,9 +482,4 @@ command! Tabo WintabsOnlyVimtab
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Last but not least, allow for local overrides
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
-endif
-if filereadable(expand("./.vimrc.local"))
-	source ./.vimrc.local
-endif
+call SourceIfExists("~/.vimrc.local")
