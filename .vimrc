@@ -320,18 +320,23 @@ let g:ale_pattern_options = {
 let g:ale_lint_delay = 500
 " let g:ale_lint_on_text_changed = 'never'
 
+" Language Server providers
+" Note: PHP provider installed via helper plugin above
+"
 " rust: https://github.com/rust-lang-nursery/rls
 " php: https://github.com/felixfbecker/php-language-server
 " javascript/ts: https://github.com/sourcegraph/javascript-typescript-langserver
 " javascript/flow: https://github.com/flowtype/flow-language-server
 " css: https://github.com/vscode-langservers/vscode-css-languageserver-bin
+" vue: https://github.com/vuejs/vetur/tree/master/server
 
 " Alternatives / others:
 " 'javascript.typescript': ['javascript-typescript-stdio'],
 " 'css': ['/home/mischka/.npm-global/bin/css-languageserver', '--stdio']
 let g:LanguageClient_serverCommands = {
 \	'rust': ['rustup', 'run', 'nightly', 'rls'],
-\	'javascript': ['/home/mischka/.npm-global/bin/flow-language-server', '--stdio']
+\	'javascript': ['/home/mischka/.npm-global/bin/flow-language-server', '--stdio'],
+\	'vue': ['/home/mischka/.npm-global/bin/vls']
 \}
 
 let g:LanguageClient_autoStart = 1
