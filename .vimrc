@@ -296,8 +296,6 @@ Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer ru
 
 call plug#end()
 
-execute pathogen#infect()
-
 set hidden
 
 " Language Server providers
