@@ -155,3 +155,7 @@ smartify_selection() {
 cheatsh() {
 	curl "cheat.sh/$1"
 }
+
+if [ -f ~/.bashrc.local ]; then
+	source ~/.bashrc.local
+fi
