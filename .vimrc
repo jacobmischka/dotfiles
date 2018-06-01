@@ -272,6 +272,8 @@ Plug 'tpope/vim-sensible'
 Plug 'chaoren/vim-wordmotion'
 Plug 'kshenoy/vim-signature'
 Plug 'ap/vim-css-color'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'Valloric/MatchTagAlways'
 
 Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 
@@ -346,6 +348,22 @@ let g:ale_pattern_options = {
 let g:ale_lint_delay = 500
 " let g:ale_lint_on_text_changed = 'never'
 
+let g:mta_filetypes = {
+\	'html': 1,
+\	'xhtml': 1,
+\	'xml': 1,
+\	'svelte': 1,
+\	'jsx': 1,
+\	'javascript.jsx': 1,
+\	'vue': 1
+\}
+
+let g:closetag_filenames = '*.html,*.xhtml,*.svelte,*.js,*.jsx,*.vue'
+let g:closetag_filetypes = 'html,xhtml,svelte,jsx,javascript.jsx,vue'
+
+call jspretmpl#register_tag('css', 'css')
+" call jspretmpl#register_tag('gql', 'graphql')
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and syntax
 " in GUI or color console, enable coloring and search highlighting
@@ -388,6 +406,8 @@ if has("autocmd")
   " Manually sync syntax in Vue files
   " https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
   autocmd FileType vue syntax sync fromstart
+
+  " autocmd FileType javascript,javascript.jsx JsPreTmpl html
 
   " Enable deoplete in insert mode
   autocmd InsertEnter * call deoplete#enable()
@@ -449,6 +469,7 @@ match WhitespaceEOL /\s\+\%#\@<!$/
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDSpaceDelims = 1
+let g:NERDTreeMinimalUI = 1
 
 let g:jsx_ext_required = 0
 
