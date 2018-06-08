@@ -219,10 +219,10 @@ imap <C-S> <Esc>:w<CR>a
 
 " From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
 " Shift-Alt-j/k deletes blank line below/above, and Alt-j/k inserts.
-nnoremap <silent><S-A-k> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><S-A-j> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><A-k> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent><A-j> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+nnoremap <silent><S-A-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><S-A-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Move lines
 " From http://vim.wikia.com/wiki/Moving_lines_up_or_down
