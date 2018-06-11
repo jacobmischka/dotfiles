@@ -3,6 +3,95 @@
 " vim mode preferred!
 set nocompatible
 
+call plug#begin('~/.vim/plugged')
+
+Plug 'editorconfig/editorconfig-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'zefei/vim-wintabs'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+Plug 'w0rp/ale'
+Plug 'scrooloose/nerdtree'
+Plug 'Shougo/context_filetype.vim'
+Plug 'kana/vim-repeat'
+Plug 'tyru/caw.vim'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'wakatime/vim-wakatime'
+Plug 'tpope/vim-surround'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tpope/vim-sensible'
+Plug 'chaoren/vim-wordmotion'
+Plug 'kshenoy/vim-signature'
+Plug 'ap/vim-css-color'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'Valloric/MatchTagAlways'
+Plug 'godlygeek/tabular'
+Plug 'wesQ3/vim-windowswap'
+
+Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
+
+" Git
+Plug 'gregsexton/gitv'
+Plug 'tpope/vim-fugitive'
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim'
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+
+" Colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'joshdick/onedark.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'chriskempson/base16-vim'
+Plug 'jacoborus/tender.vim'
+Plug 'dracula/vim'
+Plug 'nightsense/carbonized'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'liuchengxu/space-vim-dark'
+
+Plug 'ryanoasis/vim-devicons'
+call plug#end()
+
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeShowIgnoredStatus = 1
+let g:NERDSpaceDelims = 1
+let g:NERDTreeMinimalUI = 1
+
+let g:jsx_ext_required = 0
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment']
+\ }
+
+" Disable arrow movement, resize splits instead.
+let g:elite_mode = 1
+
+if get(g:, 'elite_mode')
+    nnoremap <Up>    :resize +1<CR>
+    nnoremap <Down>  :resize -1<CR>
+    nnoremap <Left>  :vertical resize -1<CR>
+    nnoremap <Right> :vertical resize +1<CR>
+endif
+
 " set xterm title, and inform vim of screen/tmux's syntax for doing the same
 set titlestring=vim\ %{expand(\"%t\")}
 if &term =~ "^screen"
@@ -56,7 +145,6 @@ set gdefault	                " s///g by default
 set autoindent                  " keep indenting on <CR>
 set shiftwidth=4                " one tab = four spaces (autoindent)
 set softtabstop=4               " one tab = four spaces (tab key)
-"set expandtab                   " never use hard tabs
 set shiftround                  " only indent to multiples of shiftwidth
 set smarttab                    " DTRT when shiftwidth/softtabstop diverge
 set fileformats=unix,dos        " unix linebreaks in new files please
@@ -64,10 +152,6 @@ set listchars=tab:↹·,extends:⇉,precedes:⇇,nbsp:␠,trail:␠,nbsp:␣
                                 " appearance of invisible characters
 
 set formatoptions=crqlj         " wrap comments, never autowrap long lines
-" Normally I would say tabstop is always 8, because tabs are 8, by definition.
-" However, I have vim-sleuth installed, which forces tabstop to 8 when files
-" are NOT indented with tabs -- so this is really only used for files that
-" indent with tabs, the only place I actually want to use 4.
 set tabstop=4
 
 " wrapping
@@ -97,7 +181,7 @@ set scrolloff=2                 " always have 2 lines of context on the screen
 set foldmethod=indent           " auto-fold based on indentation.  (py-friendly)
 set foldlevel=99
 set timeoutlen=1000             " wait 1s for mappings to finish
-set ttimeoutlen=100             " wait 0.1s for xterm keycodes to finish
+set ttimeoutlen=0             " wait 0.1s for xterm keycodes to finish
 set nrformats-=octal            " don't try to auto-increment 'octal'
 set grepprg=rg\ --vimgrep
 
@@ -246,57 +330,6 @@ endfunction
 
 " Plugins
 
-call plug#begin('~/.vim/plugged')
-
-Plug 'editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'zefei/vim-wintabs'
-Plug 'jiangmiao/auto-pairs'
-Plug 'alvan/vim-closetag'
-Plug 'w0rp/ale'
-Plug 'scrooloose/nerdtree'
-Plug 'Shougo/context_filetype.vim'
-Plug 'kana/vim-repeat'
-Plug 'tyru/caw.vim'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'severin-lemaignan/vim-minimap'
-Plug 'wakatime/vim-wakatime'
-Plug 'tpope/vim-surround'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'tpope/vim-sensible'
-Plug 'chaoren/vim-wordmotion'
-Plug 'kshenoy/vim-signature'
-Plug 'ap/vim-css-color'
-Plug 'Quramy/vim-js-pretty-template'
-Plug 'Valloric/MatchTagAlways'
-
-Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
-
-" Colorschemes
-Plug 'morhetz/gruvbox'
-Plug 'danilo-augusto/vim-afterglow'
-Plug 'joshdick/onedark.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'jacoborus/tender.vim'
-Plug 'dracula/vim'
-Plug 'nightsense/carbonized'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'liuchengxu/space-vim-dark'
-
-Plug 'ryanoasis/vim-devicons'
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim'
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-
-call plug#end()
-
 set hidden
 
 " Language Server providers
@@ -391,10 +424,10 @@ if has("autocmd")
 
 
   " When editing a file, always jump to the last known cursor position.
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+  " autocmd BufReadPost *
+  "   \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  "   \   exe "normal g`\"" |
+  "   \ endif
 
   " Set filetypes based on extension
 
@@ -465,17 +498,6 @@ match WhitespaceEOL /\s\+\%#\@<!$/
 " highlight DiffDelete ctermbg=52
 " highlight DiffChange ctermbg=17
 " highlight DiffText   ctermbg=53
-
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeShowIgnoredStatus = 1
-let g:NERDSpaceDelims = 1
-let g:NERDTreeMinimalUI = 1
-
-let g:jsx_ext_required = 0
-
-" Remove escape delay to reenter normal mode
-" https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-set timeoutlen=1000 ttimeoutlen=0
 
 "let g:indent_guides_enable_on_vim_startup = 1
 "let g:indent_guides_start_level = 2
