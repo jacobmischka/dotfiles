@@ -505,8 +505,8 @@ match WhitespaceEOL /\s\+\%#\@<!$/
 map <C-P> :FZF<CR>
 map <C-H> <Plug>(wintabs_previous)
 map <C-L> <Plug>(wintabs_next)
-map <C-S-H> <Plug>(wintabs_move_left)
-map <C-S-L> <Plug>(wintabs_move_right)
+map <C-T>h <Plug>(wintabs_move_left)
+map <C-T>l <Plug>(wintabs_move_right)
 map <C-T>w <Plug>(wintabs_close)
 map <C-T>c <Plug>(wintabs_close)
 map <C-T>o <Plug>(wintabs_only)
