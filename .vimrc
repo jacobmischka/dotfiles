@@ -362,6 +362,7 @@ let g:deoplete#sources.javascript = ['LanguageClient']
 let g:deoplete#sources.css = ['LanguageClient']
 let g:deoplete#sources.vue = ['LanguageClient']
 let g:deoplete#sources.python = ['LanguageClient']
+let g:deoplete#sources.php = ['LanguageClient']
 call deoplete#custom#option('auto_complete_delay', 100)
 
 " deoplete tab-complete
