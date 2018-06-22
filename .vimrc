@@ -270,6 +270,7 @@ Plug 'Quramy/vim-js-pretty-template'
 Plug 'Valloric/MatchTagAlways'
 Plug 'godlygeek/tabular'
 Plug 'wesQ3/vim-windowswap'
+Plug 'moll/vim-node'
 
 Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 
