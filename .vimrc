@@ -297,6 +297,8 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
+let g:wordmotion_prefix = '<Leader>'
+
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDSpaceDelims = 1
