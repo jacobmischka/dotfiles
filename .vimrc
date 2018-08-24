@@ -271,6 +271,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'godlygeek/tabular'
 Plug 'wesQ3/vim-windowswap'
 Plug 'moll/vim-node'
+" Plug 'RRethy/vim-illuminate'
 
 Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 
@@ -375,8 +376,10 @@ let g:javascript_plugin_flow = 1
 
 " let g:ale_completion_enabled = 1
 let g:ale_linters = {
-\	'html': ['eslint']
+\	'html': ['eslint'],
+\	'python': ['pyre', 'pylint']
 \}
+
 let g:ale_pattern_options = {
 \	'\.min.js$': {'ale_enabled': 0},
 \	'node_modules': {'ale_enabled': 0},
