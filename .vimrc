@@ -377,11 +377,13 @@ let g:javascript_plugin_flow = 1
 " let g:ale_completion_enabled = 1
 let g:ale_linters = {
 \	'html': ['eslint'],
+\	'javascript': ['eslint', 'flow-language-server'],
 \	'python': ['pyre', 'pylint']
 \}
 
 let g:ale_pattern_options = {
 \	'\.min.js$': {'ale_enabled': 0},
+\	'\.html$': {'ale_linters': ['eslint']},
 \	'node_modules': {'ale_enabled': 0},
 \	'build': {'ale_enabled': 0}
 \}
