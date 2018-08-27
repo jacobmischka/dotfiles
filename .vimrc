@@ -377,7 +377,6 @@ let g:javascript_plugin_flow = 1
 " let g:ale_completion_enabled = 1
 let g:ale_linters = {
 \	'html': ['eslint'],
-\	'javascript': ['eslint', 'flow-language-server'],
 \	'python': ['pyre', 'pylint']
 \}
 
