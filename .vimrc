@@ -401,8 +401,8 @@ let g:mta_filetypes = {
 \	'vue': 1
 \}
 
-let g:closetag_filenames = '*.html,*.xhtml,*.svelte,*.js,*.jsx,*.vue'
-let g:closetag_filetypes = 'html,xhtml,svelte,jsx,javascript.jsx,vue'
+let g:closetag_filenames = '*.html,*.xhtml,*.svelte,*.js,*.jsx,*.vue,*.blade.php'
+let g:closetag_filetypes = 'html,xhtml,svelte,jsx,javascript.jsx,vue,blade'
 
 call jspretmpl#register_tag('css', 'css')
 " call jspretmpl#register_tag('gql', 'graphql')
