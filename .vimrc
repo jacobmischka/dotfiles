@@ -98,6 +98,7 @@ set grepprg=rg\ --vimgrep
 
 set splitright
 set splitbelow
+set diffopt+=vertical
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
