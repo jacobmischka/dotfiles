@@ -279,6 +279,11 @@ Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 " Git
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tommcdo/vim-fubitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'christoomey/vim-conflicted'
+Plug 'rhysd/conflict-marker.vim'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim'
@@ -375,6 +380,8 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 let g:javascript_plugin_flow = 1
 
+let g:EclimJavaValidate = 0
+
 " let g:ale_completion_enabled = 1
 let g:ale_linters = {
 \	'html': ['eslint'],
@@ -454,7 +461,9 @@ if has("autocmd")
   " autocmd FileType javascript,javascript.jsx JsPreTmpl html
 
   " Enable deoplete in insert mode
-  autocmd InsertEnter * call deoplete#enable()
+  if exists("*deoplete#enable")
+	autocmd InsertEnter * call deoplete#enable()
+  endif
 
   autocmd DirChanged * call SourceIfExists("./.vimrc.local")
 

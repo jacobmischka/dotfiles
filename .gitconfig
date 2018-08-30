@@ -37,3 +37,4 @@
 [alias]
 	gh = "!f(){ git clone "git@github.com:$1.git"; }; f"
 	git = !exec git
+	conflicted = !nvim +Conflicted
