@@ -451,9 +451,9 @@ if has("autocmd")
 
   " Set filetypes based on extension
 
-  " I'd like to do html.javascript.css, but for some reason the deoplete
+  " I'd like to do html.svelte.javascript.css, but for some reason the deoplete
   " provider for css is breaking quoted attribute entry, making it jump to 1:1
-  autocmd BufNewFile,BufRead *.html set filetype=html.javascript
+  autocmd BufNewFile,BufRead *.html set filetype=html.svelte.javascript
   autocmd BufNewFile,BufRead *.cool set filetype=scala
 
   " Manually sync syntax in Vue files

@@ -24,7 +24,7 @@ syntax region svelteInside start=/{/ end=/}/ keepend containedin=TOP,@htmlSvelte
 syntax match svelteOperators '=\|\.\|\|:/' contained containedin=svelteInside,@htmlSvelteContainer
 syntax match svelteHandlebars '{\|}' contained containedin=svelteInside,@htmlSvelteContainer
 syntax match svelteConditionals '\([#/]if\|:else\(if\)\?\|@html\)' contained containedin=svelteInside
-syntax match svelteHelpers '\([#/]\(each\|await\)\|:\(then\|catch\)\)' contained containedin=svelteSection
+syntax match svelteHelpers '\([#/]\(each\|await\)\)\|\(:\(then\|catch\)\)' contained containedin=svelteSection
 syntax region svelteQString start=/'/ skip=/\\'/ end=/'/ contained containedin=svelteInside
 syntax region svelteDQString start=/"/ skip=/\\"/ end=/"/ contained containedin=svelteInside
 
