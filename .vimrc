@@ -179,6 +179,10 @@ vnoremap <leader>y "+y
 nnoremap <leader>Y "+yg_
 nnoremap <leader>y "+y
 
+vnoremap <leader>d "+d
+nnoremap <leader>D "+dg_
+nnoremap <leader>d "+d
+
 vnoremap <leader>x "+x
 nnoremap <leader>X "+xg_
 nnoremap <leader>x "+x
@@ -272,7 +276,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'godlygeek/tabular'
 Plug 'wesQ3/vim-windowswap'
 Plug 'moll/vim-node'
-" Plug 'RRethy/vim-illuminate'
+Plug 'justinmk/vim-gtfo'
 
 Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 
