@@ -538,6 +538,9 @@ map \| :NERDTreeFind<CR>
 command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
 
+nmap <silent> ]e <Plug>(ale_next)
+nmap <silent> [e <Plug>(ale_previous)
+
 " nmap <C-M> :LivedownToggle<CR>
 
 " after a re-source, fix syntax matching issues (concealing brackets):
