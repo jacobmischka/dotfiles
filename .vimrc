@@ -349,6 +349,7 @@ set hidden
 " php: https://github.com/felixfbecker/php-language-server
 " javascript/ts: https://github.com/sourcegraph/javascript-typescript-langserver
 " javascript/flow: https://github.com/flowtype/flow-language-server
+" svelte: https://github.com/UnwrittenFun/svelte-language-server
 " css: https://github.com/vscode-langservers/vscode-css-languageserver-bin
 " vue: https://github.com/vuejs/vetur/tree/master/server
 " pyre: https://github.com/facebook/pyre-check
@@ -369,6 +370,7 @@ let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources = {}
 let g:deoplete#sources.rust = ['LanguageClient']
 let g:deoplete#sources.javascript = ['LanguageClient']
+let g:deoplete#sources.svelte = ['LanguageClient']
 let g:deoplete#sources.css = ['LanguageClient']
 let g:deoplete#sources.vue = ['LanguageClient']
 let g:deoplete#sources.python = ['LanguageClient']
