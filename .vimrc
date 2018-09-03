@@ -367,10 +367,11 @@ let g:LanguageClient_serverCommands = {
 \	'javascript': ['/home/mischka/.npm-global/bin/flow-language-server', '--stdio'],
 \	'vue': ['/home/mischka/.npm-global/bin/vls'],
 \	'python': ['/home/mischka/.local/bin/pyre', 'persistent'],
-\	'dart': ['dart_language_server']
+\	'dart': ['/home/mischka/.pub-cache/bin/dart_language_server']
 \}
 
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_diagnosticsEnable = 0
 
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources = {}
@@ -394,7 +395,8 @@ let g:EclimJavaValidate = 0
 " let g:ale_completion_enabled = 1
 let g:ale_linters = {
 \	'html': ['eslint'],
-\	'python': ['pyre', 'pylint']
+\	'python': ['pyre', 'pylint'],
+\	'dart': ['language_server']
 \}
 
 let g:ale_pattern_options = {
@@ -405,7 +407,7 @@ let g:ale_pattern_options = {
 \}
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
-let g:ale_lint_delay = 500
+let g:ale_lint_delay = 100
 " let g:ale_lint_on_text_changed = 'never'
 
 let g:mta_filetypes = {
