@@ -24,7 +24,8 @@ export ANDROIDPATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export NPMPATH=$HOME/.npm-global/bin
 export YARNPATH=$HOME/.yarn/bin
 export CARGOPATH=$HOME/.cargo/bin
-export PATH=$HOMEPATH:$YARNPATH:$NPMPATH:$CARGOPATH:$GOPATH/bin:$ANDROIDPATH:$PATH
+export DARTPUBPATH=$HOME/.pub-cache/bin
+export PATH=$HOMEPATH:$YARNPATH:$NPMPATH:$CARGOPATH:$GOPATH/bin:$ANDROIDPATH:$DARTPUBPATH:$PATH
 
 # Tools
 export EDITOR=/usr/bin/nvim

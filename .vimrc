@@ -357,6 +357,7 @@ set hidden
 " css: https://github.com/vscode-langservers/vscode-css-languageserver-bin
 " vue: https://github.com/vuejs/vetur/tree/master/server
 " pyre: https://github.com/facebook/pyre-check
+" dart: https://github.com/natebosch/dart_language_server
 
 " Alternatives / others:
 " 'javascript.typescript': ['javascript-typescript-stdio'],
@@ -365,7 +366,8 @@ let g:LanguageClient_serverCommands = {
 \	'rust': ['rustup', 'run', 'nightly', 'rls'],
 \	'javascript': ['/home/mischka/.npm-global/bin/flow-language-server', '--stdio'],
 \	'vue': ['/home/mischka/.npm-global/bin/vls'],
-\	'python': ['/home/mischka/.local/bin/pyre', 'persistent']
+\	'python': ['/home/mischka/.local/bin/pyre', 'persistent'],
+\	'dart': ['dart_language_server']
 \}
 
 let g:LanguageClient_autoStart = 1
@@ -379,6 +381,7 @@ let g:deoplete#sources.css = ['LanguageClient']
 let g:deoplete#sources.vue = ['LanguageClient']
 let g:deoplete#sources.python = ['LanguageClient']
 let g:deoplete#sources.php = ['LanguageClient']
+let g:deoplete#sources.dart = ['LanguageClient']
 call deoplete#custom#option('auto_complete_delay', 100)
 
 " deoplete tab-complete
@@ -441,6 +444,8 @@ endfunction
 if has("autocmd")
   " Filetypes and indenting settings
   filetype plugin indent on
+
+  autocmd CursorHold * checktime
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text,markdown setlocal textwidth=78
