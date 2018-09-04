@@ -396,7 +396,6 @@ let g:EclimJavaValidate = 0
 let g:ale_linters = {
 \	'html': ['eslint'],
 \	'python': ['pyre', 'pylint'],
-\	'dart': ['language_server']
 \}
 
 let g:ale_pattern_options = {
