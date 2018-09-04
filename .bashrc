@@ -26,6 +26,8 @@ export DEV_BROWSER=firefox-developer
 # NPM
 export NPM_CONFIG_PREFIX=~/.npm-global
 
+export PUB_CACHE=$HOME/.pub-cache
+
 # Other exports
 export JAVA_HOME=/usr/lib/jvm/default
 export PIPENV_VENV_IN_PROJECT=1
