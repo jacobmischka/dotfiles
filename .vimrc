@@ -383,7 +383,7 @@ let g:deoplete#sources.vue = ['LanguageClient']
 let g:deoplete#sources.python = ['LanguageClient']
 let g:deoplete#sources.php = ['LanguageClient']
 let g:deoplete#sources.dart = ['LanguageClient']
-call deoplete#custom#option('auto_complete_delay', 100)
+call deoplete#custom#option('auto_complete_delay', 200)
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -473,9 +473,7 @@ if has("autocmd")
   " autocmd FileType javascript,javascript.jsx JsPreTmpl html
 
   " Enable deoplete in insert mode
-  if exists("*deoplete#enable")
-	autocmd InsertEnter * call deoplete#enable()
-  endif
+  autocmd InsertEnter * call deoplete#enable()
 
   autocmd DirChanged * call SourceIfExists("./.vimrc.local")
 
