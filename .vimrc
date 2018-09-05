@@ -390,7 +390,13 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 let g:javascript_plugin_flow = 1
 
+let g:EclimFileTypeValidate = 0
+let g:EclimCValidate = 0
+let g:EclimHtmlValidate = 0
 let g:EclimJavaValidate = 0
+let g:EclimJavascriptValidate = 0
+let g:EclimPhpValidate = 0
+let g:EclimPythonValidate = 0
 
 " let g:ale_completion_enabled = 1
 let g:ale_linters = {
