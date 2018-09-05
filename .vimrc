@@ -383,7 +383,7 @@ let g:deoplete#sources.vue = ['LanguageClient']
 let g:deoplete#sources.python = ['LanguageClient']
 let g:deoplete#sources.php = ['LanguageClient']
 let g:deoplete#sources.dart = ['LanguageClient']
-call deoplete#custom#option('auto_complete_delay', 200)
+call deoplete#custom#option('auto_complete_delay', 100)
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
