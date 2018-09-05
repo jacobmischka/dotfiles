@@ -20,6 +20,9 @@ export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export PAGER=/bin/less
 
+# Support colors in less by default
+export LESS=-R
+
 # Custom tools
 export DEV_BROWSER=firefox-developer
 
@@ -31,6 +34,7 @@ export PUB_CACHE=$HOME/.pub-cache
 # Other exports
 export JAVA_HOME=/usr/lib/jvm/default
 export PIPENV_VENV_IN_PROJECT=1
+export BAT_THEME='Monokai Extended'
 
 # Remove duplicates from bash history
 export HISTCONTROL=ignoreboth:erasedups
