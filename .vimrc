@@ -237,6 +237,10 @@ nnoremap <C-A> cc
 
 nnoremap <CR> i<CR><Esc>
 
+" Search for current word
+" http://vim.wikia.com/wiki/Search_for_current_word_in_multiple_files
+nnoremap gr :grep <cword><CR>
+
 inoremap <silent><F2> <Esc>v`^me<Esc>gi<C-o>:call Ender()<CR>
 function! Ender()
 	let endchar = nr2char(getchar())
