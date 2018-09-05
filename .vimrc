@@ -281,6 +281,7 @@ Plug 'godlygeek/tabular'
 Plug 'wesQ3/vim-windowswap'
 Plug 'moll/vim-node'
 Plug 'justinmk/vim-gtfo'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 
