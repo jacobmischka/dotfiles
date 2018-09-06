@@ -15,6 +15,9 @@
 [[ -f /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
 [[ -f /usr/share/fzf/completion.bash ]] && . /usr/share/fzf/completion.bash
 
+# Manually load .profile just in case (Wayland doesn't)
+[[ -f ~/.profile ]] && . ~/.profile
+
 # Tools
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
