@@ -282,6 +282,8 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'moll/vim-node'
 Plug 'justinmk/vim-gtfo'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'majutsushi/tagbar'
+Plug 'vim-php/tagbar-phpctags.vim'
 
 Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 
@@ -436,6 +438,20 @@ let g:closetag_filetypes = 'xml,html,xhtml,svelte,jsx,javascript.jsx,vue,blade'
 call jspretmpl#register_tag('css', 'css')
 " call jspretmpl#register_tag('gql', 'graphql')
 
+let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits',
+        \'i:impls,trait implementations',
+    \]
+\}
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and syntax
 " in GUI or color console, enable coloring and search highlighting
@@ -556,8 +572,10 @@ map <C-W>o <Plug>(wintabs_only_window)
 map <C-_> gcc
 map \ :NERDTreeToggle<CR>
 map \| :NERDTreeFind<CR>
+nmap <F8> :TagbarToggle<CR>
 command! Tabc WintabsCloseVimtab
 command! Tabo WintabsOnlyVimtab
+command! Tags TagbarToggle
 
 nmap <silent> ]e <Plug>(ale_next)
 nmap <silent> [e <Plug>(ale_previous)
