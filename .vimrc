@@ -272,6 +272,7 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'kshenoy/vim-signature'
 Plug 'Valloric/MatchTagAlways'
 Plug 'justinmk/vim-gtfo'
+Plug 'arthurxavierx/vim-caser'
 
 " File types and syntaxes
 Plug 'jxnblk/vim-mdx-js'
