@@ -58,15 +58,14 @@ set gdefault	                " s///g by default
 " whitespace
 set autoindent                  " keep indenting on <CR>
 set shiftwidth=4                " one tab = four spaces (autoindent)
-set softtabstop=4               " one tab = four spaces (tab key)
+set softtabstop=0               " Disable sts
+set tabstop=4					" Tabs are 4 characters
 set shiftround                  " only indent to multiples of shiftwidth
 set smarttab                    " DTRT when shiftwidth/softtabstop diverge
 set fileformats=unix,dos        " unix linebreaks in new files please
 set listchars=tab:↹·,extends:⇉,precedes:⇇,nbsp:␠,trail:␠,nbsp:␣
                                 " appearance of invisible characters
 set formatoptions=crqlj         " wrap comments, never autowrap long lines
-
-set tabstop=4
 
 " wrapping
 "set colorcolumn=+1              " highlight 81st column
