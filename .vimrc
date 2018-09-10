@@ -287,6 +287,9 @@ Plug 'vim-php/tagbar-phpctags.vim'
 
 Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 
+" File types and syntaxes
+Plug 'jxnblk/vim-mdx-js'
+
 " Git
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'
@@ -313,6 +316,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'liuchengxu/space-vim-dark'
 
 Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 let g:wordmotion_prefix = '<Leader>'
