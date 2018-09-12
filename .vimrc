@@ -323,6 +323,11 @@ if get(g:, 'full_config')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'autozimu/LanguageClient-neovim'
 	Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+
+	" Formatters
+	Plug 'prettier/vim-prettier', {
+	\ 'do': 'yarn install',
+	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 endif
 
 call plug#end()
@@ -410,6 +415,7 @@ let g:EclimPythonValidate = 0
 
 " let g:ale_completion_enabled = 1
 let g:ale_linters = {
+\	'javascript': ['eslint', 'flow-language-server'],
 \	'html': ['eslint'],
 \	'python': ['pyre', 'pylint'],
 \}
@@ -476,6 +482,8 @@ command! Tags TagbarToggle
 
 nmap <silent> ]e <Plug>(ale_next)
 nmap <silent> [e <Plug>(ale_previous)
+
+nmap <Leader>= <Plug>(PrettierAsync)
 
 " nmap <C-M> :LivedownToggle<CR>
 
