@@ -196,6 +196,7 @@ function! Ender()
 	let endchar = nr2char(getchar())
 	execute "normal \<End>a".endchar
 	normal `e
+	normal me
 endfunction
 
 " Disable arrow movement in normal mode, resize splits instead.
