@@ -1,7 +1,7 @@
 " Current config assumes nvim and vim-plug
 
 " Disable this to disable heavier config options for lightweight environments
-let g:full_config = 1
+let g:full_config = 0
 
 " vim mode preferred!
 set nocompatible
@@ -183,8 +183,6 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-nnoremap <C-A> cc
-
 nnoremap <CR> i<CR><Esc>
 
 " Search for current word
@@ -259,20 +257,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'zefei/vim-wintabs'
-Plug 'jiangmiao/auto-pairs'
-Plug 'alvan/vim-closetag'
-Plug 'scrooloose/nerdtree'
-Plug 'Shougo/context_filetype.vim'
-Plug 'kana/vim-repeat'
-Plug 'tyru/caw.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-surround'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'chaoren/vim-wordmotion'
-Plug 'kshenoy/vim-signature'
-Plug 'Valloric/MatchTagAlways'
-Plug 'justinmk/vim-gtfo'
-Plug 'arthurxavierx/vim-caser'
 Plug 'tmilloff/vim-address-bar'
 
 " File types and syntaxes
@@ -290,20 +277,22 @@ Plug 'nightsense/carbonized'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'liuchengxu/space-vim-dark'
 
-" Git
-Plug 'gregsexton/gitv'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tommcdo/vim-fubitive'
-Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'christoomey/vim-conflicted'
-Plug 'rhysd/conflict-marker.vim'
-
-
 " Heavier
 if get(g:, 'full_config')
+	Plug 'alvan/vim-closetag'
+	Plug 'Shougo/context_filetype.vim'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'kana/vim-repeat'
+	Plug 'tyru/caw.vim'
+	Plug 'nathanaelkane/vim-indent-guides'
+	Plug 'kshenoy/vim-signature'
+	Plug 'Valloric/MatchTagAlways'
+	Plug 'justinmk/vim-gtfo'
+	Plug 'arthurxavierx/vim-caser'
+
 	Plug 'w0rp/ale'
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
+	Plug 'scrooloose/nerdtree'
 	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'terryma/vim-multiple-cursors'
@@ -330,6 +319,15 @@ if get(g:, 'full_config')
 	Plug 'prettier/vim-prettier', {
 	\ 'do': 'yarn install',
 	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+
+	" Git
+	Plug 'gregsexton/gitv'
+	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-rhubarb'
+	Plug 'tommcdo/vim-fubitive'
+	Plug 'shumphrey/fugitive-gitlab.vim'
+	Plug 'christoomey/vim-conflicted'
+	Plug 'rhysd/conflict-marker.vim'
 endif
 
 call plug#end()
@@ -362,106 +360,108 @@ let g:fzf_colors =
 
 
 " Settings
+if get(g:, 'full_config')
 
-" Language Server providers
-" Note: PHP provider installed via helper plugin above
-"
-" rust: https://github.com/rust-lang-nursery/rls
-" php: https://github.com/felixfbecker/php-language-server
-" javascript/ts: https://github.com/sourcegraph/javascript-typescript-langserver
-" javascript/flow: https://github.com/flowtype/flow-language-server
-" svelte: https://github.com/UnwrittenFun/svelte-language-server
-" css: https://github.com/vscode-langservers/vscode-css-languageserver-bin
-" vue: https://github.com/vuejs/vetur/tree/master/server
-" pyre: https://github.com/facebook/pyre-check
-" dart: https://github.com/natebosch/dart_language_server
+	" Language Server providers
+	" Note: PHP provider installed via helper plugin above
+	"
+	" rust: https://github.com/rust-lang-nursery/rls
+	" php: https://github.com/felixfbecker/php-language-server
+	" javascript/ts: https://github.com/sourcegraph/javascript-typescript-langserver
+	" javascript/flow: https://github.com/flowtype/flow-language-server
+	" svelte: https://github.com/UnwrittenFun/svelte-language-server
+	" css: https://github.com/vscode-langservers/vscode-css-languageserver-bin
+	" vue: https://github.com/vuejs/vetur/tree/master/server
+	" pyre: https://github.com/facebook/pyre-check
+	" dart: https://github.com/natebosch/dart_language_server
 
-" Alternatives / others:
-" 'javascript.typescript': ['javascript-typescript-stdio'],
-" 'css': ['/home/mischka/.npm-global/bin/css-languageserver', '--stdio']
-let g:LanguageClient_serverCommands = {
-\	'rust': ['rustup', 'run', 'nightly', 'rls'],
-\	'javascript': ['/home/mischka/.npm-global/bin/flow-language-server', '--stdio'],
-\	'vue': ['/home/mischka/.npm-global/bin/vls'],
-\	'python': ['/home/mischka/.local/bin/pyre', 'persistent'],
-\	'dart': ['/home/mischka/.pub-cache/bin/dart_language_server']
-\}
+	" Alternatives / others:
+	" 'javascript.typescript': ['javascript-typescript-stdio'],
+	" 'css': ['/home/mischka/.npm-global/bin/css-languageserver', '--stdio']
+	let g:LanguageClient_serverCommands = {
+	\	'rust': ['rustup', 'run', 'nightly', 'rls'],
+	\	'javascript': ['/home/mischka/.npm-global/bin/flow-language-server', '--stdio'],
+	\	'vue': ['/home/mischka/.npm-global/bin/vls'],
+	\	'python': ['/home/mischka/.local/bin/pyre', 'persistent'],
+	\	'dart': ['/home/mischka/.pub-cache/bin/dart_language_server']
+	\}
 
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_diagnosticsEnable = 0
+	let g:LanguageClient_autoStart = 1
+	let g:LanguageClient_diagnosticsEnable = 0
 
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#sources = {}
-let g:deoplete#sources.rust = ['LanguageClient']
-let g:deoplete#sources.javascript = ['LanguageClient']
-let g:deoplete#sources.svelte = ['LanguageClient']
-let g:deoplete#sources.css = ['LanguageClient']
-let g:deoplete#sources.vue = ['LanguageClient']
-let g:deoplete#sources.python = ['LanguageClient']
-let g:deoplete#sources.php = ['LanguageClient']
-let g:deoplete#sources.dart = ['LanguageClient']
-call deoplete#custom#option('auto_complete_delay', 100)
+	let g:deoplete#enable_smart_case = 1
+	let g:deoplete#sources = {}
+	let g:deoplete#sources.rust = ['LanguageClient']
+	let g:deoplete#sources.javascript = ['LanguageClient']
+	let g:deoplete#sources.svelte = ['LanguageClient']
+	let g:deoplete#sources.css = ['LanguageClient']
+	let g:deoplete#sources.vue = ['LanguageClient']
+	let g:deoplete#sources.python = ['LanguageClient']
+	let g:deoplete#sources.php = ['LanguageClient']
+	let g:deoplete#sources.dart = ['LanguageClient']
+	call deoplete#custom#option('auto_complete_delay', 100)
 
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+	" deoplete tab-complete
+	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-let g:javascript_plugin_flow = 1
+	let g:javascript_plugin_flow = 1
 
-let g:EclimFileTypeValidate = 0
-let g:EclimCValidate = 0
-let g:EclimHtmlValidate = 0
-let g:EclimJavaValidate = 0
-let g:EclimJavascriptValidate = 0
-let g:EclimPhpValidate = 0
-let g:EclimPythonValidate = 0
+	let g:EclimFileTypeValidate = 0
+	let g:EclimCValidate = 0
+	let g:EclimHtmlValidate = 0
+	let g:EclimJavaValidate = 0
+	let g:EclimJavascriptValidate = 0
+	let g:EclimPhpValidate = 0
+	let g:EclimPythonValidate = 0
 
-" let g:ale_completion_enabled = 1
-let g:ale_linters = {
-\	'javascript': ['eslint', 'flow-language-server'],
-\	'html': ['eslint'],
-\	'python': ['pyre', 'pylint'],
-\}
+	" let g:ale_completion_enabled = 1
+	let g:ale_linters = {
+	\	'javascript': ['eslint', 'flow-language-server'],
+	\	'html': ['eslint'],
+	\	'python': ['pyre', 'pylint'],
+	\}
 
-let g:ale_pattern_options = {
-\	'\.min.js$': {'ale_enabled': 0},
-\	'\.html$': {'ale_linters': ['eslint']},
-\	'node_modules': {'ale_enabled': 0},
-\	'build': {'ale_enabled': 0}
-\}
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '⚠'
-let g:ale_lint_delay = 100
-" let g:ale_lint_on_text_changed = 'never'
+	let g:ale_pattern_options = {
+	\	'\.min.js$': {'ale_enabled': 0},
+	\	'\.html$': {'ale_linters': ['eslint']},
+	\	'node_modules': {'ale_enabled': 0},
+	\	'build': {'ale_enabled': 0}
+	\}
+	let g:ale_sign_error = '✖'
+	let g:ale_sign_warning = '⚠'
+	let g:ale_lint_delay = 100
+	" let g:ale_lint_on_text_changed = 'never'
 
-let g:mta_filetypes = {
-\	'html': 1,
-\	'xhtml': 1,
-\	'xml': 1,
-\	'svelte': 1,
-\	'jsx': 1,
-\	'javascript.jsx': 1,
-\	'vue': 1
-\}
+	let g:mta_filetypes = {
+	\	'html': 1,
+	\	'xhtml': 1,
+	\	'xml': 1,
+	\	'svelte': 1,
+	\	'jsx': 1,
+	\	'javascript.jsx': 1,
+	\	'vue': 1
+	\}
 
-let g:closetag_filenames = '*.xml,*.html,*.xhtml,*.svelte,*.js,*.jsx,*.vue,*.blade.php'
-let g:closetag_filetypes = 'xml,html,xhtml,svelte,jsx,javascript.jsx,vue,blade'
+	let g:closetag_filenames = '*.xml,*.html,*.xhtml,*.svelte,*.js,*.jsx,*.vue,*.blade.php'
+	let g:closetag_filetypes = 'xml,html,xhtml,svelte,jsx,javascript.jsx,vue,blade'
 
-call jspretmpl#register_tag('css', 'css')
-" call jspretmpl#register_tag('gql', 'graphql')
+	call jspretmpl#register_tag('css', 'css')
+	" call jspretmpl#register_tag('gql', 'graphql')
 
-let g:tagbar_type_rust = {
-    \ 'ctagstype' : 'rust',
-    \ 'kinds' : [
-        \'T:types,type definitions',
-        \'f:functions,function definitions',
-        \'g:enum,enumeration names',
-        \'s:structure names',
-        \'m:modules,module names',
-        \'c:consts,static constants',
-        \'t:traits',
-        \'i:impls,trait implementations',
-    \]
-\}
+	let g:tagbar_type_rust = {
+		\ 'ctagstype' : 'rust',
+		\ 'kinds' : [
+			\'T:types,type definitions',
+			\'f:functions,function definitions',
+			\'g:enum,enumeration names',
+			\'s:structure names',
+			\'m:modules,module names',
+			\'c:consts,static constants',
+			\'t:traits',
+			\'i:impls,trait implementations',
+		\]
+	\}
+endif
 
 " Keymaps
 map <C-P> :FZF<CR>
@@ -475,19 +475,24 @@ map <C-T>o <Plug>(wintabs_only)
 map <C-W>c <Plug>(wintabs_close_window)
 map <C-W>o <Plug>(wintabs_only_window)
 map <C-_> gcc
-map \ :NERDTreeToggle<CR>
-map \| :NERDTreeFind<CR>
-nmap <F8> :TagbarToggle<CR>
-command! Tabc WintabsCloseVimtab
-command! Tabo WintabsOnlyVimtab
-command! Tags TagbarToggle
 
-nmap <silent> ]e <Plug>(ale_next)
-nmap <silent> [e <Plug>(ale_previous)
 
-nmap <Leader>= <Plug>(PrettierAsync)
+if get(g:, 'full_config')
+	map \ :NERDTreeToggle<CR>
+	map \| :NERDTreeFind<CR>
+	nmap <F8> :TagbarToggle<CR>
+	command! Tabc WintabsCloseVimtab
+	command! Tabo WintabsOnlyVimtab
+	command! Tags TagbarToggle
 
-" nmap <C-M> :LivedownToggle<CR>
+	nmap <silent> ]e <Plug>(ale_next)
+	nmap <silent> [e <Plug>(ale_previous)
+
+	nmap <Leader>= <Plug>(PrettierAsync)
+
+	" nmap <C-M> :LivedownToggle<CR>
+endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and syntax
