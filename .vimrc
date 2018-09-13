@@ -273,6 +273,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'Valloric/MatchTagAlways'
 Plug 'justinmk/vim-gtfo'
 Plug 'arthurxavierx/vim-caser'
+Plug 'tmilloff/vim-address-bar'
 
 " File types and syntaxes
 Plug 'jxnblk/vim-mdx-js'
