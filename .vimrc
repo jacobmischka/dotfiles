@@ -61,7 +61,6 @@ set shiftwidth=4                " one tab = four spaces (autoindent)
 set softtabstop=0               " Disable sts
 set tabstop=4					" Tabs are 4 characters
 set shiftround                  " only indent to multiples of shiftwidth
-set smarttab                    " DTRT when shiftwidth/softtabstop diverge
 set fileformats=unix,dos        " unix linebreaks in new files please
 set listchars=tab:↹·,extends:⇉,precedes:⇇,nbsp:␠,trail:␠,nbsp:␣
                                 " appearance of invisible characters
@@ -266,6 +265,7 @@ Plug 'tmilloff/vim-address-bar'
 
 " File types and syntaxes
 Plug 'jxnblk/vim-mdx-js'
+Plug 'rust-lang/rust.vim'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -379,7 +379,7 @@ if get(g:, 'full_config')
 	" 'javascript.typescript': ['javascript-typescript-stdio'],
 	" 'css': ['/home/mischka/.npm-global/bin/css-languageserver', '--stdio']
 	let g:LanguageClient_serverCommands = {
-	\	'rust': ['rustup', 'run', 'nightly', 'rls'],
+	\	'rust': ['rls', '+stable'],
 	\	'javascript': ['/home/mischka/.npm-global/bin/flow-language-server', '--stdio'],
 	\	'vue': ['/home/mischka/.npm-global/bin/vls'],
 	\	'python': ['/home/mischka/.local/bin/pyre', 'persistent'],
@@ -419,7 +419,7 @@ if get(g:, 'full_config')
 	\	'javascript': ['eslint', 'flow-language-server'],
 	\	'html': ['eslint'],
 	\	'python': ['pyre', 'pylint'],
-	\	'rust': ['rls', 'rustc']
+	\	'rust': ['rls']
 	\}
 
 	let g:ale_pattern_options = {
@@ -434,6 +434,7 @@ if get(g:, 'full_config')
 	" let g:ale_lint_on_text_changed = 'never'
 
 	let g:ale_rust_rustc_options = '-o /tmp/rust_out'
+	let g:ale_rust_rls_toolchain = 'stable'
 
 	let g:mta_filetypes = {
 	\	'html': 1,
@@ -450,20 +451,6 @@ if get(g:, 'full_config')
 
 	call jspretmpl#register_tag('css', 'css')
 	" call jspretmpl#register_tag('gql', 'graphql')
-
-	let g:tagbar_type_rust = {
-		\ 'ctagstype' : 'rust',
-		\ 'kinds' : [
-			\'T:types,type definitions',
-			\'f:functions,function definitions',
-			\'g:enum,enumeration names',
-			\'s:structure names',
-			\'m:modules,module names',
-			\'c:consts,static constants',
-			\'t:traits',
-			\'i:impls,trait implementations',
-		\]
-	\}
 endif
 
 " Keymaps
