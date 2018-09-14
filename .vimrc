@@ -1,7 +1,7 @@
 " Current config assumes nvim and vim-plug
 
 " Disable this to disable heavier config options for lightweight environments
-let g:full_config = 0
+let g:full_config = 1
 
 " vim mode preferred!
 set nocompatible
