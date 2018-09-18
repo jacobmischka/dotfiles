@@ -26,6 +26,12 @@ export LESS=-R
 # Custom tools
 export DEV_BROWSER=firefox-developer
 
+# NNN
+export NNN_DE_FILE_MANAGER=nautilus
+export NNN_COPIER="~/.dotfiles/local/bin/nnn-copier.sh"
+export NNN_USE_EDITOR=1
+export NNN_TMPFILE="/tmp/nnn-cwd"
+
 # NPM
 export NPM_CONFIG_PREFIX=~/.npm-global
 
@@ -147,8 +153,13 @@ smartify_selection() {
 	p | smartify | c
 }
 
-cheatsh() {
-	curl "cheat.sh/$1"
+n() {
+        nnn "$@"
+
+        if [ -f $NNN_TMPFILE ]; then
+                . $NNN_TMPFILE
+                rm -f $NNN_TMPFILE > /dev/null
+        fi
 }
 
 if [ -f ~/.bashrc.local ]; then
