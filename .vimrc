@@ -266,6 +266,7 @@ Plug 'tmilloff/vim-address-bar'
 " File types and syntaxes
 Plug 'jxnblk/vim-mdx-js'
 Plug 'rust-lang/rust.vim'
+Plug 'hail2u/vim-css3-syntax'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
