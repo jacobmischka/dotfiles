@@ -308,7 +308,7 @@ if get(g:, 'full_config')
 	Plug 'moll/vim-node'
 	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 	Plug 'majutsushi/tagbar'
-	Plug 'vim-php/tagbar-phpctags.vim'
+	Plug 'vim-php/tagbar-phpctags.vim', {'do': 'make'}
 	Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 	Plug 'ryanoasis/vim-devicons'
 
