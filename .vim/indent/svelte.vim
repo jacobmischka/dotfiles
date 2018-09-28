@@ -21,10 +21,10 @@ endif
 let b:svelte_subtype_indentexpr = &l:indentexpr
 
 let b:did_indent = 1
-let b:did_indent_hbs = 1
+let b:did_indent_svelte = 1
 
 setlocal indentexpr=GetSvelteIndent()
-setlocal indentkeys=o,O,*<Return>,<>>,{,},0),0],o,O,!^F,=end,=else,=elsif,=rescue,=ensure,=when
+setlocal indentkeys=o,O,*<Return>,<>>,{,},0),0],o,O,!^F,:,/
 
 " Only define the function once.
 if exists("*GetSvelteIndent")
@@ -66,19 +66,19 @@ function! GetSvelteIndent(...)
   " tag is on a separate line
 
   " indent after block {#block
-  if line =~# '\v\s*\{\#.*\s*'
+  if line =~ '\v\s*\{\#.*\s*'
     let ind = ind + sw
   endif
   " unindent after block close {/block}
-  if cline =~# '\v^\s*\{\/\S*\}\s*'
+  if cline =~ '\v^\s*\{\/.*\s*$'
     let ind = ind - sw
   endif
   " unindent {:else/then/catch}
-  if cline =~# '\v^\s*\{:\(else\|then\|catch\).*\}\s*$'
+  if cline =~ '\v^\s*\{:.*\s*$'
     let ind = ind - sw
   endif
   " indent again after {:else/then/catch}
-  if line =~# '\v^\s*\{:\(else\|then\|catch\).*\}\s*$'
+  if line =~ '\v^\s*\{:.*\s*$'
     let ind = ind + sw
   endif
 
