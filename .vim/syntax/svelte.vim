@@ -28,6 +28,8 @@ syntax match svelteHelpers '\([#/]\(each\|await\)\)\|\(:\(then\|catch\)\)' conta
 syntax region svelteQString start=/'/ skip=/\\'/ end=/'/ contained containedin=svelteInside
 syntax region svelteDQString start=/"/ skip=/\\"/ end=/"/ contained containedin=svelteInside
 
+syntax match htmlTagName contained "\<[A-Z][.0-9_a-z]*\>"
+
 " Clustering
 syntax cluster htmlSvelteContainer add=htmlHead,htmlTitle,htmlString,htmlH1,htmlH2,htmlH3,htmlH4,htmlH5,htmlH6,htmlLink,htmlBold,htmlUnderline,htmlItalic,htmlValue
 
