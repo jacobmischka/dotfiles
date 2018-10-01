@@ -557,7 +557,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme space-vim-dark
+	colorscheme base16-dracula
 	set background=dark
 	if exists(":AirlineTheme")
 		AirlineTheme dark
