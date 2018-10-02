@@ -90,6 +90,7 @@ alias today="date -I | tc"
 alias today-long="date +'%B %d, %Y' | tc"
 alias smartify="smartypants -a qBDeu"
 alias nvim-gtk="GTK_THEME=Adwaita:dark nvim-gtk"
+alias yaourt="echo 'Use yay'"
 
 # Functions
 function mkcd() {
