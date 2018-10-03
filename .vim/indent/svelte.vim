@@ -24,7 +24,7 @@ let b:did_indent = 1
 let b:did_indent_svelte = 1
 
 setlocal indentexpr=GetSvelteIndent()
-setlocal indentkeys=o,O,*<Return>,<>>,{,},0),0],o,O,!^F,:,/
+setlocal indentkeys=o,O,*<Return>,<>>,{,},0),0],o,O,!^F,:,/,;
 
 " Only define the function once.
 if exists("*GetSvelteIndent")
