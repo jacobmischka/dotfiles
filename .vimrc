@@ -279,6 +279,7 @@ Plug 'dracula/vim'
 Plug 'nightsense/carbonized'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'liuchengxu/space-vim-dark'
+Plug 'cormacrelf/vim-colors-github'
 
 " Heavier
 if get(g:, 'full_config')
