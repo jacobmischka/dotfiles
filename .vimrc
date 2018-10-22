@@ -407,6 +407,9 @@ if get(g:, 'full_config')
 	let g:deoplete#sources.dart = ['LanguageClient']
 	call deoplete#custom#option('auto_complete_delay', 100)
 
+	command! DeopleteDisableBuffer call deoplete#custom#buffer_option('auto_complete', v:false)
+	command! DeopleteEnableBuffer call deoplete#custom#buffer_option('auto_complete', v:true)
+
 	" deoplete tab-complete
 	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
