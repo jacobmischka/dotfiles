@@ -26,6 +26,10 @@ export LESS=-R
 # Custom tools
 export DEV_BROWSER=firefox-developer
 
+# Neovim
+export NVIM_GTK_PREFER_DARK_THEME=1
+export NVIM_GTK_NO_HEADERBAR=1
+
 # NNN
 export NNN_DE_FILE_MANAGER=nautilus
 export NNN_COPIER="~/.dotfiles/local/bin/nnn-copier.sh"
