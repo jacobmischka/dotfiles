@@ -99,7 +99,8 @@ set splitright
 set splitbelow
 set diffopt+=vertical
 set hidden
-
+set wildmode=longest,list,full
+set wildmenu
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
