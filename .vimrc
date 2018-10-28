@@ -268,6 +268,7 @@ Plug 'tmilloff/vim-address-bar'
 Plug 'jxnblk/vim-mdx-js'
 Plug 'rust-lang/rust.vim'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'reasonml-editor/vim-reason-plus'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -381,6 +382,7 @@ if get(g:, 'full_config')
 	" vue: https://github.com/vuejs/vetur/tree/master/server
 	" pyre: https://github.com/facebook/pyre-check
 	" dart: https://github.com/natebosch/dart_language_server
+	" reason: https://github.com/jaredly/reason-language-server
 
 	" Alternatives / others:
 	" 'javascript.typescript': ['javascript-typescript-stdio'],
@@ -390,7 +392,8 @@ if get(g:, 'full_config')
 	\	'javascript': ['/home/mischka/.npm-global/bin/flow-language-server', '--stdio'],
 	\	'vue': ['/home/mischka/.npm-global/bin/vls'],
 	\	'python': ['/home/mischka/.local/bin/pyre', 'persistent'],
-	\	'dart': ['/home/mischka/.pub-cache/bin/dart_language_server']
+	\	'dart': ['/home/mischka/.pub-cache/bin/dart_language_server'],
+	\	'reason': ['/home/mischka/.local/bin/reason-language-server.exe']
 	\}
 
 	let g:LanguageClient_autoStart = 1
