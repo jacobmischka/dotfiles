@@ -293,6 +293,7 @@ if get(g:, 'full_config')
 	Plug 'Valloric/MatchTagAlways'
 	Plug 'justinmk/vim-gtfo'
 	Plug 'arthurxavierx/vim-caser'
+	Plug 'KabbAmine/vCoolor.vim'
 
 	Plug 'w0rp/ale'
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
@@ -460,6 +461,8 @@ if get(g:, 'full_config')
 
 	let g:closetag_filenames = '*.xml,*.html,*.xhtml,*.svelte,*.js,*.jsx,*.vue,*.blade.php'
 	let g:closetag_filetypes = 'xml,html,xhtml,svelte,jsx,javascript.jsx,vue,blade'
+
+	let g:vcoolor_lowercase = 1
 
 	call jspretmpl#register_tag('css', 'css')
 	" call jspretmpl#register_tag('gql', 'graphql')
