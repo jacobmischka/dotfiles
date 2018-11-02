@@ -185,6 +185,9 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 nnoremap <CR> i<CR><Esc>
 
+nmap <silent> ]g :cn<CR>
+nmap <silent> [g :cp<CR>
+
 " Search for current word
 " http://vim.wikia.com/wiki/Search_for_current_word_in_multiple_files
 nnoremap gr :grep <cword><CR>
