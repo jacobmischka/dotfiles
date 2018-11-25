@@ -302,6 +302,7 @@ if get(g:, 'full_config')
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 	Plug 'junegunn/fzf.vim'
 	Plug 'scrooloose/nerdtree'
+	Plug 'mcchrish/nnn.vim'
 	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'terryma/vim-multiple-cursors'
@@ -327,7 +328,7 @@ if get(g:, 'full_config')
 	" Formatters
 	Plug 'prettier/vim-prettier', {
 	\ 'do': 'yarn install',
-	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml'] }
 
 	" Git
 	Plug 'gregsexton/gitv'
