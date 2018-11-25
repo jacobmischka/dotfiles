@@ -355,6 +355,10 @@ let g:NERDTreeMinimalUI = 1
 
 let g:jsx_ext_required = 0
 
+let g:rustfmt_autosave = 1
+
+let g:AutoPairsCenterLine = 0
+
 " Customize fzf colors to match your color scheme
 let $FZF_DEFAULT_COMMAND = 'rg --files --follow'
 let g:fzf_colors =
