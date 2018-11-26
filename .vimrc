@@ -285,6 +285,7 @@ Plug 'nightsense/carbonized'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'cormacrelf/vim-colors-github'
+Plug 'KKPMW/oldbook-vim'
 
 " Heavier
 if get(g:, 'full_config')
