@@ -1,0 +1,11 @@
+set incsearch                   " do incremental searching
+set ignorecase                  " useful more often than not
+set smartcase                   " case-sens when capital letters
+set surround
+set gdefault	                " s///g by default
+" whitespace
+set autoindent                  " keep indenting on <CR>
+set shiftwidth=4                " one tab = four spaces (autoindent)
+set softtabstop=0               " Disable sts
+set tabstop=4					" Tabs are 4 characters
+set shiftround                  " only indent to multiples of shiftwidth
