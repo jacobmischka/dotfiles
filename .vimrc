@@ -298,6 +298,9 @@ if get(g:, 'full_config')
 	Plug 'justinmk/vim-gtfo'
 	Plug 'arthurxavierx/vim-caser'
 	Plug 'KabbAmine/vCoolor.vim'
+	Plug 'gcmt/taboo.vim'
+	Plug 'xolox/vim-misc'
+	Plug 'xolox/vim-session'
 
 	Plug 'w0rp/ale'
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
@@ -380,6 +383,10 @@ let g:fzf_colors =
 
 " Settings
 if get(g:, 'full_config')
+
+	let g:session_autoload = 'no'
+	let g:session_autosave = 'no'
+	let g:session_menu = 0
 
 	" Language Server providers
 	" Note: PHP provider installed via helper plugin above
