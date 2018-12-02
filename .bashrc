@@ -106,7 +106,7 @@ function trim() {
 }
 
 function normalize_whitespace() {
-	sed -E 's/[[:space:]]+/ /g' | trim
+	tr '[[:space:]]' ' ' | sed -E 's/[[:space:]]+/ /g' | trim
 }
 
 function ctrl_v_enter() {
