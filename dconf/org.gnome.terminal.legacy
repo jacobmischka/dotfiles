@@ -37,6 +37,22 @@ use-theme-colors=false
 foreground-color='rgb(255,255,255)'
 scrollback-unlimited=true
 
+[profiles:/:72ed7637-2ea8-45ab-807f-2f8abfe60eda]
+foreground-color='#e9e9f4'
+visible-name='Base 16 Dracula 256'
+palette=['#282936', '#ea51b2', '#00f769', '#ebff87', '#62d6e8', '#b45bcf', '#a1efe4', '#e9e9f4', '#4d4f68', '#ea51b2', '#00f769', '#ebff87', '#62d6e8', '#b45bcf', '#a1efe4', '#f7f7fb']
+default-size-columns=140
+default-size-rows=40
+cursor-background-color='#e9e9f4'
+cursor-colors-set=true
+use-theme-colors=false
+cursor-foreground-color='#282936'
+scrollback-unlimited=true
+use-theme-background=false
+bold-color-same-as-fg=true
+bold-color='#e9e9f4'
+background-color='#282936'
+
 [profiles:/:35d5c306-2b47-4722-8b41-8805ded52110]
 foreground-color='#f8f8f2'
 visible-name='Base 16 Monokai Darker'
