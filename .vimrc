@@ -111,8 +111,10 @@ inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
 " Leader
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = ','
+let g:mapleader = ','
+let maplocalleader = ';'
+let g:maplocalleader = ';'
 
 " Swaps selection with buffer
 vnoremap <C-X> <Esc>`.``gvP``P
@@ -269,6 +271,8 @@ Plug 'tmilloff/vim-address-bar'
 
 " File types and syntaxes
 Plug 'gabrielelana/vim-markdown'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'jxnblk/vim-mdx-js'
 Plug 'rust-lang/rust.vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -585,7 +589,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme base16-dracula
+	colorscheme base16-monokai
 	set background=dark
 	if exists(":AirlineTheme")
 		AirlineTheme dark
@@ -595,6 +599,9 @@ endfunction
 function! LightTheme()
 	colorscheme PaperColor
 	set background=light
+	if exists(":AirlineTheme")
+		AirlineTheme papercolor
+	endif
 endfunction
 
 " Default to dark theme
