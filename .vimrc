@@ -558,6 +558,8 @@ if has("autocmd")
 	" provider for css is breaking quoted attribute entry, making it jump to 1:1
 	autocmd BufNewFile,BufRead *.html set filetype=html.svelte.javascript
 	autocmd BufNewFile,BufRead *.cool set filetype=scala
+	autocmd BufNewFile,BufRead *.md set filetype=markdown.pandoc
+	autocmd BufNewFile,BufRead *.markdown set filetype=markdown.pandoc
 
 	" Manually sync syntax in Vue files
 	" https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
