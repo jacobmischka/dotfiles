@@ -368,7 +368,8 @@ let g:rustfmt_autosave = 1
 
 let g:AutoPairsCenterLine = 0
 
-let g:pandoc#formatting#mode = 'hA'
+let g:pandoc#formatting#mode = 'h'
+let g:pandoc#modules#disabled = ['complete']
 
 " Customize fzf colors to match your color scheme
 let $FZF_DEFAULT_COMMAND = 'rg --files --follow'
