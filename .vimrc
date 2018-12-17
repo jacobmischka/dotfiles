@@ -416,7 +416,6 @@ if get(g:, 'full_config')
 	" 'css': ['/home/mischka/.npm-global/bin/css-languageserver', '--stdio']
 	let g:LanguageClient_serverCommands = {
 	\	'rust': ['rls', '+stable'],
-	\	'javascript': ['/home/mischka/.npm-global/bin/flow-language-server', '--stdio'],
 	\	'vue': ['/home/mischka/.npm-global/bin/vls'],
 	\	'python': ['/home/mischka/.local/bin/pyre', 'persistent'],
 	\	'dart': ['/home/mischka/.pub-cache/bin/dart_language_server'],
@@ -444,8 +443,6 @@ if get(g:, 'full_config')
 	" deoplete tab-complete
 	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-	let g:javascript_plugin_flow = 1
-
 	let g:EclimFileTypeValidate = 0
 	let g:EclimCValidate = 0
 	let g:EclimHtmlValidate = 0
@@ -455,7 +452,7 @@ if get(g:, 'full_config')
 	let g:EclimPythonValidate = 0
 
 	let g:ale_linters = {
-	\	'javascript': ['eslint', 'flow-language-server'],
+	\	'javascript': ['eslint'],
 	\	'html': ['eslint'],
 	\	'python': ['pyre', 'pylint'],
 	\	'rust': ['rls'],
