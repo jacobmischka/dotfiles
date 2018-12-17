@@ -595,7 +595,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme base16-monokai
+	colorscheme base16-materia
 	set background=dark
 	if exists(":AirlineTheme")
 		AirlineTheme dark
