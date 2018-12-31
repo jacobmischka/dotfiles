@@ -332,7 +332,7 @@ if get(g:, 'full_config')
 
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'autozimu/LanguageClient-neovim'
-	Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+	Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer upgrade && composer run-script parse-stubs'}
 
 	" Formatters
 	Plug 'prettier/vim-prettier', {
