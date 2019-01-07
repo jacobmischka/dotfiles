@@ -116,9 +116,6 @@ let g:mapleader = ','
 let maplocalleader = ';'
 let g:maplocalleader = ';'
 
-" Swaps selection with buffer
-vnoremap <C-X> <Esc>`.``gvP``P
-
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python'
 
@@ -144,10 +141,6 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
-" Stamping (replace word with yanked text)
-nnoremap <leader>S "_diwP
-vnoremap <leader>S "_d"0P
-
 " Copy current paths to system clipboard
 " Relative path
 nnoremap <leader>cf :let @+=expand("%")<CR>
@@ -168,6 +161,14 @@ cmap <C-V> <C-R>+
 " Saving
 nmap <C-S> :w<CR>
 imap <C-S> <Esc>:w<CR>a
+
+" Text objects
+" ie = inner entire buffer
+onoremap ie :exec "normal! ggVG"<CR>
+
+" iv = current viewable text in the buffer
+onoremap iv :exec "normal! HVL"<CR>
+
 
 " From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
 " Shift-Alt-j/k deletes blank line below/above, and Alt-j/k inserts.
@@ -268,6 +269,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-surround'
 Plug 'chaoren/vim-wordmotion'
 Plug 'tmilloff/vim-address-bar'
+Plug 'svermeulen/vim-subversive'
 
 " File types and syntaxes
 Plug 'gabrielelana/vim-markdown'
@@ -355,7 +357,15 @@ let g:html_indent_style1 = 'inc'
 let g:html_indent_script1 = 'inc'
 let g:html_indent_inctags = 'html,body,head,tbody,p'
 
-let g:wordmotion_prefix = '<Leader>'
+let g:wordmotion_mappings = {
+\	'w': '<A-w>',
+\	'b': '<A-b>',
+\	'e': '<A-e>',
+\	'ge': 'g<A-e>',
+\	'aw': 'a<A-w>',
+\	'iw': 'i<A-w>',
+\	'<C-R><C-W>': '<C-R><A-w>'
+\}
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowIgnoredStatus = 1
@@ -486,6 +496,8 @@ if get(g:, 'full_config')
 	let g:closetag_filetypes = 'xml,html,xhtml,svelte,jsx,javascript.jsx,vue,blade'
 
 	let g:vcoolor_lowercase = 1
+	let g:vcoolor_disable_mappings = 1
+	let g:vcoolor_map = '<A-c>'
 
 	call jspretmpl#register_tag('css', 'css')
 	" call jspretmpl#register_tag('gql', 'graphql')
@@ -504,6 +516,13 @@ map <C-W>c <Plug>(wintabs_close_window)
 map <C-W>o <Plug>(wintabs_only_window)
 map <C-_> gcc
 
+nmap s <Plug>(SubversiveSubstitute)
+nmap ss <Plug>(SubversiveSubstituteLine)
+nmap S <Plug>(SubversiveSubstituteToEndOfLine)
+
+nmap <leader>s <Plug>(SubversiveSubstituteRange)
+xmap <leader>s <Plug>(SubversiveSubstituteRange)
+nmap <leader>ss <Plug>(SubversiveSubstituteWordRange)
 
 if get(g:, 'full_config')
 	map \ :NERDTreeToggle<CR>
