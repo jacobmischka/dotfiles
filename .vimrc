@@ -526,7 +526,6 @@ nmap <leader>s <Plug>(SubversiveSubstituteRange)
 xmap <leader>s <Plug>(SubversiveSubstituteRange)
 nmap <leader>ss <Plug>(SubversiveSubstituteWordRange)
 
-xmap s <Plug>(SubversiveSubstitute)
 xmap p <Plug>(SubversiveSubstitute)
 xmap P <Plug>(SubversiveSubstitute)
 
