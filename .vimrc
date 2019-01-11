@@ -270,6 +270,7 @@ Plug 'tpope/vim-surround'
 Plug 'chaoren/vim-wordmotion'
 Plug 'tmilloff/vim-address-bar'
 Plug 'svermeulen/vim-subversive'
+Plug 'svermeulen/vim-yoink'
 
 " File types and syntaxes
 Plug 'gabrielelana/vim-markdown'
@@ -366,6 +367,18 @@ let g:wordmotion_mappings = {
 \	'iw': 'i<A-w>',
 \	'<C-R><C-W>': '<C-R><A-w>'
 \}
+
+nmap <C-n> <Plug>(YoinkPostPasteSwapBack)
+nmap <C-m> <Plug>(YoinkPostPasteSwapForward)
+
+nmap p <Plug>(YoinkPaste_p)
+nmap P <Plug>(YoinkPaste_P)
+
+nmap [y <Plug>(YoinkRotateBack)
+nmap ]y <Plug>(YoinkRotateForward)
+
+nmap y <Plug>(YoinkYankPreserveCursorPosition)
+xmap y <Plug>(YoinkYankPreserveCursorPosition)
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowIgnoredStatus = 1
