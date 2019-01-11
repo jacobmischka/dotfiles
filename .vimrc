@@ -339,8 +339,9 @@ if get(g:, 'full_config')
 
 	" Formatters
 	Plug 'prettier/vim-prettier', {
-	\ 'do': 'yarn install',
-	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml'] }
+		\ 'do': 'yarn install',
+		\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml']
+	\ }
 
 	" Git
 	Plug 'gregsexton/gitv'
@@ -367,18 +368,6 @@ let g:wordmotion_mappings = {
 \	'iw': 'i<A-w>',
 \	'<C-R><C-W>': '<C-R><A-w>'
 \}
-
-nmap <C-n> <Plug>(YoinkPostPasteSwapBack)
-nmap <C-m> <Plug>(YoinkPostPasteSwapForward)
-
-nmap p <Plug>(YoinkPaste_p)
-nmap P <Plug>(YoinkPaste_P)
-
-nmap [y <Plug>(YoinkRotateBack)
-nmap ]y <Plug>(YoinkRotateForward)
-
-nmap y <Plug>(YoinkYankPreserveCursorPosition)
-xmap y <Plug>(YoinkYankPreserveCursorPosition)
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowIgnoredStatus = 1
@@ -536,6 +525,22 @@ nmap S <Plug>(SubversiveSubstituteToEndOfLine)
 nmap <leader>s <Plug>(SubversiveSubstituteRange)
 xmap <leader>s <Plug>(SubversiveSubstituteRange)
 nmap <leader>ss <Plug>(SubversiveSubstituteWordRange)
+
+xmap s <Plug>(SubversiveSubstitute)
+xmap p <Plug>(SubversiveSubstitute)
+xmap P <Plug>(SubversiveSubstitute)
+
+nmap <C-[> <Plug>(YoinkPostPasteSwapBack)
+nmap <C-]> <Plug>(YoinkPostPasteSwapForward)
+
+nmap p <Plug>(YoinkPaste_p)
+nmap P <Plug>(YoinkPaste_P)
+
+nmap [y <Plug>(YoinkRotateBack)
+nmap ]y <Plug>(YoinkRotateForward)
+
+nmap <localleader>y <Plug>(YoinkYankPreserveCursorPosition)
+xmap <localleader>y <Plug>(YoinkYankPreserveCursorPosition)
 
 if get(g:, 'full_config')
 	map \ :NERDTreeToggle<CR>
