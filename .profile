@@ -2,7 +2,7 @@
 export GOPATH=$HOME/go
 export HOMEPATH=$HOME/.local/bin
 export ANDROID_HOME=$HOME/Android/Sdk
-export ANDROIDPATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export ANDROIDPATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 export NPMPATH=$HOME/.npm-global/bin
 export YARNPATH=$HOME/.yarn/bin
 export CARGOPATH=$HOME/.cargo/bin
