@@ -501,6 +501,8 @@ if get(g:, 'full_config')
 	let g:vcoolor_disable_mappings = 1
 	let g:vcoolor_map = '<A-c>'
 
+	let g:yoinkIncludeDeleteOperations = 1
+
 	call jspretmpl#register_tag('css', 'css')
 	" call jspretmpl#register_tag('gql', 'graphql')
 endif
