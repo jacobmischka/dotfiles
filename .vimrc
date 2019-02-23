@@ -276,7 +276,6 @@ Plug 'svermeulen/vim-yoink'
 Plug 'gabrielelana/vim-markdown'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-" Plug 'jxnblk/vim-mdx-js'
 Plug 'rust-lang/rust.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'reasonml-editor/vim-reason-plus'
@@ -342,6 +341,7 @@ if get(g:, 'full_config')
 		\ 'do': 'yarn install',
 		\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml']
 	\ }
+	Plug 'ambv/black'
 
 	" Git
 	Plug 'gregsexton/gitv'
