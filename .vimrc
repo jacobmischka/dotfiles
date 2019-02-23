@@ -601,6 +601,8 @@ if has("autocmd")
 	" https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
 	autocmd FileType vue syntax sync fromstart
 
+	autocmd BufWritePre *.py execute ':Black'
+
 	" autocmd FileType javascript,javascript.jsx JsPreTmpl html
 
 	" Enable deoplete in insert mode
