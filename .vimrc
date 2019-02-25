@@ -592,7 +592,8 @@ if has("autocmd")
 
 	" I'd like to do html.svelte.javascript.css, but for some reason the deoplete
 	" provider for css is breaking quoted attribute entry, making it jump to 1:1
-	autocmd BufNewFile,BufRead *.html set filetype=html.svelte.javascript
+	autocmd BufNewFile,BufRead *.html set filetype=html.javascript
+	autocmd BufNewFile,BufRead *.svelte set filetype=html.svelte.javascript
 	autocmd BufNewFile,BufRead *.cool set filetype=scala
 	autocmd BufNewFile,BufRead *.md set filetype=markdown.pandoc
 	autocmd BufNewFile,BufRead *.markdown set filetype=markdown.pandoc
