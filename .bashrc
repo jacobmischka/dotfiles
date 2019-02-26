@@ -71,9 +71,9 @@ export PS1="\$([[ -n \$PS1_SHOW_TIMESTAMP ]] && echo '$TIMESTAMP')${GREY}\h ${OR
 # Aliases
 alias vim="nvim"
 alias ls="ls_fallback"
-alias ll="ls -lh"
+alias ll="ls -l"
 alias la="ls -a"
-alias lal="ls -alh"
+alias lal="ls -al"
 alias trash="trash-put"
 alias tp="trash-put"
 alias grep="grep --color=auto"
