@@ -70,7 +70,7 @@ export PS1="\$([[ -n \$PS1_SHOW_TIMESTAMP ]] && echo '$TIMESTAMP')${GREY}\h ${OR
 
 # Aliases
 alias vim="nvim"
-alias ls="ls --color=auto"
+alias ls="ls_fallback"
 alias ll="ls -lh"
 alias la="ls -a"
 alias lal="ls -alh"
@@ -97,6 +97,15 @@ alias yaourt="echo 'Use yay'"
 # Functions
 function mkcd() {
 	mkdir -p "$1" && cd -P "$1"
+}
+
+function ls_fallback() {
+	if hash lsd 2>/dev/null; then
+		lsd "$@"
+	else
+		echo 'Install lsd!'
+		ls "$@"
+	fi
 }
 
 function github_clone() {
