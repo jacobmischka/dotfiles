@@ -503,6 +503,12 @@ if get(g:, 'full_config')
 
 	let g:yoinkIncludeDeleteOperations = 1
 
+	if !exists('g:airline_symbols')
+		let g:airline_symbols = {}
+	endif
+
+	let g:airline_symbols.maxlinenr = ''
+
 	call jspretmpl#register_tag('css', 'css')
 	" call jspretmpl#register_tag('gql', 'graphql')
 endif
