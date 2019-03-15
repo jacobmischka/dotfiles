@@ -515,7 +515,6 @@ endif
 
 " Keymaps
 map <C-P> :FZF<CR>
-map <C-B> :Buffers<CR>
 map <C-H> <Plug>(wintabs_previous)
 map <C-L> <Plug>(wintabs_next)
 map <C-T>h <Plug>(wintabs_move_left)
