@@ -506,6 +506,8 @@ if get(g:, 'full_config')
 
 	let g:yoinkIncludeDeleteOperations = 1
 
+	let g:nremap = {'[e': '', ']e': ''}
+
 	if !exists('g:airline_symbols')
 		let g:airline_symbols = {}
 	endif
