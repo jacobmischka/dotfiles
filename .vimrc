@@ -204,10 +204,14 @@ function! Ender()
 endfunction
 
 " Disable arrow movement in normal mode, resize splits instead.
-nnoremap <Up>    :resize +1<CR>
-nnoremap <Down>  :resize -1<CR>
-nnoremap <Left>  :vertical resize -1<CR>
-nnoremap <Right> :vertical resize +1<CR>
+nnoremap <C-Up>    :resize +1<CR>
+nnoremap <C-Down>  :resize -1<CR>
+nnoremap <C-Left>  :vertical resize -1<CR>
+nnoremap <C-Right> :vertical resize +1<CR>
+nnoremap <Up>    :resize +10<CR>
+nnoremap <Down>  :resize -10<CR>
+nnoremap <Left>  :vertical resize -10<CR>
+nnoremap <Right> :vertical resize +10<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
