@@ -90,8 +90,8 @@ set autoread                    " reload changed files
 set scrolloff=2                 " always have 2 lines of context on the screen
 set foldmethod=indent           " auto-fold based on indentation.  (py-friendly)
 set foldlevel=99
-set timeoutlen=1000             " wait 1s for mappings to finish
-set ttimeoutlen=0             " wait 0.1s for xterm keycodes to finish
+set timeoutlen=500				" wait 0.5s for mappings to finish
+set ttimeoutlen=0				" wait 0s for xterm keycodes to finish
 set nrformats-=octal            " don't try to auto-increment 'octal'
 set grepprg=rg\ --vimgrep
 
