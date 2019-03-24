@@ -286,6 +286,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'reasonml-editor/vim-reason-plus'
+Plug 'lervag/vimtex'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -334,6 +335,7 @@ if get(g:, 'full_config')
 	Plug 'wesQ3/vim-windowswap'
 	Plug 'moll/vim-node'
 	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+	Plug 'ludovicchabant/vim-gutentags'
 	Plug 'majutsushi/tagbar'
 	Plug 'vim-php/tagbar-phpctags.vim', {'do': 'make'}
 	Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
@@ -390,6 +392,13 @@ let g:AutoPairsCenterLine = 0
 let g:pandoc#formatting#mode = 'h'
 let g:pandoc#modules#disabled = ['completion']
 let g:pandoc#filetypes#pandoc_markdown = 0
+
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_mode = 0
+let g:vimtex_compiler_progname = 'nvr'
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " Customize fzf colors to match your color scheme
 let $FZF_DEFAULT_COMMAND = 'rg --files --follow'
@@ -651,7 +660,7 @@ function! DarkTheme()
 	colorscheme base16-circus
 	set background=dark
 	if exists(":AirlineTheme")
-		AirlineTheme dark
+		AirlineTheme base16
 	endif
 endfunction
 
