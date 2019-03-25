@@ -633,6 +633,7 @@ if has("autocmd")
 	" Enable deoplete in insert mode
 	if get(g:, 'full_config')
 		autocmd InsertEnter * call deoplete#enable()
+		autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
 	endif
 
 	autocmd DirChanged * call SourceIfExists("./.vimrc.local")
