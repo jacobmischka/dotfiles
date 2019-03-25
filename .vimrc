@@ -335,7 +335,7 @@ if get(g:, 'full_config')
 	Plug 'wesQ3/vim-windowswap'
 	Plug 'moll/vim-node'
 	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-	Plug 'ludovicchabant/vim-gutentags'
+	" Plug 'ludovicchabant/vim-gutentags'
 	Plug 'majutsushi/tagbar'
 	Plug 'vim-php/tagbar-phpctags.vim', {'do': 'make'}
 	Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
@@ -633,7 +633,7 @@ if has("autocmd")
 	" Enable deoplete in insert mode
 	if get(g:, 'full_config')
 		autocmd InsertEnter * call deoplete#enable()
-		autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
+		autocmd FileType gitignore,gitcommit,gitrebase let g:gutentags_enabled=0
 	endif
 
 	autocmd DirChanged * call SourceIfExists("./.vimrc.local")
