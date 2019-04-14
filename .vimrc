@@ -316,6 +316,7 @@ if get(g:, 'full_config')
 	Plug 'gcmt/taboo.vim'
 	Plug 'xolox/vim-misc'
 	Plug 'xolox/vim-session'
+	Plug 'luochen1990/rainbow'
 
 	Plug 'w0rp/ale'
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
@@ -529,6 +530,9 @@ if get(g:, 'full_config')
 
 	call jspretmpl#register_tag('css', 'css')
 	" call jspretmpl#register_tag('gql', 'graphql')
+
+	let g:rainbow_active = 1
+
 endif
 
 " Keymaps
