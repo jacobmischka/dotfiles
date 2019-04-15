@@ -295,12 +295,13 @@ Plug 'joshdick/onedark.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'chriskempson/base16-vim'
 Plug 'jacoborus/tender.vim'
-Plug 'dracula/vim'
 Plug 'nightsense/carbonized'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'KKPMW/oldbook-vim'
+Plug 'haishanh/night-owl.vim'
+Plug 'rainglow/vim'
 
 " Heavier
 if get(g:, 'full_config')
@@ -662,8 +663,9 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme base16-circus
+	colorscheme goldfish
 	set background=dark
+	let g:airline_theme='base16'
 	if exists(":AirlineTheme")
 		AirlineTheme base16
 	endif
@@ -672,6 +674,7 @@ endfunction
 function! LightTheme()
 	colorscheme PaperColor
 	set background=light
+	let g:airline_theme='papercolor'
 	if exists(":AirlineTheme")
 		AirlineTheme papercolor
 	endif
