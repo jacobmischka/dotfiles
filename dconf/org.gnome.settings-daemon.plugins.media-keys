@@ -1,22 +1,22 @@
 [/]
-decrease-text-size='<Alt><Super>bracketleft'
-next='<Super>bracketright'
-play='<Super>backslash'
-toggle-contrast='<Alt><Super>backslash'
-volume-up='<Super>equal'
-volume-down='<Super>minus'
-increase-text-size='<Alt><Super>bracketright'
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-volume-mute='<Super>0'
-previous='<Super>bracketleft'
+decrease-text-size='<Alt><Super>bracketleft'
+increase-text-size='<Alt><Super>bracketright'
+next='<Super>bracketright'
 on-screen-keyboard='<Alt><Super>k'
-
-[custom-keybindings/custom1]
-binding='<Super>t'
-command='gnome-terminal'
-name='Terminal'
+play='<Super>backslash'
+previous='<Super>bracketleft'
+toggle-contrast='<Alt><Super>backslash'
+volume-down='<Super>minus'
+volume-mute='<Super>0'
+volume-up='<Super>equal'
 
 [custom-keybindings/custom0]
 binding='<Primary><Alt>t'
+command='gnome-terminal'
+name='Terminal'
+
+[custom-keybindings/custom1]
+binding='<Super>t'
 command='gnome-terminal'
 name='Terminal'
