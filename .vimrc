@@ -449,7 +449,8 @@ if get(g:, 'full_config')
 	\	'vue': ['/home/mischka/.npm-global/bin/vls'],
 	\	'python': ['/home/mischka/.local/bin/pyre', 'persistent'],
 	\	'dart': ['/home/mischka/.pub-cache/bin/dart_language_server'],
-	\	'reason': ['/home/mischka/.local/bin/reason-language-server.exe']
+	\	'reason': ['/home/mischka/.local/bin/reason-language-server.exe'],
+	\	'svelte': ['/home/mischka/.local/bin/svelteserver']
 	\}
 
 	let g:LanguageClient_autoStart = 1
