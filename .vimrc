@@ -274,6 +274,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
 Plug 'chaoren/vim-wordmotion'
 Plug 'tmilloff/vim-address-bar'
 Plug 'svermeulen/vim-subversive'
@@ -350,7 +351,7 @@ if get(g:, 'full_config')
 	" Formatters
 	Plug 'prettier/vim-prettier', {
 		\ 'do': 'yarn install',
-		\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml']
+		\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml', 'svelte']
 	\ }
 	Plug 'ambv/black'
 
