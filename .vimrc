@@ -332,6 +332,7 @@ if get(g:, 'full_config')
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'severin-lemaignan/vim-minimap'
 	Plug 'tpope/vim-sensible'
+	Plug 'tpope/vim-abolish'
 	Plug 'ap/vim-css-color'
 	Plug 'Quramy/vim-js-pretty-template'
 	Plug 'godlygeek/tabular'
