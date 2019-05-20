@@ -345,8 +345,9 @@ if get(g:, 'full_config')
 	Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 	Plug 'ryanoasis/vim-devicons'
 
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'autozimu/LanguageClient-neovim'
+	Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+	" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	" Plug 'autozimu/LanguageClient-neovim'
 	Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer upgrade && composer run-script parse-stubs'}
 
 	" Formatters
@@ -429,6 +430,17 @@ if get(g:, 'full_config')
 	let g:session_autosave = 'no'
 	let g:session_menu = 0
 
+	" use <tab> for trigger completion and navigate to the next complete item
+	function! s:check_back_space() abort
+		let col = col('.') - 1
+		return !col || getline('.')[col - 1]  =~ '\s'
+	endfunction
+
+	inoremap <silent><expr> <TAB>
+		\ pumvisible() ? "\<C-n>" :
+		\ <SID>check_back_space() ? "\<TAB>" :
+		\ coc#refresh()
+
 	" Language Server providers
 	" Note: PHP provider installed via helper plugin above
 	"
@@ -468,7 +480,7 @@ if get(g:, 'full_config')
 	let g:deoplete#sources.python = ['LanguageClient']
 	let g:deoplete#sources.php = ['LanguageClient']
 	let g:deoplete#sources.dart = ['LanguageClient']
-	call deoplete#custom#option('auto_complete_delay', 100)
+	" call deoplete#custom#option('auto_complete_delay', 100)
 
 	command! DeopleteDisableBuffer call deoplete#custom#buffer_option('auto_complete', v:false)
 	command! DeopleteEnableBuffer call deoplete#custom#buffer_option('auto_complete', v:true)
@@ -488,9 +500,9 @@ if get(g:, 'full_config')
 	\	'javascript': ['eslint'],
 	\	'html': ['eslint'],
 	\	'python': ['pyre', 'pylint'],
-	\	'rust': ['rls'],
 	\	'markdown': ['alex', 'proselint', 'writegood']
 	\}
+	"\	'rust': ['rls'],
 
 	let g:ale_pattern_options = {
 	\	'\.min.js$': {'ale_enabled': 0},
@@ -639,10 +651,10 @@ if has("autocmd")
 	" autocmd FileType javascript,javascript.jsx JsPreTmpl html
 
 	" Enable deoplete in insert mode
-	if get(g:, 'full_config')
-		autocmd InsertEnter * call deoplete#enable()
-		autocmd FileType gitignore,gitcommit,gitrebase let g:gutentags_enabled=0
-	endif
+	" if get(g:, 'full_config')
+	" 	autocmd InsertEnter * call deoplete#enable()
+	" 	autocmd FileType gitignore,gitcommit,gitrebase let g:gutentags_enabled=0
+	" endif
 
 	autocmd DirChanged * call SourceIfExists("./.vimrc.local")
 endif " has("autocmd")
