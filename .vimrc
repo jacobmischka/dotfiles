@@ -346,9 +346,6 @@ if get(g:, 'full_config')
 	Plug 'ryanoasis/vim-devicons'
 
 	Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-	" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	" Plug 'autozimu/LanguageClient-neovim'
-	Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer upgrade && composer run-script parse-stubs'}
 
 	" Formatters
 	Plug 'prettier/vim-prettier', {
@@ -458,34 +455,8 @@ if get(g:, 'full_config')
 	" Alternatives / others:
 	" 'javascript.typescript': ['javascript-typescript-stdio'],
 	" 'css': ['/home/mischka/.npm-global/bin/css-languageserver', '--stdio']
-	let g:LanguageClient_serverCommands = {
-	\	'rust': ['rls', '+stable'],
-	\	'vue': ['/home/mischka/.npm-global/bin/vls'],
-	\	'python': ['/home/mischka/.local/bin/pyre', 'persistent'],
-	\	'dart': ['/home/mischka/.pub-cache/bin/dart_language_server'],
-	\	'reason': ['/home/mischka/.local/bin/reason-language-server.exe'],
-	\	'svelte': ['/home/mischka/.local/bin/svelteserver']
-	\}
 
-	let g:LanguageClient_autoStart = 1
-	let g:LanguageClient_diagnosticsEnable = 0
-
-	let g:deoplete#enable_smart_case = 1
-	let g:deoplete#sources = {}
-	let g:deoplete#sources.rust = ['LanguageClient']
-	let g:deoplete#sources.javascript = ['LanguageClient']
-	let g:deoplete#sources.svelte = ['LanguageClient']
-	let g:deoplete#sources.css = ['LanguageClient']
-	let g:deoplete#sources.vue = ['LanguageClient']
-	let g:deoplete#sources.python = ['LanguageClient']
-	let g:deoplete#sources.php = ['LanguageClient']
-	let g:deoplete#sources.dart = ['LanguageClient']
-	" call deoplete#custom#option('auto_complete_delay', 100)
-
-	command! DeopleteDisableBuffer call deoplete#custom#buffer_option('auto_complete', v:false)
-	command! DeopleteEnableBuffer call deoplete#custom#buffer_option('auto_complete', v:true)
-
-	" deoplete tab-complete
+	" tab-complete
 	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 	let g:EclimFileTypeValidate = 0
@@ -634,8 +605,6 @@ if has("autocmd")
 	autocmd FileType text,markdown setlocal spell spelllang=en_us
 
 
-	" I'd like to do html.svelte.javascript.css, but for some reason the deoplete
-	" provider for css is breaking quoted attribute entry, making it jump to 1:1
 	autocmd BufNewFile,BufRead *.html set filetype=html.javascript
 	autocmd BufNewFile,BufRead *.svelte set filetype=html.svelte.javascript
 	autocmd BufNewFile,BufRead *.cool set filetype=scala
@@ -649,12 +618,6 @@ if has("autocmd")
 	autocmd BufWritePre *.py execute ':Black'
 
 	" autocmd FileType javascript,javascript.jsx JsPreTmpl html
-
-	" Enable deoplete in insert mode
-	" if get(g:, 'full_config')
-	" 	autocmd InsertEnter * call deoplete#enable()
-	" 	autocmd FileType gitignore,gitcommit,gitrebase let g:gutentags_enabled=0
-	" endif
 
 	autocmd DirChanged * call SourceIfExists("./.vimrc.local")
 endif " has("autocmd")
