@@ -288,6 +288,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'lervag/vimtex'
+Plug 'https://bitbucket.org/ccorrodi/sasylfvim.git'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -471,9 +472,9 @@ if get(g:, 'full_config')
 	\	'javascript': ['eslint'],
 	\	'html': ['eslint'],
 	\	'python': ['pyre', 'pylint'],
-	\	'markdown': ['alex', 'proselint', 'writegood']
+	\	'markdown': ['alex', 'proselint', 'writegood'],
+	\	'java': []
 	\}
-	"\	'rust': ['rls'],
 
 	let g:ale_pattern_options = {
 	\	'\.min.js$': {'ale_enabled': 0},
