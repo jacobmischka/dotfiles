@@ -567,10 +567,33 @@ if get(g:, 'full_config')
 	command! Tabo WintabsOnlyVimtab
 	command! Tags TagbarToggle
 
-	nmap <silent> ]e <Plug>(ale_next)
-	nmap <silent> [e <Plug>(ale_previous)
+	nmap <silent> ]w <Plug>(ale_next)
+	nmap <silent> [w <Plug>(ale_previous)
+
+	nmap <silent> ]e <Plug>(coc-diagnostic-next)
+	nmap <silent> [e <Plug>(coc-diagnostic-prev)
+	nmap <silent> <C-e> <Plug>(coc-diagnostic-info)
+	nmap <silent> <C-S-r> <Plug>(coc-rename)
 
 	nmap <Leader>= <Plug>(PrettierAsync)
+
+
+	" create a part for server status.
+	function! GetServerStatus()
+		return get(g:, 'coc_status', '')
+	endfunction
+	call airline#parts#define_function('coc', 'GetServerStatus')
+	function! AirlineInit()
+		let g:airline_section_a = airline#section#create(['coc'])
+
+		" use error & warning count of diagnostics form coc.nvim
+		let g:airline_section_error .= '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+		let g:airline_section_warning .= '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+	endfunction
+	autocmd User AirlineAfterInit call AirlineInit()
+
+	" exclude overwrite statusline of list filetype
+	let g:airline_exclude_filetypes = ["list"]
 
 	" nmap <C-M> :LivedownToggle<CR>
 endif
