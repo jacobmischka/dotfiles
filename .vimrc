@@ -304,6 +304,7 @@ Plug 'cormacrelf/vim-colors-github'
 Plug 'KKPMW/oldbook-vim'
 Plug 'haishanh/night-owl.vim'
 Plug 'rainglow/vim'
+Plug 'jaredgorski/SpaceCamp'
 
 " Heavier
 if get(g:, 'full_config')
@@ -573,7 +574,7 @@ if get(g:, 'full_config')
 	nmap <silent> ]e <Plug>(coc-diagnostic-next)
 	nmap <silent> [e <Plug>(coc-diagnostic-prev)
 	nmap <silent> <C-e> <Plug>(coc-diagnostic-info)
-	nmap <silent> <C-S-r> <Plug>(coc-rename)
+	nmap <silent> <A-r> <Plug>(coc-rename)
 
 	nmap <Leader>= <Plug>(PrettierAsync)
 
