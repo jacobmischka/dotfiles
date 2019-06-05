@@ -470,8 +470,8 @@ if get(g:, 'full_config')
 	let g:EclimPythonValidate = 0
 
 	let g:ale_linters = {
-	\	'javascript': ['eslint'],
-	\	'html': ['eslint'],
+	\	'javascript': [],
+	\	'html': [],
 	\	'python': ['pyre', 'pylint'],
 	\	'markdown': ['alex', 'proselint', 'writegood'],
 	\	'java': []
@@ -479,7 +479,6 @@ if get(g:, 'full_config')
 
 	let g:ale_pattern_options = {
 	\	'\.min.js$': {'ale_enabled': 0},
-	\	'\.html$': {'ale_linters': ['eslint']},
 	\	'node_modules': {'ale_enabled': 0},
 	\	'build': {'ale_enabled': 0}
 	\}
