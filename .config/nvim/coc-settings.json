@@ -1,4 +1,11 @@
 {
+	"coc.preferences.rootPatterns": [
+		".vim",
+		".venv",
+		".git",
+		".hg",
+		".projections.json"
+	],
 	"eslint.filetypes": [
 		"javascript",
 		"javascriptreact",
