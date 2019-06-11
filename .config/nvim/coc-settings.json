@@ -13,6 +13,7 @@
 		"typescriptreact",
 		"html",
 		"svelte",
+		"html.svelte",
 		"html.javascript",
 		"html.svelte.javascript"
 	]
