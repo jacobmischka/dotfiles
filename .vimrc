@@ -191,6 +191,9 @@ nnoremap <CR> i<CR><Esc>
 nmap <silent> ]g :cn<CR>
 nmap <silent> [g :cp<CR>
 
+" Select previous paste
+nnoremap gp `[v`]
+
 " Search for current word
 " http://vim.wikia.com/wiki/Search_for_current_word_in_multiple_files
 nnoremap gr :grep <cword><CR>
