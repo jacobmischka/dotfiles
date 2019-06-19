@@ -475,6 +475,8 @@ if get(g:, 'full_config')
 	let g:ale_linters = {
 	\	'javascript': [],
 	\	'html': [],
+	\	'vue': [],
+	\	'rust': [],
 	\	'python': ['pyre', 'pylint'],
 	\	'markdown': ['alex', 'proselint', 'writegood'],
 	\	'java': []
