@@ -577,7 +577,7 @@ if get(g:, 'full_config')
 
 	nmap <silent> ]e <Plug>(coc-diagnostic-next)
 	nmap <silent> [e <Plug>(coc-diagnostic-prev)
-	nmap <silent> <C-e> <Plug>(coc-diagnostic-info)
+	nmap <silent> <A-e> <Plug>(coc-diagnostic-info)
 	nmap <silent> <A-r> <Plug>(coc-rename)
 
 	nmap <Leader>= <Plug>(PrettierAsync)
