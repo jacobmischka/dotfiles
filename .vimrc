@@ -390,6 +390,9 @@ let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDSpaceDelims = 1
 let g:NERDTreeMinimalUI = 1
 
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
 let g:jsx_ext_required = 0
 
 let g:rustfmt_autosave = 1
