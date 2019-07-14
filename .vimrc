@@ -350,7 +350,7 @@ if get(g:, 'full_config')
 	Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 	Plug 'ryanoasis/vim-devicons'
 
-	Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+	Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 	" Formatters
 	Plug 'prettier/vim-prettier', {
