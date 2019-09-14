@@ -24,8 +24,8 @@ include "%L"
 <Multi_key> <minus> <less>                  : "←" U2190
 <Multi_key> <minus> <greater>               : "→" U2192
 <Multi_key> <less> <greater>                : "↔" U2194
-<Multi_key> <circumflex> <bar>              : "↑" U2191
-<Multi_key> <bar> <circumflex>              : "↑" U2191
+# <Multi_key> <circumflex> <bar>              : "↑" U2191
+# <Multi_key> <bar> <circumflex>              : "↑" U2191
 <Multi_key> <v> <bar>                       : "↓" U2193
 <Multi_key> <bar> <v>                       : "↓" U2193
 <Multi_key> <bar> <less> <minus>            : "↚" U219A
@@ -94,7 +94,7 @@ include "%L"
 <Multi_key> <parenleft> <colon>             : "☻" U263b
 <Multi_key> <less> <3>                      : "♥" U2665
 <Multi_key> <less> <space> <3>              : "♡" U2661
-<Multi_key> <o> <pipe>                      : "♩" U2669
+# <Multi_key> <o> <pipe>                      : "♩" U2669
 <Multi_key> <o> <slash> <grave>             : "♪" U266a
 <Multi_key> <o> <slash> <o> <slash>         : "♫" U266b
 <Multi_key> <bracketleft> <bracketright>    : "☑" U2611
@@ -175,7 +175,7 @@ include "%L"
 <Multi_key> <ampersand> <r>                 : "ρ" U03c1
 <Multi_key> <ampersand> <S>                 : "Σ" U03a3
 <Multi_key> <ampersand> <s>                 : "σ" U03c3
-<Multi_key> <ampersand> <$>                 : "ς" U03c2
+# <Multi_key> <ampersand> <$>                 : "ς" U03c2
 <Multi_key> <ampersand> <T>                 : "Τ" U03a4
 <Multi_key> <ampersand> <t>                 : "τ" U03c4
 <Multi_key> <ampersand> <U>                 : "Υ" U03a5
