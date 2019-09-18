@@ -9,7 +9,7 @@ toggle-menubar='F10'
 
 [profiles:]
 default='71f95a33-6326-4184-b4e9-eebc98f885af'
-list=['29e08e79-66f7-4d1b-b0c3-7f3d85d4bbb6', 'dee1e08d-2199-4fa5-847c-a72a0cde72c7', '29468487-347f-4a18-814f-ae4e5292f8b6', 'a60108c6-1617-492a-950e-2061f9edf72e', '92bfad8e-97d0-42e5-8626-70cc52f06e9e', 'dbb0cd74-63d5-447e-a012-f356e50d1f35', 'a2d855d9-34e7-4503-80a9-59af474a036f', '8bd408b7-d301-45ce-812e-d88ae57e3cd1', 'd2869ddb-0393-434e-8935-6e5bc6676f7c', '13bb7bd7-94f2-42ac-92c5-9f46b279e92d', '70f3349f-69a0-4094-b197-6f99ac52981c', 'ee4e0965-b523-48b3-846a-b2d49d172ec3', '0ce5424f-ccc6-47de-8943-5f6db2e73dc7', '5f2ebc24-7162-4c61-83cd-f4f2645059ce', '71f95a33-6326-4184-b4e9-eebc98f885af']
+list=['29e08e79-66f7-4d1b-b0c3-7f3d85d4bbb6', 'dee1e08d-2199-4fa5-847c-a72a0cde72c7', '29468487-347f-4a18-814f-ae4e5292f8b6', 'a60108c6-1617-492a-950e-2061f9edf72e', '92bfad8e-97d0-42e5-8626-70cc52f06e9e', 'dbb0cd74-63d5-447e-a012-f356e50d1f35', 'a2d855d9-34e7-4503-80a9-59af474a036f', '8bd408b7-d301-45ce-812e-d88ae57e3cd1', 'd2869ddb-0393-434e-8935-6e5bc6676f7c', '13bb7bd7-94f2-42ac-92c5-9f46b279e92d', '70f3349f-69a0-4094-b197-6f99ac52981c', 'ee4e0965-b523-48b3-846a-b2d49d172ec3', '0ce5424f-ccc6-47de-8943-5f6db2e73dc7', '5f2ebc24-7162-4c61-83cd-f4f2645059ce', '71f95a33-6326-4184-b4e9-eebc98f885af', 'a42ee458-628f-4813-b4ee-8dfe7ffc6633']
 
 [profiles:/:0ce5424f-ccc6-47de-8943-5f6db2e73dc7]
 background-color='#151515'
@@ -166,6 +166,7 @@ default-size-rows=40
 foreground-color='#bcbabe'
 palette=['#2e2a31', '#d8137f', '#17ad98', '#dc8a0e', '#796af5', '#bb60ea', '#149bda', '#bcbabe', '#838085', '#d8137f', '#17ad98', '#dc8a0e', '#796af5', '#bb60ea', '#149bda', '#f5f4f7']
 scrollback-unlimited=true
+use-system-font=true
 use-theme-background=false
 use-theme-colors=false
 visible-name='Base 16 Unikitty Dark 256'
@@ -281,6 +282,23 @@ scrollback-unlimited=true
 use-theme-background=false
 use-theme-colors=false
 visible-name='Base 16 Atelier Forest Dark'
+
+[profiles:/:a42ee458-628f-4813-b4ee-8dfe7ffc6633]
+background-color='#282828'
+bold-color='#d5c4a1'
+bold-color-same-as-fg=true
+cursor-background-color='#d5c4a1'
+cursor-colors-set=true
+cursor-foreground-color='#282828'
+default-size-columns=140
+default-size-rows=40
+foreground-color='#d5c4a1'
+palette=['#282828', '#fb4934', '#b8bb26', '#fabd2f', '#83a598', '#d3869b', '#8ec07c', '#d5c4a1', '#665c54', '#fb4934', '#b8bb26', '#fabd2f', '#83a598', '#d3869b', '#8ec07c', '#fbf1c7']
+scrollback-unlimited=true
+use-system-font=true
+use-theme-background=false
+use-theme-colors=false
+visible-name='Base 16 Gruvbox dark, medium 256'
 
 [profiles:/:a4abbe49-d5a8-4654-9653-3b9ba9c12b11]
 background-color='rgb(0,0,0)'
