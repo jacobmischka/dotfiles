@@ -30,7 +30,7 @@ export DEV_BROWSER=firefox-developer
 export NNN_DE_FILE_MANAGER=nautilus
 export NNN_COPIER="~/.dotfiles/local/bin/nnn-copier.sh"
 export NNN_USE_EDITOR=1
-export NNN_TMPFILE="/tmp/nnn-cwd"
+export NNN_TMPFILE=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd
 
 # NPM
 export NPM_CONFIG_PREFIX=~/.npm-global
