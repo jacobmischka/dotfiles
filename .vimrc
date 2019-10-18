@@ -118,6 +118,10 @@ let g:maplocalleader = ';'
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python'
 
+" Disable F1 Help
+map <F1> <Esc>
+imap <F1> <Esc>
+
 " Ctrl+backspace delete word
 " Doesn't work in gnome-terminal, works in neovim-qt
 imap <C-BS> <C-W>
