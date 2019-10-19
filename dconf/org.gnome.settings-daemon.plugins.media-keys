@@ -1,15 +1,15 @@
 [/]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-decrease-text-size='<Alt><Super>bracketleft'
-increase-text-size='<Alt><Super>bracketright'
-next='<Super>bracketright'
-on-screen-keyboard='<Alt><Super>k'
-play='<Super>backslash'
-previous='<Super>bracketleft'
-toggle-contrast='<Alt><Super>backslash'
-volume-down='<Super>minus'
-volume-mute='<Super>0'
-volume-up='<Super>equal'
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
+decrease-text-size=['<Alt><Super>bracketleft']
+increase-text-size=['<Alt><Super>bracketright']
+next=['<Super>bracketright']
+on-screen-keyboard=['<Alt><Super>k']
+play=['<Super>backslash']
+previous=['<Super>bracketleft']
+toggle-contrast=['<Alt><Super>backslash']
+volume-down=['<Super>minus']
+volume-mute=['<Super>0']
+volume-up=['<Super>equal']
 
 [custom-keybindings/custom0]
 binding='<Primary><Alt>t'
@@ -20,3 +20,8 @@ name='Terminal'
 binding='<Super>t'
 command='gnome-terminal'
 name='Terminal'
+
+[custom-keybindings/custom2]
+binding='<Super>y'
+command='nvim-gtk'
+name='Neovim-gtk'
