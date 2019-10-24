@@ -81,7 +81,7 @@ alias pacman="sudo pacman --color=auto"
 alias xclip="xclip -selection clipboard"
 alias copy="wl-copy"
 alias c="copy"
-alias paste="wl-paste"
+alias paste="wl_paste_strip_cr"
 alias p="paste"
 alias open="gio open"
 alias venv="python -m venv"
@@ -114,6 +114,10 @@ function ls_fallback() {
 
 function github_clone() {
 	git clone "git@github.com:$1.git"
+}
+
+function wl_paste_strip_cr() {
+	wl-paste "$@" | tr -d '\r' | sed -e 's/[[:space:]]*$//'
 }
 
 function trim() {
