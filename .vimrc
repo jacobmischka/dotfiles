@@ -109,6 +109,9 @@ set wildmenu
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
+nnoremap - ,
+nnoremap + ;
+
 " Leader
 let mapleader = ','
 let g:mapleader = ','
