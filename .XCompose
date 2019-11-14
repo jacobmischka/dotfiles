@@ -28,9 +28,9 @@ include "%L"
 # <Multi_key> <bar> <circumflex>              : "↑" U2191
 <Multi_key> <v> <bar>                       : "↓" U2193
 <Multi_key> <bar> <v>                       : "↓" U2193
-<Multi_key> <bar> <less> <minus>            : "↚" U219A
-<Multi_key> <bar> <minus> <greater>         : "↛" U219B
-<Multi_key> <bar> <less> <greater>          : "↮" U21AE
+# <Multi_key> <bar> <less> <minus>            : "↚" U219A
+# <Multi_key> <bar> <minus> <greater>         : "↛" U219B
+# <Multi_key> <bar> <less> <greater>          : "↮" U21AE
 
 # Punctuation
 <Multi_key> <asterisk> <asterisk>           : "•" U2022 # BULLET
@@ -134,6 +134,8 @@ include "%L"
 <Multi_key> <slash> <underscore>            : "∠" U2220
 <Multi_key> <exclam> <3>                    : "ℇ" U2107
 <Multi_key> <f> <comma>                     : "ƒ" U0192
+<Multi_key> <bar> <minus>					: "⊢" U22a2
+
 # Greek letters and things based on them
 <Multi_key> <slash> <greater>               : "∆" U2206  # not capital delta
 <Multi_key> <plus> <plus>                   : "∑" U2211  # not capital sigma
