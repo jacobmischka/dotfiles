@@ -4,7 +4,8 @@
 		".venv",
 		".git",
 		".hg",
-		".projections.json"
+		".projections.json",
+		"package.json"
 	],
 	"eslint.filetypes": [
 		"javascript",
