@@ -23,21 +23,26 @@ include "%L"
 <Multi_key> <less> <minus>                  : "←" U2190
 <Multi_key> <minus> <less>                  : "←" U2190
 <Multi_key> <minus> <greater>               : "→" U2192
-<Multi_key> <less> <greater>                : "↔" U2194
-# <Multi_key> <circumflex> <bar>              : "↑" U2191
-# <Multi_key> <bar> <circumflex>              : "↑" U2191
+<Multi_key> <less> <minus> <greater>        : "↔" U2194
+<Multi_key> <asciicircum> <bar>             : "↑" U2191
+<Multi_key> <bar> <asciicircum>             : "↑" U2191
 <Multi_key> <v> <bar>                       : "↓" U2193
 <Multi_key> <bar> <v>                       : "↓" U2193
 # <Multi_key> <bar> <less> <minus>            : "↚" U219A
 # <Multi_key> <bar> <minus> <greater>         : "↛" U219B
 # <Multi_key> <bar> <less> <greater>          : "↮" U21AE
+<Multi_key> <less> <equal>					: "⇐" U21D0 # LEFTWARDS DOUBLE ARROW
+<Multi_key> <asciicircum> <bar> <bar>		: "⇑" U21D1 # UPWARDS DOUBLE ARROW
+<Multi_key> <equal> <greater>				: "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <v> <bar> <bar>					: "⇓" U21D3 # DOWNWARDS DOUBLE ARROW
+<Multi_key> <less> <equal> <greater>        : "⇔" U21E5
 
 # Punctuation
 <Multi_key> <asterisk> <asterisk>           : "•" U2022 # BULLET
 <Multi_key> <asterisk> <o>                  : "◦" U25E6 # WHITE BULLET
 <Multi_key> <asterisk> <greater>            : "‣" U2023 # TRIANGULAR BULLET
-<Multi_key> <greater> <period>   	    : "›" U203a
-<Multi_key> <less> <period>      	    : "‹" U2039
+<Multi_key> <greater> <period>   	   		: "›" U203a
+<Multi_key> <less> <period>      	    	: "‹" U2039
 <Multi_key> <bar> <bar>                     : "¦" brokenbar
 <Multi_key> <plus> <bar>                    : "†" U2020
 <Multi_key> <n> <l>                         : "␤" U2424
@@ -103,6 +108,8 @@ include "%L"
 <Multi_key> <X> <X> : "✗" U2717 # ballot X — <x> <x> taken by Xorg for multiply
 
 # MATH
+<Multi_key> <numbersign> <A>		       	: "∀" U2200 # FOR ALL
+<Multi_key> <numbersign> <E>				: "∃" U2203 # THERE EXISTS
 <Multi_key> <asciitilde> <asciitilde>       : "≈" U2248
 <Multi_key> <exclam> <asciitilde> <asciitilde> : "≉" U2249
 <Multi_key> <slash> <equal>                 : "≠" U2248
