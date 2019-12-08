@@ -648,6 +648,8 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.cool set filetype=scala
 	autocmd BufNewFile,BufRead *.md set filetype=markdown.pandoc
 	autocmd BufNewFile,BufRead *.markdown set filetype=markdown.pandoc
+	autocmd BufRead,BufNewFile *.thy setfiletype isabelle
+	autocmd BufRead,BufNewFile *.thy set conceallevel=2
 
 	" Manually sync syntax in Vue files
 	" https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
