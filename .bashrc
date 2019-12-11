@@ -112,7 +112,7 @@ function ls_fallback() {
 }
 
 function github_clone() {
-	git clone "git@github.com:$1.git"
+	git clone "git@github.com:$1.git" $2
 }
 
 function wl_paste_strip_cr() {
