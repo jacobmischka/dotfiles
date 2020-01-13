@@ -15,6 +15,9 @@
 [[ -f /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
 [[ -f /usr/share/fzf/completion.bash ]] && . /usr/share/fzf/completion.bash
 
+# broot
+[[ -f /home/mischka/.config/broot/launcher/bash/br ]] && source /home/mischka/.config/broot/launcher/bash/br
+
 # Tools
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
