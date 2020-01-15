@@ -364,6 +364,7 @@ if get(g:, 'full_config')
 		\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml', 'svelte']
 	\ }
 	Plug 'ambv/black'
+	Plug 'vim-scripts/SQLUtilities'
 
 	" Git
 	Plug 'gregsexton/gitv'
