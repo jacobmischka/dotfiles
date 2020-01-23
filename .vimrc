@@ -589,6 +589,7 @@ if get(g:, 'full_config')
 	nmap <silent> [e <Plug>(coc-diagnostic-prev)
 	nmap <silent> <A-e> <Plug>(coc-diagnostic-info)
 	nmap <silent> <A-r> <Plug>(coc-rename)
+	nmap <silent> <M-i> :<C-U>call CocAction('doHover')<CR>
 
 	nmap <Leader>= <Plug>(PrettierAsync)
 
