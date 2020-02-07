@@ -356,6 +356,8 @@ if get(g:, 'full_config')
 	Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 	Plug 'ryanoasis/vim-devicons'
 
+	Plug 'https://framagit.org/tyreunom/coquille.git'
+
 	Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 	" Formatters
@@ -656,6 +658,8 @@ if has("autocmd")
 	" Manually sync syntax in Vue files
 	" https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
 	autocmd FileType vue syntax sync fromstart
+
+	autocmd FileType coq call coquille#FNMapping()
 
 	autocmd BufWritePre *.py execute ':Black'
 
