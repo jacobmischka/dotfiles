@@ -11,6 +11,7 @@
     "coc-tsserver": ">=1.4.9",
     "coc-vetur": ">=1.1.7",
     "coc-reason": ">=0.1.0",
-    "coc-rust-analyzer": ">=0.4.0"
+    "coc-rust-analyzer": ">=0.4.0",
+    "coc-svelte": ">=0.0.2"
   }
 }
