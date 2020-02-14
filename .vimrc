@@ -290,6 +290,7 @@ Plug 'svermeulen/vim-subversive'
 Plug 'svermeulen/vim-yoink'
 
 " File types and syntaxes
+Plug 'evanleck/vim-svelte'
 Plug 'gabrielelana/vim-markdown'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -649,7 +650,6 @@ if has("autocmd")
 
 
 	autocmd BufNewFile,BufRead *.html set filetype=html.javascript
-	autocmd BufNewFile,BufRead *.svelte set filetype=html.svelte
 	autocmd BufNewFile,BufRead *.cool set filetype=scala
 	autocmd BufNewFile,BufRead *.md set filetype=markdown.pandoc
 	autocmd BufNewFile,BufRead *.markdown set filetype=markdown.pandoc
