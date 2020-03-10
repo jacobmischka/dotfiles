@@ -326,7 +326,7 @@ if get(g:, 'full_config')
 	Plug 'Valloric/MatchTagAlways'
 	Plug 'justinmk/vim-gtfo'
 	Plug 'arthurxavierx/vim-caser'
-	Plug 'KabbAmine/vCoolor.vim'
+	Plug 'DougBeney/pickachu'
 	Plug 'gcmt/taboo.vim'
 	Plug 'xolox/vim-misc'
 	Plug 'xolox/vim-session'
@@ -521,9 +521,7 @@ if get(g:, 'full_config')
 	let g:closetag_filenames = '*.xml,*.html,*.xhtml,*.svelte,*.js,*.jsx,*.vue,*.blade.php'
 	let g:closetag_filetypes = 'xml,html,xhtml,svelte,jsx,javascript.jsx,vue,blade'
 
-	let g:vcoolor_lowercase = 1
-	let g:vcoolor_disable_mappings = 1
-	let g:vcoolor_map = '<A-c>'
+	let g:pickachu_default_date_format = "%Y-%m-%d"
 
 	let g:yoinkIncludeDeleteOperations = 1
 
@@ -585,6 +583,10 @@ if get(g:, 'full_config')
 	command! Tabc WintabsCloseVimtab
 	command! Tabo WintabsOnlyVimtab
 	command! Tags TagbarToggle
+
+	map <A-c> :Pickachu<CR>
+	map <A-f> :Pickachu file<CR>
+	map <A-d> :Pickachu date<CR>
 
 	nmap <silent> ]w <Plug>(ale_next)
 	nmap <silent> [w <Plug>(ale_previous)
