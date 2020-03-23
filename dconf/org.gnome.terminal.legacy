@@ -8,8 +8,24 @@ theme-variant='system'
 toggle-menubar='F10'
 
 [profiles:]
-default='5f2ebc24-7162-4c61-83cd-f4f2645059ce'
-list=['29e08e79-66f7-4d1b-b0c3-7f3d85d4bbb6', 'dee1e08d-2199-4fa5-847c-a72a0cde72c7', '29468487-347f-4a18-814f-ae4e5292f8b6', 'a60108c6-1617-492a-950e-2061f9edf72e', '92bfad8e-97d0-42e5-8626-70cc52f06e9e', 'dbb0cd74-63d5-447e-a012-f356e50d1f35', 'a2d855d9-34e7-4503-80a9-59af474a036f', '8bd408b7-d301-45ce-812e-d88ae57e3cd1', 'd2869ddb-0393-434e-8935-6e5bc6676f7c', '13bb7bd7-94f2-42ac-92c5-9f46b279e92d', '70f3349f-69a0-4094-b197-6f99ac52981c', 'ee4e0965-b523-48b3-846a-b2d49d172ec3', '0ce5424f-ccc6-47de-8943-5f6db2e73dc7', '5f2ebc24-7162-4c61-83cd-f4f2645059ce', '71f95a33-6326-4184-b4e9-eebc98f885af', 'a42ee458-628f-4813-b4ee-8dfe7ffc6633']
+default='847013bd-6873-4238-a666-126456c73b5e'
+list=['29e08e79-66f7-4d1b-b0c3-7f3d85d4bbb6', 'dee1e08d-2199-4fa5-847c-a72a0cde72c7', '29468487-347f-4a18-814f-ae4e5292f8b6', 'a60108c6-1617-492a-950e-2061f9edf72e', '92bfad8e-97d0-42e5-8626-70cc52f06e9e', 'dbb0cd74-63d5-447e-a012-f356e50d1f35', 'a2d855d9-34e7-4503-80a9-59af474a036f', '8bd408b7-d301-45ce-812e-d88ae57e3cd1', 'd2869ddb-0393-434e-8935-6e5bc6676f7c', '70f3349f-69a0-4094-b197-6f99ac52981c', 'ee4e0965-b523-48b3-846a-b2d49d172ec3', '0ce5424f-ccc6-47de-8943-5f6db2e73dc7', '5f2ebc24-7162-4c61-83cd-f4f2645059ce', '71f95a33-6326-4184-b4e9-eebc98f885af', 'a42ee458-628f-4813-b4ee-8dfe7ffc6633', 'c9d45725-ef5b-42fc-8c93-f97a71af2099', '8e47d207-0ced-4db8-8048-b95798f41313', '847013bd-6873-4238-a666-126456c73b5e']
+
+[profiles:/:086b8fa0-9e6f-40d1-836b-8890615ad24c]
+background-color='#282936'
+bold-color='#e9e9f4'
+bold-color-same-as-fg=true
+cursor-background-color='#e9e9f4'
+cursor-colors-set=true
+cursor-foreground-color='#282936'
+font='Fira Code 11'
+foreground-color='#e9e9f4'
+palette=['#282936', '#ea51b2', '#00f769', '#ebff87', '#62d6e8', '#b45bcf', '#a1efe4', '#e9e9f4', '#4d4f68', '#ea51b2', '#00f769', '#ebff87', '#62d6e8', '#b45bcf', '#a1efe4', '#f7f7fb']
+scrollback-unlimited=true
+use-system-font=true
+use-theme-background=false
+use-theme-colors=false
+visible-name='Base 16 Dracula 256'
 
 [profiles:/:0ce5424f-ccc6-47de-8943-5f6db2e73dc7]
 background-color='#151515'
@@ -26,22 +42,6 @@ scrollback-unlimited=true
 use-theme-background=false
 use-theme-colors=false
 visible-name='Base 16 Chalk 256'
-
-[profiles:/:13bb7bd7-94f2-42ac-92c5-9f46b279e92d]
-background-color='#282936'
-bold-color='#e9e9f4'
-bold-color-same-as-fg=true
-cursor-background-color='#e9e9f4'
-cursor-colors-set=true
-cursor-foreground-color='#282936'
-default-size-columns=140
-default-size-rows=40
-foreground-color='#e9e9f4'
-palette=['#282936', '#ea51b2', '#00f769', '#ebff87', '#62d6e8', '#b45bcf', '#a1efe4', '#e9e9f4', '#4d4f68', '#b45bcf', '#3a3c4e', '#626483', '#62d6e8', '#f1f2f8', '#00f769', '#f7f7fb']
-scrollback-unlimited=true
-use-theme-background=false
-use-theme-colors=false
-visible-name='Base 16 Dracula'
 
 [profiles:/:29468487-347f-4a18-814f-ae4e5292f8b6]
 background-color='#002b36'
@@ -202,6 +202,22 @@ scrollback-unlimited=true
 use-theme-colors=false
 visible-name='Base 16 Dracula 256 (Big)'
 
+[profiles:/:847013bd-6873-4238-a666-126456c73b5e]
+background-color='#292a44'
+bold-color='#f1eff8'
+bold-color-same-as-fg=true
+cursor-background-color='#f1eff8'
+cursor-colors-set=true
+cursor-foreground-color='#292a44'
+default-size-columns=140
+default-size-rows=40
+foreground-color='#f1eff8'
+palette=['#292a44', '#a0a0c5', '#6dfedf', '#ae81ff', '#2de0a7', '#7aa5ff', '#8eaee0', '#f1eff8', '#666699', '#a0a0c5', '#6dfedf', '#ae81ff', '#2de0a7', '#7aa5ff', '#8eaee0', '#53495d']
+scrollback-unlimited=true
+use-theme-background=false
+use-theme-colors=false
+visible-name='Base 16 Rebecca 256'
+
 [profiles:/:8b974877-3b0d-4c06-994a-64bea78ffa96]
 background-color='#282936'
 bold-color='#e9e9f4'
@@ -245,13 +261,31 @@ use-theme-background=false
 use-theme-colors=false
 visible-name='Base 16 Dracula 256'
 
+[profiles:/:8e47d207-0ced-4db8-8048-b95798f41313]
+background-color='#eeeeee'
+bold-color='#878787'
+bold-color-same-as-fg=true
+cursor-background-color='#878787'
+cursor-colors-set=true
+cursor-foreground-color='#eeeeee'
+default-size-columns=140
+default-size-rows=40
+foreground-color='#878787'
+palette=['#eeeeee', '#bcbcbc', '#8700af', '#d70087', '#d75f00', '#005faf', '#d75f00', '#878787', '#5f8700', '#bcbcbc', '#8700af', '#d70087', '#d75f00', '#005faf', '#d75f00', '#444444']
+scrollback-unlimited=true
+use-theme-background=false
+use-theme-colors=false
+visible-name='Base 16 PaperColor Light 256'
+
 [profiles:/:92bfad8e-97d0-42e5-8626-70cc52f06e9e]
 background-color='#181818'
 bold-color='#f8f8f2'
 bold-color-same-as-fg=true
+font='Fira Code 11'
 foreground-color='#f8f8f2'
 palette=['#181818', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f8f8f2', '#585858', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f9f8f5']
 scrollback-unlimited=true
+use-system-font=true
 use-theme-background=false
 use-theme-colors=false
 visible-name='Base 16 Monokai Darker'
@@ -326,6 +360,23 @@ foreground-color='rgb(255,255,255)'
 scrollback-unlimited=true
 use-theme-colors=false
 
+[profiles:/:b3f8b5cf-00ed-4ff0-bd82-1654f38e125c]
+background-color='#282936'
+bold-color='#e9e9f4'
+bold-color-same-as-fg=true
+cursor-background-color='#e9e9f4'
+cursor-colors-set=true
+cursor-foreground-color='#282936'
+default-size-columns=134
+default-size-rows=43
+font='Fira Code 11'
+foreground-color='#e9e9f4'
+palette=['#282936', '#ea51b2', '#00f769', '#ebff87', '#62d6e8', '#b45bcf', '#a1efe4', '#e9e9f4', '#4d4f68', '#ea51b2', '#00f769', '#ebff87', '#62d6e8', '#b45bcf', '#a1efe4', '#f7f7fb']
+scrollback-unlimited=true
+use-system-font=true
+use-theme-colors=false
+visible-name='Base 16 Dracula 256 (Big)'
+
 [profiles:/:baa65817-4a54-4b0c-a216-fd4fd3dedc10]
 background-color='#282828'
 bold-color='#d5c4a1'
@@ -339,6 +390,22 @@ scrollback-unlimited=true
 use-theme-background=false
 use-theme-colors=false
 visible-name='Base 16 Gruvbox dark, medium 256'
+
+[profiles:/:c9d45725-ef5b-42fc-8c93-f97a71af2099]
+background-color='#1c1c1c'
+bold-color='#808080'
+bold-color-same-as-fg=true
+cursor-background-color='#808080'
+cursor-colors-set=true
+cursor-foreground-color='#1c1c1c'
+default-size-columns=140
+default-size-rows=40
+foreground-color='#808080'
+palette=['#1c1c1c', '#585858', '#af87d7', '#afd700', '#ff5faf', '#00afaf', '#ffaf00', '#808080', '#d7af5f', '#585858', '#af87d7', '#afd700', '#ff5faf', '#00afaf', '#ffaf00', '#d0d0d0']
+scrollback-unlimited=true
+use-theme-background=false
+use-theme-colors=false
+visible-name='Base 16 PaperColor Dark 256'
 
 [profiles:/:d2518124-f503-4861-85bf-c57985f4e7de]
 background-color='#282828'
@@ -397,6 +464,20 @@ background-color='rgb(255,255,255)'
 foreground-color='rgb(0,0,0)'
 use-theme-colors=false
 visible-name='Light'
+
+[profiles:/:e15db5de-0e45-4941-8630-244e465fbe1a]
+background-color='#282828'
+bold-color='#d5c4a1'
+bold-color-same-as-fg=true
+cursor-background-color='#d5c4a1'
+cursor-colors-set=true
+cursor-foreground-color='#282828'
+foreground-color='#d5c4a1'
+palette=['#282828', '#fb4934', '#b8bb26', '#fabd2f', '#83a598', '#d3869b', '#8ec07c', '#d5c4a1', '#665c54', '#fb4934', '#b8bb26', '#fabd2f', '#83a598', '#d3869b', '#8ec07c', '#fbf1c7']
+scrollback-unlimited=true
+use-theme-background=false
+use-theme-colors=false
+visible-name='Base 16 Gruvbox dark, medium 256'
 
 [profiles:/:e5b52ceb-12e3-4a06-9290-6f94547ac41c]
 background-color='#181818'

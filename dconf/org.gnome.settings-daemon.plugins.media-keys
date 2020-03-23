@@ -25,3 +25,8 @@ name='Terminal'
 binding='<Super>y'
 command='nvim-gtk'
 name='Neovim-gtk'
+
+[custom-keybindings/custom3]
+binding='<Primary><Super>3'
+command='razercfg -p 3'
+name='Razercfg Profile 3'
