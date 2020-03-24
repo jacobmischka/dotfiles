@@ -121,6 +121,9 @@ let g:maplocalleader = ';'
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python'
 
+" For vim-table-mode to not clobber with Align
+let g:table_mode_tableize_map = '<Leader>tct'
+
 " Disable F1 Help
 map <F1> <Esc>
 imap <F1> <Esc>
@@ -292,6 +295,7 @@ Plug 'svermeulen/vim-yoink'
 " File types and syntaxes
 Plug 'evanleck/vim-svelte'
 Plug 'gabrielelana/vim-markdown'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'rust-lang/rust.vim'
