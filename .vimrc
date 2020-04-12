@@ -179,7 +179,8 @@ onoremap ie :exec "normal! ggVG"<CR>
 onoremap iv :exec "normal! HVL"<CR>
 
 " Insert date
-:nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
+:nnoremap <F5> "=strftime("%Y-%m-%d")<CR>p
+:nnoremap <Leader><F5> "=strftime("%Y-%m-%d")<CR>P
 :inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 
 " From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
