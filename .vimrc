@@ -178,6 +178,9 @@ onoremap ie :exec "normal! ggVG"<CR>
 " iv = current viewable text in the buffer
 onoremap iv :exec "normal! HVL"<CR>
 
+" Insert date
+:nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
+:inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 
 " From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
 " Shift-Alt-j/k deletes blank line below/above, and Alt-j/k inserts.
