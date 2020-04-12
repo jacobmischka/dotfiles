@@ -365,7 +365,9 @@ if get(g:, 'full_config')
 	Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 	Plug 'ryanoasis/vim-devicons'
 
-	Plug 'https://framagit.org/tyreunom/coquille.git'
+	Plug 'cplaursen/vim-isabelle'
+	Plug 'whonore/Coqtail'
+	" Plug 'https://framagit.org/tyreunom/coquille.git'
 
 	Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
