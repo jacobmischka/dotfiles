@@ -4,13 +4,15 @@
 	email = jacob@mischka.me
 [core]
 	editor = nvim
-	pager = diff-so-fancy | less --tabs=4
+	pager = delta
 [push]
 	default = simple
 [commit]
 	gpgsign = true
 [diff]
 	compactionHeuristic = true
+[interactive]
+	diffFilter = delta --color-only
 
 [color]
 	ui = always
