@@ -603,6 +603,10 @@ if get(g:, 'full_config')
 
 	nmap <silent> ]e <Plug>(coc-diagnostic-next)
 	nmap <silent> [e <Plug>(coc-diagnostic-prev)
+	nmap <silent> gd <Plug>(coc-definition)
+	nmap <silent> gy <Plug>(coc-type-definition)
+	nmap <silent> gi <Plug>(coc-implementation)
+	nmap <silent> gr <Plug>(coc-references)
 	nmap <silent> <A-e> <Plug>(coc-diagnostic-info)
 	nmap <silent> <A-r> <Plug>(coc-rename)
 	nmap <silent> <M-i> :<C-U>call CocAction('doHover')<CR>
