@@ -18,5 +18,6 @@
 		"html.javascript",
 		"html.svelte.javascript"
 	],
-	"vetur.format.styleInitialIndent": true
+	"vetur.format.styleInitialIndent": true,
+	"rust-analyzer.inlayHints.chainingHints": false
 }
