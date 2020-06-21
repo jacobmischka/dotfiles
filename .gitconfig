@@ -5,6 +5,8 @@
 [core]
 	editor = nvim
 	pager = delta
+[pull]
+	rebase = false
 [push]
 	default = simple
 [commit]
