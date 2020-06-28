@@ -704,7 +704,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme juicy
+	colorscheme hub-contrast
 	set background=dark
 	let g:airline_theme='base16'
 	if exists(":AirlineTheme")
