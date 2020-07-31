@@ -43,3 +43,5 @@
 	git = !exec git
 	conflicted = !nvim +Conflicted
 	rev = rev-parse HEAD
+[init]
+	defaultBranch = main
