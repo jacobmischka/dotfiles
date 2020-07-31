@@ -20,7 +20,7 @@ include "%L"
 <Multi_key> <minus> <g>                     : "ḡ" U1E21 # LATIN SMALL LETTER G WITH MACRON
 
 # Arrows
-<Multi_key> <less> <minus>                  : "←" U2190
+<Multi_key> <less> <minus> <space>          : "←" U2190
 <Multi_key> <minus> <less>                  : "←" U2190
 <Multi_key> <minus> <greater>               : "→" U2192
 <Multi_key> <less> <minus> <greater>        : "↔" U2194
