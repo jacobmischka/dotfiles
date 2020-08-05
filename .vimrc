@@ -75,6 +75,8 @@ set virtualedit=block           " allow moving visual block into the void
 
 " gui stuff
 set mouse=a                     " terminal mouse when possible
+set guifont=Fira\ Code\ Regular:h9
+set guicursor+=a:blinkon1000
 
 " unicode
 set encoding=utf-8              " best default encoding

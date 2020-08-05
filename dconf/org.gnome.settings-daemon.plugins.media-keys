@@ -23,8 +23,8 @@ name='Terminal'
 
 [custom-keybindings/custom2]
 binding='<Super>y'
-command='nvim-gtk'
-name='Neovim-gtk'
+command='gnvim --disable-ext-cmdline'
+name='GNvim'
 
 [custom-keybindings/custom3]
 binding='<Primary><Super>3'
