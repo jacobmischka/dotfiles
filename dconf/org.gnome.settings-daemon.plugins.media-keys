@@ -23,7 +23,7 @@ name='Terminal'
 
 [custom-keybindings/custom2]
 binding='<Super>y'
-command='gnvim --disable-ext-cmdline'
+command='gnvim --disable-ext-cmdline --disable-ext-tabline'
 name='GNvim'
 
 [custom-keybindings/custom3]
