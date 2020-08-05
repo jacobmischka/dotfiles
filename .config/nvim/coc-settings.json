@@ -19,5 +19,8 @@
 		"html.svelte.javascript"
 	],
 	"vetur.format.styleInitialIndent": true,
-	"rust-analyzer.inlayHints.chainingHints": false
+	"rust-analyzer.inlayHints.chainingHints": false,
+	"explorer.file.showHiddenFiles": true,
+	"explorer.file.autoReveal": true,
+	"explorer.icon.enableVimDevicons": true
 }

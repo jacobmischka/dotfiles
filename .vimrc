@@ -343,9 +343,9 @@ if get(g:, 'full_config')
 	Plug 'w0rp/ale'
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 	Plug 'junegunn/fzf.vim'
-	Plug 'scrooloose/nerdtree'
+	" Plug 'scrooloose/nerdtree'
 	Plug 'mcchrish/nnn.vim'
-	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+	" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'vim-airline/vim-airline'
@@ -406,12 +406,12 @@ let g:wordmotion_mappings = {
 \	'<C-R><C-W>': '<C-R><A-w>'
 \}
 
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeShowIgnoredStatus = 1
-let g:NERDSpaceDelims = 1
-let g:NERDTreeMinimalUI = 1
+" let g:NERDTreeShowHidden = 1
+" let g:NERDTreeShowIgnoredStatus = 1
+" let g:NERDSpaceDelims = 1
+" let g:NERDTreeMinimalUI = 1
 
-let g:webdevicons_conceal_nerdtree_brackets = 1
+" let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 let g:jsx_ext_required = 0
@@ -591,8 +591,9 @@ nmap <localleader>y <Plug>(YoinkYankPreserveCursorPosition)
 xmap <localleader>y <Plug>(YoinkYankPreserveCursorPosition)
 
 if get(g:, 'full_config')
-	map \ :NERDTreeToggle<CR>
-	map \| :NERDTreeFind<CR>
+	" map \ :NERDTreeToggle<CR>
+	" map \| :NERDTreeFind<CR>
+	nmap \ :CocCommand explorer<CR>
 	nmap <F8> :TagbarToggle<CR>
 	command! Tabc WintabsCloseVimtab
 	command! Tabo WintabsOnlyVimtab
