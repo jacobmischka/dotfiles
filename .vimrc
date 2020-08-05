@@ -7,7 +7,7 @@ let g:full_config = 1
 set nocompatible
 
 " set xterm title, and inform vim of screen/tmux's syntax for doing the same
-set titlestring=vim\ %{expand(\"%t\")}
+set titlestring=nvim\ %{expand(\"%t\")}
 if &term =~ "^screen"
 " pretend this is xterm.  it probably is anyway, but if term is left as
 " `screen`, vim doesn't understand ctrl-arrow.
