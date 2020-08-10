@@ -43,6 +43,22 @@ use-theme-background=false
 use-theme-colors=false
 visible-name='Base 16 Chalk 256'
 
+[profiles:/:13bb7bd7-94f2-42ac-92c5-9f46b279e92d]
+background-color='#282936'
+bold-color='#e9e9f4'
+bold-color-same-as-fg=true
+cursor-background-color='#e9e9f4'
+cursor-colors-set=true
+cursor-foreground-color='#282936'
+default-size-columns=140
+default-size-rows=40
+foreground-color='#e9e9f4'
+palette=['#282936', '#ea51b2', '#00f769', '#ebff87', '#62d6e8', '#b45bcf', '#a1efe4', '#e9e9f4', '#4d4f68', '#b45bcf', '#3a3c4e', '#626483', '#62d6e8', '#f1f2f8', '#00f769', '#f7f7fb']
+scrollback-unlimited=true
+use-theme-background=false
+use-theme-colors=false
+visible-name='Base 16 Dracula'
+
 [profiles:/:29468487-347f-4a18-814f-ae4e5292f8b6]
 background-color='#002b36'
 bold-color='#93a1a1'
