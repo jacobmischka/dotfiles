@@ -3,7 +3,7 @@
     "coc-actions": ">=1.4.1",
     "coc-css": ">=1.2.4",
     "coc-eslint": ">=1.2.7",
-    "coc-explorer": ">=0.7.26",
+    "coc-explorer": ">=0.7.27",
     "coc-html": ">=1.2.4",
     "coc-java": ">=1.4.12",
     "coc-json": ">=1.2.6",
@@ -13,7 +13,7 @@
     "coc-rls": "^1.1.2",
     "coc-rust-analyzer": ">=0.7.14",
     "coc-svelte": ">=0.1.1",
-    "coc-tsserver": ">=1.5.4",
-    "coc-vetur": ">=1.1.11"
+    "coc-tsserver": ">=1.5.5",
+    "coc-vetur": ">=1.1.12"
   }
 }
