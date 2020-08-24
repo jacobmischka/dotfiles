@@ -713,6 +713,12 @@ hi ColorColumn ctermbg=black guibg=darkgray
 hi WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+\%#\@<!$/
 
+" Have coc use undercurls
+hi CocErrorHighlight cterm=undercurl gui=undercurl ctermbg=9 guisp=#ff0000
+hi CocWarningHighlight cterm=undercurl gui=undercurl ctermbg=130 guisp=#ff922b
+hi CocInfoHighlight cterm=undercurl gui=undercurl ctermbg=11 guisp=#fab005
+hi CocHintHighlight cterm=undercurl gui=undercurl ctermbg=12 guisp=#15aabf
+
 " after a re-source, fix syntax matching issues (concealing brackets):
 if exists('g:loaded_webdevicons')
     call webdevicons#refresh()
