@@ -342,7 +342,6 @@ if get(g:, 'full_config')
 	Plug 'xolox/vim-session'
 	Plug 'luochen1990/rainbow'
 
-	Plug 'w0rp/ale'
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 	Plug 'junegunn/fzf.vim'
 	" Plug 'scrooloose/nerdtree'
@@ -498,28 +497,6 @@ if get(g:, 'full_config')
 	let g:EclimPhpValidate = 0
 	let g:EclimPythonValidate = 0
 
-	let g:ale_linters = {
-	\	'javascript': [],
-	\	'html': [],
-	\	'vue': [],
-	\	'rust': [],
-	\	'python': ['pyre', 'pylint'],
-	\	'markdown': ['alex', 'proselint', 'writegood'],
-	\	'java': []
-	\}
-
-	let g:ale_pattern_options = {
-	\	'\.min.js$': {'ale_enabled': 0},
-	\	'node_modules': {'ale_enabled': 0},
-	\	'build': {'ale_enabled': 0}
-	\}
-	let g:ale_sign_error = '✖'
-	let g:ale_sign_warning = '⚠'
-	let g:ale_lint_delay = 100
-
-	let g:ale_rust_rustc_options = '-o /tmp/rust_out'
-	let g:ale_rust_rls_toolchain = 'stable'
-
 	let g:mta_filetypes = {
 	\	'html': 1,
 	\	'xhtml': 1,
@@ -604,9 +581,6 @@ if get(g:, 'full_config')
 	map <A-c> :Pickachu<CR>
 	map <A-f> :Pickachu file<CR>
 	map <A-d> :Pickachu date<CR>
-
-	nmap <silent> ]w <Plug>(ale_next)
-	nmap <silent> [w <Plug>(ale_previous)
 
 	nmap <silent> ]e <Plug>(coc-diagnostic-next)
 	nmap <silent> [e <Plug>(coc-diagnostic-prev)
