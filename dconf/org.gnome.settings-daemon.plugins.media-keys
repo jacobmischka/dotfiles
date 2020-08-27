@@ -1,5 +1,5 @@
 [/]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
 decrease-text-size=['<Alt><Super>bracketleft']
 increase-text-size=['<Alt><Super>bracketright']
 next=['<Super>bracketright']
@@ -27,6 +27,6 @@ command='nvim-gtk'
 name='NeovimGtk'
 
 [custom-keybindings/custom3]
-binding='<Primary><Super>3'
-command='razercfg -p 3'
-name='Razercfg Profile 3'
+binding='<Super>k'
+command='keepassxc'
+name='KeePassXC'
