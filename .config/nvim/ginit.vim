@@ -1,7 +1,8 @@
 if exists('g:GtkGuiLoaded')
 " neovim-gtk config
 
-	" Disable GUI tabline (It's neat but only uses windows not tabs)
+	" Disable default external features
 	call rpcnotify(1, 'Gui', 'Option', 'Tabline', 0)
+	call rpcnotify(1, 'Gui', 'Option', 'Popupmenu', 0)
 endif
 
