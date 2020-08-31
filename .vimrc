@@ -297,6 +297,7 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'tmilloff/vim-address-bar'
 Plug 'svermeulen/vim-subversive'
 Plug 'svermeulen/vim-yoink'
+Plug 'mhinz/vim-sayonara'
 
 " File types and syntaxes
 Plug 'evanleck/vim-svelte'
