@@ -689,12 +689,13 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme hub-contrast
+	colorscheme hyrule
 	set background=dark
 	let g:airline_theme='base16'
 	if exists(":AirlineTheme")
 		AirlineTheme base16
 	endif
+	call OverrideHighlights()
 endfunction
 
 function! LightTheme()
@@ -704,21 +705,24 @@ function! LightTheme()
 	if exists(":AirlineTheme")
 		AirlineTheme papercolor
 	endif
+	call OverrideHighlights()
+endfunction
+
+function! OverrideHighlights()
+	" trailing whitespace and column; must define AFTER colorscheme, setf, etc!
+	hi ColorColumn ctermbg=black guibg=darkgray
+	hi WhitespaceEOL ctermbg=red guibg=red
+	match WhitespaceEOL /\s\+\%#\@<!$/
+
+	" Have coc use undercurls
+	hi CocErrorHighlight cterm=undercurl gui=undercurl ctermbg=9 guisp=#ff0000
+	hi CocWarningHighlight cterm=undercurl gui=undercurl ctermbg=130 guisp=#ff922b
+	hi CocInfoHighlight cterm=undercurl gui=undercurl ctermbg=11 guisp=#fab005
+	hi CocHintHighlight cterm=undercurl gui=undercurl ctermbg=12 guisp=#15aabf
 endfunction
 
 " Default to dark theme
 call DarkTheme()
-
-" trailing whitespace and column; must define AFTER colorscheme, setf, etc!
-hi ColorColumn ctermbg=black guibg=darkgray
-hi WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+\%#\@<!$/
-
-" Have coc use undercurls
-hi CocErrorHighlight cterm=undercurl gui=undercurl ctermbg=9 guisp=#ff0000
-hi CocWarningHighlight cterm=undercurl gui=undercurl ctermbg=130 guisp=#ff922b
-hi CocInfoHighlight cterm=undercurl gui=undercurl ctermbg=11 guisp=#fab005
-hi CocHintHighlight cterm=undercurl gui=undercurl ctermbg=12 guisp=#15aabf
 
 " after a re-source, fix syntax matching issues (concealing brackets):
 if exists('g:loaded_webdevicons')
