@@ -371,7 +371,7 @@ if get(g:, 'full_config')
 	Plug 'whonore/Coqtail'
 	" Plug 'https://framagit.org/tyreunom/coquille.git'
 
-	Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 	" Formatters
 	Plug 'prettier/vim-prettier', {
