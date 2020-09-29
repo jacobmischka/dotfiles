@@ -352,7 +352,7 @@ if get(g:, 'full_config')
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
-	Plug 'severin-lemaignan/vim-minimap'
+	Plug 'severin-lemaignan/vim-minimap', {'do': ':!cargo install --locked code-minimap'}
 	Plug 'tpope/vim-sensible'
 	Plug 'tpope/vim-abolish'
 	Plug 'ap/vim-css-color'
@@ -361,7 +361,6 @@ if get(g:, 'full_config')
 	Plug 'wesQ3/vim-windowswap'
 	Plug 'moll/vim-node'
 	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-	" Plug 'ludovicchabant/vim-gutentags'
 	Plug 'majutsushi/tagbar'
 	Plug 'vim-php/tagbar-phpctags.vim', {'do': 'make'}
 	Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
@@ -369,9 +368,9 @@ if get(g:, 'full_config')
 
 	Plug 'cplaursen/vim-isabelle'
 	Plug 'whonore/Coqtail'
-	" Plug 'https://framagit.org/tyreunom/coquille.git'
 
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'wfxr/minimap.vim'
 
 	" Formatters
 	Plug 'prettier/vim-prettier', {
@@ -598,6 +597,7 @@ if get(g:, 'full_config')
 
 	nmap <Leader>= <Plug>(PrettierAsync)
 
+	nmap <silent> <A-m> :MinimapToggle<CR>
 
 	" create a part for server status.
 	function! GetServerStatus()
