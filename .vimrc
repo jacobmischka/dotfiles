@@ -90,6 +90,7 @@ set updatetime=250
 " miscellany
 set autoread                    " reload changed files
 set scrolloff=2                 " always have 2 lines of context on the screen
+set foldmethod=syntax
 set foldlevel=99
 set timeoutlen=1000				" wait 1s for mappings to finish
 set ttimeoutlen=0				" wait 0s for xterm keycodes to finish
