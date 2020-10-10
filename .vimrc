@@ -202,6 +202,10 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+" Scroll faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
 nnoremap <CR> i<CR><Esc>
 
 nmap <silent> ]g :cn<CR>
