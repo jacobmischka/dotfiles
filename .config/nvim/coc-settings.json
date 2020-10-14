@@ -8,6 +8,8 @@
 		"package.json"
 	],
 	"diagnostic.warningSign": ">>",
+	"typescript.preferences.importModuleSpecifierEnding": "js",
+	"javascript.preferences.importModuleSpecifierEnding": "js",
 	"eslint.filetypes": [
 		"javascript",
 		"javascriptreact",
