@@ -9,10 +9,17 @@
 	},
 	"extends": "eslint:recommended",
 	"rules": {
-		"no-console": ["warn", {"allow": ["warn", "error"] }],
+		"no-console": ["warn", { "allow": ["warn", "error"] }],
 		"no-var": "warn",
-		"no-unused-vars": ["error", {"argsIgnorePattern": "^_", "varsIgnorePattern": "^_", "ignoreRestSiblings": true}],
-		"eqeqeq": "warn",
+		"no-unused-vars": [
+			"warn",
+			{
+				"argsIgnorePattern": "^_",
+				"varsIgnorePattern": "^_",
+				"ignoreRestSiblings": true
+			}
+		],
+		"eqeqeq": ["warn", "smart"],
 		"semi": ["warn", "always"],
 		"no-spaced-func": "warn",
 		"comma-style": "warn",
