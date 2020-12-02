@@ -281,6 +281,7 @@ if has("python")
     augroup END
 endif
 
+let g:polyglot_disabled = ['autoindent']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -288,7 +289,7 @@ call plug#begin('~/.vim/plugged')
 
 " Essentials
 Plug 'editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot', {'commit': '5bd9f16476dbefc44ad23df08268d66bb938107f'}
 Plug 'zefei/vim-wintabs'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tyru/caw.vim'
@@ -305,7 +306,6 @@ Plug 'svermeulen/vim-yoink'
 Plug 'mhinz/vim-sayonara'
 
 " File types and syntaxes
-Plug 'evanleck/vim-svelte'
 Plug 'gabrielelana/vim-markdown'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-pandoc/vim-pandoc'
@@ -335,7 +335,6 @@ Plug 'jaredgorski/SpaceCamp'
 " Heavier
 if get(g:, 'full_config')
 	Plug 'alvan/vim-closetag'
-	Plug 'Shougo/context_filetype.vim'
 	Plug 'kana/vim-repeat'
 	Plug 'nathanaelkane/vim-indent-guides'
 	Plug 'kshenoy/vim-signature'
@@ -350,9 +349,7 @@ if get(g:, 'full_config')
 
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 	Plug 'junegunn/fzf.vim'
-	" Plug 'scrooloose/nerdtree'
 	Plug 'mcchrish/nnn.vim'
-	" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'vim-airline/vim-airline'
@@ -368,14 +365,12 @@ if get(g:, 'full_config')
 	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 	Plug 'majutsushi/tagbar'
 	Plug 'vim-php/tagbar-phpctags.vim', {'do': 'make'}
-	Plug 'shime/vim-livedown', {'do': 'npm i -g livedown'}
 	Plug 'ryanoasis/vim-devicons'
 
 	Plug 'cplaursen/vim-isabelle'
 	Plug 'whonore/Coqtail'
 
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'wfxr/minimap.vim'
 
 	" Formatters
 	Plug 'prettier/vim-prettier', {
@@ -536,6 +531,7 @@ if get(g:, 'full_config')
 	let g:prettier#autoformat_require_pragma = 0
 	let g:prettier#autoformat_config_files = [".prettierrc.json"]
 
+	let g:svelte_preprocessors = ['typescript']
 endif
 
 " Keymaps
@@ -655,7 +651,6 @@ if has("autocmd")
 	autocmd FileType text,markdown,tex setlocal spell spelllang=en_us
 
 
-	autocmd BufNewFile,BufRead *.html set filetype=html.javascript
 	autocmd BufNewFile,BufRead *.cool set filetype=scala
 	autocmd BufNewFile,BufRead *.md set filetype=markdown.pandoc
 	autocmd BufNewFile,BufRead *.markdown set filetype=markdown.pandoc
