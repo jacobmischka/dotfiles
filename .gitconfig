@@ -43,5 +43,8 @@
 	git = !exec git
 	conflicted = !nvim +Conflicted
 	rev = rev-parse HEAD
+	unstage = reset HEAD --
+	uncommit = reset --soft HEAD~1
+	recommit = commit --amend --no-edit
 [init]
 	defaultBranch = main
