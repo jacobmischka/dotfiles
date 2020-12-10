@@ -377,7 +377,7 @@ if get(g:, 'full_config')
 		\ 'do': 'yarn install',
 		\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml', 'svelte']
 	\ }
-	Plug 'ambv/black'
+	Plug 'psf/black', { 'branch': 'stable' }
 	Plug 'vim-scripts/Align'
 	Plug 'vim-scripts/SQLUtilities'
 
