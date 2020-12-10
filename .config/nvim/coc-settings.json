@@ -7,6 +7,7 @@
 		".projections.json",
 		"package.json"
 	],
+	"workspace.progressTarget": "statusline",
 	"diagnostic.warningSign": ">>",
 	"typescript.preferences.importModuleSpecifierEnding": "js",
 	"javascript.preferences.importModuleSpecifierEnding": "js",
