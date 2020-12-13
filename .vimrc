@@ -689,7 +689,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme base16-dracula
+	colorscheme base16-atelier-lakeside
 	set background=dark
 	let g:airline_theme='base16'
 	if exists(":AirlineTheme")
