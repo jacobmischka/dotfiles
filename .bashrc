@@ -187,6 +187,14 @@ n() {
         fi
 }
 
+# Sources .env files
+# Contrary to the actual .env spec, strings with spaces must be quote-enclosed
+function source-env() {
+	set -o allexport
+	source $1
+	set +o allexport
+}
+
 if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
 fi
