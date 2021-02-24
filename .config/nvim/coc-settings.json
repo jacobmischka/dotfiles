@@ -7,7 +7,6 @@
 		".projections.json",
 		"package.json"
 	],
-	"workspace.progressTarget": "statusline",
 	"diagnostic.warningSign": ">>",
 	"typescript.preferences.importModuleSpecifierEnding": "js",
 	"javascript.preferences.importModuleSpecifierEnding": "js",
@@ -100,5 +99,6 @@
 	"rust-analyzer.inlayHints.chainingHints": false,
 	"explorer.file.showHiddenFiles": true,
 	"explorer.file.autoReveal": true,
-	"explorer.icon.enableVimDevicons": true
+	"explorer.icon.enableVimDevicons": true,
+	"python.venvPath": "./.venv"
 }
