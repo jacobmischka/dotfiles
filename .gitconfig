@@ -48,3 +48,5 @@
 	recommit = commit --amend --no-edit
 [init]
 	defaultBranch = main
+[rebase]
+	autosquash = true
