@@ -499,16 +499,18 @@ if get(g:, 'full_config')
 
 	let g:mta_filetypes = {
 	\	'html': 1,
-	\	'xhtml': 1,
-	\	'xml': 1,
-	\	'svelte': 1,
-	\	'jsx': 1,
+	\	'htmldjango': 1,
 	\	'javascript.jsx': 1,
-	\	'vue': 1
+	\	'jsx': 1,
+	\	'njk': 1,
+	\	'svelte': 1,
+	\	'vue': 1,
+	\	'xhtml': 1,
+	\	'xml': 1
 	\}
 
-	let g:closetag_filenames = '*.xml,*.html,*.xhtml,*.svelte,*.js,*.jsx,*.vue,*.blade.php'
-	let g:closetag_filetypes = 'xml,html,xhtml,svelte,jsx,javascript.jsx,vue,blade'
+	let g:closetag_filenames = '*.xml,*.html,*.xhtml,*.njk,*.svelte,*.js,*.jsx,*.vue,*.blade.php'
+	let g:closetag_filetypes = 'xml,html,xhtml,htmldjango,svelte,jsx,javascript.jsx,vue,blade'
 
 	let g:pickachu_default_date_format = "%Y-%m-%d"
 
