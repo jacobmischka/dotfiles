@@ -690,7 +690,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme base16-atelier-lakeside
+	colorscheme jewel
 	set background=dark
 	let g:airline_theme='base16'
 	if exists(":AirlineTheme")
@@ -714,6 +714,9 @@ function! OverrideHighlights()
 	hi ColorColumn ctermbg=black guibg=darkgray
 	hi WhitespaceEOL ctermbg=red guibg=red
 	match WhitespaceEOL /\s\+\%#\@<!$/
+
+	" Fix Conceal (not sure why this is needed honestly)
+	hi Conceal guibg=bg
 
 	" Have coc use undercurls
 	hi CocErrorHighlight cterm=undercurl gui=undercurl ctermbg=9 guisp=#ff0000
