@@ -161,8 +161,8 @@ nnoremap <leader>cF :let @+=expand("%:p")<CR>
 " Basename
 nnoremap <leader>ct :let @+=expand("%:t)<CR>
 " Parent directory
-
 nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
+
 imap <C-C> "+y
 imap <C-X> "+x
 inoremap <C-Q> <C-V>
@@ -183,7 +183,7 @@ onoremap iv :exec "normal! HVL"<CR>
 
 " Insert date
 :nnoremap <F5> "=strftime("%Y-%m-%d")<CR>p
-:nnoremap <Leader><F5> "=strftime("%Y-%m-%d")<CR>P
+:nnoremap <leader><F5> "=strftime("%Y-%m-%d")<CR>P
 :inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 
 " From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
@@ -236,6 +236,11 @@ nnoremap <Down>  :resize -10<CR>
 nnoremap <Left>  :vertical resize -10<CR>
 nnoremap <Right> :vertical resize +10<CR>
 
+" Highlight current line (requires LineHighlight highlight definition)
+nnoremap <leader>l :call matchadd('LineHighlight', '\%'.line('.').'l')<CR>
+
+" Clear all highlights
+nnoremap <leader>cl :call clearmatches()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous autocmds
@@ -723,6 +728,9 @@ function! OverrideHighlights()
 	hi CocWarningHighlight cterm=undercurl gui=undercurl ctermbg=130 guisp=#ff922b
 	hi CocInfoHighlight cterm=undercurl gui=undercurl ctermbg=11 guisp=#fab005
 	hi CocHintHighlight cterm=undercurl gui=undercurl ctermbg=12 guisp=#15aabf
+
+	" Add line highlight
+	hi LineHighlight ctermbg=darkgray guibg=darkgray
 endfunction
 
 " Default to dark theme
