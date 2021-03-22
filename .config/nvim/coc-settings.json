@@ -97,6 +97,7 @@
 		"zlib"
 	],
 	"rust-analyzer.inlayHints.chainingHints": false,
+	"rust-analyzer.inlayHints.typeHints": false,
 	"explorer.file.showHiddenFiles": true,
 	"explorer.file.autoReveal": true,
 	"explorer.icon.enableVimDevicons": true,
