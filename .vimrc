@@ -294,7 +294,7 @@ call plug#begin('~/.vim/plugged')
 
 " Essentials
 Plug 'editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot', {'commit': '5bd9f16476dbefc44ad23df08268d66bb938107f'}
 Plug 'zefei/vim-wintabs'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tyru/caw.vim'
