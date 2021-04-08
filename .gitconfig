@@ -50,6 +50,8 @@
 	s = status
 	r = rebase
 	c = commit
+	rc = recommit
+	d = diff
 [init]
 	defaultBranch = main
 [rebase]
