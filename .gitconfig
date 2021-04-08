@@ -46,6 +46,10 @@
 	unstage = reset HEAD --
 	uncommit = reset --soft HEAD~1
 	recommit = commit --amend --no-edit
+	a = add
+	s = status
+	r = rebase
+	c = commit
 [init]
 	defaultBranch = main
 [rebase]
