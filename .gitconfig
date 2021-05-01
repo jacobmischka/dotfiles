@@ -56,3 +56,11 @@
 	defaultBranch = main
 [rebase]
 	autosquash = true
+[delta]
+	features = decorations
+	side-by-side = true
+	whitespace-error-style = 22 reverse
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
