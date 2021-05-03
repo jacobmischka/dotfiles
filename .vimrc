@@ -596,9 +596,8 @@ if get(g:, 'full_config')
 	nmap <silent> gy <Plug>(coc-type-definition)
 	nmap <silent> gi <Plug>(coc-implementation)
 	nmap <silent> gr <Plug>(coc-references)
-	nmap <silent> <C-i> <Plug>(coc-diagnostic-info)
 	nmap <silent> <A-r> <Plug>(coc-rename)
-	nmap <silent> <A-i> :<C-U>call CocAction('doHover')<CR>
+	nmap <silent> <A-i> <Plug>(coc-diagnostic-info)
 	nmap <silent> <A-h> :<C-U>call CocAction('doHover')<CR>
 	nmap <silent> <A-a> :CocAction<CR>
 	nmap <silent> <A-x> :CocCommand rust-analyzer.explainError<CR>
