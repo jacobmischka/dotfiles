@@ -191,6 +191,10 @@ function source-env() {
 	set +o allexport
 }
 
+function export-java() {
+	export "JAVA_HOME=/usr/lib/jvm/$(ls /usr/lib/jvm/ | fzf)"
+}
+
 if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
 fi
