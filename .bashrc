@@ -109,7 +109,7 @@ function mkcd() {
 
 function ls_fallback() {
 	if hash lsd 2>/dev/null; then
-		lsd "$@"
+		lsd --group-dirs first "$@"
 	else
 		echo 'Install lsd!'
 		\ls "$@"
