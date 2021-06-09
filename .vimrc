@@ -175,8 +175,8 @@ nmap <C-S> :w<CR>
 imap <C-S> <Esc>:w<CR>a
 
 " Text objects
-" ie = inner entire buffer
-onoremap ie :exec "normal! ggVG"<CR>
+" ib = inner buffer
+onoremap ib :exec "normal! ggVG"<CR>
 
 " iv = current viewable text in the buffer
 onoremap iv :exec "normal! HVL"<CR>
