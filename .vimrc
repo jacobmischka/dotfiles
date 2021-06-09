@@ -286,7 +286,7 @@ if has("python")
     augroup END
 endif
 
-let g:polyglot_disabled = ['autoindent']
+let g:polyglot_disabled = ['autoindent', 'svelte']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -295,6 +295,7 @@ call plug#begin('~/.vim/plugged')
 " Essentials
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'zefei/vim-wintabs'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tyru/caw.vim'
