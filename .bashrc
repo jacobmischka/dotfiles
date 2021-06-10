@@ -71,6 +71,7 @@ TIMESTAMP="[${YELLOW}\A${RESET}] "
 
 export PS1="\$([[ -n \$PS1_SHOW_TIMESTAMP ]] && echo '$TIMESTAMP')${GREY}\h ${ORANGE}${BOLD}\W${RESET}${GREEN}\$(__git_ps1 ' %s' | tr -d '=')${RESET}${BOLD} \$ ${RESET}"
 
+export PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s\007" "${PWD/#$HOME/\~}"'
 
 # Aliases
 alias vim="nvim"
