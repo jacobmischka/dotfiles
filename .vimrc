@@ -286,6 +286,8 @@ if has("python")
     augroup END
 endif
 
+let g:markdown_fenced_languages = ['html', 'javascript', 'python', 'rust', 'svelte', 'c', 'bash']
+
 let g:polyglot_disabled = ['autoindent', 'svelte']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -312,7 +314,7 @@ Plug 'svermeulen/vim-yoink'
 Plug 'mhinz/vim-sayonara'
 
 " File types and syntaxes
-Plug 'gabrielelana/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
