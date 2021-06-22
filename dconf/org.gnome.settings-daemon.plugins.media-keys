@@ -1,5 +1,5 @@
 [/]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/']
 decrease-text-size=['<Alt><Super>bracketleft']
 increase-text-size=['<Alt><Super>bracketright']
 next=['<Super>bracketright']
@@ -30,3 +30,8 @@ name='NeovimGtk'
 binding='<Super>k'
 command='keepassxc'
 name='KeePassXC'
+
+[custom-keybindings/custom4]
+binding='<Super>f'
+command='nautilus'
+name='File browser'
