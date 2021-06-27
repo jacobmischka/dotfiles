@@ -10,17 +10,6 @@
 	"diagnostic.warningSign": ">>",
 	"typescript.preferences.importModuleSpecifierEnding": "js",
 	"javascript.preferences.importModuleSpecifierEnding": "js",
-	"eslint.filetypes": [
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"html",
-		"svelte",
-		"html.svelte",
-		"html.javascript",
-		"html.svelte.javascript"
-	],
 	"vetur.format.styleInitialIndent": true,
 	"intelephense.stubs": [
 		"apache",
