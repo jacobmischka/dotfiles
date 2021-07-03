@@ -3,6 +3,9 @@
 " Disable this to disable heavier config options for lightweight environments
 let g:full_config = 1
 
+" Use built-in nvim lsp instead of coc.nvim
+let g:use_nvim_lsp = 0
+
 " vim mode preferred!
 set nocompatible
 
@@ -103,6 +106,8 @@ set diffopt+=vertical
 set hidden
 set wildmode=longest,list,full
 set wildmenu
+
+set completeopt=menuone,noselect
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
@@ -342,6 +347,16 @@ Plug 'jaredgorski/SpaceCamp'
 
 " Heavier
 if get(g:, 'full_config')
+	if get(g:, 'use_nvim_lsp')
+		Plug 'neovim/nvim-lspconfig'
+		Plug 'hrsh7th/nvim-compe'
+		Plug 'kyazdani42/nvim-web-devicons'
+		Plug 'kyazdani42/nvim-tree.lua'
+		Plug 'ray-x/lsp_signature.nvim'
+	else
+		Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	endif
+
 	Plug 'alvan/vim-closetag'
 	Plug 'kana/vim-repeat'
 	Plug 'nathanaelkane/vim-indent-guides'
@@ -377,8 +392,6 @@ if get(g:, 'full_config')
 
 	Plug 'cplaursen/vim-isabelle'
 	Plug 'whonore/Coqtail'
-
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 	" Formatters
 	Plug 'prettier/vim-prettier', {
@@ -471,11 +484,6 @@ if get(g:, 'full_config')
 		return !col || getline('.')[col - 1]  =~ '\s'
 	endfunction
 
-	inoremap <silent><expr> <TAB>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-		\ coc#refresh()
-
 	" Language Server providers
 	" Note: PHP provider installed via helper plugin above
 	"
@@ -493,9 +501,6 @@ if get(g:, 'full_config')
 	" Alternatives / others:
 	" 'javascript.typescript': ['javascript-typescript-stdio'],
 	" 'css': ['/home/mischka/.npm-global/bin/css-languageserver', '--stdio']
-
-	" tab-complete
-	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 	let g:EclimFileTypeValidate = 0
 	let g:EclimCValidate = 0
@@ -583,7 +588,6 @@ xmap <localleader>y <Plug>(YoinkYankPreserveCursorPosition)
 if get(g:, 'full_config')
 	" map \ :NERDTreeToggle<CR>
 	" map \| :NERDTreeFind<CR>
-	nmap \ :CocCommand explorer<CR>
 	nmap <F8> :TagbarToggle<CR>
 	command! Tabc WintabsCloseVimtab
 	command! Tabo WintabsOnlyVimtab
@@ -593,41 +597,117 @@ if get(g:, 'full_config')
 	map <A-f> :Pickachu file<CR>
 	map <A-d> :Pickachu date<CR>
 
-	nmap <silent> ]e <Plug>(coc-diagnostic-next)
-	nmap <silent> [e <Plug>(coc-diagnostic-prev)
-	nmap <silent> gd <Plug>(coc-definition)
-	nmap <silent> gy <Plug>(coc-type-definition)
-	nmap <silent> gi <Plug>(coc-implementation)
-	nmap <silent> gr <Plug>(coc-references)
-	nmap <silent> <A-r> <Plug>(coc-rename)
-	nmap <silent> <A-i> <Plug>(coc-diagnostic-info)
-	nmap <silent> <A-h> :<C-U>call CocAction('doHover')<CR>
-	nmap <silent> <A-a> :CocAction<CR>
-	nmap <silent> <A-x> :CocCommand rust-analyzer.explainError<CR>
-
-
 	nmap <Leader>= <Plug>(PrettierAsync)
 
 	nmap <silent> <A-m> :MinimapToggle<CR>
-
-	" create a part for server status.
-	function! GetServerStatus()
-		return get(g:, 'coc_status', '')
-	endfunction
-	call airline#parts#define_function('coc', 'GetServerStatus')
-	function! AirlineInit()
-		let g:airline_section_a = airline#section#create(['coc'])
-
-		" use error & warning count of diagnostics form coc.nvim
-		let g:airline_section_error .= '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-		let g:airline_section_warning .= '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
-	endfunction
-	autocmd User AirlineAfterInit call AirlineInit()
 
 	" exclude overwrite statusline of list filetype
 	let g:airline_exclude_filetypes = ["list"]
 
 	" nmap <C-M> :LivedownToggle<CR>
+
+
+	if get(g:, 'use_nvim_lsp')
+lua << EOF
+		local on_attach = function(client, bufnr)
+			local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+			local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+			local opts = { noremap=true, silent=true }
+
+			require'lsp_signature'.on_attach()
+		end
+
+		local nvim_lsp = require('lspconfig')
+
+		local lsp_servers = {
+			'html',
+			'intelephense',
+			'pyls',
+			'rust_analyzer',
+			'svelte',
+		}
+
+		for _, lsp in ipairs(lsp_servers) do
+			nvim_lsp[lsp].setup{
+				on_attach = on_attach,
+				flags = {
+					debounce_text_changes = 150,
+				}
+			}
+		end
+
+		require'compe'.setup {
+			enabled = true;
+			autocomplete = true;
+			debug = false;
+			min_length = 1;
+			preselect = 'disable';
+			throttle_time = 80;
+			source_timeout = 200;
+			resolve_timeout = 800;
+			incomplete_delay = 400;
+			max_abbr_width = 100;
+			max_kind_width = 100;
+			max_menu_width = 100;
+			documentation = {
+				border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
+				winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
+				max_width = 120,
+				min_width = 60,
+				max_height = math.floor(vim.o.lines * 0.3),
+				min_height = 1,
+			};
+
+			source = {
+				path = true;
+				buffer = true;
+				calc = true;
+				nvim_lsp = true;
+				nvim_lua = true;
+				vsnip = true;
+				ultisnips = true;
+				luasnip = true;
+			};
+		}
+EOF
+
+		" tab-complete
+		inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+	else
+
+		nmap \ :CocCommand explorer<CR>
+		nmap <silent> ]e <Plug>(coc-diagnostic-next)
+		nmap <silent> [e <Plug>(coc-diagnostic-prev)
+		nmap <silent> gd <Plug>(coc-definition)
+		nmap <silent> gy <Plug>(coc-type-definition)
+		nmap <silent> gi <Plug>(coc-implementation)
+		nmap <silent> gr <Plug>(coc-references)
+		nmap <silent> <A-r> <Plug>(coc-rename)
+		nmap <silent> <A-i> <Plug>(coc-diagnostic-info)
+		nmap <silent> <A-h> :<C-U>call CocAction('doHover')<CR>
+		nmap <silent> <A-a> :CocAction<CR>
+		nmap <silent> <A-x> :CocCommand rust-analyzer.explainError<CR>
+
+		" create a part for server status.
+		function! GetServerStatus()
+			return get(g:, 'coc_status', '')
+		endfunction
+		call airline#parts#define_function('coc', 'GetServerStatus')
+
+		function! AirlineInit()
+			let g:airline_section_a = airline#section#create(['coc'])
+
+			" use error & warning count of diagnostics form coc.nvim
+			let g:airline_section_error .= '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+			let g:airline_section_warning .= '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+		endfunction
+		autocmd User AirlineAfterInit call AirlineInit()
+
+		inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
+	endif
 endif
 
 
