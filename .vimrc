@@ -686,7 +686,11 @@ EOF
 		nmap <silent> <A-i> <Plug>(coc-diagnostic-info)
 		nmap <silent> <A-h> :<C-U>call CocAction('doHover')<CR>
 		nmap <silent> <A-a> :CocAction<CR>
-		nmap <silent> <A-x> :CocCommand rust-analyzer.explainError<CR>
+
+		autocmd FileType rust nmap <silent> <A-x> :CocCommand rust-analyzer.explainError<CR>
+		autocmd FileType rust nmap <A-q> :CocCommand rust-analyzer.reload<CR>
+
+		autocmd FileType svelte nmap <A-q> :CocCommand svelte.restartLanguageServer<CR>
 
 		" create a part for server status.
 		function! GetServerStatus()
