@@ -328,6 +328,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'lervag/vimtex'
 Plug 'https://bitbucket.org/ccorrodi/sasylfvim.git'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
