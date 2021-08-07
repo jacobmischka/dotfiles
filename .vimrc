@@ -823,6 +823,9 @@ function! OverrideHighlights()
 
 	" Add line highlight
 	hi LineHighlight ctermbg=darkgray guibg=darkgray
+
+	" Add search special color
+	hi Search guisp=Magenta
 endfunction
 
 " Default to dark theme
