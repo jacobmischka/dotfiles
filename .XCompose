@@ -31,9 +31,9 @@ include "%L"
 # <Multi_key> <bar> <less> <minus>            : "↚" U219A
 # <Multi_key> <bar> <minus> <greater>         : "↛" U219B
 # <Multi_key> <bar> <less> <greater>          : "↮" U21AE
-<Multi_key> <less> <equal>					: "⇐" U21D0 # LEFTWARDS DOUBLE ARROW
+<Multi_key> <less> <equal> <equal>			: "⇐" U21D0 # LEFTWARDS DOUBLE ARROW
 <Multi_key> <asciicircum> <bar> <bar>		: "⇑" U21D1 # UPWARDS DOUBLE ARROW
-<Multi_key> <equal> <greater>				: "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <equal> <equal> <greater>		: "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
 <Multi_key> <v> <bar> <bar>					: "⇓" U21D3 # DOWNWARDS DOUBLE ARROW
 <Multi_key> <less> <equal> <greater>        : "⇔" U21E5
 
@@ -116,7 +116,7 @@ include "%L"
 <Multi_key> <equal> <slash>                 : "≠" U2248
 <Multi_key> <exclam> <equal>                : "≠" U2260
 <Multi_key> <greater> <equal>               : "≥" U2265
-<Multi_key> <less> <equal>                  : "≤" U2264
+<Multi_key> <less> <equal> <space>          : "≤" U2264
 <Multi_key> <exclam> <less>                 : "≮" U226E
 <Multi_key> <exclam> <greater>              : "≯" U226F
 <Multi_key> <equal> <equal>                 : "≡" U2261
