@@ -89,6 +89,7 @@
 	"rust-analyzer.inlayHints.typeHints": false,
 	"explorer.file.showHiddenFiles": true,
 	"explorer.file.autoReveal": true,
-	"explorer.icon.enableVimDevicons": true,
+	"explorer.icon.enabledNerdFont": true,
+	"explorer.icon.source": "vim-devicons",
 	"python.venvPath": "./.venv"
 }
