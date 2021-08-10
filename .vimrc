@@ -695,6 +695,7 @@ EOF
 		autocmd FileType rust nmap <A-q> :CocCommand rust-analyzer.reload<CR>
 
 		autocmd FileType svelte nmap <A-q> :CocCommand svelte.restartLanguageServer<CR>
+		autocmd FileType python nmap <A-q> :CocCommand pyright.restartserver<CR>
 
 		" create a part for server status.
 		function! GetServerStatus()
