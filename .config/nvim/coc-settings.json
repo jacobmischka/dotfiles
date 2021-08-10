@@ -88,8 +88,11 @@
 	"rust-analyzer.inlayHints.chainingHints": false,
 	"rust-analyzer.inlayHints.typeHints": false,
 	"explorer.file.showHiddenFiles": true,
-	"explorer.file.autoReveal": true,
-	"explorer.icon.enabledNerdFont": true,
+	"explorer.file.reveal.auto": true,
+	"explorer.file.reveal.filter": {
+		"patterns": ["node_modules", "\\.venv"]
+	},
+	"explorer.icon.enableNerdfont": true,
 	"explorer.icon.source": "vim-devicons",
 	"python.venvPath": "./.venv"
 }
