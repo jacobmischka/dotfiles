@@ -65,7 +65,7 @@ set softtabstop=0               " Disable sts
 set tabstop=4					" Tabs are 4 characters
 set shiftround                  " only indent to multiples of shiftwidth
 set fileformats=unix,dos        " unix linebreaks in new files please
-set listchars=tab:↹·,extends:⇉,precedes:⇇,nbsp:␠,trail:␠,nbsp:␣
+set listchars=tab:↹·,extends:⇉,precedes:⇇,trail:␠,nbsp:␣,space:⋅,eol:↴
                                 " appearance of invisible characters
 set formatoptions=crqlj         " wrap comments, never autowrap long lines
 
@@ -360,7 +360,6 @@ if get(g:, 'full_config')
 
 	Plug 'alvan/vim-closetag'
 	Plug 'kana/vim-repeat'
-	Plug 'nathanaelkane/vim-indent-guides'
 	Plug 'kshenoy/vim-signature'
 	Plug 'Valloric/MatchTagAlways'
 	Plug 'justinmk/vim-gtfo'
@@ -370,6 +369,7 @@ if get(g:, 'full_config')
 	Plug 'xolox/vim-misc'
 	Plug 'xolox/vim-session'
 	Plug 'luochen1990/rainbow'
+	Plug 'lukas-reineke/indent-blankline.nvim'
 
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 	Plug 'junegunn/fzf.vim'
@@ -610,6 +610,14 @@ if get(g:, 'full_config')
 
 	" nmap <C-M> :LivedownToggle<CR>
 
+lua << EOF
+	require("indent_blankline").setup {
+		show_end_of_line = false,
+		show_first_indent_level = true,
+		space_char_blankline = " ",
+		filetype_exclude = {"help", "coc-explorer"}
+	}
+EOF
 
 	if get(g:, 'use_nvim_lsp')
 lua << EOF
