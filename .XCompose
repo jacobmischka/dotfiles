@@ -39,6 +39,7 @@ include "%L"
 
 # Punctuation
 <Multi_key> <asterisk> <asterisk>           : "•" U2022 # BULLET
+<Multi_key> <asterisk> <space>				: "⋅" U22C5 # DOT OPERATOR
 <Multi_key> <asterisk> <o>                  : "◦" U25E6 # WHITE BULLET
 <Multi_key> <asterisk> <greater>            : "‣" U2023 # TRIANGULAR BULLET
 <Multi_key> <greater> <period>   	   		: "›" U203a

@@ -612,9 +612,11 @@ if get(g:, 'full_config')
 
 lua << EOF
 	require("indent_blankline").setup {
+		enabled = false,
 		show_end_of_line = false,
 		show_first_indent_level = true,
 		space_char_blankline = " ",
+		space_char = " ",
 		filetype_exclude = {"help", "coc-explorer"}
 	}
 EOF
@@ -698,6 +700,7 @@ EOF
 		nmap <silent> <A-i> <Plug>(coc-diagnostic-info)
 		nmap <silent> <A-h> :<C-U>call CocAction('doHover')<CR>
 		nmap <silent> <A-a> :CocAction<CR>
+		nmap <silent> <A-l> :IndentBlanklineToggle<CR>
 
 		autocmd FileType rust nmap <silent> <A-x> :CocCommand rust-analyzer.explainError<CR>
 		autocmd FileType rust nmap <A-q> :CocCommand rust-analyzer.reload<CR>
