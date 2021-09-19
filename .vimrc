@@ -799,7 +799,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme rainbow
+	colorscheme base16-gruvbox-dark-pale
 	set background=dark
 	let g:airline_theme='base16'
 	if exists(":AirlineTheme")
