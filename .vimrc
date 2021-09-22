@@ -758,7 +758,7 @@ if has("autocmd")
 
 	" For all text files set 'textwidth' to 78 characters.
 	autocmd FileType text,markdown setlocal textwidth=78
-	autocmd FileType text,markdown,tex setlocal spell spelllang=en_us
+	autocmd FileType text,markdown,tex,gitcommit setlocal spell spelllang=en_us
 
 
 	autocmd BufNewFile,BufRead *.cool set filetype=scala
