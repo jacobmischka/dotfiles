@@ -455,7 +455,7 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 
 " Customize fzf colors to match your color scheme
-let $FZF_DEFAULT_COMMAND = 'rg --files --follow'
+let $FZF_DEFAULT_COMMAND = 'fd --type file --follow --hidden --exclude .git'
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],

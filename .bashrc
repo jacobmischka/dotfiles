@@ -48,7 +48,7 @@ export BAT_THEME='Monokai Extended'
 
 # Remove duplicates from bash history
 export HISTCONTROL=ignoreboth:erasedups
-export FZF_DEFAULT_COMMAND='fd --type file'
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
 
 # PS1
 export GIT_PS1_SHOWDIRTYSTATE=true
