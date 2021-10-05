@@ -382,6 +382,7 @@ if get(g:, 'full_config')
 	Plug 'tpope/vim-sensible'
 	Plug 'tpope/vim-abolish'
 	Plug 'ap/vim-css-color'
+	Plug 'amadeus/vim-convert-color-to'
 	Plug 'Quramy/vim-js-pretty-template'
 	Plug 'godlygeek/tabular'
 	Plug 'wesQ3/vim-windowswap'
@@ -397,7 +398,7 @@ if get(g:, 'full_config')
 	" Formatters
 	Plug 'prettier/vim-prettier', {
 		\ 'do': 'yarn install',
-		\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml', 'svelte']
+		\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml', 'svelte', 'xml']
 	\ }
 	Plug 'psf/black', { 'branch': 'stable' }
 	Plug 'vim-scripts/Align'
