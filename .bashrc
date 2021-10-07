@@ -19,6 +19,9 @@
 # broot
 [[ -f /home/mischka/.config/broot/launcher/bash/br ]] && source /home/mischka/.config/broot/launcher/bash/br
 
+# git-subrepo
+[[ -f /opt/git-subrepo/.rc ]] && source /opt/git-subrepo/.rc
+
 # Tools
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
