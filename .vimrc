@@ -213,8 +213,8 @@ nnoremap <C-y> 10<C-y>
 
 nnoremap <CR> i<CR><Esc>
 
-nmap <silent> ]g :cn<CR>
-nmap <silent> [g :cp<CR>
+nmap <silent> ]h :cn<CR>
+nmap <silent> [h :cp<CR>
 
 " Select previous paste
 nnoremap gp `[v`]
@@ -374,7 +374,6 @@ if get(g:, 'full_config')
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 	Plug 'junegunn/fzf.vim'
 	Plug 'mcchrish/nnn.vim'
-	Plug 'airblade/vim-gitgutter'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
@@ -702,6 +701,16 @@ EOF
 		nmap <silent> <A-h> :<C-U>call CocAction('doHover')<CR>
 		nmap <silent> <A-a> :CocAction<CR>
 		nmap <silent> <A-l> :IndentBlanklineToggle<CR>
+		nmap <silent> [g <Plug>(coc-git-prevchunk)
+		nmap <silent> ]g <Plug>(coc-git-nextchunk)
+		nmap <silent> [c <Plug>(coc-git-prevconflict)
+		nmap <silent> ]c <Plug>(coc-git-nextconflict)
+		nmap <silent> gs <Plug>(coc-git-chunkinfo)
+		nmap <silent> gc <Plug>(coc-git-commit)
+		omap <silent> ig <Plug>(coc-git-chunk-inner)
+		xmap <silent> ig <Plug>(coc-git-chunk-inner)
+		omap <silent> ag <Plug>(coc-git-chunk-outer)
+		xmap <silent> ag <Plug>(coc-git-chunk-outer)
 
 		autocmd FileType rust nmap <silent> <A-x> :CocCommand rust-analyzer.explainError<CR>
 		autocmd FileType rust nmap <A-q> :CocCommand rust-analyzer.reload<CR>
