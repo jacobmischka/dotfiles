@@ -1,0 +1,2 @@
+# Force Firefox to use DBUS remote, so XWayland applications can open links
+export MOZ_DBUS_REMOTE=1

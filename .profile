@@ -18,3 +18,7 @@ export NVIM_GTK_NO_HEADERBAR=1
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+
+if [ -f ~/.profile.local ]; then
+	source ~/.profile.local
+fi
