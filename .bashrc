@@ -22,6 +22,9 @@
 # git-subrepo
 [[ -f /opt/git-subrepo/.rc ]] && source /opt/git-subrepo/.rc
 
+# nvm
+[[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
+
 # Tools
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
