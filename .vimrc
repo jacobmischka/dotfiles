@@ -548,7 +548,7 @@ if get(g:, 'full_config')
 
 	let g:prettier#autoformat_config_present = 1
 	let g:prettier#autoformat_require_pragma = 0
-	let g:prettier#autoformat_config_files = [".prettierrc.json"]
+	let g:prettier#autoformat_config_files = [".prettierrc.json", ".prettierrc"]
 
 	let g:svelte_preprocessors = ['typescript']
 endif
