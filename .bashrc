@@ -113,10 +113,10 @@ function mkcd() {
 }
 
 function ls_fallback() {
-	if hash lsd 2>/dev/null; then
+	if hash exa 2>/dev/null; then
 		exa --icons --group-directories-first "$@"
 	else
-		echo 'Install lsd!'
+		echo 'Install exa!'
 		\ls "$@"
 	fi
 }
