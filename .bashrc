@@ -42,9 +42,6 @@ export NNN_COPIER="~/.dotfiles/local/bin/nnn-copier.sh"
 export NNN_USE_EDITOR=1
 export NNN_TMPFILE=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd
 
-# NPM
-export NPM_CONFIG_PREFIX=~/.npm-global
-
 export PUB_CACHE=$HOME/.pub-cache
 
 # Other exports
