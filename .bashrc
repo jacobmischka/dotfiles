@@ -22,8 +22,8 @@
 # git-subrepo
 [[ -f /opt/git-subrepo/.rc ]] && source /opt/git-subrepo/.rc
 
-# nvm
-[[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
+# fnm
+hash fnm 2>/dev/null && eval "$(fnm env)"
 
 # Tools
 export EDITOR=/usr/bin/nvim
