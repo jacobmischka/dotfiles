@@ -786,7 +786,8 @@ if has("autocmd")
 
 	autocmd BufWritePre *.py execute ':Black'
 
-	" autocmd FileType javascript,javascript.jsx JsPreTmpl html
+	" I don't understand why this isn't happening automatically
+	autocmd BufEnter * :Sleuth
 
 	autocmd DirChanged * call SourceIfExists("./.vimrc.local")
 endif " has("autocmd")
