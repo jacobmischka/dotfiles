@@ -1,6 +1,8 @@
 [/]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/']
+calculator=['<Super>c']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
 decrease-text-size=['<Alt><Super>bracketleft']
+home=['<Super>f']
 increase-text-size=['<Alt><Super>bracketright']
 next=['<Super>bracketright']
 on-screen-keyboard=['<Alt><Super>k']
@@ -10,11 +12,7 @@ toggle-contrast=['<Alt><Super>backslash']
 volume-down=['<Super>minus']
 volume-mute=['<Super>0']
 volume-up=['<Super>equal']
-
-[custom-keybindings/custom0]
-binding='<Primary><Alt>t'
-command='gnome-terminal'
-name='Terminal'
+www=['<Super>i']
 
 [custom-keybindings/custom1]
 binding='<Super>t'
@@ -30,8 +28,3 @@ name='NeovimGtk'
 binding='<Super>k'
 command='keepassxc'
 name='KeePassXC'
-
-[custom-keybindings/custom4]
-binding='<Super>f'
-command='nautilus'
-name='File browser'

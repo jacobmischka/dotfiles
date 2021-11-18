@@ -800,3 +800,19 @@ scrollback-unlimited=true
 use-theme-background=false
 use-theme-colors=false
 visible-name='Base 16 3024'
+
+[profiles:/:ff7ac957-27b4-4cc3-8c72-bc8882e6e98b]
+background-color='#2e2a31'
+bold-color='#bcbabe'
+bold-color-same-as-fg=true
+cursor-background-color='#bcbabe'
+cursor-colors-set=true
+cursor-foreground-color='#2e2a31'
+default-size-columns=140
+default-size-rows=40
+foreground-color='#bcbabe'
+palette=['#2e2a31', '#d8137f', '#17ad98', '#dc8a0e', '#796af5', '#bb60ea', '#149bda', '#bcbabe', '#838085', '#d65407', '#4a464d', '#666369', '#9f9da2', '#d8d7da', '#c720ca', '#f5f4f7']
+scrollback-unlimited=true
+use-theme-background=false
+use-theme-colors=false
+visible-name='Base 16 Unikitty Dark'
