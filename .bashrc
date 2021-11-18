@@ -23,7 +23,7 @@
 [[ -f /opt/git-subrepo/.rc ]] && source /opt/git-subrepo/.rc
 
 # fnm
-hash fnm 2>/dev/null && eval "$(fnm env)"
+# hash fnm 2>/dev/null && eval "$(fnm env)"
 
 # Tools
 export EDITOR=/usr/bin/nvim
@@ -198,6 +198,10 @@ function source-env() {
 
 function export-java() {
 	export "JAVA_HOME=/usr/lib/jvm/$(ls /usr/lib/jvm/ | fzf)"
+}
+
+function fnm-init() {
+	eval "$(fnm env)"
 }
 
 if [ -f ~/.bashrc.local ]; then
