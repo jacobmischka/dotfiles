@@ -106,6 +106,7 @@ alias this-minute="date +'%F %T'"
 alias smartify="smartypants -a qBDeu"
 alias nvim-gtk="GTK_THEME=Adwaita:dark nvim-gtk"
 alias show-password="nmcli device wifi show-password"
+alias fnm="fnm-initter"
 
 # Functions
 function mkcd() {
@@ -201,7 +202,15 @@ function export-java() {
 }
 
 function fnm-init() {
-	eval "$(fnm env)"
+	eval "$(\fnm env)"
+}
+
+function fnm-initter() {
+	if [ "$1" = "init" ]; then
+		fnm-init
+	else
+		\fnm "$@"
+	fi
 }
 
 if [ -f ~/.bashrc.local ]; then
