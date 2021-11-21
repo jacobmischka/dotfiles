@@ -371,6 +371,9 @@ if get(g:, 'full_config')
 	Plug 'luochen1990/rainbow'
 	Plug 'lukas-reineke/indent-blankline.nvim'
 
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
 	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 	Plug 'junegunn/fzf.vim'
 	Plug 'mcchrish/nnn.vim'
@@ -554,7 +557,8 @@ if get(g:, 'full_config')
 endif
 
 " Keymaps
-map <C-P> :FZF<CR>
+map <C-P> :Telescope git_files<CR>
+map <Leader><C-P> :Telescope find_files<CR>
 map <C-H> <Plug>(wintabs_previous)
 map <C-L> <Plug>(wintabs_next)
 map <C-T>h <Plug>(wintabs_move_left)
@@ -619,6 +623,8 @@ lua << EOF
 		space_char = " ",
 		filetype_exclude = {"help", "coc-explorer"}
 	}
+
+	require('telescope').load_extension('fzf')
 EOF
 
 	if get(g:, 'use_nvim_lsp')
