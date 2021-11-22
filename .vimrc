@@ -374,8 +374,6 @@ if get(g:, 'full_config')
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
-	Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
-	Plug 'junegunn/fzf.vim'
 	Plug 'mcchrish/nnn.vim'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'vim-airline/vim-airline'
@@ -456,24 +454,6 @@ let g:vimtex_quickfix_mode = 0
 let g:vimtex_compiler_progname = 'nvr'
 set conceallevel=1
 let g:tex_conceal='abdmg'
-
-" Customize fzf colors to match your color scheme
-let $FZF_DEFAULT_COMMAND = 'fd --type file --follow --hidden --exclude .git'
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment']
-\ }
-
 
 " Settings
 if get(g:, 'full_config')
