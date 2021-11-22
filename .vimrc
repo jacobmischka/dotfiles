@@ -624,6 +624,25 @@ lua << EOF
 		filetype_exclude = {"help", "coc-explorer"}
 	}
 
+	local action_layout = require('telescope.actions.layout')
+	require('telescope').setup {
+		defaults = {
+			preview = {
+				hide_on_startup = true
+			},
+			mappings = {
+				n = {
+					['<A-p>'] = action_layout.toggle_preview
+				},
+				i = {
+					-- Close pane with Esc directly from insert mode
+					-- ["<Esc>"] = actions.close,
+					['<A-p>'] = action_layout.toggle_preview
+				}
+			}
+		}
+	}
+
 	require('telescope').load_extension('fzf')
 EOF
 
