@@ -4,7 +4,7 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-[[ -f ~/.profile ]] && . ~/.profile && systemctl --user import-environment PATH
-
-# broot
-[[ -f /home/mischka/.config/broot/launcher/bash/br ]] && source /home/mischka/.config/broot/launcher/bash/br
+if [[ -f ~/.profile ]]; then
+	. ~/.profile
+	hash systemctl 2>/dev/null && systemctl --user import-environment PATH
+fi

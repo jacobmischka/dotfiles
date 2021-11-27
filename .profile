@@ -20,5 +20,5 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 if [ -f ~/.profile.local ]; then
-	source ~/.profile.local
+	. ~/.profile.local
 fi

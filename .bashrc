@@ -11,19 +11,18 @@
 # Git prompt
 [[ -f /usr/share/git/completion/git-prompt.sh ]] && . /usr/share/git/completion/git-prompt.sh
 [[ -f /usr/share/git/completion/git-completion.bash ]] && . /usr/share/git/completion/git-completion.bash
+[[ -f ~/.git-prompt.sh ]] && . ~/.git-prompt.sh
+[[ -f ~/.git-completion.bash ]] && . ~/.git-completion.bash
 
 # fzf extensions
 [[ -f /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
 [[ -f /usr/share/fzf/completion.bash ]] && . /usr/share/fzf/completion.bash
 
 # broot
-[[ -f /home/mischka/.config/broot/launcher/bash/br ]] && source /home/mischka/.config/broot/launcher/bash/br
+[[ -f ~/.config/broot/launcher/bash/br ]] && . ~/.config/broot/launcher/bash/br
 
 # git-subrepo
-[[ -f /opt/git-subrepo/.rc ]] && source /opt/git-subrepo/.rc
-
-# fnm
-# hash fnm 2>/dev/null && eval "$(fnm env)"
+[[ -f /opt/git-subrepo/.rc ]] && . /opt/git-subrepo/.rc
 
 # Tools
 export EDITOR=/usr/bin/nvim
@@ -88,18 +87,16 @@ alias grep="grep --color=auto"
 alias pacman="sudo pacman --color=auto"
 alias xclip="xclip -selection clipboard"
 alias copy="wl-copy"
-alias c="copy"
 alias paste="wl-paste -n"
+alias c="copy"
 alias p="paste"
+alias strip="trim"
+alias tc="trim | copy"
+alias cve="ctrl_v_enter"
 alias open="gio open"
 alias venv="python -m venv"
 alias qrencode="qrencode -t ANSI"
 alias gh="github_clone"
-alias strip="trim"
-alias c="copy"
-alias p="paste"
-alias tc="trim | copy"
-alias cve="ctrl_v_enter"
 alias today="date -I"
 alias today-long="date +'%B %d, %Y'"
 alias this-minute="date +'%F %T'"
@@ -193,7 +190,7 @@ n() {
 # Contrary to the actual .env spec, strings with spaces must be quote-enclosed
 function source-env() {
 	set -o allexport
-	source $1
+	. $1
 	set +o allexport
 }
 
@@ -214,5 +211,5 @@ function fnm-initter() {
 }
 
 if [ -f ~/.bashrc.local ]; then
-	source ~/.bashrc.local
+	. ~/.bashrc.local
 fi
