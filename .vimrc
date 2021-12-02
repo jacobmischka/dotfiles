@@ -722,7 +722,7 @@ EOF
 
 		autocmd FileType svelte nmap <A-q> :CocCommand svelte.restartLanguageServer<CR>
 		autocmd FileType python nmap <A-q> :CocCommand pyright.restartserver<CR>
-		autocmd FileType typescript nmap <A-q> :CocCommand tsserver.reloadProjects<CR>
+		autocmd FileType typescript nmap <A-q> :CocCommand tsserver.restart<CR>
 
 		" create a part for server status.
 		function! GetServerStatus()
