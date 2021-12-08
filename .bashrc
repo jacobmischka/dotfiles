@@ -195,7 +195,7 @@ function source-env() {
 }
 
 function export-java() {
-	export "JAVA_HOME=/usr/lib/jvm/$(ls /usr/lib/jvm/ | fzf)"
+	export "JAVA_HOME=/usr/lib/jvm/$(\ls /usr/lib/jvm/ | fzf)"
 }
 
 function fnm-init() {
