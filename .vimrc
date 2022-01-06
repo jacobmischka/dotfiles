@@ -639,6 +639,10 @@ lua << EOF
 		}
 
 		require('nvim-tree').setup {
+		  disable_netrw = false,
+		  system_open = {
+			cmd = "xdg-open",
+		  },
 		  update_cwd = true,
 		  diagnostics = {
 			enable = true,
