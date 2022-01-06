@@ -929,6 +929,10 @@ if has("autocmd")
 	autocmd BufEnter * :Sleuth
 
 	autocmd DirChanged * call SourceIfExists("./.vimrc.local")
+	autocmd DirChanged * call SourceIfExists("./.vim/.vimrc")
+	autocmd DirChanged * call SourceIfExists("./.vim/init.vim")
+	autocmd DirChanged * call SourceIfExists("./.vim/init.lua")
+
 endif " has("autocmd")
 
 if (has("nvim"))
@@ -1012,7 +1016,3 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Last but not least, allow for local overrides
 call SourceIfExists("~/.vimrc.local")
-call SourceIfExists("./.vim/.vimrc")
-call SourceIfExists("./.vim/init.vim")
-call SourceIfExists("./.vim/init.lua")
-
