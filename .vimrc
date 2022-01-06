@@ -4,7 +4,7 @@
 let g:full_config = 1
 
 " Use built-in nvim lsp instead of coc.nvim
-let g:use_nvim_lsp = 0
+let g:use_nvim_lsp = 1
 
 " vim mode preferred!
 set nocompatible
@@ -350,13 +350,21 @@ Plug 'jaredgorski/SpaceCamp'
 if get(g:, 'full_config')
 	if get(g:, 'use_nvim_lsp')
 		Plug 'neovim/nvim-lspconfig'
-		Plug 'hrsh7th/nvim-compe'
+		Plug 'hrsh7th/nvim-cmp'
+		Plug 'hrsh7th/cmp-nvim-lsp'
 		Plug 'kyazdani42/nvim-web-devicons'
 		Plug 'kyazdani42/nvim-tree.lua'
 		Plug 'ray-x/lsp_signature.nvim'
+		Plug 'lewis6991/gitsigns.nvim'
+		Plug 'saadparwaiz1/cmp_luasnip'
+		Plug 'L3MON4D3/LuaSnip'
+		Plug 'folke/lsp-colors.nvim'
 	else
 		Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	endif
+
+	Plug 'nvim-treesitter/nvim-treesitter'
+	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 	Plug 'alvan/vim-closetag'
 	Plug 'kana/vim-repeat'
@@ -430,12 +438,6 @@ let g:wordmotion_mappings = {
 \	'<C-R><C-W>': '<C-R><A-w>'
 \}
 
-" let g:NERDTreeShowHidden = 1
-" let g:NERDTreeShowIgnoredStatus = 1
-" let g:NERDSpaceDelims = 1
-" let g:NERDTreeMinimalUI = 1
-
-" let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 let g:jsx_ext_required = 0
@@ -574,8 +576,6 @@ nmap <localleader>y <Plug>(YoinkYankPreserveCursorPosition)
 xmap <localleader>y <Plug>(YoinkYankPreserveCursorPosition)
 
 if get(g:, 'full_config')
-	" map \ :NERDTreeToggle<CR>
-	" map \| :NERDTreeFind<CR>
 	nmap <F8> :TagbarToggle<CR>
 	command! Tabc WintabsCloseVimtab
 	command! Tabo WintabsOnlyVimtab
@@ -628,70 +628,176 @@ EOF
 
 	if get(g:, 'use_nvim_lsp')
 lua << EOF
+		require('gitsigns').setup {
+		  signs = {
+			add = { hl = 'GitGutterAdd', text = '+' },
+			change = { hl = 'GitGutterChange', text = '~' },
+			delete = { hl = 'GitGutterDelete', text = '_' },
+			topdelete = { hl = 'GitGutterDelete', text = '‾' },
+			changedelete = { hl = 'GitGutterChange', text = '~' },
+		  },
+		}
+
+		require('nvim-tree').setup {
+
+		}
+
+		-- Treesitter configuration
+		-- Parsers must be installed manually via :TSInstall
+		require('nvim-treesitter.configs').setup {
+		  highlight = {
+			enable = true, -- false will disable the whole extension
+		  },
+		  incremental_selection = {
+			enable = true,
+			keymaps = {
+			  init_selection = 'gnn',
+			  node_incremental = 'grn',
+			  scope_incremental = 'grc',
+			  node_decremental = 'grm',
+			},
+		  },
+		  indent = {
+			enable = true,
+		  },
+		  textobjects = {
+			select = {
+			  enable = true,
+			  lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+			  keymaps = {
+				-- You can use the capture groups defined in textobjects.scm
+				['af'] = '@function.outer',
+				['if'] = '@function.inner',
+				['ac'] = '@class.outer',
+				['ic'] = '@class.inner',
+			  },
+			},
+			move = {
+			  enable = true,
+			  set_jumps = true, -- whether to set jumps in the jumplist
+			  goto_next_start = {
+				[']m'] = '@function.outer',
+				[']]'] = '@class.outer',
+			  },
+			  goto_next_end = {
+				[']M'] = '@function.outer',
+				[']['] = '@class.outer',
+			  },
+			  goto_previous_start = {
+				['[m'] = '@function.outer',
+				['[['] = '@class.outer',
+			  },
+			  goto_previous_end = {
+				['[M'] = '@function.outer',
+				['[]'] = '@class.outer',
+			  },
+			},
+		  },
+		}
+
+		local lspconfig = require('lspconfig')
 		local on_attach = function(client, bufnr)
-			local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-			local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 			local opts = { noremap=true, silent=true }
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-h>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+			vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 
 			require'lsp_signature'.on_attach()
 		end
 
-		local nvim_lsp = require('lspconfig')
+		vim.diagnostic.config({
+		  virtual_text = false,
+		})
+
+		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+		for type, icon in pairs(signs) do
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+		end
+
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 		local lsp_servers = {
 			'html',
 			'intelephense',
-			'pyls',
+			'pyright',
 			'rust_analyzer',
 			'svelte',
+			'tsserver',
 		}
 
 		for _, lsp in ipairs(lsp_servers) do
-			nvim_lsp[lsp].setup{
+			lspconfig[lsp].setup{
 				on_attach = on_attach,
-				flags = {
-					debounce_text_changes = 150,
-				}
+				capabilities = capabilities,
+				-- flags = {
+					-- debounce_text_changes = 150,
+				-- }
 			}
 		end
 
-		require'compe'.setup {
-			enabled = true;
-			autocomplete = true;
-			debug = false;
-			min_length = 1;
-			preselect = 'disable';
-			throttle_time = 80;
-			source_timeout = 200;
-			resolve_timeout = 800;
-			incomplete_delay = 400;
-			max_abbr_width = 100;
-			max_kind_width = 100;
-			max_menu_width = 100;
-			documentation = {
-				border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
-				winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-				max_width = 120,
-				min_width = 60,
-				max_height = math.floor(vim.o.lines * 0.3),
-				min_height = 1,
-			};
+		-- luasnip setup
+		local luasnip = require 'luasnip'
 
-			source = {
-				path = true;
-				buffer = true;
-				calc = true;
-				nvim_lsp = true;
-				nvim_lua = true;
-				vsnip = true;
-				ultisnips = true;
-				luasnip = true;
-			};
+		-- nvim-cmp setup
+		local cmp = require 'cmp'
+		cmp.setup {
+		  snippet = {
+			expand = function(args)
+			  luasnip.lsp_expand(args.body)
+			end,
+		  },
+		  mapping = {
+			['<C-p>'] = cmp.mapping.select_prev_item(),
+			['<C-n>'] = cmp.mapping.select_next_item(),
+			['<C-d>'] = cmp.mapping.scroll_docs(-4),
+			['<C-f>'] = cmp.mapping.scroll_docs(4),
+			['<C-Space>'] = cmp.mapping.complete(),
+			['<C-e>'] = cmp.mapping.close(),
+			['<CR>'] = cmp.mapping.confirm {
+			  behavior = cmp.ConfirmBehavior.Replace,
+			  select = true,
+			},
+			['<Tab>'] = function(fallback)
+			  if cmp.visible() then
+				cmp.select_next_item()
+			  elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			  else
+				fallback()
+			  end
+			end,
+			['<S-Tab>'] = function(fallback)
+			  if cmp.visible() then
+				cmp.select_prev_item()
+			  elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			  else
+				fallback()
+			  end
+			end,
+		  },
+		  sources = {
+			{ name = 'nvim_lsp' },
+			{ name = 'luasnip' },
+		  },
 		}
 EOF
+		autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})
 
 		" tab-complete
 		inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+		nnoremap \ :NvimTreeToggle<CR>
 	else
 
 		nmap \ :CocCommand explorer<CR>
@@ -844,11 +950,21 @@ function! OverrideHighlights()
 	" Fix Conceal (not sure why this is needed honestly)
 	hi Conceal guibg=bg
 
-	" Have coc use undercurls
+	" Have coc/lsp use undercurls
 	hi CocErrorHighlight cterm=undercurl gui=undercurl ctermbg=9 guisp=#ff0000
 	hi CocWarningHighlight cterm=undercurl gui=undercurl ctermbg=130 guisp=#ff922b
 	hi CocInfoHighlight cterm=undercurl gui=undercurl ctermbg=11 guisp=#fab005
 	hi CocHintHighlight cterm=undercurl gui=undercurl ctermbg=12 guisp=#15aabf
+
+	hi DiagnosticError ctermfg=9 guifg=#ff0000
+	hi DiagnosticWarn ctermfg=130 guifg=#ff922b
+	hi DiagnosticInfo ctermfg=11 guifg=#fab005
+	hi DiagnosticHint ctermfg=12 guifg=#15aabf
+
+	hi DiagnosticUnderlineError cterm=undercurl gui=undercurl ctermbg=9 guisp=#ff0000
+	hi DiagnosticUnderlineWarn cterm=undercurl gui=undercurl ctermbg=130 guisp=#ff922b
+	hi DiagnosticUnderlineInfo cterm=undercurl gui=undercurl ctermbg=11 guisp=#fab005
+	hi DiagnosticUnderlineHint cterm=undercurl gui=undercurl ctermbg=12 guisp=#15aabf
 
 	" Add line highlight
 	hi LineHighlight ctermbg=darkgray guibg=darkgray
