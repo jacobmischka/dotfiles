@@ -648,6 +648,9 @@ lua << EOF
 			  warning = "",
 			  error = "",
 			}
+		  },
+		  git = {
+			ignore = false,
 		  }
 		}
 
@@ -704,6 +707,18 @@ lua << EOF
 		  },
 		}
 
+		vim.diagnostic.config({
+		  virtual_text = false,
+		  severity_sort = true,
+		})
+
+		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+		for type, icon in pairs(signs) do
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+		end
+
+
 		local lspconfig = require('lspconfig')
 		local on_attach = function(client, bufnr)
 			local opts = { noremap=true, silent=true }
@@ -722,20 +737,12 @@ lua << EOF
 			require'lsp_signature'.on_attach()
 		end
 
-		vim.diagnostic.config({
-		  virtual_text = false,
-		})
-
-		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-		end
-
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 		local lsp_servers = {
+			'cssls',
+			'eslint',
 			'html',
 			'intelephense',
 			'pyright',
@@ -745,12 +752,9 @@ lua << EOF
 		}
 
 		for _, lsp in ipairs(lsp_servers) do
-			lspconfig[lsp].setup{
+			lspconfig[lsp].setup {
 				on_attach = on_attach,
 				capabilities = capabilities,
-				-- flags = {
-					-- debounce_text_changes = 150,
-				-- }
 			}
 		end
 
@@ -1008,4 +1012,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Last but not least, allow for local overrides
 call SourceIfExists("~/.vimrc.local")
+call SourceIfExists("./.vim/.vimrc")
+call SourceIfExists("./.vim/init.vim")
+call SourceIfExists("./.vim/init.lua")
 
