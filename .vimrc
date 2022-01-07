@@ -829,6 +829,7 @@ lua << EOF
 EOF
 
 		autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})
+		nnoremap <A-q> :lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
 
 		" tab-complete
 		inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
