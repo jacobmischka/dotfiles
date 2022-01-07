@@ -365,6 +365,8 @@ if get(g:, 'full_config')
 
 	Plug 'nvim-treesitter/nvim-treesitter'
 	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+	Plug 'p00f/nvim-ts-rainbow'
+	Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 	Plug 'alvan/vim-closetag'
 	Plug 'kana/vim-repeat'
@@ -661,8 +663,15 @@ lua << EOF
 		-- Treesitter configuration
 		-- Parsers must be installed manually via :TSInstall
 		require('nvim-treesitter.configs').setup {
+		  ensure_installed = "maintained",
 		  highlight = {
 			enable = true, -- false will disable the whole extension
+
+			-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+			-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+			-- Using this option may slow down your editor, and you may see some duplicate highlights.
+			-- Instead of true it can also be a list of languages
+			additional_vim_regex_highlighting = false,
 		  },
 		  incremental_selection = {
 			enable = true,
@@ -708,6 +717,15 @@ lua << EOF
 				['[]'] = '@class.outer',
 			  },
 			},
+		  },
+		  -- nvim-ts-rainbow
+		  rainbow = {
+			enable = true,
+			extended_mode = true,
+		  },
+		  -- context-commentstring
+		  context_commentstring = {
+			enable = true
 		  },
 		}
 
