@@ -735,7 +735,7 @@ lua << EOF
 		capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 		-- npm i -g vscode-langservers-extracted svelte-language-server @tailwindcss/language-server intelephense
-		-- pacman -S rust-analyzer pyright
+		-- pacman -S rust-analyzer pyright typescript-language-server
 		local lsp_servers = {
 			'cssls', -- https://github.com/hrsh7th/vscode-langservers-extracted
 			'eslint', -- https://github.com/hrsh7th/vscode-langservers-extracted
@@ -746,7 +746,7 @@ lua << EOF
 			'rust_analyzer', -- https://github.com/rust-analyzer/rust-analyzer
 			'svelte', -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
 			'tailwindcss', -- https://github.com/tailwindlabs/tailwindcss-intellisense
-			'tsserver', -- https://github.com/hrsh7th/vscode-langservers-extracted
+			'tsserver', -- https://github.com/typescript-language-server/typescript-language-server
 		}
 
 		for _, lsp in ipairs(lsp_servers) do
