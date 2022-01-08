@@ -654,9 +654,9 @@ lua << EOF
 			  node_decremental = 'grm',
 			},
 		  },
-		  indent = {
-			enable = true,
-		  },
+		  -- indent = {
+			-- enable = true,
+		  -- },
 		  textobjects = {
 			select = {
 			  enable = true,
