@@ -472,32 +472,6 @@ if get(g:, 'full_config')
 		return !col || getline('.')[col - 1]  =~ '\s'
 	endfunction
 
-	" Language Server providers
-	" Note: PHP provider installed via helper plugin above
-	"
-	" rust: https://github.com/rust-lang-nursery/rls
-	" php: https://github.com/felixfbecker/php-language-server
-	" javascript/ts: https://github.com/sourcegraph/javascript-typescript-langserver
-	" javascript/flow: https://github.com/flowtype/flow-language-server
-	" svelte: https://github.com/UnwrittenFun/svelte-language-server
-	" css: https://github.com/vscode-langservers/vscode-css-languageserver-bin
-	" vue: https://github.com/vuejs/vetur/tree/master/server
-	" pyre: https://github.com/facebook/pyre-check
-	" dart: https://github.com/natebosch/dart_language_server
-	" reason: https://github.com/jaredly/reason-language-server
-
-	" Alternatives / others:
-	" 'javascript.typescript': ['javascript-typescript-stdio'],
-	" 'css': ['/home/mischka/.npm-global/bin/css-languageserver', '--stdio']
-
-	let g:EclimFileTypeValidate = 0
-	let g:EclimCValidate = 0
-	let g:EclimHtmlValidate = 0
-	let g:EclimJavaValidate = 0
-	let g:EclimJavascriptValidate = 0
-	let g:EclimPhpValidate = 0
-	let g:EclimPythonValidate = 0
-
 	let g:mta_filetypes = {
 	\	'html': 1,
 	\	'htmldjango': 1,
@@ -660,8 +634,6 @@ lua << EOF
 		  }
 		}
 
-		-- Treesitter configuration
-		-- Parsers must be installed manually via :TSInstall
 		require('nvim-treesitter.configs').setup {
 		  ensure_installed = "maintained",
 		  highlight = {
@@ -762,15 +734,19 @@ lua << EOF
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+		-- npm i -g vscode-langservers-extracted svelte-language-server @tailwindcss/language-server intelephense
+		-- pacman -S rust-analyzer pyright
 		local lsp_servers = {
-			'cssls',
-			'eslint',
-			'html',
-			'intelephense',
-			'pyright',
-			'rust_analyzer',
-			'svelte',
-			'tsserver',
+			'cssls', -- https://github.com/hrsh7th/vscode-langservers-extracted
+			'eslint', -- https://github.com/hrsh7th/vscode-langservers-extracted
+			'html', -- https://github.com/hrsh7th/vscode-langservers-extracted
+			'intelephense', -- https://intelephense.com/
+			'jsonls', -- https://github.com/hrsh7th/vscode-langservers-extracted
+			'pyright', -- https://github.com/microsoft/pyright
+			'rust_analyzer', -- https://github.com/rust-analyzer/rust-analyzer
+			'svelte', -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
+			'tailwindcss', -- https://github.com/tailwindlabs/tailwindcss-intellisense
+			'tsserver', -- https://github.com/hrsh7th/vscode-langservers-extracted
 		}
 
 		for _, lsp in ipairs(lsp_servers) do
@@ -780,10 +756,9 @@ lua << EOF
 			}
 		end
 
-		-- luasnip setup
 		local luasnip = require 'luasnip'
 
-		-- nvim-cmp setup
+		-- nvim-cmp
 		local cmp = require 'cmp'
 		cmp.setup {
 		  snippet = {
