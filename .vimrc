@@ -121,10 +121,10 @@ nnoremap - ,
 nnoremap + ;
 
 " Leader
-let mapleader = ','
-let g:mapleader = ','
-let maplocalleader = ',,'
-let g:maplocalleader = ',,'
+let mapleader = ' '
+let g:mapleader = ' '
+let maplocalleader = ','
+let g:maplocalleader = ','
 
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python'
