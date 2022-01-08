@@ -1014,3 +1014,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Last but not least, allow for local overrides
 call SourceIfExists("~/.vimrc.local")
+call SourceIfExists("./.vimrc.local")
+call SourceIfExists("./.vim/.vimrc")
+call SourceIfExists("./.vim/init.vim")
+call SourceIfExists("./.vim/init.lua")
