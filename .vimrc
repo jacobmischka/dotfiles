@@ -727,6 +727,7 @@ lua << EOF
 			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 			vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+			vim.cmd [[ command! LSPInfo execute 'lua print(vim.inspect(vim.lsp.buf_get_clients()))' ]]
 
 			require'lsp_signature'.on_attach()
 		end
