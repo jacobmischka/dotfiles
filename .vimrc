@@ -410,6 +410,9 @@ if get(g:, 'full_config')
 		\ 'do': 'yarn install',
 		\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml', 'svelte', 'xml']
 	\ }
+	" After upgrading python, nvim will usually launch with an error
+	" saying that the black module can't be found.
+	" To fix this, `rm -r ~/.local/share/nvim/black` and relaunch.
 	Plug 'psf/black', { 'branch': 'stable' }
 	Plug 'vim-scripts/Align'
 	Plug 'vim-scripts/SQLUtilities'
@@ -567,8 +570,6 @@ if get(g:, 'full_config')
 
 	" exclude overwrite statusline of list filetype
 	let g:airline_exclude_filetypes = ["list"]
-
-	" nmap <C-M> :LivedownToggle<CR>
 
 lua << EOF
 	require("indent_blankline").setup {
