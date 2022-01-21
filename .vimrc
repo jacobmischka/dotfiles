@@ -179,6 +179,9 @@ cmap <C-V> <C-R>+
 nmap <C-S> :w<CR>
 imap <C-S> <Esc>:w<CR>a
 
+" Reload all open buffers
+nmap <A-y> :bufdo e<CR>
+
 " Text objects
 " ib = inner buffer
 onoremap ib :exec "normal! ggVG"<CR>
