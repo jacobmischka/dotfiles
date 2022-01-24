@@ -409,10 +409,7 @@ if get(g:, 'full_config')
 	Plug 'whonore/Coqtail'
 
 	" Formatters
-	Plug 'prettier/vim-prettier', {
-		\ 'do': 'yarn install',
-		\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html', 'yaml', 'svelte', 'xml']
-	\ }
+	Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 	" After upgrading python, nvim will usually launch with an error
 	" saying that the black module can't be found.
 	" To fix this, `rm -r ~/.local/share/nvim/black` and relaunch.
