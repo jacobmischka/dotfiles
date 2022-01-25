@@ -11,6 +11,8 @@
 	default = simple
 [commit]
 	gpgsign = true
+[merge]
+	conflictStyle = "zdiff3"
 [diff]
 	compactionHeuristic = true
 [interactive]
