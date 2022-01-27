@@ -362,8 +362,10 @@ if get(g:, 'full_config')
 		Plug 'saadparwaiz1/cmp_luasnip'
 		Plug 'L3MON4D3/LuaSnip'
 		Plug 'folke/lsp-colors.nvim'
+		Plug 'windwp/nvim-ts-autotag'
 	else
 		Plug 'neoclide/coc.nvim', {'branch': 'release'}
+		Plug 'alvan/vim-closetag'
 	endif
 
 	Plug 'nvim-treesitter/nvim-treesitter'
@@ -371,7 +373,6 @@ if get(g:, 'full_config')
 	Plug 'p00f/nvim-ts-rainbow'
 	Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
-	Plug 'alvan/vim-closetag'
 	Plug 'kana/vim-repeat'
 	Plug 'kshenoy/vim-signature'
 	Plug 'Valloric/MatchTagAlways'
@@ -696,9 +697,13 @@ lua << EOF
 			enable = true,
 			extended_mode = true,
 		  },
+		  -- nvim-ts-autotag
+		  autotag = {
+			enable = true,
+		  },
 		  -- context-commentstring
 		  context_commentstring = {
-			enable = true
+			enable = true,
 		  },
 		}
 
