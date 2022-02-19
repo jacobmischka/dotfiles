@@ -213,3 +213,12 @@ function fnm-initter() {
 if [ -f ~/.bashrc.local ]; then
 	. ~/.bashrc.local
 fi
+
+# Set GTK dark theme in Kitty windows
+if [ -n "$KITTY_WINDOW_ID" ] && [ "$XDG_SESSION_TYPE" = "x11" ]; then
+	xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT "dark" -id $WINDOWID
+fi
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
