@@ -15,6 +15,7 @@
 	conflictStyle = "zdiff3"
 [diff]
 	compactionHeuristic = true
+	colorMoved = default
 [interactive]
 	diffFilter = delta --color-only
 
@@ -59,6 +60,7 @@
 [rebase]
 	autosquash = true
 [delta]
+	navigate = true
 	features = decorations
 	whitespace-error-style = 22 reverse
 [delta "decorations"]
