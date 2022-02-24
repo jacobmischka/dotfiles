@@ -1,6 +1,6 @@
 [/]
 calculator=['<Super>c']
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
 decrease-text-size=['<Alt><Super>bracketleft']
 home=['<Super>f']
 increase-text-size=['<Alt><Super>bracketright']
@@ -13,6 +13,11 @@ volume-down=['<Super>minus']
 volume-mute=['<Super>0']
 volume-up=['<Super>equal']
 www=['<Super>i']
+
+[custom-keybindings/custom0]
+binding='<Super>semicolon'
+command='emote'
+name='Emote'
 
 [custom-keybindings/custom1]
 binding='<Super>t'
