@@ -614,6 +614,18 @@ lua << EOF
 			topdelete = { hl = 'GitGutterDelete', text = '‾' },
 			changedelete = { hl = 'GitGutterChange', text = '~' },
 		  },
+		  on_attach = function (bufnr)
+			local gs = package.loaded.gitsigns
+
+			local function map(mode, l, r, opts)
+			  opts = opts or {}
+			  opts.buffer = bufnr
+			end
+
+			local opts = { noremap=true, silent=true }
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', ']c', '<cmd>Gitsigns next_hunk<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', '[c', '<cmd>Gitsigns prev_hunk<CR>', opts)
+		  end
 		}
 
 		require('nvim-tree').setup {
