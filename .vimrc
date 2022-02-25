@@ -180,7 +180,7 @@ nmap <C-S> :w<CR>
 imap <C-S> <Esc>:w<CR>a
 
 " Reload all open buffers
-nmap <A-y> :bufdo e<CR>
+nmap <M-y> :bufdo e<CR>
 
 " Text objects
 " ib = inner buffer
@@ -196,10 +196,10 @@ onoremap iv :exec "normal! HVL"<CR>
 
 " From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
 " Shift-Alt-j/k deletes blank line below/above, and Alt-j/k inserts.
-nnoremap <silent><S-A-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><S-A-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+nnoremap <silent><S-M-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><S-M-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><M-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><M-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Move lines
 " From http://vim.wikia.com/wiki/Moving_lines_up_or_down
@@ -435,13 +435,13 @@ let g:html_indent_script1 = 'inc'
 let g:html_indent_inctags = 'html,body,head,tbody,p'
 
 let g:wordmotion_mappings = {
-\	'w': '<A-w>',
-\	'b': '<A-b>',
-\	'e': '<A-e>',
-\	'ge': 'g<A-e>',
-\	'aw': 'a<A-w>',
-\	'iw': 'i<A-w>',
-\	'<C-R><C-W>': '<C-R><A-w>'
+\	'w': '<M-w>',
+\	'b': '<M-b>',
+\	'e': '<M-e>',
+\	'ge': 'g<M-e>',
+\	'aw': 'a<M-w>',
+\	'iw': 'i<M-w>',
+\	'<C-R><C-W>': '<C-R><M-w>'
 \}
 
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -561,13 +561,13 @@ if get(g:, 'full_config')
 	command! Tabo WintabsOnlyVimtab
 	command! Tags TagbarToggle
 
-	map <A-c> :Pickachu<CR>
-	map <A-f> :Pickachu file<CR>
-	map <A-d> :Pickachu date<CR>
+	map <M-c> :Pickachu<CR>
+	map <M-f> :Pickachu file<CR>
+	map <M-d> :Pickachu date<CR>
 
 	nmap <Leader>= <Plug>(PrettierAsync)
 
-	nmap <silent> <A-m> :MinimapToggle<CR>
+	nmap <silent> <M-m> :MinimapToggle<CR>
 
 	" exclude overwrite statusline of list filetype
 	let g:airline_exclude_filetypes = ["list"]
@@ -590,12 +590,12 @@ lua << EOF
 			},
 			mappings = {
 				n = {
-					['<A-p>'] = action_layout.toggle_preview
+					['<M-p>'] = action_layout.toggle_preview
 				},
 				i = {
 					-- Close pane with Esc directly from insert mode
 					-- ["<Esc>"] = actions.close,
-					['<A-p>'] = action_layout.toggle_preview
+					['<M-p>'] = action_layout.toggle_preview
 				}
 			}
 		}
@@ -741,9 +741,9 @@ lua << EOF
 			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-h>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<M-h>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<M-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<M-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 			vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 			vim.cmd [[ command! LSPInfo execute 'lua print(vim.inspect(vim.lsp.buf_get_clients()))' ]]
 
@@ -823,7 +823,7 @@ lua << EOF
 EOF
 
 		autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})
-		nnoremap <A-q> :lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
+		nnoremap <M-q> :lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
 
 		" tab-complete
 		inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -852,11 +852,11 @@ EOF
 		nmap <silent> gy <Plug>(coc-type-definition)
 		nmap <silent> gi <Plug>(coc-implementation)
 		nmap <silent> gr <Plug>(coc-references)
-		nmap <silent> <A-r> <Plug>(coc-rename)
-		nmap <silent> <A-i> <Plug>(coc-diagnostic-info)
-		nmap <silent> <A-h> :<C-U>call CocAction('doHover')<CR>
-		nmap <silent> <A-a> :CocAction<CR>
-		nmap <silent> <A-l> :IndentBlanklineToggle<CR>
+		nmap <silent> <M-r> <Plug>(coc-rename)
+		nmap <silent> <M-i> <Plug>(coc-diagnostic-info)
+		nmap <silent> <M-h> :<C-U>call CocAction('doHover')<CR>
+		nmap <silent> <M-a> :CocAction<CR>
+		nmap <silent> <M-l> :IndentBlanklineToggle<CR>
 		nmap <silent> [g <Plug>(coc-git-prevchunk)
 		nmap <silent> ]g <Plug>(coc-git-nextchunk)
 		nmap <silent> [c <Plug>(coc-git-prevconflict)
@@ -868,12 +868,12 @@ EOF
 		omap <silent> ag <Plug>(coc-git-chunk-outer)
 		xmap <silent> ag <Plug>(coc-git-chunk-outer)
 
-		autocmd FileType rust nmap <silent> <A-x> :CocCommand rust-analyzer.explainError<CR>
-		autocmd FileType rust nmap <A-q> :CocCommand rust-analyzer.reload<CR>
+		autocmd FileType rust nmap <silent> <M-x> :CocCommand rust-analyzer.explainError<CR>
+		autocmd FileType rust nmap <M-q> :CocCommand rust-analyzer.reload<CR>
 
-		autocmd FileType svelte nmap <A-q> :CocCommand svelte.restartLanguageServer<CR>
-		autocmd FileType python nmap <A-q> :CocCommand pyright.restartserver<CR>
-		autocmd FileType typescript nmap <A-q> :CocCommand tsserver.restart<CR>
+		autocmd FileType svelte nmap <M-q> :CocCommand svelte.restartLanguageServer<CR>
+		autocmd FileType python nmap <M-q> :CocCommand pyright.restartserver<CR>
+		autocmd FileType typescript nmap <M-q> :CocCommand tsserver.restart<CR>
 
 		" create a part for server status.
 		function! GetServerStatus()
