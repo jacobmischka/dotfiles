@@ -766,6 +766,7 @@ lua << EOF
 			'svelte', -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
 			'tailwindcss', -- https://github.com/tailwindlabs/tailwindcss-intellisense
 			'tsserver', -- https://github.com/typescript-language-server/typescript-language-server
+			'jdtls', -- https://projects.eclipse.org/projects/eclipse.jdt.ls
 		}
 
 		for _, lsp in ipairs(lsp_servers) do

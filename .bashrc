@@ -45,6 +45,7 @@ export PUB_CACHE=$HOME/.pub-cache
 
 # Other exports
 export JAVA_HOME=/usr/lib/jvm/default
+export JDTLS_HOME=/usr/share/java/jdtls # config subdirectories need to be writable by client for logging
 export PIPENV_VENV_IN_PROJECT=1
 export BAT_THEME='Monokai Extended'
 
