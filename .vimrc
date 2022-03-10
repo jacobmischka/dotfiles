@@ -332,6 +332,7 @@ Plug 'reasonml-editor/vim-reason-plus'
 Plug 'lervag/vimtex'
 Plug 'https://bitbucket.org/ccorrodi/sasylfvim.git'
 Plug 'lepture/vim-jinja'
+Plug 'slint-ui/vim-slint'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
