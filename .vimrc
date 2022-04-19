@@ -406,6 +406,7 @@ if get(g:, 'full_config')
 	Plug 'majutsushi/tagbar'
 	Plug 'vim-php/tagbar-phpctags.vim', {'do': 'make'}
 	Plug 'ryanoasis/vim-devicons'
+	Plug 'mbbill/undotree'
 
 	Plug 'cplaursen/vim-isabelle'
 	Plug 'whonore/Coqtail'
@@ -569,6 +570,8 @@ if get(g:, 'full_config')
 	nmap <Leader>= <Plug>(PrettierAsync)
 
 	nmap <silent> <A-m> :MinimapToggle<CR>
+
+	nmap <F4> :UndotreeToggle<CR>
 
 	" exclude overwrite statusline of list filetype
 	let g:airline_exclude_filetypes = ["list"]
