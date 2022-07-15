@@ -996,6 +996,12 @@ function! LightTheme()
 	call OverrideHighlights()
 endfunction
 
+function! GuiFontSize(new_size)
+  call rpcnotify(1, 'Gui', 'Font', 'Fira Code Regular ' . a:new_size)
+endfunction
+
+command! -nargs=1 GuiFontSize call GuiFontSize(<f-args>)
+
 function! OverrideHighlights()
 	" trailing whitespace and column; must define AFTER colorscheme, setf, etc!
 	hi ColorColumn ctermbg=black guibg=darkgray
