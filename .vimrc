@@ -9,6 +9,15 @@ let g:use_nvim_lsp = 1
 " vim mode preferred!
 set nocompatible
 
+if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+if (has("termguicolors"))
+	set termguicolors
+endif
+
 " set xterm title, and inform vim of screen/tmux's syntax for doing the same
 set titlestring=nvim\ %{expand(\"%t\")}
 if &term =~ "^screen"
@@ -397,6 +406,7 @@ if get(g:, 'full_config')
 	Plug 'tpope/vim-sensible'
 	Plug 'tpope/vim-abolish'
 	Plug 'ap/vim-css-color'
+	Plug 'oncomouse/nvim-colorizer.lua'
 	Plug 'amadeus/vim-convert-color-to'
 	Plug 'Quramy/vim-js-pretty-template'
 	Plug 'godlygeek/tabular'
@@ -958,15 +968,6 @@ if has("autocmd")
 
 endif " has("autocmd")
 
-if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-
-if (has("termguicolors"))
-	set termguicolors
-endif
-
 let g:onedark_terminal_italics=1
 
 let g:gruvbox_italic=1
@@ -1036,6 +1037,8 @@ endfunction
 
 " Default to dark theme
 call DarkTheme()
+
+lua require('colorizer').setup()
 
 " after a re-source, fix syntax matching issues (concealing brackets):
 if exists('g:loaded_webdevicons')
