@@ -362,6 +362,7 @@ Plug 'jaredgorski/SpaceCamp'
 if get(g:, 'full_config')
 	if get(g:, 'use_nvim_lsp')
 		Plug 'neovim/nvim-lspconfig'
+		Plug 'simrat39/rust-tools.nvim'
 		Plug 'hrsh7th/nvim-cmp'
 		Plug 'hrsh7th/cmp-nvim-lsp'
 		Plug 'kyazdani42/nvim-web-devicons'
@@ -777,7 +778,7 @@ lua << EOF
 			'intelephense', -- https://intelephense.com/
 			'jsonls', -- https://github.com/hrsh7th/vscode-langservers-extracted
 			'pyright', -- https://github.com/microsoft/pyright
-			'rust_analyzer', -- https://github.com/rust-analyzer/rust-analyzer
+		-- 	'rust_analyzer', -- https://github.com/rust-analyzer/rust-analyzer
 			'svelte', -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
 			'tailwindcss', -- https://github.com/tailwindlabs/tailwindcss-intellisense
 			'tsserver', -- https://github.com/typescript-language-server/typescript-language-server
@@ -790,6 +791,34 @@ lua << EOF
 				capabilities = capabilities,
 			}
 		end
+
+		-- lspconfig.rust_analyzer.setup {
+		  -- on_attach = on_attach,
+		  -- capabilities = capabilities,
+		  -- settings = {
+			-- ['rust-analyzer'] = {
+			  -- inlayHints = {
+				-- chainingHints = { enable = false },
+				-- parameterHints = { enable = false },
+				-- closingBraceHints = { enable = false },
+				-- typeHints = { enable = false },
+			  -- }
+			-- }
+		  -- }
+		-- }
+
+		-- rust-tools
+
+		local rt = require 'rust-tools'
+		rt.setup {
+		  server  = {
+			on_attach = on_attach,
+			capabilities = capabilities,
+		  },
+		  tools = {
+			inlay_hints = { auto = false }
+		  }
+		}
 
 		local luasnip = require 'luasnip'
 
