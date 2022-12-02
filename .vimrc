@@ -766,8 +766,7 @@ lua << EOF
 			require'lsp_signature'.on_attach()
 		end
 
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+		local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 		-- npm i -g vscode-langservers-extracted svelte-language-server @tailwindcss/language-server intelephense
 		-- pacman -S rust-analyzer pyright typescript-language-server
