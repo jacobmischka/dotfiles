@@ -813,6 +813,7 @@ lua << EOF
 		  server  = {
 			on_attach = on_attach,
 			capabilities = capabilities,
+			standalone = true,
 		  },
 		  tools = {
 			inlay_hints = { auto = false }
@@ -834,6 +835,7 @@ lua << EOF
 			  luasnip.lsp_expand(args.body)
 			end,
 		  },
+		  preselect = cmp.PreselectMode.None,
 		  mapping = cmp.mapping.preset.insert({
 			['<C-p>'] = cmp.mapping.select_prev_item(),
 			['<C-n>'] = cmp.mapping.select_next_item(),
