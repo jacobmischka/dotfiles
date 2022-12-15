@@ -852,7 +852,7 @@ lua << EOF
 		local rt = require 'rust-tools'
 		rt.setup {
 		  server  = {
-			on_attach = on_attach,
+			on_attach = lspconfig_on_attach,
 			capabilities = lspconfig_capabilities,
 			standalone = true,
 		  },
