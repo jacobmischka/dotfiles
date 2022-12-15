@@ -747,7 +747,7 @@ lua << EOF
 
 
 		local lspconfig = require('lspconfig')
-		local on_attach = function(client, bufnr)
+		lspconfig_on_attach = function(client, bufnr)
 			local opts = { noremap=true, silent=true }
 			vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 			vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -766,7 +766,7 @@ lua << EOF
 			require'lsp_signature'.on_attach()
 		end
 
-		local capabilities = require('cmp_nvim_lsp').default_capabilities()
+		lspconfig_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 		-- npm i -g vscode-langservers-extracted svelte-language-server @tailwindcss/language-server intelephense
 		-- pacman -S rust-analyzer pyright typescript-language-server
@@ -788,72 +788,64 @@ lua << EOF
 
 		for _, lsp in ipairs(lsp_servers) do
 			lspconfig[lsp].setup {
-				on_attach = on_attach,
-				capabilities = capabilities,
+				on_attach = lspconfig_on_attach,
+				capabilities = lspconfig_capabilities,
 			}
 		end
 
-		-- to be enabled on a per-project basis for now
 		-- https://github.com/python-lsp/python-lsp-server
-		-- lspconfig.pylsp.setup {
-		  -- should be the same as the one above, but disables rename in favor of pyright
-		  -- on_attach = function(client, bufnr)
-			  -- local opts = { noremap=true, silent=true }
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-h>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-g>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-			  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-r>', '<cmd>lua vim.lsp.buf.rename(nil, { name = "pyright" })<CR>', opts)
-			  -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
-			  -- vim.cmd [[ command! LSPInfo execute 'lua print(vim.inspect(vim.lsp.buf_get_clients()))' ]]
-			  -- require'lsp_signature'.on_attach()
-		  -- end,
-		  -- capabilities = capabilities,
-		  -- settings = {
-			-- pylsp = {
-			  -- plugins = {
-				-- jedi_completion = {
-				  -- enabled = false
-				-- },
-				-- jedi_definition = {
-				  -- enabled = false
-				-- },
-				-- jedi_hover = {
-				  -- enabled = false
-				-- },
-				-- jedi_references = {
-				  -- enabled = false
-				-- },
-				-- jedi_signature_help = {
-				  -- enabled = false
-				-- },
-				-- jedi_symbols = {
-				  -- enabled = false
-				-- },
-				-- mccabe = {
-				  -- enabled = false
-				-- },
-				-- preload = {
-				  -- enabled = false
-				-- },
-				-- yapf = {
-				  -- enabled = false
-				-- },
-				-- pylint = {
-				  -- enabled = true,
-				  -- -- Use pylint binary, slower but basically required
-				  -- executable = "pylint",
-				-- },
-			  -- }
-			-- }
-		  -- }
-		-- }
+		lspconfig.pylsp.setup {
+		  on_attach = function(client, bufnr)
+			  lspconfig_on_attach(client, bufnr)
+			  local opts = { noremap=true, silent=true }
+			  -- disable rename in favor of pyright
+			  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-r>', '<cmd>lua vim.lsp.buf.rename(nil, { name = "pyright" })<CR>', opts)
+		  end,
+		  capabilities = lspconfig_capabilities,
+		  settings = {
+			pylsp = {
+			  plugins = {
+				-- https://github.com/python-lsp/python-lsp-ruff
+				ruff = {
+				  enabled = true,
+				},
+				jedi_completion = {
+				  enabled = false
+				},
+				jedi_definition = {
+				  enabled = false
+				},
+				jedi_hover = {
+				  enabled = false
+				},
+				jedi_references = {
+				  enabled = false
+				},
+				jedi_signature_help = {
+				  enabled = false
+				},
+				jedi_symbols = {
+				  enabled = false
+				},
+				mccabe = {
+				  enabled = false
+				},
+				preload = {
+				  enabled = false
+				},
+				yapf = {
+				  enabled = false
+				},
+				pylint = {
+				  -- disabled by default
+				  enabled = false,
+				  -- Use pylint binary, slower but basically required
+				  executable = "pylint",
+				},
+			  }
+			}
+		  }
+		}
 
 		-- rust-tools
 
@@ -861,7 +853,7 @@ lua << EOF
 		rt.setup {
 		  server  = {
 			on_attach = on_attach,
-			capabilities = capabilities,
+			capabilities = lspconfig_capabilities,
 			standalone = true,
 		  },
 		  tools = {
