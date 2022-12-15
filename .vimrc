@@ -747,19 +747,19 @@ lua << EOF
 
 
 		local lspconfig = require('lspconfig')
-		lspconfig_on_attach = function(client, bufnr)
-			local opts = { noremap=true, silent=true }
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-h>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-g>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+		lspconfig_on_attach = function(client, buffer)
+			local opts = { noremap=true, silent=true, buffer=buffer }
+			vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
+			vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
+			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+			vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
+			vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+			vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+			vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+			vim.keymap.set('n', '<A-h>', vim.lsp.buf.hover, opts)
+			vim.keymap.set('n', '<A-g>', vim.lsp.buf.hover, opts)
+			vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, opts)
+			vim.keymap.set('n', '<A-r>', vim.lsp.buf.rename, opts)
 			vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 			vim.cmd [[ command! LSPInfo execute 'lua print(vim.inspect(vim.lsp.buf_get_clients()))' ]]
 
@@ -795,11 +795,16 @@ lua << EOF
 
 		-- https://github.com/python-lsp/python-lsp-server
 		lspconfig.pylsp.setup {
-		  on_attach = function(client, bufnr)
-			  lspconfig_on_attach(client, bufnr)
-			  local opts = { noremap=true, silent=true }
+		  on_attach = function(client, buffer)
+			  lspconfig_on_attach(client, buffer)
+			  local opts = { noremap=true, silent=true, buffer=buffer }
 			  -- disable rename in favor of pyright
-			  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-r>', '<cmd>lua vim.lsp.buf.rename(nil, { name = "pyright" })<CR>', opts)
+			  vim.keymap.set(
+				'n',
+				'<A-r>',
+				function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
+				opts
+			  )
 		  end,
 		  capabilities = lspconfig_capabilities,
 		  settings = {
