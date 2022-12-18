@@ -317,7 +317,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'zefei/vim-wintabs'
 Plug 'jiangmiao/auto-pairs'
-Plug 'tyru/caw.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
@@ -383,6 +382,7 @@ if get(g:, 'full_config')
 	Plug 'p00f/nvim-ts-rainbow'
 	Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
+	Plug 'terrortylor/nvim-comment'
 	Plug 'kana/vim-repeat'
 	Plug 'kshenoy/vim-signature'
 	Plug 'Valloric/MatchTagAlways'
@@ -587,6 +587,8 @@ if get(g:, 'full_config')
 	let g:airline_exclude_filetypes = ["list"]
 
 lua << EOF
+	require('nvim_comment').setup()
+
 	require("indent_blankline").setup {
 		enabled = false,
 		show_end_of_line = false,
