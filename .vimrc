@@ -383,6 +383,7 @@ if get(g:, 'full_config')
 	Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 	Plug 'terrortylor/nvim-comment'
+	Plug 'kazhala/close-buffers.nvim'
 	Plug 'kana/vim-repeat'
 	Plug 'kshenoy/vim-signature'
 	Plug 'Valloric/MatchTagAlways'
