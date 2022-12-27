@@ -778,7 +778,6 @@ lua << EOF
 			'html', -- https://github.com/hrsh7th/vscode-langservers-extracted
 			'intelephense', -- https://intelephense.com/
 			'jsonls', -- https://github.com/hrsh7th/vscode-langservers-extracted
-			'pyright', -- https://github.com/microsoft/pyright
 			'svelte', -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
 			'tailwindcss', -- https://github.com/tailwindlabs/tailwindcss-intellisense
 			'tsserver', -- https://github.com/typescript-language-server/typescript-language-server
@@ -795,18 +794,34 @@ lua << EOF
 			}
 		end
 
+		-- https://github.com/microsoft/pyright
+		lspconfig.pyright.setup {
+		  on_attach = function(client, buffer)
+			lspconfig_on_attach(client, buffer)
+			local opts = { noremap=true, silent=true, buffer=buffer }
+			-- disable rename in favor of pyright
+			vim.keymap.set(
+			  'n',
+			  '<A-r>',
+			  function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
+			  opts
+			)
+		  end,
+		  capabilities = lspconfig_capabilities
+		}
+
 		-- https://github.com/python-lsp/python-lsp-server
 		lspconfig.pylsp.setup {
 		  on_attach = function(client, buffer)
-			  lspconfig_on_attach(client, buffer)
-			  local opts = { noremap=true, silent=true, buffer=buffer }
-			  -- disable rename in favor of pyright
-			  vim.keymap.set(
-				'n',
-				'<A-r>',
-				function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
-				opts
-			  )
+			lspconfig_on_attach(client, buffer)
+			local opts = { noremap=true, silent=true, buffer=buffer }
+			-- disable rename in favor of pyright
+			vim.keymap.set(
+			  'n',
+			  '<A-r>',
+			  function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
+			  opts
+			)
 		  end,
 		  capabilities = lspconfig_capabilities,
 		  settings = {
