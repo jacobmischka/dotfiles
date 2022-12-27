@@ -760,7 +760,6 @@ lua << EOF
 			vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
 			vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 			vim.keymap.set('n', '<A-h>', vim.lsp.buf.hover, opts)
-			vim.keymap.set('n', '<A-g>', vim.lsp.buf.hover, opts)
 			vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, opts)
 			vim.keymap.set('n', '<A-r>', vim.lsp.buf.rename, opts)
 			vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
