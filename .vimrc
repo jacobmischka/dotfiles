@@ -343,19 +343,15 @@ Plug 'lepture/vim-jinja'
 Plug 'slint-ui/vim-slint'
 
 " Colorschemes
-Plug 'morhetz/gruvbox'
-Plug 'danilo-augusto/vim-afterglow'
-Plug 'joshdick/onedark.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'chriskempson/base16-vim'
-Plug 'jacoborus/tender.vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'liuchengxu/space-vim-dark'
-Plug 'cormacrelf/vim-colors-github'
-Plug 'KKPMW/oldbook-vim'
-Plug 'haishanh/night-owl.vim'
-Plug 'rainglow/vim'
-Plug 'jaredgorski/SpaceCamp'
+Plug 'sainnhe/gruvbox-material'
+Plug 'folke/tokyonight.nvim'
+Plug 'sainnhe/edge'
+Plug 'RRethy/nvim-base16'
+Plug 'lourenci/github-colors'
+Plug 'sainnhe/sonokai'
+Plug 'dracula/vim'
+Plug 'Mofiqul/adwaita.nvim'
+Plug 'glepnir/zephyr-nvim'
 
 " Heavier
 if get(g:, 'full_config')
@@ -1081,7 +1077,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme yule
+	colorscheme zephyr
 	set background=dark
 	let g:airline_theme='base16'
 	if exists(":AirlineTheme")
@@ -1091,7 +1087,7 @@ function! DarkTheme()
 endfunction
 
 function! LightTheme()
-	colorscheme PaperColor
+	colorscheme adwaita
 	set background=light
 	let g:airline_theme='papercolor'
 	if exists(":AirlineTheme")
