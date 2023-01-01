@@ -1064,9 +1064,9 @@ let g:enable_italic_font = 1
 function! DarkTheme()
 	colorscheme zephyr
 	set background=dark
-	let g:airline_theme='base16'
+	let g:airline_theme='edge'
 	if exists(":AirlineTheme")
-		AirlineTheme base16
+		AirlineTheme edge
 	endif
 	call OverrideHighlights()
 endfunction
