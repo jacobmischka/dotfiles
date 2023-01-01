@@ -990,21 +990,6 @@ EOF
 		autocmd FileType python nmap <A-q> :CocCommand pyright.restartserver<CR>
 		autocmd FileType typescript nmap <A-q> :CocCommand tsserver.restart<CR>
 
-		" create a part for server status.
-		function! GetServerStatus()
-			return get(g:, 'coc_status', '')
-		endfunction
-		call airline#parts#define_function('coc', 'GetServerStatus')
-
-		function! AirlineInit()
-			let g:airline_section_a = airline#section#create(['coc'])
-
-			" use error & warning count of diagnostics form coc.nvim
-			let g:airline_section_error .= '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-			let g:airline_section_warning .= '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
-		endfunction
-		autocmd User AirlineAfterInit call AirlineInit()
-
 		inoremap <silent><expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
 			\ <SID>check_back_space() ? "\<TAB>" :
