@@ -352,6 +352,7 @@ Plug 'sainnhe/sonokai'
 Plug 'dracula/vim'
 Plug 'Mofiqul/adwaita.nvim'
 Plug 'glepnir/zephyr-nvim'
+Plug 'savq/melange'
 
 " Heavier
 if get(g:, 'full_config')
