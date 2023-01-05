@@ -224,6 +224,7 @@ nnoremap <C-e> 10<C-e>
 nnoremap <C-y> 10<C-y>
 
 nnoremap <CR> i<CR><Esc>
+nnoremap <leader><CR> <CR>
 
 nmap <silent> ]h :cn<CR>
 nmap <silent> [h :cp<CR>
