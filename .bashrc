@@ -106,6 +106,7 @@ alias smartify="smartypants -a qBDeu"
 alias nvim-gtk="GTK_THEME=Adwaita:dark nvim-gtk"
 alias show-password="nmcli device wifi show-password"
 alias fnm="fnm-initter"
+alias pyenv="pyenv-initter"
 
 # Functions
 function mkcd() {
@@ -209,6 +210,20 @@ function fnm-initter() {
 		fnm-init
 	else
 		\fnm "$@"
+	fi
+}
+
+function pyenv-init() {
+	export PYENV_ROOT="$HOME/.pyenv"
+	command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(\pyenv init -)"
+}
+
+function pyenv-initter() {
+	if [ "$1" = "init" ]; then
+		pyenv-init
+	else
+		\pyenv "$@"
 	fi
 }
 
