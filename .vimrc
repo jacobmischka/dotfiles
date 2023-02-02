@@ -70,7 +70,7 @@ set gdefault	                " s///g by default
 " whitespace
 set autoindent                  " keep indenting on <CR>
 set shiftwidth=4                " one tab = four spaces (autoindent)
-set softtabstop=0               " Disable sts
+set softtabstop=-1              " Disable sts
 set tabstop=4					" Tabs are 4 characters
 set shiftround                  " only indent to multiples of shiftwidth
 set fileformats=unix,dos        " unix linebreaks in new files please
@@ -323,7 +323,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
-Plug 'jacobmischka/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 Plug 'chaoren/vim-wordmotion'
 Plug 'tmilloff/vim-address-bar'
 Plug 'svermeulen/vim-subversive'
@@ -1043,9 +1043,6 @@ if has("autocmd")
 	autocmd FileType coq call coquille#FNMapping()
 
 	autocmd BufWritePre *.py execute ':Black'
-
-	" I don't understand why this isn't happening automatically
-	autocmd BufEnter * :Sleuth
 
 	autocmd DirChanged * call SourceIfExists("./.vimrc.local")
 	autocmd DirChanged * call SourceIfExists("./.vim/.vimrc")
