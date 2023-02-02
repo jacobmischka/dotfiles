@@ -313,7 +313,6 @@ let g:polyglot_disabled = ['autoindent', 'svelte']
 call plug#begin('~/.vim/plugged')
 
 " Essentials
-Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'zefei/vim-wintabs'
