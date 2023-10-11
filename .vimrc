@@ -776,6 +776,7 @@ lua << EOF
 			'cssls', -- https://github.com/hrsh7th/vscode-langservers-extracted
 			'eslint', -- https://github.com/hrsh7th/vscode-langservers-extracted
 			'html', -- https://github.com/hrsh7th/vscode-langservers-extracted
+			'gopls', -- https://github.com/golang/tools/tree/master/gopls
 			'intelephense', -- https://intelephense.com/
 			'jsonls', -- https://github.com/hrsh7th/vscode-langservers-extracted
 			'svelte', -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
