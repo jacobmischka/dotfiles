@@ -588,13 +588,9 @@ if get(g:, 'full_config')
 lua << EOF
 	require('nvim_comment').setup()
 
-	require("indent_blankline").setup {
+	require("ibl").setup {
 		enabled = false,
-		show_end_of_line = false,
-		show_first_indent_level = true,
-		space_char_blankline = " ",
-		space_char = " ",
-		filetype_exclude = {"help", "coc-explorer"}
+		exclude = { filetypes = { "help", "coc-explorer" } },
 	}
 
 	local action_layout = require('telescope.actions.layout')
