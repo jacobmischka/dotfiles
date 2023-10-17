@@ -316,7 +316,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'zefei/vim-wintabs'
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
@@ -587,6 +587,7 @@ if get(g:, 'full_config')
 
 lua << EOF
 	require('nvim_comment').setup()
+	require('nvim-autopairs').setup()
 
 	require("ibl").setup {
 		enabled = false,
