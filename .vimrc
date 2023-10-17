@@ -376,7 +376,7 @@ if get(g:, 'full_config')
 
 	Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-	Plug 'zbirenbaum/neodim'
+	" Plug 'zbirenbaum/neodim'
 	Plug 'p00f/nvim-ts-rainbow'
 	Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
@@ -736,7 +736,7 @@ lua << EOF
 		  severity_sort = true,
 		})
 
-		require('neodim').setup()
+		-- require('neodim').setup()
 
 		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 		for type, icon in pairs(signs) do
