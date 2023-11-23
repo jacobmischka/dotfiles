@@ -762,7 +762,7 @@ lua << EOF
 			vim.keymap.set('n', '<A-h>', vim.lsp.buf.hover, opts)
 			vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, opts)
 			vim.keymap.set('n', '<A-r>', vim.lsp.buf.rename, opts)
-			vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+			vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 			vim.cmd [[ command! LSPInfo execute 'lua print(vim.inspect(vim.lsp.buf_get_clients()))' ]]
 
 			require'lsp_signature'.on_attach()
@@ -941,6 +941,7 @@ EOF
 
 		autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})
 		nnoremap <A-q> :lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
+		nnoremap <leader>= :Format<CR>
 
 		" tab-complete
 		inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
