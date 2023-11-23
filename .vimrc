@@ -651,10 +651,10 @@ lua << EOF
 		  diagnostics = {
 			enable = true,
 			icons = {
-			  hint = "",
+			  hint = "",
 			  info = "",
-			  warning = "",
-			  error = "",
+			  warning = "",
+			  error = "󰚌",
 			}
 		  },
 		  git = {
@@ -742,7 +742,7 @@ lua << EOF
 
 		-- require('neodim').setup()
 
-		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+		local signs = { Error = "󰚌 ", Warn = " ", Hint = " ", Info = " " }
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
