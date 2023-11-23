@@ -6,7 +6,7 @@ if exists('g:GtkGuiLoaded')
 	call rpcnotify(1, 'Gui', 'Option', 'Popupmenu', 0)
 
 	" Increase font size
-	call rpcnotify(1, 'Gui', 'Font', 'Fira Code Regular 12')
+	" call rpcnotify(1, 'Gui', 'Font', 'Fira Code Regular 12')
 endif
 
 function! GuiFontSize(new_size)

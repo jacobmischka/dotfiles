@@ -71,3 +71,9 @@
 	file-decoration-style = none
 [delta "side-by-side"]
 	side-by-side = true
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[includeIf "gitdir:~/projects/meter/"]
+    path = ~/.gitconfig.meter

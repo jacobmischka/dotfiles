@@ -587,7 +587,9 @@ if get(g:, 'full_config')
 
 lua << EOF
 	require('nvim_comment').setup()
-	require('nvim-autopairs').setup()
+	require('nvim-autopairs').setup({
+		check_ts = true,
+	})
 
 	require("ibl").setup {
 		enabled = false,
@@ -719,12 +721,13 @@ lua << EOF
 		  },
 		  -- nvim-ts-rainbow
 		  rainbow = {
-			enable = true,
+			enable = false,
 			extended_mode = true,
 		  },
 		  -- nvim-ts-autotag
 		  autotag = {
 			enable = true,
+			enable_close_on_slash = false,
 		  },
 		  -- context-commentstring
 		  context_commentstring = {
@@ -1058,7 +1061,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme zephyr
+	colorscheme dracula
 	set background=dark
 	let g:airline_theme='edge'
 	if exists(":AirlineTheme")

@@ -1,6 +1,8 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(fnm env)"
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 alias copy="pbcopy"
 alias paste="pbpaste"
 unalias open
