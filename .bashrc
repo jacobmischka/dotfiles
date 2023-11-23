@@ -11,6 +11,8 @@
 # Git prompt
 [[ -f /usr/share/git/completion/git-prompt.sh ]] && . /usr/share/git/completion/git-prompt.sh
 [[ -f /usr/share/git/completion/git-completion.bash ]] && . /usr/share/git/completion/git-completion.bash
+[[ -f /opt/homebrew/etc/bash_completion.d/git-prompt.sh ]] && . /opt/homebrew/etc/bash_completion.d/git-prompt.sh
+[[ -f /opt/homebrew/etc/bash_completion.d/git-completion.bash ]] && . /opt/homebrew/etc/bash_completion.d/git-completion.bash
 [[ -f ~/.git-prompt.sh ]] && . ~/.git-prompt.sh
 [[ -f ~/.git-completion.bash ]] && . ~/.git-completion.bash
 
@@ -114,10 +116,10 @@ function mkcd() {
 }
 
 function ls_fallback() {
-	if hash exa 2>/dev/null; then
-		exa --icons --group-directories-first "$@"
+	if hash eza 2>/dev/null; then
+		eza --icons --group-directories-first "$@"
 	else
-		echo 'Install exa!'
+		echo 'Install eza!'
 		\ls "$@"
 	fi
 }
