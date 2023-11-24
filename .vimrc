@@ -18,17 +18,17 @@ endif
 " set xterm title, and inform vim of screen/tmux's syntax for doing the same
 set titlestring=nvim\ %{expand(\"%t\")}
 if &term =~ "^screen"
-" pretend this is xterm.  it probably is anyway, but if term is left as
-" `screen`, vim doesn't understand ctrl-arrow.
-if &term == "screen-256color"
-	set term=xterm-256color
-else
-	set term=xterm
-endif
+	" pretend this is xterm.  it probably is anyway, but if term is left as
+	" `screen`, vim doesn't understand ctrl-arrow.
+	if &term == "screen-256color"
+		set term=xterm-256color
+	else
+		set term=xterm
+	endif
 
-" gotta set these *last*, since `set term` resets everything
-set t_ts=k
-set t_fs=\
+	" gotta set these *last*, since `set term` resets everything
+	set t_ts=k
+	set t_fs=\
 endif
 set title
 
@@ -196,9 +196,9 @@ onoremap ib :exec "normal! ggVG"<CR>
 onoremap iv :exec "normal! HVL"<CR>
 
 " Insert date
-:nnoremap <F5> "=strftime("%Y-%m-%d")<CR>p
-:nnoremap <leader><F5> "=strftime("%Y-%m-%d")<CR>P
-:inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
+nnoremap <F5> "=strftime("%Y-%m-%d")<CR>p
+nnoremap <leader><F5> "=strftime("%Y-%m-%d")<CR>P
+inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 
 " From http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
 " Shift-Alt-j/k deletes blank line below/above, and Alt-j/k inserts.
@@ -812,43 +812,43 @@ lua << EOF
 		settings = {
 		pylsp = {
 			plugins = {
-			-- https://github.com/python-lsp/python-lsp-ruff
-			ruff = {
-				enabled = true,
-			},
-			jedi_completion = {
-				enabled = false
-			},
-			jedi_definition = {
-				enabled = false
-			},
-			jedi_hover = {
-				enabled = false
-			},
-			jedi_references = {
-				enabled = false
-			},
-			jedi_signature_help = {
-				enabled = false
-			},
-			jedi_symbols = {
-				enabled = false
-			},
-			mccabe = {
-				enabled = false
-			},
-			preload = {
-				enabled = false
-			},
-			yapf = {
-				enabled = false
-			},
-			pylint = {
-				-- disabled by default
-				enabled = false,
-				-- Use pylint binary, slower but basically required
-				executable = "pylint",
-			},
+				-- https://github.com/python-lsp/python-lsp-ruff
+				ruff = {
+					enabled = true,
+				},
+				jedi_completion = {
+					enabled = false
+				},
+				jedi_definition = {
+					enabled = false
+				},
+				jedi_hover = {
+					enabled = false
+				},
+				jedi_references = {
+					enabled = false
+				},
+				jedi_signature_help = {
+					enabled = false
+				},
+				jedi_symbols = {
+					enabled = false
+				},
+				mccabe = {
+					enabled = false
+				},
+				preload = {
+					enabled = false
+				},
+				yapf = {
+					enabled = false
+				},
+				pylint = {
+					-- disabled by default
+					enabled = false,
+					-- Use pylint binary, slower but basically required
+					executable = "pylint",
+				},
 			}
 		}
 		}
@@ -859,12 +859,12 @@ lua << EOF
 	local rt = require 'rust-tools'
 	rt.setup {
 		server  = {
-		on_attach = lspconfig_on_attach,
-		capabilities = lspconfig_capabilities,
-		standalone = true,
+			on_attach = lspconfig_on_attach,
+			capabilities = lspconfig_capabilities,
+			standalone = true,
 		},
 		tools = {
-		inlay_hints = { auto = false }
+			inlay_hints = { auto = false }
 		}
 	}
 
@@ -879,72 +879,72 @@ lua << EOF
 	local cmp = require 'cmp'
 	cmp.setup {
 		snippet = {
-		expand = function(args)
-			luasnip.lsp_expand(args.body)
-		end,
+			expand = function(args)
+				luasnip.lsp_expand(args.body)
+			end,
 		},
 		preselect = cmp.PreselectMode.None,
 		mapping = cmp.mapping.preset.insert({
-		['<C-p>'] = cmp.mapping.select_prev_item(),
-		['<C-n>'] = cmp.mapping.select_next_item(),
-		['<C-d>'] = cmp.mapping.scroll_docs(-4),
-		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>'] = cmp.mapping.close(),
-		['<CR>'] = cmp.mapping.confirm {
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		},
-		['<Tab>'] = function(fallback)
-			if cmp.visible() then
-			cmp.select_next_item()
-			elseif luasnip.expand_or_jumpable() then
-			luasnip.expand_or_jump()
-			elseif has_words_before() then
-			cmp.complete()
-			else
-			fallback()
-			end
-		end,
-		['<S-Tab>'] = function(fallback)
-			if cmp.visible() then
-			cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-			luasnip.jump(-1)
-			else
-			fallback()
-			end
-		end,
+			['<C-p>'] = cmp.mapping.select_prev_item(),
+			['<C-n>'] = cmp.mapping.select_next_item(),
+			['<C-d>'] = cmp.mapping.scroll_docs(-4),
+			['<C-f>'] = cmp.mapping.scroll_docs(4),
+			['<C-Space>'] = cmp.mapping.complete(),
+			['<C-e>'] = cmp.mapping.close(),
+			['<CR>'] = cmp.mapping.confirm {
+				behavior = cmp.ConfirmBehavior.Replace,
+				select = true,
+			},
+			['<Tab>'] = function(fallback)
+				if cmp.visible() then
+				cmp.select_next_item()
+				elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+				elseif has_words_before() then
+				cmp.complete()
+				else
+				fallback()
+				end
+			end,
+			['<S-Tab>'] = function(fallback)
+				if cmp.visible() then
+				cmp.select_prev_item()
+				elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+				else
+				fallback()
+				end
+			end,
 		}),
 		sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
+			{ name = 'nvim_lsp' },
+			{ name = 'luasnip' },
 		},
 	}
 EOF
 
-		autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})
-		nnoremap <A-q> :lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
-		nnoremap <leader>= :Format<CR>
+	autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})
+	nnoremap <A-q> :lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
+	nnoremap <leader>= :Format<CR>
 
-		" tab-complete
-		inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+	" tab-complete
+	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-		" nvim-tree.lua
-		" let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
-		let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
-		let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
-		let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
-		let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
-		" let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
-		let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
-		" let g:nvim_tree_disable_window_picker = 1 "0 by default, will disable the window picker.
-		" let g:nvim_tree_icon_padding = ' ' "one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
-		" let g:nvim_tree_symlink_arrow = ' >> ' " defaults to ' ➛ '. used as a separator between symlinks' source and target.
-		let g:nvim_tree_respect_buf_cwd = 1 "0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
-		let g:nvim_tree_create_in_closed_folder = 0 "1 by default, When creating files, sets the path of a file when cursor is on a closed folder to the parent folder when 0, and inside the folder when 1.
-		nnoremap \ :NvimTreeToggle<CR>
-		nnoremap <leader>\ :NvimTreeFindFile<CR>
+	" nvim-tree.lua
+	" let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
+	let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
+	let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+	let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
+	let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
+	" let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
+	let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
+	" let g:nvim_tree_disable_window_picker = 1 "0 by default, will disable the window picker.
+	" let g:nvim_tree_icon_padding = ' ' "one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
+	" let g:nvim_tree_symlink_arrow = ' >> ' " defaults to ' ➛ '. used as a separator between symlinks' source and target.
+	let g:nvim_tree_respect_buf_cwd = 1 "0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
+	let g:nvim_tree_create_in_closed_folder = 0 "1 by default, When creating files, sets the path of a file when cursor is on a closed folder to the parent folder when 0, and inside the folder when 1.
+	nnoremap \ :NvimTreeToggle<CR>
+	nnoremap <leader>\ :NvimTreeFindFile<CR>
 endif
 
 
