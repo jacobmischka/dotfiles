@@ -310,9 +310,11 @@ let g:polyglot_disabled = ['autoindent', 'svelte']
 call plug#begin('~/.vim/plugged')
 
 " Essentials
+Plug 'zefei/vim-wintabs'
+
 Plug 'sheerun/vim-polyglot'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
-Plug 'zefei/vim-wintabs'
+
 Plug 'windwp/nvim-autopairs'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-surround'
@@ -710,7 +712,7 @@ lua << EOF
 		},
 	}
 
-	require('ts_context_commentstring').setup {}
+	require('ts_context_commentstring').setup()
 
 	vim.diagnostic.config({
 		virtual_text = false,
