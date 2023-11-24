@@ -3,9 +3,6 @@
 " Disable this to disable heavier config options for lightweight environments
 let g:full_config = 1
 
-" Use built-in nvim lsp instead of coc.nvim
-let g:use_nvim_lsp = 1
-
 " vim mode preferred!
 set nocompatible
 
@@ -356,23 +353,18 @@ Plug 'savq/melange'
 
 " Heavier
 if get(g:, 'full_config')
-	if get(g:, 'use_nvim_lsp')
-		Plug 'neovim/nvim-lspconfig'
-		Plug 'simrat39/rust-tools.nvim'
-		Plug 'hrsh7th/nvim-cmp'
-		Plug 'hrsh7th/cmp-nvim-lsp'
-		Plug 'kyazdani42/nvim-web-devicons'
-		Plug 'kyazdani42/nvim-tree.lua'
-		Plug 'ray-x/lsp_signature.nvim'
-		Plug 'lewis6991/gitsigns.nvim'
-		Plug 'saadparwaiz1/cmp_luasnip'
-		Plug 'L3MON4D3/LuaSnip'
-		Plug 'folke/lsp-colors.nvim'
-		Plug 'windwp/nvim-ts-autotag'
-	else
-		Plug 'neoclide/coc.nvim', {'branch': 'release'}
-		Plug 'alvan/vim-closetag'
-	endif
+	Plug 'neovim/nvim-lspconfig'
+	Plug 'simrat39/rust-tools.nvim'
+	Plug 'hrsh7th/nvim-cmp'
+	Plug 'hrsh7th/cmp-nvim-lsp'
+	Plug 'nvim-tree/nvim-web-devicons'
+	Plug 'nvim-tree/nvim-tree.lua'
+	Plug 'ray-x/lsp_signature.nvim'
+	Plug 'lewis6991/gitsigns.nvim'
+	Plug 'saadparwaiz1/cmp_luasnip'
+	Plug 'L3MON4D3/LuaSnip'
+	Plug 'folke/lsp-colors.nvim'
+	Plug 'windwp/nvim-ts-autotag'
 
 	Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -581,7 +573,7 @@ lua << EOF
 
 	require("ibl").setup {
 		enabled = false,
-		exclude = { filetypes = { "help", "coc-explorer" } },
+		exclude = { filetypes = { "help" } },
 	}
 
 	local action_layout = require('telescope.actions.layout')
@@ -604,327 +596,324 @@ lua << EOF
 	}
 
 	require('telescope').load_extension('fzf')
-EOF
 
-	if get(g:, 'use_nvim_lsp')
-lua << EOF
-		require('gitsigns').setup {
-		  signs = {
-			add = { hl = 'GitGutterAdd', text = '+' },
-			change = { hl = 'GitGutterChange', text = '~' },
-			delete = { hl = 'GitGutterDelete', text = '_' },
-			topdelete = { hl = 'GitGutterDelete', text = '‾' },
-			changedelete = { hl = 'GitGutterChange', text = '~' },
-		  },
-		  on_attach = function (bufnr)
-			local gs = package.loaded.gitsigns
+	require('gitsigns').setup {
+		signs = {
+		add = { hl = 'GitGutterAdd', text = '+' },
+		change = { hl = 'GitGutterChange', text = '~' },
+		delete = { hl = 'GitGutterDelete', text = '_' },
+		topdelete = { hl = 'GitGutterDelete', text = '‾' },
+		changedelete = { hl = 'GitGutterChange', text = '~' },
+		},
+		on_attach = function (bufnr)
+		local gs = package.loaded.gitsigns
 
-			local function map(mode, l, r, opts)
-			  opts = opts or {}
-			  opts.buffer = bufnr
-			end
+		local function map(mode, l, r, opts)
+			opts = opts or {}
+			opts.buffer = bufnr
+		end
 
-			local opts = { noremap=true, silent=true }
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', ']c', '<cmd>Gitsigns next_hunk<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', '[c', '<cmd>Gitsigns prev_hunk<CR>', opts)
-		  end
+		local opts = { noremap=true, silent=true }
+		vim.api.nvim_buf_set_keymap(bufnr, 'n', ']c', '<cmd>Gitsigns next_hunk<CR>', opts)
+		vim.api.nvim_buf_set_keymap(bufnr, 'n', '[c', '<cmd>Gitsigns prev_hunk<CR>', opts)
+		end
+	}
+
+	require('nvim-tree').setup {
+		disable_netrw = false,
+		system_open = {
+		cmd = "xdg-open",
+		},
+		update_cwd = true,
+		diagnostics = {
+		enable = true,
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "󰚌",
 		}
-
-		require('nvim-tree').setup {
-		  disable_netrw = false,
-		  system_open = {
-			cmd = "xdg-open",
-		  },
-		  update_cwd = true,
-		  diagnostics = {
-			enable = true,
-			icons = {
-			  hint = "",
-			  info = "",
-			  warning = "",
-			  error = "󰚌",
-			}
-		  },
-		  git = {
-			ignore = false,
-		  }
+		},
+		git = {
+		ignore = false,
 		}
+	}
 
-		vim.g.skip_ts_context_commentstring = true
+	vim.g.skip_ts_context_commentstring = true
 
-		require('nvim-treesitter.configs').setup {
-		  ensure_installed = "all",
-		  ignore_install = { "phpdoc" },
-		  highlight = {
-			enable = true, -- false will disable the whole extension
+	require('nvim-treesitter.configs').setup {
+		ensure_installed = "all",
+		ignore_install = { "phpdoc" },
+		highlight = {
+		enable = true, -- false will disable the whole extension
 
-			-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-			-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-			-- Using this option may slow down your editor, and you may see some duplicate highlights.
-			-- Instead of true it can also be a list of languages
-			additional_vim_regex_highlighting = false,
-		  },
-		  incremental_selection = {
+		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+		-- Using this option may slow down your editor, and you may see some duplicate highlights.
+		-- Instead of true it can also be a list of languages
+		additional_vim_regex_highlighting = false,
+		},
+		incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = 'gnn',
+			node_incremental = 'grn',
+			scope_incremental = 'grc',
+			node_decremental = 'grm',
+		},
+		},
+		-- indent = {
+		-- enable = true,
+		-- },
+		textobjects = {
+		select = {
 			enable = true,
+			lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
 			keymaps = {
-			  init_selection = 'gnn',
-			  node_incremental = 'grn',
-			  scope_incremental = 'grc',
-			  node_decremental = 'grm',
+			-- You can use the capture groups defined in textobjects.scm
+			['af'] = '@function.outer',
+			['if'] = '@function.inner',
+			['ac'] = '@class.outer',
+			['ic'] = '@class.inner',
 			},
-		  },
-		  -- indent = {
-			-- enable = true,
-		  -- },
-		  textobjects = {
-			select = {
-			  enable = true,
-			  lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-			  keymaps = {
-				-- You can use the capture groups defined in textobjects.scm
-				['af'] = '@function.outer',
-				['if'] = '@function.inner',
-				['ac'] = '@class.outer',
-				['ic'] = '@class.inner',
-			  },
-			},
-			move = {
-			  enable = true,
-			  set_jumps = true, -- whether to set jumps in the jumplist
-			  goto_next_start = {
-				[']m'] = '@function.outer',
-				[']]'] = '@class.outer',
-			  },
-			  goto_next_end = {
-				[']M'] = '@function.outer',
-				[']['] = '@class.outer',
-			  },
-			  goto_previous_start = {
-				['[m'] = '@function.outer',
-				['[['] = '@class.outer',
-			  },
-			  goto_previous_end = {
-				['[M'] = '@function.outer',
-				['[]'] = '@class.outer',
-			  },
-			},
-		  },
-		  -- nvim-ts-rainbow
-		  rainbow = {
-			enable = false,
-			extended_mode = true,
-		  },
-		  -- nvim-ts-autotag
-		  autotag = {
+		},
+		move = {
 			enable = true,
-			enable_close_on_slash = false,
-		  },
-		}
+			set_jumps = true, -- whether to set jumps in the jumplist
+			goto_next_start = {
+			[']m'] = '@function.outer',
+			[']]'] = '@class.outer',
+			},
+			goto_next_end = {
+			[']M'] = '@function.outer',
+			[']['] = '@class.outer',
+			},
+			goto_previous_start = {
+			['[m'] = '@function.outer',
+			['[['] = '@class.outer',
+			},
+			goto_previous_end = {
+			['[M'] = '@function.outer',
+			['[]'] = '@class.outer',
+			},
+		},
+		},
+		-- nvim-ts-rainbow
+		rainbow = {
+		enable = false,
+		extended_mode = true,
+		},
+		-- nvim-ts-autotag
+		autotag = {
+		enable = true,
+		enable_close_on_slash = false,
+		},
+	}
 
-		require('ts_context_commentstring').setup {}
+	require('ts_context_commentstring').setup {}
 
-		vim.diagnostic.config({
-		  virtual_text = false,
-		  severity_sort = true,
-		})
+	vim.diagnostic.config({
+		virtual_text = false,
+		severity_sort = true,
+	})
 
-		-- require('neodim').setup()
+	-- require('neodim').setup()
 
-		local signs = { Error = "󰚌 ", Warn = " ", Hint = " ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-		end
+	local signs = { Error = "󰚌 ", Warn = " ", Hint = " ", Info = " " }
+	for type, icon in pairs(signs) do
+		local hl = "DiagnosticSign" .. type
+		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	end
 
 
-		local lspconfig = require('lspconfig')
-		lspconfig_on_attach = function(client, buffer)
-			local opts = { noremap=true, silent=true, buffer=buffer }
-			vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
-			vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
-			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-			vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
-			vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-			vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-			vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-			vim.keymap.set('n', '<A-h>', vim.lsp.buf.hover, opts)
-			vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, opts)
-			vim.keymap.set('n', '<A-r>', vim.lsp.buf.rename, opts)
-			vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
-			vim.cmd [[ command! LSPInfo execute 'lua print(vim.inspect(vim.lsp.buf_get_clients()))' ]]
+	local lspconfig = require('lspconfig')
+	lspconfig_on_attach = function(client, buffer)
+		local opts = { noremap=true, silent=true, buffer=buffer }
+		vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
+		vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
+		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+		vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
+		vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+		vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+		vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+		vim.keymap.set('n', '<A-h>', vim.lsp.buf.hover, opts)
+		vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, opts)
+		vim.keymap.set('n', '<A-r>', vim.lsp.buf.rename, opts)
+		vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
+		vim.cmd [[ command! LSPInfo execute 'lua print(vim.inspect(vim.lsp.buf_get_clients()))' ]]
 
-			require'lsp_signature'.on_attach()
-		end
+		require'lsp_signature'.on_attach()
+	end
 
-		lspconfig_capabilities = require('cmp_nvim_lsp').default_capabilities()
+	lspconfig_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-		-- npm i -g vscode-langservers-extracted svelte-language-server @tailwindcss/language-server intelephense
-		-- pacman -S rust-analyzer pyright typescript-language-server
-		local lsp_servers = {
-			'cssls', -- https://github.com/hrsh7th/vscode-langservers-extracted
-			'eslint', -- https://github.com/hrsh7th/vscode-langservers-extracted
-			'html', -- https://github.com/hrsh7th/vscode-langservers-extracted
-			'gopls', -- https://github.com/golang/tools/tree/master/gopls
-			'intelephense', -- https://intelephense.com/
-			'jsonls', -- https://github.com/hrsh7th/vscode-langservers-extracted
-			'svelte', -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
-			'tailwindcss', -- https://github.com/tailwindlabs/tailwindcss-intellisense
-			'tsserver', -- https://github.com/typescript-language-server/typescript-language-server
-			'jdtls', -- https://projects.eclipse.org/projects/eclipse.jdt.ls
+	-- npm i -g vscode-langservers-extracted svelte-language-server @tailwindcss/language-server intelephense
+	-- pacman -S rust-analyzer pyright typescript-language-server
+	local lsp_servers = {
+		'cssls', -- https://github.com/hrsh7th/vscode-langservers-extracted
+		'eslint', -- https://github.com/hrsh7th/vscode-langservers-extracted
+		'html', -- https://github.com/hrsh7th/vscode-langservers-extracted
+		'gopls', -- https://github.com/golang/tools/tree/master/gopls
+		'intelephense', -- https://intelephense.com/
+		'jsonls', -- https://github.com/hrsh7th/vscode-langservers-extracted
+		'svelte', -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
+		'tailwindcss', -- https://github.com/tailwindlabs/tailwindcss-intellisense
+		'tsserver', -- https://github.com/typescript-language-server/typescript-language-server
+		'jdtls', -- https://projects.eclipse.org/projects/eclipse.jdt.ls
 
-			--  configured automatically with rust-rools
-			-- 'rust_analyzer', -- https://github.com/rust-analyzer/rust-analyzer
-		}
+		--  configured automatically with rust-rools
+		-- 'rust_analyzer', -- https://github.com/rust-analyzer/rust-analyzer
+	}
 
-		for _, lsp in ipairs(lsp_servers) do
-			lspconfig[lsp].setup {
-				on_attach = lspconfig_on_attach,
-				capabilities = lspconfig_capabilities,
-			}
-		end
-
-		-- https://github.com/microsoft/pyright
-		lspconfig.pyright.setup {
-		  on_attach = function(client, buffer)
-			lspconfig_on_attach(client, buffer)
-			local opts = { noremap=true, silent=true, buffer=buffer }
-			-- disable rename in favor of pyright
-			vim.keymap.set(
-			  'n',
-			  '<A-r>',
-			  function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
-			  opts
-			)
-		  end,
-		  capabilities = lspconfig_capabilities
-		}
-
-		-- https://github.com/python-lsp/python-lsp-server
-		lspconfig.pylsp.setup {
-		  on_attach = function(client, buffer)
-			lspconfig_on_attach(client, buffer)
-			local opts = { noremap=true, silent=true, buffer=buffer }
-			-- disable rename in favor of pyright
-			vim.keymap.set(
-			  'n',
-			  '<A-r>',
-			  function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
-			  opts
-			)
-		  end,
-		  capabilities = lspconfig_capabilities,
-		  settings = {
-			pylsp = {
-			  plugins = {
-				-- https://github.com/python-lsp/python-lsp-ruff
-				ruff = {
-				  enabled = true,
-				},
-				jedi_completion = {
-				  enabled = false
-				},
-				jedi_definition = {
-				  enabled = false
-				},
-				jedi_hover = {
-				  enabled = false
-				},
-				jedi_references = {
-				  enabled = false
-				},
-				jedi_signature_help = {
-				  enabled = false
-				},
-				jedi_symbols = {
-				  enabled = false
-				},
-				mccabe = {
-				  enabled = false
-				},
-				preload = {
-				  enabled = false
-				},
-				yapf = {
-				  enabled = false
-				},
-				pylint = {
-				  -- disabled by default
-				  enabled = false,
-				  -- Use pylint binary, slower but basically required
-				  executable = "pylint",
-				},
-			  }
-			}
-		  }
-		}
-
-		-- rust-tools
-
-		local rt = require 'rust-tools'
-		rt.setup {
-		  server  = {
+	for _, lsp in ipairs(lsp_servers) do
+		lspconfig[lsp].setup {
 			on_attach = lspconfig_on_attach,
 			capabilities = lspconfig_capabilities,
-			standalone = true,
-		  },
-		  tools = {
-			inlay_hints = { auto = false }
-		  }
 		}
+	end
 
-		local luasnip = require 'luasnip'
+	-- https://github.com/microsoft/pyright
+	lspconfig.pyright.setup {
+		on_attach = function(client, buffer)
+		lspconfig_on_attach(client, buffer)
+		local opts = { noremap=true, silent=true, buffer=buffer }
+		-- disable rename in favor of pyright
+		vim.keymap.set(
+			'n',
+			'<A-r>',
+			function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
+			opts
+		)
+		end,
+		capabilities = lspconfig_capabilities
+	}
 
-		local has_words_before = function()
-		  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-		  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-		end
-
-		-- nvim-cmp
-		local cmp = require 'cmp'
-		cmp.setup {
-		  snippet = {
-			expand = function(args)
-			  luasnip.lsp_expand(args.body)
-			end,
-		  },
-		  preselect = cmp.PreselectMode.None,
-		  mapping = cmp.mapping.preset.insert({
-			['<C-p>'] = cmp.mapping.select_prev_item(),
-			['<C-n>'] = cmp.mapping.select_next_item(),
-			['<C-d>'] = cmp.mapping.scroll_docs(-4),
-			['<C-f>'] = cmp.mapping.scroll_docs(4),
-			['<C-Space>'] = cmp.mapping.complete(),
-			['<C-e>'] = cmp.mapping.close(),
-			['<CR>'] = cmp.mapping.confirm {
-			  behavior = cmp.ConfirmBehavior.Replace,
-			  select = true,
+	-- https://github.com/python-lsp/python-lsp-server
+	lspconfig.pylsp.setup {
+		on_attach = function(client, buffer)
+		lspconfig_on_attach(client, buffer)
+		local opts = { noremap=true, silent=true, buffer=buffer }
+		-- disable rename in favor of pyright
+		vim.keymap.set(
+			'n',
+			'<A-r>',
+			function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
+			opts
+		)
+		end,
+		capabilities = lspconfig_capabilities,
+		settings = {
+		pylsp = {
+			plugins = {
+			-- https://github.com/python-lsp/python-lsp-ruff
+			ruff = {
+				enabled = true,
 			},
-			['<Tab>'] = function(fallback)
-			  if cmp.visible() then
-				cmp.select_next_item()
-			  elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			  elseif has_words_before() then
-				cmp.complete()
-			  else
-				fallback()
-			  end
-			end,
-			['<S-Tab>'] = function(fallback)
-			  if cmp.visible() then
-				cmp.select_prev_item()
-			  elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			  else
-				fallback()
-			  end
-			end,
-		  }),
-		  sources = {
-			{ name = 'nvim_lsp' },
-			{ name = 'luasnip' },
-		  },
+			jedi_completion = {
+				enabled = false
+			},
+			jedi_definition = {
+				enabled = false
+			},
+			jedi_hover = {
+				enabled = false
+			},
+			jedi_references = {
+				enabled = false
+			},
+			jedi_signature_help = {
+				enabled = false
+			},
+			jedi_symbols = {
+				enabled = false
+			},
+			mccabe = {
+				enabled = false
+			},
+			preload = {
+				enabled = false
+			},
+			yapf = {
+				enabled = false
+			},
+			pylint = {
+				-- disabled by default
+				enabled = false,
+				-- Use pylint binary, slower but basically required
+				executable = "pylint",
+			},
+			}
 		}
+		}
+	}
+
+	-- rust-tools
+
+	local rt = require 'rust-tools'
+	rt.setup {
+		server  = {
+		on_attach = lspconfig_on_attach,
+		capabilities = lspconfig_capabilities,
+		standalone = true,
+		},
+		tools = {
+		inlay_hints = { auto = false }
+		}
+	}
+
+	local luasnip = require 'luasnip'
+
+	local has_words_before = function()
+		local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+		return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+	end
+
+	-- nvim-cmp
+	local cmp = require 'cmp'
+	cmp.setup {
+		snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body)
+		end,
+		},
+		preselect = cmp.PreselectMode.None,
+		mapping = cmp.mapping.preset.insert({
+		['<C-p>'] = cmp.mapping.select_prev_item(),
+		['<C-n>'] = cmp.mapping.select_next_item(),
+		['<C-d>'] = cmp.mapping.scroll_docs(-4),
+		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.close(),
+		['<CR>'] = cmp.mapping.confirm {
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		},
+		['<Tab>'] = function(fallback)
+			if cmp.visible() then
+			cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+			luasnip.expand_or_jump()
+			elseif has_words_before() then
+			cmp.complete()
+			else
+			fallback()
+			end
+		end,
+		['<S-Tab>'] = function(fallback)
+			if cmp.visible() then
+			cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+			luasnip.jump(-1)
+			else
+			fallback()
+			end
+		end,
+		}),
+		sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' },
+		},
+	}
 EOF
 
 		autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})
@@ -949,43 +938,6 @@ EOF
 		let g:nvim_tree_create_in_closed_folder = 0 "1 by default, When creating files, sets the path of a file when cursor is on a closed folder to the parent folder when 0, and inside the folder when 1.
 		nnoremap \ :NvimTreeToggle<CR>
 		nnoremap <leader>\ :NvimTreeFindFile<CR>
-	else
-
-		nmap \ :CocCommand explorer<CR>
-		nmap <silent> ]e <Plug>(coc-diagnostic-next)
-		nmap <silent> [e <Plug>(coc-diagnostic-prev)
-		nmap <silent> gd <Plug>(coc-definition)
-		nmap <silent> gy <Plug>(coc-type-definition)
-		nmap <silent> gi <Plug>(coc-implementation)
-		nmap <silent> gr <Plug>(coc-references)
-		nmap <silent> <A-r> <Plug>(coc-rename)
-		nmap <silent> <A-i> <Plug>(coc-diagnostic-info)
-		nmap <silent> <A-h> :<C-U>call CocAction('doHover')<CR>
-		nmap <silent> <A-a> :CocAction<CR>
-		nmap <silent> <A-l> :IndentBlanklineToggle<CR>
-		nmap <silent> [g <Plug>(coc-git-prevchunk)
-		nmap <silent> ]g <Plug>(coc-git-nextchunk)
-		nmap <silent> [c <Plug>(coc-git-prevconflict)
-		nmap <silent> ]c <Plug>(coc-git-nextconflict)
-		nmap <silent> gs <Plug>(coc-git-chunkinfo)
-		nmap <silent> gc <Plug>(coc-git-commit)
-		omap <silent> ig <Plug>(coc-git-chunk-inner)
-		xmap <silent> ig <Plug>(coc-git-chunk-inner)
-		omap <silent> ag <Plug>(coc-git-chunk-outer)
-		xmap <silent> ag <Plug>(coc-git-chunk-outer)
-
-		autocmd FileType rust nmap <silent> <A-x> :CocCommand rust-analyzer.explainError<CR>
-		autocmd FileType rust nmap <A-q> :CocCommand rust-analyzer.reload<CR>
-
-		autocmd FileType svelte nmap <A-q> :CocCommand svelte.restartLanguageServer<CR>
-		autocmd FileType python nmap <A-q> :CocCommand pyright.restartserver<CR>
-		autocmd FileType typescript nmap <A-q> :CocCommand tsserver.restart<CR>
-
-		inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
-	endif
 endif
 
 
@@ -1069,12 +1021,6 @@ function! OverrideHighlights()
 
 	" Fix Conceal (not sure why this is needed honestly)
 	hi Conceal guibg=bg
-
-	" Have coc/lsp use undercurls
-	hi CocErrorHighlight cterm=undercurl gui=undercurl ctermbg=9 guisp=#ff0000
-	hi CocWarningHighlight cterm=undercurl gui=undercurl ctermbg=130 guisp=#ff922b
-	hi CocInfoHighlight cterm=undercurl gui=undercurl ctermbg=11 guisp=#fab005
-	hi CocHintHighlight cterm=undercurl gui=undercurl ctermbg=12 guisp=#15aabf
 
 	hi DiagnosticError ctermfg=9 guifg=#ff0000
 	hi DiagnosticWarn ctermfg=130 guifg=#ff922b
