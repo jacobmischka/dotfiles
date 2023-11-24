@@ -377,6 +377,7 @@ if get(g:, 'full_config')
 	Plug 'p00f/nvim-ts-rainbow'
 	Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
+	Plug 'sindrets/diffview.nvim'
 	Plug 'numToStr/Comment.nvim'
 	Plug 'kazhala/close-buffers.nvim'
 	Plug 'kana/vim-repeat'
