@@ -377,6 +377,7 @@ if get(g:, 'full_config')
 	Plug 'p00f/nvim-ts-rainbow'
 	Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
+	Plug 'cshuaimin/ssr.nvim'
 	Plug 'sindrets/diffview.nvim'
 	Plug 'numToStr/Comment.nvim'
 	Plug 'kazhala/close-buffers.nvim'
@@ -921,6 +922,8 @@ lua << EOF
 			{ name = 'luasnip' },
 		},
 	}
+
+	vim.keymap.set({ "n", "x" }, "<Leader>sr", function() require('ssr').open() end)
 EOF
 
 	autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})
