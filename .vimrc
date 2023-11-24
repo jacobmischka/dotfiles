@@ -372,7 +372,7 @@ if get(g:, 'full_config')
 	Plug 'p00f/nvim-ts-rainbow'
 	Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
-	Plug 'terrortylor/nvim-comment'
+	Plug 'numToStr/Comment.nvim'
 	Plug 'kazhala/close-buffers.nvim'
 	Plug 'kana/vim-repeat'
 	Plug 'kshenoy/vim-signature'
@@ -566,7 +566,7 @@ if get(g:, 'full_config')
 
 lua << EOF
 	require('lualine').setup()
-	require('nvim_comment').setup()
+	require('Comment').setup()
 	require('nvim-autopairs').setup({
 		check_ts = true,
 	})
