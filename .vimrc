@@ -317,7 +317,10 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 Plug 'windwp/nvim-autopairs'
 Plug 'wakatime/vim-wakatime'
-Plug 'tpope/vim-surround'
+
+Plug 'kylechui/nvim-surround'
+
+" Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
@@ -569,6 +572,7 @@ if get(g:, 'full_config')
 lua << EOF
 	require('lualine').setup()
 	require('Comment').setup()
+	require('nvim-surround').setup()
 	require('nvim-autopairs').setup({
 		check_ts = true,
 	})
