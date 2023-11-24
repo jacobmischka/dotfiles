@@ -399,8 +399,7 @@ if get(g:, 'full_config')
 	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
 	Plug 'mcchrish/nnn.vim'
 	Plug 'terryma/vim-multiple-cursors'
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
+	Plug 'nvim-lualine/lualine.nvim'
 	Plug 'severin-lemaignan/vim-minimap', {'do': ':!cargo install --locked code-minimap'}
 	Plug 'tpope/vim-sensible'
 	Plug 'tpope/vim-abolish'
@@ -508,15 +507,6 @@ if get(g:, 'full_config')
 
 	let g:nremap = {'[e': '', ']e': ''}
 
-	if !exists('g:airline_symbols')
-		let g:airline_symbols = {}
-	endif
-
-	let g:airline_symbols.colnr = ' :'
-	let g:airline_symbols.readonly = ''
-	let g:airline_symbols.linenr = ' :'
-	let g:airline_symbols.maxlinenr = ''
-
 	call jspretmpl#register_tag('css', 'css')
 	" call jspretmpl#register_tag('gql', 'graphql')
 
@@ -582,10 +572,8 @@ if get(g:, 'full_config')
 
 	nmap <F4> :UndotreeToggle<CR>
 
-	" exclude overwrite statusline of list filetype
-	let g:airline_exclude_filetypes = ["list"]
-
 lua << EOF
+	require('lualine').setup()
 	require('nvim_comment').setup()
 	require('nvim-autopairs').setup({
 		check_ts = true,
@@ -1064,20 +1052,12 @@ let g:enable_italic_font = 1
 function! DarkTheme()
 	colorscheme dracula
 	set background=dark
-	let g:airline_theme='edge'
-	if exists(":AirlineTheme")
-		AirlineTheme edge
-	endif
 	call OverrideHighlights()
 endfunction
 
 function! LightTheme()
 	colorscheme adwaita
 	set background=light
-	let g:airline_theme='papercolor'
-	if exists(":AirlineTheme")
-		AirlineTheme papercolor
-	endif
 	call OverrideHighlights()
 endfunction
 
