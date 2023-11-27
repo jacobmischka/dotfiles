@@ -572,7 +572,16 @@ if get(g:, 'full_config')
 	nmap <F4> :UndotreeToggle<CR>
 
 lua << EOF
-	require('lualine').setup()
+	require('lualine').setup({
+		sections = {
+			lualine_a = {'mode'},
+			lualine_b = {'diff', 'diagnostics'},
+			lualine_c = {{'filename', path=1}},
+			lualine_x = {'filetype'},
+			lualine_y = {'progress'},
+			lualine_z = {'location'}
+		},
+	})
 	require('Comment').setup()
 	require('nvim-surround').setup()
 	require('nvim-autopairs').setup({
