@@ -639,20 +639,20 @@ lua << EOF
 	require('nvim-tree').setup {
 		disable_netrw = false,
 		system_open = {
-		cmd = "xdg-open",
+			cmd = "xdg-open",
 		},
 		update_cwd = true,
 		diagnostics = {
-		enable = true,
-		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "󰚌",
-		}
+			enable = true,
+			icons = {
+				hint = "",
+				info = "",
+				warning = "",
+				error = "󰚌",
+			}
 		},
 		git = {
-		ignore = false,
+			ignore = false,
 		}
 	}
 
@@ -736,7 +736,7 @@ lua << EOF
 
 	-- require('neodim').setup()
 
-	local signs = { Error = "󰚌 ", Warn = " ", Hint = " ", Info = " " }
+	local signs = { Error = "󰚌 ", Warn = " ", Hint = " ", Info = " " }
 	for type, icon in pairs(signs) do
 		local hl = "DiagnosticSign" .. type
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
