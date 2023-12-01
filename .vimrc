@@ -562,7 +562,7 @@ if get(g:, 'full_config')
 	command! Tags TagbarToggle
 
 	map <A-c> :Pickachu<CR>
-	map <A-f> :Pickachu file<CR>
+	map <A-o> :Pickachu file<CR>
 	map <A-d> :Pickachu date<CR>
 
 	nmap <Leader>= <Plug>(PrettierAsync)
@@ -751,6 +751,7 @@ lua << EOF
 		vim.keymap.set('n', '<Leader>=', vim.lsp.buf.format, opts)
 		vim.keymap.set('n', '<A-h>', vim.lsp.buf.hover, opts)
 		vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, opts)
+		vim.keymap.set('n', '<A-f>', function() vim.lsp.buf.code_action({ context = { only = {"source.fixAll"} }, apply = true }) end, opts)
 		vim.keymap.set('n', '<A-r>', vim.lsp.buf.rename, opts)
 		vim.keymap.set('n', '<A-q>', function() vim.lsp.stop_client(vim.lsp.get_active_clients()) end, opts)
 
