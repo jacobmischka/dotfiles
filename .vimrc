@@ -645,9 +645,9 @@ lua << EOF
 		diagnostics = {
 			enable = true,
 		},
-		git = {
-			ignore = false,
-		}
+		modified = {
+			enable = true,
+		},
 	}
 
 	vim.g.skip_ts_context_commentstring = true
