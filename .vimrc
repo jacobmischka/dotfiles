@@ -648,6 +648,9 @@ lua << EOF
 		modified = {
 			enable = true,
 		},
+		git = {
+			ignore = false
+		}
 	}
 
 	vim.g.skip_ts_context_commentstring = true
