@@ -220,8 +220,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap <C-e> 10<C-e>
 nnoremap <C-y> 10<C-y>
 
-nnoremap <CR> i<CR><Esc>
-nnoremap <leader><CR> <CR>
+nnoremap <C-CR> i<CR><Esc>
 
 nmap <silent> ]h :cn<CR>
 nmap <silent> [h :cp<CR>
