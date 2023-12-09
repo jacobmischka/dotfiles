@@ -399,6 +399,7 @@ if get(g:, 'full_config')
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'nvim-lualine/lualine.nvim'
 	Plug 'severin-lemaignan/vim-minimap', {'do': ':!cargo install --locked code-minimap'}
+	Plug 'kevinhwang91/nvim-bqf'
 	Plug 'tpope/vim-sensible'
 	Plug 'tpope/vim-abolish'
 	Plug 'ap/vim-css-color'
