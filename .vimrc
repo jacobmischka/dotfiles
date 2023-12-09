@@ -403,7 +403,7 @@ if get(g:, 'full_config')
 	Plug 'tpope/vim-sensible'
 	Plug 'tpope/vim-abolish'
 	Plug 'ap/vim-css-color'
-	Plug 'oncomouse/nvim-colorizer.lua'
+	Plug 'NvChad/nvim-colorizer.lua'
 	Plug 'amadeus/vim-convert-color-to'
 	Plug 'Quramy/vim-js-pretty-template'
 	Plug 'godlygeek/tabular'
