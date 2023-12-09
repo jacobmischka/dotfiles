@@ -319,15 +319,12 @@ Plug 'wakatime/vim-wakatime'
 
 Plug 'kylechui/nvim-surround'
 
-" Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'chaoren/vim-wordmotion'
-Plug 'tmilloff/vim-address-bar'
-Plug 'svermeulen/vim-subversive'
-Plug 'svermeulen/vim-yoink'
+Plug 'gbprod/yanky.nvim'
 Plug 'mhinz/vim-sayonara'
 
 " File types and syntaxes
@@ -337,11 +334,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'reasonml-editor/vim-reason-plus'
 Plug 'lervag/vimtex'
-Plug 'https://bitbucket.org/ccorrodi/sasylfvim.git'
-Plug 'lepture/vim-jinja'
-Plug 'slint-ui/vim-slint'
 
 " Colorschemes
 Plug 'sainnhe/gruvbox-material'
@@ -532,28 +525,13 @@ map <C-W>c <Plug>(wintabs_close_window)
 map <C-W>o <Plug>(wintabs_only_window)
 map <C-_> gcc
 
-nmap s <Plug>(SubversiveSubstitute)
-nmap ss <Plug>(SubversiveSubstituteLine)
-nmap S <Plug>(SubversiveSubstituteToEndOfLine)
+nmap _ <Plug>(YankyPreviousEntry)
+nmap + <Plug>(YankyNextEntry)
 
-nmap <leader>s <Plug>(SubversiveSubstituteRange)
-xmap <leader>s <Plug>(SubversiveSubstituteRange)
-nmap <leader>ss <Plug>(SubversiveSubstituteWordRange)
-
-xmap p <Plug>(SubversiveSubstitute)
-xmap P <Plug>(SubversiveSubstitute)
-
-nmap <C-[> <Plug>(YoinkPostPasteSwapBack)
-nmap <C-]> <Plug>(YoinkPostPasteSwapForward)
-
-nmap p <Plug>(YoinkPaste_p)
-nmap P <Plug>(YoinkPaste_P)
-
-nmap [y <Plug>(YoinkRotateBack)
-nmap ]y <Plug>(YoinkRotateForward)
-
-nmap <localleader>y <Plug>(YoinkYankPreserveCursorPosition)
-xmap <localleader>y <Plug>(YoinkYankPreserveCursorPosition)
+nmap y <Plug>(YankyYank)
+xmap y <Plug>(YankyYank)
+nmap p <Plug>(YankyPutAfter)
+nmap P <Plug>(YankyPutBefore)
 
 if get(g:, 'full_config')
 	nmap <F8> :TagbarToggle<CR>
@@ -588,7 +566,21 @@ lua << EOF
 		check_ts = true,
 	})
 
-	require("ibl").setup {
+	require('yanky').setup({
+		preserve_cursor_position = {
+			enabled = true,
+		},
+		system_clipboard = {
+			sync_with_ring = false,
+		},
+		highlight = {
+			on_put = false,
+			on_yank = false,
+			timer = 200,
+		},
+	})
+
+	require('ibl').setup {
 		enabled = false,
 		exclude = { filetypes = { "help" } },
 	}
