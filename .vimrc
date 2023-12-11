@@ -123,9 +123,6 @@ set completeopt=menuone,noselect
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
-nnoremap - ,
-nnoremap + ;
-
 " Leader
 let mapleader = ' '
 let g:mapleader = ' '
@@ -525,7 +522,7 @@ map <C-W>c <Plug>(wintabs_close_window)
 map <C-W>o <Plug>(wintabs_only_window)
 map <C-_> gcc
 
-nmap _ <Plug>(YankyPreviousEntry)
+nmap - <Plug>(YankyPreviousEntry)
 nmap + <Plug>(YankyNextEntry)
 
 nmap y <Plug>(YankyYank)
