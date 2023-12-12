@@ -1044,7 +1044,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme dracula
+	colorscheme gloombuddy
 	set background=dark
 	call OverrideHighlights()
 endfunction
