@@ -306,7 +306,10 @@ let g:polyglot_disabled = ['autoindent', 'svelte']
 call plug#begin('~/.vim/plugged')
 
 " Essentials
-Plug 'zefei/vim-wintabs'
+" Plug 'zefei/vim-wintabs'
+Plug 'tiagovla/scope.nvim'
+Plug 'akinsho/bufferline.nvim'
+Plug 'ojroques/nvim-bufdel'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
@@ -344,6 +347,8 @@ Plug 'dracula/vim'
 Plug 'Mofiqul/adwaita.nvim'
 Plug 'glepnir/zephyr-nvim'
 Plug 'savq/melange'
+Plug 'tjdevries/colorbuddy.vim'
+Plug 'bkegley/gloombuddy'
 
 " Heavier
 if get(g:, 'full_config')
@@ -376,7 +381,6 @@ if get(g:, 'full_config')
 	Plug 'justinmk/vim-gtfo'
 	Plug 'arthurxavierx/vim-caser'
 	Plug 'DougBeney/pickachu'
-	Plug 'gcmt/taboo.vim'
 	Plug 'xolox/vim-misc'
 	Plug 'xolox/vim-session'
 	Plug 'luochen1990/rainbow'
@@ -511,15 +515,19 @@ endif
 " Keymaps
 map <C-P> :Telescope git_files<CR>
 map <Leader><C-P> :Telescope find_files<CR>
-map <C-H> <Plug>(wintabs_previous)
-map <C-L> <Plug>(wintabs_next)
-map <C-T>h <Plug>(wintabs_move_left)
-map <C-T>l <Plug>(wintabs_move_right)
-map <C-T>w <Plug>(wintabs_close)
-map <C-T>c <Plug>(wintabs_close)
-map <C-T>o <Plug>(wintabs_only)
-map <C-W>c <Plug>(wintabs_close_window)
-map <C-W>o <Plug>(wintabs_only_window)
+map <C-H> :BufferLineCyclePrev<CR>
+map <C-L> :BufferLineCycleNext<CR>
+" map <C-L> <Plug>(wintabs_next)
+map <C-T>h :BufferLineMovePrev<CR>
+map <C-T>l :BufferLineMoveNext<CR>
+map <C-T>c :BufDel<CR>
+map <C-T>o :BufferLineCloseOthers<CR>
+" map <C-T>l <Plug>(wintabs_move_right)
+" map <C-T>w <Plug>(wintabs_close)
+" map <C-T>c <Plug>(wintabs_close)
+" map <C-T>o <Plug>(wintabs_only)
+" map <C-W>c <Plug>(wintabs_close_window)
+" map <C-W>o <Plug>(wintabs_only_window)
 map <C-_> gcc
 
 nmap - <Plug>(YankyPreviousEntry)
@@ -556,6 +564,31 @@ lua << EOF
 			lualine_y = {'progress'},
 			lualine_z = {'location'}
 		},
+	})
+	require('scope').setup()
+	require('bufdel').setup {
+		quit = false,
+	}
+	require('bufferline').setup({
+		options = {
+			close_command = "BufDel %d",
+			right_mouse_command = "BufDel %d",
+			separator_style = 'thin',
+			diagnostics = 'nvim_lsp',
+			hover = {
+				enabled = true,
+				delay = 200,
+				reveal = {'close'}
+			},
+			offsets = {
+				{
+					filetype = 'NvimTree',
+					text = '',
+					text_align = 'left',
+					separator = true,
+				}
+			}
+		}
 	})
 	require('Comment').setup()
 	require('nvim-surround').setup()
