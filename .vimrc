@@ -783,7 +783,7 @@ lua << EOF
 		vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 		vim.cmd [[ command! LSPInfo execute 'lua print(vim.inspect(vim.lsp.buf_get_clients()))' ]]
 
-		vim.cmd [[ autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"}) ]]
+		vim.cmd [[ autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"}) ]]
 
 		require'lsp_signature'.on_attach()
 	end
