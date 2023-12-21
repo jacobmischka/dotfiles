@@ -515,6 +515,7 @@ endif
 " Keymaps
 map <C-P> :Telescope git_files<CR>
 map <Leader><C-P> :Telescope find_files<CR>
+map <C-;> :Telescope scope buffers<CR>
 map <C-H> :BufferLineCyclePrev<CR>
 map <C-L> :BufferLineCycleNext<CR>
 " map <C-L> <Plug>(wintabs_next)
@@ -616,7 +617,8 @@ lua << EOF
 	}
 
 	local action_layout = require('telescope.actions.layout')
-	require('telescope').setup {
+	telescope = require('telescope')
+	telescope.setup {
 		defaults = {
 			preview = {
 				hide_on_startup = true
@@ -634,7 +636,8 @@ lua << EOF
 		}
 	}
 
-	require('telescope').load_extension('fzf')
+	telescope.load_extension('fzf')
+	telescope.load_extension('scope')
 
 	require('gitsigns').setup {
 		signs = {
