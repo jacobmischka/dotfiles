@@ -537,7 +537,9 @@ nmap + <Plug>(YankyNextEntry)
 nmap y <Plug>(YankyYank)
 xmap y <Plug>(YankyYank)
 nmap p <Plug>(YankyPutAfter)
+xmap p <Plug>(YankyPutAfter)
 nmap P <Plug>(YankyPutBefore)
+xmap P <Plug>(YankyPutBefore)
 
 if get(g:, 'full_config')
 	nmap <F8> :TagbarToggle<CR>
