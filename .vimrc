@@ -352,6 +352,7 @@ Plug 'bkegley/gloombuddy'
 
 " Heavier
 if get(g:, 'full_config')
+	Plug 'stevearc/dressing.nvim'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'simrat39/rust-tools.nvim'
 	Plug 'hrsh7th/nvim-cmp'
@@ -964,6 +965,8 @@ lua << EOF
 	}
 
 	vim.keymap.set({ "n", "x" }, "<Leader>sr", function() require('ssr').open() end)
+
+	require('dressing').setup()
 EOF
 
 
