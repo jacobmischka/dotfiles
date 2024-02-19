@@ -387,6 +387,7 @@ if get(g:, 'full_config')
 	Plug 'luochen1990/rainbow'
 	Plug 'lukas-reineke/indent-blankline.nvim'
 
+	Plug 'junegunn/fzf'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
