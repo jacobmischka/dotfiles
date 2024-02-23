@@ -9,7 +9,7 @@ toggle-menubar='F10'
 zoom-in='<Primary>equal'
 
 [profiles:]
-default='c7cb3787-882a-468c-905b-2f6c3aacf59b'
+default='9a4557ed-2c81-4b61-bbee-02f870a05aee'
 list=['29e08e79-66f7-4d1b-b0c3-7f3d85d4bbb6', 'dee1e08d-2199-4fa5-847c-a72a0cde72c7', '92bfad8e-97d0-42e5-8626-70cc52f06e9e', 'dbb0cd74-63d5-447e-a012-f356e50d1f35', 'f883bf56-4674-420e-b066-ee79c379ee0e', '0fcfbfcc-bd3e-4859-a60e-45b310bbf089', '9a4557ed-2c81-4b61-bbee-02f870a05aee', '4a0aeee0-25cf-443b-8763-f18df65f571a', 'bbbb8d1b-f903-4a36-8a9c-df2554edb177', '01ad5162-ac91-4be1-84d1-a9fcb8e9ff48', 'be9640e3-1a32-44ff-b3c1-3262ec298e4c', '52dfd18d-7021-4271-b6a6-3fd33bc29a86', 'bc7c0d9b-a58c-4ff1-a240-048d909432f4', 'c3988f1b-c350-4e6f-959a-15ccbd28ecee', '054d9ea1-4a32-4253-aa64-37c2c6afdec4', '76d66194-1eba-4617-81a8-feb252e27361', '36ee45f1-4189-412f-8cc8-f84753180dde', '3569d1f4-5cb0-4984-ae12-74fb0b27a883', 'c7cb3787-882a-468c-905b-2f6c3aacf59b', '401b576c-ede2-4203-a210-6a189ec9333c', '192e4c43-3ca8-489e-a1e2-b9cf168022ae']
 
 [profiles:/:01ad5162-ac91-4be1-84d1-a9fcb8e9ff48]
@@ -681,9 +681,11 @@ cursor-colors-set=true
 cursor-foreground-color='#19171c'
 default-size-columns=140
 default-size-rows=40
+font='Symbols Nerd Font Mono 12'
 foreground-color='#8b8792'
 palette=['#19171c', '#be4678', '#2a9292', '#a06e3b', '#576ddb', '#955ae7', '#398bc6', '#8b8792', '#655f6d', '#aa573c', '#26232a', '#585260', '#7e7887', '#e2dfe7', '#bf40bf', '#efecf4']
 scrollback-unlimited=true
+use-system-font=true
 use-theme-background=false
 use-theme-colors=false
 visible-name='Base 16 Atelier Cave'

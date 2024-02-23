@@ -1,6 +1,6 @@
 [/]
 calculator=['<Super>c']
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
 decrease-text-size=['<Alt><Super>bracketleft']
 home=['<Super>f']
 increase-text-size=['<Alt><Super>bracketright']
@@ -26,10 +26,15 @@ name='Terminal'
 
 [custom-keybindings/custom2]
 binding='<Super>y'
-command='nvim-gtk'
-name='NeovimGtk'
+command='kitty'
+name='Kitty'
 
 [custom-keybindings/custom3]
 binding='<Super>k'
 command='keepassxc'
 name='KeePassXC'
+
+[custom-keybindings/custom4]
+binding='<Super>u'
+command='kitty'
+name='Kitty'
