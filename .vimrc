@@ -1053,7 +1053,7 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme gloombuddy
+	colorscheme base16-rose-pine-moon
 	set background=dark
 	call OverrideHighlights()
 endfunction
