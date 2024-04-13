@@ -803,16 +803,18 @@ lua << EOF
 		'cssls', -- https://github.com/hrsh7th/vscode-langservers-extracted
 		'eslint', -- https://github.com/hrsh7th/vscode-langservers-extracted
 		'html', -- https://github.com/hrsh7th/vscode-langservers-extracted
-		'gopls', -- https://github.com/golang/tools/tree/master/gopls
 		'intelephense', -- https://intelephense.com/
 		'jsonls', -- https://github.com/hrsh7th/vscode-langservers-extracted
 		'svelte', -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
 		'tailwindcss', -- https://github.com/tailwindlabs/tailwindcss-intellisense
 		'tsserver', -- https://github.com/typescript-language-server/typescript-language-server
 		'jdtls', -- https://projects.eclipse.org/projects/eclipse.jdt.ls
+		-- 'denols', -- https://github.com/denoland/deno
 
 		--  configured automatically with rust-rools
 		-- 'rust_analyzer', -- https://github.com/rust-analyzer/rust-analyzer
+
+		-- more configured manually below
 	}
 
 	for _, lsp in ipairs(lsp_servers) do
@@ -822,18 +824,33 @@ lua << EOF
 		}
 	end
 
+	-- https://github.com/golang/tools/tree/master/gopls
+	lspconfig.gopls.setup {
+		on_attach = lspconfig_on_attach,
+		capabilities = lspconfig_capabilities,
+		-- cmd = { 'gopls', '-debug=localhost:8080' },
+		-- settings = {
+		-- 	gopls = {
+		-- 		directoryFilters = {
+		-- 			'-**/node_modules',
+		-- 			'-src/graphql/generated',
+		-- 		}
+		-- 	}
+		-- }
+	}
+
 	-- https://github.com/microsoft/pyright
 	lspconfig.pyright.setup {
 		on_attach = function(client, buffer)
-		lspconfig_on_attach(client, buffer)
-		local opts = { noremap=true, silent=true, buffer=buffer }
-		-- disable rename in favor of pyright
-		vim.keymap.set(
-			'n',
-			'<A-r>',
-			function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
-			opts
-		)
+			lspconfig_on_attach(client, buffer)
+			local opts = { noremap=true, silent=true, buffer=buffer }
+			-- disable rename in favor of pyright
+			vim.keymap.set(
+				'n',
+				'<A-r>',
+				function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
+				opts
+			)
 		end,
 		capabilities = lspconfig_capabilities
 	}
@@ -842,58 +859,58 @@ lua << EOF
 	lspconfig.pylsp.setup {
 		on_attach = function(client, buffer)
 		lspconfig_on_attach(client, buffer)
-		local opts = { noremap=true, silent=true, buffer=buffer }
-		-- disable rename in favor of pyright
-		vim.keymap.set(
-			'n',
-			'<A-r>',
-			function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
-			opts
-		)
+			local opts = { noremap=true, silent=true, buffer=buffer }
+			-- disable rename in favor of pyright
+			vim.keymap.set(
+				'n',
+				'<A-r>',
+				function() vim.lsp.buf.rename(nil, { name = "pyright" }) end,
+				opts
+			)
 		end,
 		capabilities = lspconfig_capabilities,
 		settings = {
-		pylsp = {
-			plugins = {
-				-- https://github.com/python-lsp/python-lsp-ruff
-				ruff = {
-					enabled = true,
-				},
-				jedi_completion = {
-					enabled = false
-				},
-				jedi_definition = {
-					enabled = false
-				},
-				jedi_hover = {
-					enabled = false
-				},
-				jedi_references = {
-					enabled = false
-				},
-				jedi_signature_help = {
-					enabled = false
-				},
-				jedi_symbols = {
-					enabled = false
-				},
-				mccabe = {
-					enabled = false
-				},
-				preload = {
-					enabled = false
-				},
-				yapf = {
-					enabled = false
-				},
-				pylint = {
-					-- disabled by default
-					enabled = false,
-					-- Use pylint binary, slower but basically required
-					executable = "pylint",
-				},
+			pylsp = {
+				plugins = {
+					-- https://github.com/python-lsp/python-lsp-ruff
+					ruff = {
+						enabled = true,
+					},
+					jedi_completion = {
+						enabled = false
+					},
+					jedi_definition = {
+						enabled = false
+					},
+					jedi_hover = {
+						enabled = false
+					},
+					jedi_references = {
+						enabled = false
+					},
+					jedi_signature_help = {
+						enabled = false
+					},
+					jedi_symbols = {
+						enabled = false
+					},
+					mccabe = {
+						enabled = false
+					},
+					preload = {
+						enabled = false
+					},
+					yapf = {
+						enabled = false
+					},
+					pylint = {
+						-- disabled by default
+						enabled = false,
+						-- Use pylint binary, slower but basically required
+						executable = "pylint",
+					},
+				}
 			}
-		}
 		}
 	}
 
