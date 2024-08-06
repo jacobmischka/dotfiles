@@ -645,11 +645,11 @@ lua << EOF
 
 	require('gitsigns').setup {
 		signs = {
-		add = { hl = 'GitGutterAdd', text = '+' },
-		change = { hl = 'GitGutterChange', text = '~' },
-		delete = { hl = 'GitGutterDelete', text = '_' },
-		topdelete = { hl = 'GitGutterDelete', text = '‾' },
-		changedelete = { hl = 'GitGutterChange', text = '~' },
+			add = { hl = 'GitGutterAdd', text = '+' },
+			change = { hl = 'GitGutterChange', text = '~' },
+			delete = { hl = 'GitGutterDelete', text = '_' },
+			topdelete = { hl = 'GitGutterDelete', text = '‾' },
+			changedelete = { hl = 'GitGutterChange', text = '~' },
 		},
 		on_attach = function (bufnr)
 		local gs = package.loaded.gitsigns
@@ -660,8 +660,8 @@ lua << EOF
 		end
 
 		local opts = { noremap=true, silent=true }
-		vim.api.nvim_buf_set_keymap(bufnr, 'n', ']c', '<cmd>Gitsigns next_hunk<CR>', opts)
-		vim.api.nvim_buf_set_keymap(bufnr, 'n', '[c', '<cmd>Gitsigns prev_hunk<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', ']c', '<cmd>Gitsigns next_hunk<CR>', opts)
+			vim.api.nvim_buf_set_keymap(bufnr, 'n', '[c', '<cmd>Gitsigns prev_hunk<CR>', opts)
 		end
 	}
 
@@ -697,13 +697,13 @@ lua << EOF
 			additional_vim_regex_highlighting = false,
 		},
 		incremental_selection = {
-		enable = true,
-		keymaps = {
-			init_selection = 'gnn',
-			node_incremental = 'grn',
-			scope_incremental = 'grc',
-			node_decremental = 'grm',
-		},
+			enable = true,
+			keymaps = {
+				init_selection = 'gnn',
+				node_incremental = 'grn',
+				scope_incremental = 'grc',
+				node_decremental = 'grm',
+			},
 		},
 		-- indent = {
 			-- enable = true,
@@ -807,9 +807,8 @@ lua << EOF
 		'jsonls', -- https://github.com/hrsh7th/vscode-langservers-extracted
 		'svelte', -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
 		'tailwindcss', -- https://github.com/tailwindlabs/tailwindcss-intellisense
-		'tsserver', -- https://github.com/typescript-language-server/typescript-language-server
 		'jdtls', -- https://projects.eclipse.org/projects/eclipse.jdt.ls
-		-- 'denols', -- https://github.com/denoland/deno
+		'gopls', -- https://github.com/golang/tools/tree/master/gopls
 
 		--  configured automatically with rust-rools
 		-- 'rust_analyzer', -- https://github.com/rust-analyzer/rust-analyzer
@@ -824,19 +823,32 @@ lua << EOF
 		}
 	end
 
-	-- https://github.com/golang/tools/tree/master/gopls
-	lspconfig.gopls.setup {
+	-- https://github.com/denoland/deno
+	lspconfig.denols.setup {
 		on_attach = lspconfig_on_attach,
 		capabilities = lspconfig_capabilities,
-		-- cmd = { 'gopls', '-debug=localhost:8080' },
-		-- settings = {
-		-- 	gopls = {
-		-- 		directoryFilters = {
-		-- 			'-**/node_modules',
-		-- 			'-src/graphql/generated',
-		-- 		}
-		-- 	}
-		-- }
+		root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+		settings = {
+			deno = {
+				enable = true,
+				lint = true,
+				unstable = true,
+			}
+		}
+	}
+
+
+	-- https://github.com/typescript-language-server/typescript-language-server
+	lspconfig.tsserver.setup {
+		on_attach = lspconfig_on_attach,
+		capabilities = lspconfig_capabilities,
+		root_dir = function (filename, bufnr)
+			local denoRootDir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")(filename)
+			if denoRootDir then return nil end
+
+			return lspconfig.util.root_pattern("package.json")(filename)
+		end,
+		single_file_support = false,
 	}
 
 	-- https://github.com/microsoft/pyright
