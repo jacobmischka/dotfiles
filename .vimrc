@@ -644,13 +644,6 @@ lua << EOF
 	telescope.load_extension('scope')
 
 	require('gitsigns').setup {
-		signs = {
-			add = { hl = 'GitGutterAdd', text = '+' },
-			change = { hl = 'GitGutterChange', text = '~' },
-			delete = { hl = 'GitGutterDelete', text = '_' },
-			topdelete = { hl = 'GitGutterDelete', text = '‾' },
-			changedelete = { hl = 'GitGutterChange', text = '~' },
-		},
 		on_attach = function (bufnr)
 		local gs = package.loaded.gitsigns
 
@@ -660,8 +653,14 @@ lua << EOF
 		end
 
 		local opts = { noremap=true, silent=true }
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', ']c', '<cmd>Gitsigns next_hunk<CR>', opts)
-			vim.api.nvim_buf_set_keymap(bufnr, 'n', '[c', '<cmd>Gitsigns prev_hunk<CR>', opts)
+		vim.api.nvim_buf_set_keymap(bufnr, 'n', ']c', '<cmd>Gitsigns next_hunk<CR>', opts)
+		vim.api.nvim_buf_set_keymap(bufnr, 'n', '[c', '<cmd>Gitsigns prev_hunk<CR>', opts)
+
+		vim.api.nvim_set_hl(0, 'GitSignsAdd', { link = 'GitGutterAdd' })
+		vim.api.nvim_set_hl(0, 'GitSignsChange', { link = 'GitGutterChange' })
+		vim.api.nvim_set_hl(0, 'GitSignsDelete', { link = 'GitGutterDelete' })
+		vim.api.nvim_set_hl(0, 'GitSignsTopdelete', { link = 'GitGutterDelete' })
+		vim.api.nvim_set_hl(0, 'GitSignsChangedelete', { link = 'GitGutterChange' })
 		end
 	}
 
@@ -839,7 +838,7 @@ lua << EOF
 
 
 	-- https://github.com/typescript-language-server/typescript-language-server
-	lspconfig.tsserver.setup {
+	lspconfig.ts_ls.setup {
 		on_attach = lspconfig_on_attach,
 		capabilities = lspconfig_capabilities,
 		root_dir = function (filename, bufnr)
