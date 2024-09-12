@@ -745,12 +745,9 @@ lua << EOF
 			enable = false,
 			extended_mode = true,
 		},
-		-- nvim-ts-autotag
-		autotag = {
-			enable = true,
-			enable_close_on_slash = false,
-		},
 	}
+
+	require('nvim-ts-autotag').setup()
 
 	require('ts_context_commentstring').setup()
 
