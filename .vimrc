@@ -352,6 +352,7 @@ Plug 'bkegley/gloombuddy'
 
 " Heavier
 if get(g:, 'full_config')
+	Plug 'folke/snacks.nvim'
 	Plug 'stevearc/dressing.nvim'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'simrat39/rust-tools.nvim'
@@ -560,6 +561,14 @@ if get(g:, 'full_config')
 	nmap <F4> :UndotreeToggle<CR>
 
 lua << EOF
+	require('snacks').setup({
+	    bigfile = { enabled = true },
+	    bufdelete = { enabled = true },
+	    quickfile = { enabled = true },
+	    rename = { enabled = true },
+	    -- notifier = { enabled = true },
+	    -- words = { enabled = true },
+	})
 	require('lualine').setup({
 		sections = {
 			lualine_a = {'mode'},
