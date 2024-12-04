@@ -1061,10 +1061,10 @@ if has("autocmd")
 
 	autocmd BufWritePre *.py execute ':Black'
 
-	autocmd DirChanged * call SourceIfExists("./.vimrc.local")
-	autocmd DirChanged * call SourceIfExists("./.vim/.vimrc")
-	autocmd DirChanged * call SourceIfExists("./.vim/init.vim")
-	autocmd DirChanged * call SourceIfExists("./.vim/init.lua")
+	autocmd DirChanged * call SourceIfExists(expand("%:h") .. "/.vimrc.local")
+	autocmd DirChanged * call SourceIfExists(expand("%:h") .. "/.vim/.vimrc")
+	autocmd DirChanged * call SourceIfExists(expand("%:h") .. "/.vim/init.vim")
+	autocmd DirChanged * call SourceIfExists(expand("%:h") .. "/.vim/init.lua")
 
 endif " has("autocmd")
 
@@ -1128,7 +1128,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Last but not least, allow for local overrides
 call SourceIfExists("~/.vimrc.local")
-call SourceIfExists("./.vimrc.local")
-call SourceIfExists("./.vim/.vimrc")
-call SourceIfExists("./.vim/init.vim")
-call SourceIfExists("./.vim/init.lua")
+call SourceIfExists(expand("%:h") .. "/.vimrc.local")
+call SourceIfExists(expand("%:h") .. "/.vim/.vimrc")
+call SourceIfExists(expand("%:h") .. "/.vim/init.vim")
+call SourceIfExists(expand("%:h") .. "/.vim/init.lua")
