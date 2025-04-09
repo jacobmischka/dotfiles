@@ -805,7 +805,7 @@ lua << EOF
 
 		vim.cmd [[ autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"}) ]]
 
-		require'lsp_signature'.on_attach()
+		require('lsp_signature').on_attach({}, buffer)
 	end
 
 	lspconfig_capabilities = require('cmp_nvim_lsp').default_capabilities()
