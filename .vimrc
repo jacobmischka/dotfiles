@@ -306,10 +306,8 @@ let g:polyglot_disabled = ['autoindent', 'svelte']
 call plug#begin('~/.vim/plugged')
 
 " Essentials
-" Plug 'zefei/vim-wintabs'
 Plug 'tiagovla/scope.nvim'
 Plug 'akinsho/bufferline.nvim'
-Plug 'ojroques/nvim-bufdel'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
@@ -353,7 +351,6 @@ Plug 'bkegley/gloombuddy'
 " Heavier
 if get(g:, 'full_config')
 	Plug 'folke/snacks.nvim'
-	Plug 'stevearc/dressing.nvim'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'simrat39/rust-tools.nvim'
 	Plug 'hrsh7th/nvim-cmp'
@@ -390,8 +387,9 @@ if get(g:, 'full_config')
 
 	Plug 'junegunn/fzf'
 	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
+	" Plug 'nvim-telescope/telescope.nvim'
+	" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
+	" Plug 'nvim-telescope/telescope-ui-select.nvim'
 	Plug 'mcchrish/nnn.vim'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'nvim-lualine/lualine.nvim'
@@ -516,15 +514,11 @@ if get(g:, 'full_config')
 endif
 
 " Keymaps
-map <C-P> :Telescope git_files<CR>
-map <Leader><C-P> :Telescope find_files<CR>
-map <C-;> :Telescope scope buffers<CR>
 map <C-H> :BufferLineCyclePrev<CR>
 map <C-L> :BufferLineCycleNext<CR>
 " map <C-L> <Plug>(wintabs_next)
 map <C-T>h :BufferLineMovePrev<CR>
 map <C-T>l :BufferLineMoveNext<CR>
-map <C-T>c :BufDel<CR>
 map <C-T>o :BufferLineCloseOthers<CR>
 " map <C-T>l <Plug>(wintabs_move_right)
 " map <C-T>w <Plug>(wintabs_close)
@@ -566,9 +560,23 @@ lua << EOF
 	    bufdelete = { enabled = true },
 	    quickfile = { enabled = true },
 	    rename = { enabled = true },
+	    input = {},
+	    picker = {},
+	    -- explorer = { replace_netrw = true },
 	    -- notifier = { enabled = true },
 	    -- words = { enabled = true },
 	})
+	vim.keymap.set('n', '<C-p>', Snacks.picker.smart)
+	vim.keymap.set('n', '<Leader><C-p>', Snacks.picker.files)
+	vim.keymap.set('n', '<C-;>', Snacks.picker.buffers)
+	vim.keymap.set('n', '<C-g>', Snacks.picker.git_log)
+	vim.keymap.set('n', '<Leader><C-g>', Snacks.picker.git_branches)
+	vim.keymap.set('n', '<Leader>sc', Snacks.picker.colorschemes)
+	vim.keymap.set('n', '<Leader><C-z>', Snacks.picker.undo)
+	-- vim.keymap.set('n', '<Bslash>', Snacks.explorer.open)
+	-- vim.keymap.set('n', '<Leader><Bslash>', Snacks.explorer.reveal)
+	vim.keymap.set('n', '<C-t>c', Snacks.bufdelete.delete)
+
 	require('lualine').setup({
 		sections = {
 			lualine_a = {'mode'},
@@ -580,13 +588,10 @@ lua << EOF
 		},
 	})
 	require('scope').setup()
-	require('bufdel').setup {
-		quit = false,
-	}
 	require('bufferline').setup({
 		options = {
-			close_command = "BufDel %d",
-			right_mouse_command = "BufDel %d",
+			close_command = "lua Snacks.bufdelete.delete(%d)",
+			right_mouse_command = "lua Snacks.bufdelete.delete(%d)",
 			separator_style = 'thin',
 			diagnostics = 'nvim_lsp',
 			hover = {
@@ -624,41 +629,54 @@ lua << EOF
 		},
 	})
 
-	require('ibl').setup {
-		enabled = false,
-		exclude = { filetypes = { "help" } },
-	}
+	require('ibl').setup({
+	    enabled = false,
+	    exclude = { filetypes = { "help" } },
+	})
 
-	local action_layout = require('telescope.actions.layout')
-	telescope = require('telescope')
-	telescope.setup {
-		defaults = {
-			preview = {
-				hide_on_startup = true
-			},
-			mappings = {
-				n = {
-					['<A-p>'] = action_layout.toggle_preview
-				},
-				i = {
-					-- Close pane with Esc directly from insert mode
-					-- ["<Esc>"] = actions.close,
-					['<A-p>'] = action_layout.toggle_preview
-				}
-			}
-		}
-	}
+	-- local action_layout = require('telescope.actions.layout')
+	-- local telescope = require('telescope')
+	-- local themes = require('telescope.themes')
+	-- telescope.setup({
+	--     defaults = {
+	-- 	preview = {
+	-- 	    hide_on_startup = true
+	-- 	},
+	-- 	mappings = {
+	-- 	    n = {
+	-- 		['<A-p>'] = action_layout.toggle_preview
+	-- 	    },
+	-- 	    i = {
+	-- 		-- Close pane with Esc directly from insert mode
+	-- 		-- ["<Esc>"] = actions.close,
+	-- 		['<A-p>'] = action_layout.toggle_preview
+	-- 	    }
+	-- 	}
+	--     },
+	--     extensions = {
+	-- 	fzf = {
+	-- 	    fuzzy = true,
+	-- 	    override_generic_sorter = true,
+	-- 	    override_file_sorter = true,
+	-- 	    case_mode = 'smart_case',
+	-- 	},
+	-- 	['ui-select'] = {
+	-- 	    themes.get_dropdown()
+	-- 	}
+	--     },
+	-- })
+	--
+	-- telescope.load_extension('fzf')
+	-- telescope.load_extension('scope')
+	-- telescope.load_extension('ui-select')
 
-	telescope.load_extension('fzf')
-	telescope.load_extension('scope')
-
-	require('gitsigns').setup {
-		on_attach = function (bufnr)
+	require('gitsigns').setup({
+	    on_attach = function (bufnr)
 		local gs = package.loaded.gitsigns
 
 		local function map(mode, l, r, opts)
-			opts = opts or {}
-			opts.buffer = bufnr
+		    opts = opts or {}
+		    opts.buffer = bufnr
 		end
 
 		local opts = { noremap=true, silent=true }
@@ -670,10 +688,10 @@ lua << EOF
 		vim.api.nvim_set_hl(0, 'GitSignsDelete', { link = 'GitGutterDelete' })
 		vim.api.nvim_set_hl(0, 'GitSignsTopdelete', { link = 'GitGutterDelete' })
 		vim.api.nvim_set_hl(0, 'GitSignsChangedelete', { link = 'GitGutterChange' })
-		end
-	}
+	    end
+	})
 
-	require('nvim-tree').setup {
+	require('nvim-tree').setup({
 		disable_netrw = false,
 		system_open = {
 			cmd = "xdg-open",
@@ -688,11 +706,11 @@ lua << EOF
 		git = {
 			ignore = false
 		}
-	}
+	})
 
 	vim.g.skip_ts_context_commentstring = true
 
-	require('nvim-treesitter.configs').setup {
+	require('nvim-treesitter.configs').setup({
 		ensure_installed = "all",
 		ignore_install = { "phpdoc" },
 		highlight = {
@@ -754,7 +772,7 @@ lua << EOF
 			enable = false,
 			extended_mode = true,
 		},
-	}
+	})
 
 	require('nvim-ts-autotag').setup()
 
@@ -784,15 +802,17 @@ lua << EOF
 
 
 	local lspconfig = require('lspconfig')
+	local lsp_signature = require('lsp_signature')
 	lspconfig_on_attach = function(client, buffer)
 		local opts = { noremap=true, silent=true, buffer=buffer }
 		vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
 		vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
-		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-		vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
-		vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-		vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-		vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+		vim.keymap.set('n', 'gd', Snacks.picker.lsp_definitions, opts)
+		vim.keymap.set('n', 'gy', Snacks.picker.lsp_type_definitions, opts)
+		vim.keymap.set('n', 'gD', Snacks.picker.lsp_declarations, opts)
+		vim.keymap.set('n', 'gi', Snacks.picker.lsp_implementations, opts)
+		vim.keymap.set('n', 'gr', Snacks.picker.lsp_references, opts)
+		vim.keymap.set('n', 'gs', Snacks.picker.lsp_symbols, opts)
 		vim.keymap.set('n', '<Leader>=', vim.lsp.buf.format, opts)
 		vim.keymap.set('n', '<A-h>', vim.lsp.buf.hover, opts)
 		vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, opts)
@@ -805,7 +825,10 @@ lua << EOF
 
 		vim.cmd [[ autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"}) ]]
 
-		require('lsp_signature').on_attach({}, buffer)
+		lsp_signature.on_attach({
+		    hint_enable = false,
+		    cursorhold_update = false,
+		}, buffer)
 	end
 
 	lspconfig_capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -830,14 +853,14 @@ lua << EOF
 	}
 
 	for _, lsp in ipairs(lsp_servers) do
-		lspconfig[lsp].setup {
+		lspconfig[lsp].setup({
 			on_attach = lspconfig_on_attach,
 			capabilities = lspconfig_capabilities,
-		}
+		})
 	end
 
 	-- https://github.com/denoland/deno
-	lspconfig.denols.setup {
+	lspconfig.denols.setup({
 		on_attach = lspconfig_on_attach,
 		capabilities = lspconfig_capabilities,
 		root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
@@ -848,11 +871,11 @@ lua << EOF
 				unstable = true,
 			}
 		}
-	}
+	})
 
 
 	-- https://github.com/typescript-language-server/typescript-language-server
-	lspconfig.ts_ls.setup {
+	lspconfig.ts_ls.setup({
 		on_attach = lspconfig_on_attach,
 		capabilities = lspconfig_capabilities,
 		root_dir = function (filename, bufnr)
@@ -862,10 +885,10 @@ lua << EOF
 			return lspconfig.util.root_pattern("package.json")(filename)
 		end,
 		single_file_support = false,
-	}
+	})
 
 	-- https://github.com/microsoft/pyright
-	lspconfig.pyright.setup {
+	lspconfig.pyright.setup({
 		on_attach = function(client, buffer)
 			lspconfig_on_attach(client, buffer)
 			local opts = { noremap=true, silent=true, buffer=buffer }
@@ -878,10 +901,10 @@ lua << EOF
 			)
 		end,
 		capabilities = lspconfig_capabilities
-	}
+	})
 
 	-- https://github.com/python-lsp/python-lsp-server
-	lspconfig.pylsp.setup {
+	lspconfig.pylsp.setup({
 		on_attach = function(client, buffer)
 		lspconfig_on_attach(client, buffer)
 			local opts = { noremap=true, silent=true, buffer=buffer }
@@ -937,12 +960,12 @@ lua << EOF
 				}
 			}
 		}
-	}
+	})
 
 	-- rust-tools
 
 	local rt = require 'rust-tools'
-	rt.setup {
+	rt.setup({
 		server  = {
 			on_attach = lspconfig_on_attach,
 			capabilities = lspconfig_capabilities,
@@ -951,8 +974,9 @@ lua << EOF
 		tools = {
 			inlay_hints = { auto = false }
 		}
-	}
+	})
 
+	-- luasnip
 	local luasnip = require 'luasnip'
 
 	local has_words_before = function()
@@ -962,7 +986,7 @@ lua << EOF
 
 	-- nvim-cmp
 	local cmp = require 'cmp'
-	cmp.setup {
+	cmp.setup({
 		snippet = {
 			expand = function(args)
 				luasnip.lsp_expand(args.body)
@@ -1005,11 +1029,9 @@ lua << EOF
 			{ name = 'nvim_lsp' },
 			{ name = 'luasnip' },
 		},
-	}
+	})
 
 	vim.keymap.set({ "n", "x" }, "<Leader>sr", function() require('ssr').open() end)
-
-	require('dressing').setup()
 EOF
 
 
