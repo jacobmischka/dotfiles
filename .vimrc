@@ -387,9 +387,9 @@ if get(g:, 'full_config')
 
 	Plug 'junegunn/fzf'
 	Plug 'nvim-lua/plenary.nvim'
-	" Plug 'nvim-telescope/telescope.nvim'
-	" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
-	" Plug 'nvim-telescope/telescope-ui-select.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
+	Plug 'nvim-telescope/telescope-ui-select.nvim'
 	Plug 'mcchrish/nnn.vim'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'nvim-lualine/lualine.nvim'
@@ -514,6 +514,9 @@ if get(g:, 'full_config')
 endif
 
 " Keymaps
+map <Leader><Leader><C-P> :Telescope git_files<CR>
+map <Leader><Leader><Leader><C-P> :Telescope find_files<CR>
+map <Leader><C-;> :Telescope scope buffers<CR>
 map <C-H> :BufferLineCyclePrev<CR>
 map <C-L> :BufferLineCycleNext<CR>
 " map <C-L> <Plug>(wintabs_next)
@@ -634,41 +637,41 @@ lua << EOF
 	    exclude = { filetypes = { "help" } },
 	})
 
-	-- local action_layout = require('telescope.actions.layout')
-	-- local telescope = require('telescope')
-	-- local themes = require('telescope.themes')
-	-- telescope.setup({
-	--     defaults = {
-	-- 	preview = {
-	-- 	    hide_on_startup = true
-	-- 	},
-	-- 	mappings = {
-	-- 	    n = {
-	-- 		['<A-p>'] = action_layout.toggle_preview
-	-- 	    },
-	-- 	    i = {
-	-- 		-- Close pane with Esc directly from insert mode
-	-- 		-- ["<Esc>"] = actions.close,
-	-- 		['<A-p>'] = action_layout.toggle_preview
-	-- 	    }
-	-- 	}
-	--     },
-	--     extensions = {
-	-- 	fzf = {
-	-- 	    fuzzy = true,
-	-- 	    override_generic_sorter = true,
-	-- 	    override_file_sorter = true,
-	-- 	    case_mode = 'smart_case',
-	-- 	},
-	-- 	['ui-select'] = {
-	-- 	    themes.get_dropdown()
-	-- 	}
-	--     },
-	-- })
-	--
-	-- telescope.load_extension('fzf')
-	-- telescope.load_extension('scope')
-	-- telescope.load_extension('ui-select')
+	local action_layout = require('telescope.actions.layout')
+	local telescope = require('telescope')
+	local themes = require('telescope.themes')
+	telescope.setup({
+	    defaults = {
+		preview = {
+		    hide_on_startup = true
+		},
+		mappings = {
+		    n = {
+			['<A-p>'] = action_layout.toggle_preview
+		    },
+		    i = {
+			-- Close pane with Esc directly from insert mode
+			-- ["<Esc>"] = actions.close,
+			['<A-p>'] = action_layout.toggle_preview
+		    }
+		}
+	    },
+	    extensions = {
+		fzf = {
+		    fuzzy = true,
+		    override_generic_sorter = true,
+		    override_file_sorter = true,
+		    case_mode = 'smart_case',
+		},
+		['ui-select'] = {
+		    themes.get_dropdown()
+		}
+	    },
+	})
+
+	telescope.load_extension('fzf')
+	telescope.load_extension('scope')
+	telescope.load_extension('ui-select')
 
 	require('gitsigns').setup({
 	    on_attach = function (bufnr)
