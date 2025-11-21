@@ -842,7 +842,7 @@ lua << EOF
 
 	lspconfig_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-	-- npm i -g vscode-langservers-extracted svelte-language-server @tailwindcss/language-server intelephense
+	-- npm i -g vscode-langservers-extracted typescript-language-server typescript svelte-language-server @tailwindcss/language-server intelephense graphql-language-service-cli
 	-- pacman -S rust-analyzer pyright typescript-language-server
 	local lsp_servers = {
 		'cssls', -- https://github.com/hrsh7th/vscode-langservers-extracted
@@ -854,6 +854,7 @@ lua << EOF
 		'tailwindcss', -- https://github.com/tailwindlabs/tailwindcss-intellisense
 		'jdtls', -- https://projects.eclipse.org/projects/eclipse.jdt.ls
 		'gopls', -- https://github.com/golang/tools/tree/master/gopls
+		'graphql', -- https://github.com/graphql/graphiql/tree/main/packages/graphql-language-service-cli
 
 		--  configured automatically with rust-rools
 		-- 'rust_analyzer', -- https://github.com/rust-analyzer/rust-analyzer
