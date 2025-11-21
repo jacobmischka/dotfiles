@@ -18,6 +18,8 @@
 	colorMoved = default
 [interactive]
 	diffFilter = delta --color-only
+[rerere]
+	enabled = true
 
 [color]
 	ui = always
@@ -55,6 +57,8 @@
 	c = commit
 	rc = recommit
 	d = diff
+	sw = switch
+	st = stash
 	recent = for-each-ref --sort=committerdate refs/heads/ --format='%(color:green)%(committerdate:short) %(color:cyan)%(refname:short)'
 	merged = "!f(){ git branch --no-color --merged | egrep -v '(^\\*|main|master|dev|stable)'; }; f"
 	clean-merged = "!f(){ git merged | xargs git branch -d; }; f"
