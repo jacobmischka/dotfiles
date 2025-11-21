@@ -357,7 +357,7 @@ if get(g:, 'full_config')
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'nvim-tree/nvim-web-devicons'
 	Plug 'nvim-tree/nvim-tree.lua'
-	Plug 'ray-x/lsp_signature.nvim'
+	" Plug 'ray-x/lsp_signature.nvim'
 	Plug 'lewis6991/gitsigns.nvim'
 	Plug 'saadparwaiz1/cmp_luasnip'
 	Plug 'L3MON4D3/LuaSnip'
@@ -805,7 +805,7 @@ lua << EOF
 
 
 	local lspconfig = require('lspconfig')
-	local lsp_signature = require('lsp_signature')
+	-- local lsp_signature = require('lsp_signature')
 	lspconfig_on_attach = function(client, buffer)
 		local opts = { noremap = true, silent = true, buffer = buffer }
 		local snacks_lsp_opts = { include_current = true, focus = 'list' }
@@ -835,10 +835,12 @@ lua << EOF
 
 		vim.cmd [[ autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"}) ]]
 
-		lsp_signature.on_attach({
-		    hint_enable = false,
-		    cursorhold_update = false,
-		}, buffer)
+		-- lsp_signature.on_attach({
+		--     hint_enable = false,
+		--     cursorhold_update = false,
+		--     always_trigger = false,
+		--     toggle_key = '<A-s>',
+		-- }, buffer)
 	end
 
 	lspconfig_capabilities = require('cmp_nvim_lsp').default_capabilities()
