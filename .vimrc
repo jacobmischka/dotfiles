@@ -824,6 +824,7 @@ lua << EOF
 		vim.keymap.set('n', '<Leader>gs', function() Snacks.picker.lsp_symbols(snacks_lsp_opts) end, opts)
 		vim.keymap.set('n', '<Leader>=', vim.lsp.buf.format, opts)
 		vim.keymap.set('n', '<A-h>', vim.lsp.buf.hover, opts)
+		vim.keymap.set({ 'n', 'i' }, '<A-s>', vim.lsp.buf.signature_help, opts)
 		vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, opts)
 		vim.keymap.set('n', '<A-f>', function() vim.lsp.buf.code_action({ context = { only = {"source.fixAll"} }, apply = true }) end, opts)
 		vim.keymap.set('n', '<A-r>', vim.lsp.buf.rename, opts)
@@ -1127,14 +1128,14 @@ let g:enable_italic_font = 1
 
 " Helpers to change between light and dark themes
 function! DarkTheme()
-	colorscheme base16-rose-pine-moon
 	set background=dark
+	colorscheme base16-atlas
 	call OverrideHighlights()
 endfunction
 
 function! LightTheme()
-	colorscheme adwaita
 	set background=light
+	colorscheme adwaita
 	call OverrideHighlights()
 endfunction
 
