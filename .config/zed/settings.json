@@ -1,0 +1,58 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "use_smartcase_search": true,
+  "buffer_font_family": "FiraCode Nerd Font Mono",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Colored Zed Icons Theme Light",
+    "dark": "Colored Zed Icons Theme Dark"
+  },
+  "buffer_line_height": "standard",
+  "disable_ai": true,
+  "minimap": {
+    "show": "never"
+  },
+  "vim_mode": true,
+  "base_keymap": "Atom",
+  "ui_font_size": 14.0,
+  "buffer_font_size": 12.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Solarized Dark"
+  },
+  "tabs": {
+    "git_status": true,
+    "file_icons": true,
+    "show_diagnostics": "all"
+  },
+  "always_treat_brackets_as_autoclosed": true,
+  // "auto_signature_help": false,
+  // "show_signature_help_after_edits": true,
+  "use_system_path_prompts": false,
+  "format_on_save": "on",
+  "formatter": "auto",
+  "prettier": {
+    "semi": true,
+    "allowed": true,
+    "singleQuote": true
+  },
+  "vim": {
+    "use_system_clipboard": "never"
+  },
+  "languages": {
+    "TypeScript": {
+      "formatter": [{ "code_action": "source.fixAll.eslint" }, "auto"]
+    },
+    "Rust": {
+      "formatter": "language_server"
+    }
+  }
+}

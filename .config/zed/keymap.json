@@ -1,0 +1,118 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Editor && !showing_completions && !showing_signature_help && !showing_code_actions",
+    "bindings": {
+      "ctrl-p": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {}
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-t": null
+    }
+  },
+  {
+    "context": "Picker > Editor",
+    "bindings": {
+      "ctrl-h": null
+    }
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+      "ctrl-y": "editor::ConfirmCompletion"
+    }
+  },
+  {
+    "context": "ProjectPanel || Dock || (Pane && EmptyPane)",
+    "bindings": {
+      "\\": "workspace::ToggleLeftDock",
+      "ctrl-p": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "alt-w": "vim::NextSubwordStart",
+      "alt-e": "vim::NextSubwordEnd",
+      "alt-b": "vim::PreviousSubwordStart",
+      "g alt-e": "vim::PreviousSubwordEnd"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "alt-right": "vim::ResizePaneRight",
+      "alt-left": "vim::ResizePaneLeft",
+      "alt-up": "vim::ResizePaneUp",
+      "alt-down": "vim::ResizePaneDown",
+
+      "shift-enter": "editor::Newline",
+      "space =": "editor::Format",
+
+      "\\": "workspace::ToggleLeftDock",
+      "space \\": "pane::RevealInProjectPanel",
+
+      "alt-h": "editor::Hover",
+      "alt-a": "editor::ToggleCodeActions",
+      "alt-s": "editor::ShowSignatureHelp",
+      "alt-m": "editor::ToggleMinimap",
+      "alt-g": "editor::ToggleGitBlameInline",
+      "alt-r": "editor::Rename",
+      "alt-j": "vim::InsertEmptyLineBelow",
+      "alt-k": "vim::InsertEmptyLineAbove",
+
+      "[ e": "editor::GoToPreviousDiagnostic",
+      "] e": "editor::GoToDiagnostic",
+
+      "ctrl-h": "vim::GoToPreviousTab",
+      "ctrl-l": "vim::GoToTab",
+
+      "ctrl-j": "editor::MoveLineDown",
+      "ctrl-k": "editor::MoveLineUp",
+
+      "ctrl-w alt-h": "pane::SplitLeft",
+      "ctrl-w alt-l": "pane::SplitRight",
+      "ctrl-w alt-k": "pane::SplitUp",
+      "ctrl-w alt-j": "pane::SplitDown",
+
+      "ctrl-t c": "pane::CloseActiveItem",
+      "ctrl-t o": "pane::CloseOtherItems",
+
+      "g r": "editor::FindAllReferences"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {}
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "c r s": "editor::ConvertToSnakeCase",
+      "c r c": "editor::ConvertToLowerCamelCase",
+      "c r p": "editor::ConvertToUpperCamelCase",
+      "c r k": "editor::ConvertToKebabCase",
+      "S": "vim::PushAddSurrounds"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "space y": ["workspace::SendKeystrokes", "\" + y"],
+      "space p": ["workspace::SendKeystrokes", "\" + p"]
+    }
+  }
+]
