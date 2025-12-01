@@ -31,7 +31,7 @@
   {
     "context": "Editor && showing_completions",
     "bindings": {
-      "tab": "editor::ContextMenuNext",
+      // "tab": "editor::ContextMenuNext",
       "ctrl-y": "editor::ConfirmCompletion"
     }
   },
@@ -49,6 +49,13 @@
       "alt-e": "vim::NextSubwordEnd",
       "alt-b": "vim::PreviousSubwordStart",
       "g alt-e": "vim::PreviousSubwordEnd"
+    }
+  },
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "bindings": {
+      "alt-w": "vim::Subword",
+      "b": "vim::EntireFile"
     }
   },
   {
