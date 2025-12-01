@@ -47,6 +47,33 @@
   "vim": {
     "use_system_clipboard": "never"
   },
+  "auto_install_extensions": {
+    "colored-zed-icons-theme": true,
+    "csv": true,
+    "dockerfile": true,
+    "dracula": true,
+    "git-firefly": true,
+    "graphql": true,
+    "html": true,
+    "java": true,
+    "just": true,
+    "latex": true,
+    "lua": true,
+    "make": true,
+    "material-icon-theme": true,
+    "php": true,
+    "proto": true,
+    "rainbow-csv": true,
+    "solarized": true,
+    "sql": true,
+    "svelte": true,
+    "terraform": true,
+    "toml": true,
+    "vue": true,
+    "wat": true,
+    "xml": true,
+    "zig": true
+  },
   "languages": {
     "TypeScript": {
       "formatter": [{ "code_action": "source.fixAll.eslint" }, "auto"]
