@@ -23,6 +23,14 @@
     }
   },
   {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "ctrl-shift-e": "project_panel::ToggleFocus",
+      "ctrl-shift-m": "diagnostics::Deploy",
+      "ctrl-shift-o": "workspace::Open"
+    }
+  },
+  {
     "context": "Picker > Editor",
     "bindings": {
       "ctrl-h": null

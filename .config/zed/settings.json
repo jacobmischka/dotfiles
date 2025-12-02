@@ -76,7 +76,12 @@
   },
   "languages": {
     "TypeScript": {
-      "formatter": [{ "code_action": "source.fixAll.eslint" }, "auto"]
+      // "formatter": [{ "code_action": "source.fixAll.eslint" }, "auto"],
+      "code_actions_on_format": {
+        "source.fixAll": true,
+        "source.removeUnusedImports": true,
+        "source.organizeImports": true
+      }
     },
     "Rust": {
       "formatter": "language_server"
