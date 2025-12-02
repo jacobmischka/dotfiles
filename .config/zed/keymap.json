@@ -95,9 +95,6 @@
       "ctrl-h": "vim::GoToPreviousTab",
       "ctrl-l": "vim::GoToTab",
 
-      "ctrl-j": "editor::MoveLineDown",
-      "ctrl-k": "editor::MoveLineUp",
-
       "ctrl-w alt-h": "pane::SplitLeft",
       "ctrl-w alt-l": "pane::SplitRight",
       "ctrl-w alt-k": "pane::SplitUp",
@@ -127,7 +124,10 @@
     "context": "Editor && (vim_mode == normal || vim_mode == visual)",
     "bindings": {
       "space y": ["workspace::SendKeystrokes", "\" + y"],
-      "space p": ["workspace::SendKeystrokes", "\" + p"]
+      "space p": ["workspace::SendKeystrokes", "\" + p"],
+
+      "ctrl-j": "editor::MoveLineDown",
+      "ctrl-k": "editor::MoveLineUp"
     }
   }
 ]
