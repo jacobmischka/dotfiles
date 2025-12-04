@@ -103,7 +103,7 @@
       "ctrl-h": "vim::GoToPreviousTab",
       "ctrl-l": "vim::GoToTab",
 
-      "ctrl-w t": "project_panel::ToggleFocus",
+      "ctrl-w t": "vim::ToggleProjectPanelFocus",
       "ctrl-w alt-h": "pane::SplitLeft",
       "ctrl-w alt-l": "pane::SplitRight",
       "ctrl-w alt-k": "pane::SplitUp",
