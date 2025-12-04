@@ -33,6 +33,7 @@
     "file_icons": true,
     "show_diagnostics": "all"
   },
+  "colorize_brackets": true,
   "always_treat_brackets_as_autoclosed": true,
   // "auto_signature_help": false,
   // "show_signature_help_after_edits": true,
@@ -62,6 +63,7 @@
     "make": true,
     "material-icon-theme": true,
     "php": true,
+    "prisma": true,
     "proto": true,
     "rainbow-csv": true,
     "solarized": true,
