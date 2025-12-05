@@ -67,6 +67,7 @@
     "prisma": true,
     "proto": true,
     "rainbow-csv": true,
+    "scss": true,
     "solarized": true,
     "sql": true,
     "svelte": true,
@@ -81,9 +82,9 @@
     "TypeScript": {
       // "formatter": [{ "code_action": "source.fixAll.eslint" }, "auto"],
       "code_actions_on_format": {
-        "source.fixAll": true,
-        "source.removeUnusedImports": true,
-        "source.organizeImports": true
+        "source.fixAll.eslint": true
+        // "source.removeUnusedImports": true
+        // "source.organizeImports": true
       }
     },
     "Rust": {
