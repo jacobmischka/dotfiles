@@ -17,6 +17,7 @@
   },
   "buffer_line_height": "standard",
   "disable_ai": true,
+  "soft_wrap": "editor_width",
   "minimap": {
     "show": "never"
   },

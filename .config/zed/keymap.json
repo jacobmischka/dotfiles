@@ -112,7 +112,8 @@
       "ctrl-t c": "pane::CloseActiveItem",
       "ctrl-t o": "pane::CloseOtherItems",
 
-      "g r": "editor::FindAllReferences"
+      "g r": "editor::FindAllReferences",
+      "g i": "editor::GoToImplementation"
     }
   },
   {
@@ -137,6 +138,13 @@
 
       "ctrl-j": "editor::MoveLineDown",
       "ctrl-k": "editor::MoveLineUp"
+    }
+  },
+  {
+    "context": "Pane && buffer_search_deployed > (Editor && vim_mode == normal)",
+    "bindings": {
+      "&": "search::ReplaceNext",
+      "space &": "search::ReplaceAll"
     }
   }
 ]
