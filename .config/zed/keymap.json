@@ -117,6 +117,7 @@
       "ctrl-l": "vim::GoToTab",
 
       "ctrl-w t": "vim::ToggleProjectPanelFocus",
+      "ctrl-w b": "workspace::ActivatePaneRight",
       "ctrl-w alt-h": "pane::SplitLeft",
       "ctrl-w alt-l": "pane::SplitRight",
       "ctrl-w alt-k": "pane::SplitUp",

@@ -30,6 +30,11 @@
     "light": "One Light",
     "dark": "Solarized Dark",
   },
+  "project_panel": {
+    "auto_fold_dirs": false,
+    "auto_reveal_entries": false,
+    "starts_open": false,
+  },
   "tabs": {
     "git_status": true,
     "file_icons": true,
