@@ -131,7 +131,9 @@
   },
   {
     "context": "Editor && vim_mode == insert",
-    "bindings": {},
+    "bindings": {
+      "alt-s": "editor::ShowSignatureHelp",
+    },
   },
   {
     "context": "Editor && vim_mode == visual",
