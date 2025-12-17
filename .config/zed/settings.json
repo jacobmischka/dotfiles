@@ -13,13 +13,13 @@
   "icon_theme": {
     "mode": "dark",
     "light": "Colored Zed Icons Theme Light",
-    "dark": "Colored Zed Icons Theme Dark"
+    "dark": "Colored Zed Icons Theme Dark",
   },
   "buffer_line_height": "standard",
   "disable_ai": true,
   "soft_wrap": "editor_width",
   "minimap": {
-    "show": "never"
+    "show": "never",
   },
   "vim_mode": true,
   "base_keymap": "Atom",
@@ -28,12 +28,12 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Solarized Dark"
+    "dark": "Solarized Dark",
   },
   "tabs": {
     "git_status": true,
     "file_icons": true,
-    "show_diagnostics": "all"
+    "show_diagnostics": "all",
   },
   "colorize_brackets": true,
   "always_treat_brackets_as_autoclosed": true,
@@ -45,10 +45,10 @@
   "prettier": {
     "semi": true,
     "allowed": true,
-    "singleQuote": true
+    "singleQuote": true,
   },
   "vim": {
-    "use_system_clipboard": "never"
+    "use_system_clipboard": "never",
   },
   "auto_install_extensions": {
     "colored-zed-icons-theme": true,
@@ -77,19 +77,31 @@
     "vue": true,
     "wat": true,
     "xml": true,
-    "zig": true
+    "zig": true,
   },
   "languages": {
     "TypeScript": {
       // "formatter": [{ "code_action": "source.fixAll.eslint" }, "auto"],
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": true,
         // "source.removeUnusedImports": true
         // "source.organizeImports": true
-      }
+      },
+    },
+    "Go": {
+      "formatter": "language_server",
     },
     "Rust": {
-      "formatter": "language_server"
-    }
-  }
+      "formatter": "language_server",
+    },
+    "Python": {
+      "language_servers": [
+        // Disable basedpyright and enable Ty, and otherwise
+        // use the default configuration.
+        "ty",
+        "!basedpyright",
+        "...",
+      ],
+    },
+  },
 }
