@@ -9,54 +9,67 @@
   {
     "context": "Editor && !showing_completions && !showing_signature_help && !showing_code_actions",
     "bindings": {
-      "ctrl-p": "file_finder::Toggle"
-    }
+      "ctrl-p": "file_finder::Toggle",
+    },
   },
   {
     "context": "Workspace",
-    "bindings": {}
+    "bindings": {},
   },
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-t": null
-    }
+      "ctrl-t": null,
+    },
   },
   {
     "context": "Editor && mode == full",
     "bindings": {
       "ctrl-shift-e": "project_panel::ToggleFocus",
       "ctrl-shift-m": "diagnostics::Deploy",
-      "ctrl-shift-o": "workspace::Open"
-    }
+      "ctrl-shift-o": "workspace::Open",
+    },
   },
   {
     "context": "Picker > Editor",
     "bindings": {
-      "ctrl-h": null
-    }
+      "ctrl-h": null,
+    },
   },
   {
     "context": "FileFinder || (FileFinder > Picker > Editor) || (FileFinder > Picker > menu)",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-v": "pane::SplitRight",
-      "ctrl-s": "pane::SplitDown"
-    }
+      "ctrl-s": "pane::SplitDown",
+    },
   },
   {
     "context": "Editor && showing_completions",
     "bindings": {
       // "tab": "editor::ContextMenuNext",
-      "ctrl-y": "editor::ConfirmCompletion"
-    }
+      "ctrl-y": "editor::ConfirmCompletion",
+    },
   },
   {
     "context": "ProjectPanel || Dock || (Pane && EmptyPane)",
     "bindings": {
       "\\": "workspace::ToggleLeftDock",
-      "ctrl-p": "file_finder::Toggle"
-    }
+      "ctrl-p": "file_finder::Toggle",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "d": "project_panel::Delete",
+      "r": "project_panel::Rename",
+      "y": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "ctrl-shift-v": "project_panel::OpenSplitVertical",
+      "ctrl-shift-s": "project_panel::OpenSplitHorizontal",
+      "ctrl-b": "project_panel::ScrollUp",
+      "ctrl-f": "project_panel::ScrollDown",
+    },
   },
   {
     "context": "VimControl && !menu",
@@ -64,15 +77,15 @@
       "alt-w": "vim::NextSubwordStart",
       "alt-e": "vim::NextSubwordEnd",
       "alt-b": "vim::PreviousSubwordStart",
-      "g alt-e": "vim::PreviousSubwordEnd"
-    }
+      "g alt-e": "vim::PreviousSubwordEnd",
+    },
   },
   {
     "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
     "bindings": {
       "alt-w": "vim::Subword",
-      "b": "vim::EntireFile"
-    }
+      "b": "vim::EntireFile",
+    },
   },
   {
     "context": "Editor && vim_mode == normal",
@@ -113,12 +126,12 @@
       "ctrl-t o": "pane::CloseOtherItems",
 
       "g r": "editor::FindAllReferences",
-      "g i": "editor::GoToImplementation"
-    }
+      "g i": "editor::GoToImplementation",
+    },
   },
   {
     "context": "Editor && vim_mode == insert",
-    "bindings": {}
+    "bindings": {},
   },
   {
     "context": "Editor && vim_mode == visual",
@@ -127,8 +140,8 @@
       "c r c": "editor::ConvertToLowerCamelCase",
       "c r p": "editor::ConvertToUpperCamelCase",
       "c r k": "editor::ConvertToKebabCase",
-      "S": "vim::PushAddSurrounds"
-    }
+      "S": "vim::PushAddSurrounds",
+    },
   },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual)",
@@ -137,14 +150,14 @@
       "space p": ["workspace::SendKeystrokes", "\" + p"],
 
       "ctrl-j": "editor::MoveLineDown",
-      "ctrl-k": "editor::MoveLineUp"
-    }
+      "ctrl-k": "editor::MoveLineUp",
+    },
   },
   {
     "context": "Pane && buffer_search_deployed > (Editor && vim_mode == normal)",
     "bindings": {
       "&": "search::ReplaceNext",
-      "space &": "search::ReplaceAll"
-    }
-  }
+      "space &": "search::ReplaceAll",
+    },
+  },
 ]
