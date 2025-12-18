@@ -14,7 +14,10 @@
   },
   {
     "context": "Workspace",
-    "bindings": {},
+    "bindings": {
+      "alt-t": "task::Spawn",
+      "alt-shift-t": "task::Rerun",
+    },
   },
   {
     "context": "Editor",
