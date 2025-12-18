@@ -17,12 +17,15 @@
     "bindings": {
       "alt-t": "task::Spawn",
       "alt-shift-t": "task::Rerun",
+
+      "ctrl-shift-j": "workspace::ToggleBottomDock",
     },
   },
   {
     "context": "Editor",
     "bindings": {
       "ctrl-t": null,
+      "ctrl-shift-j": "workspace::ToggleBottomDock",
     },
   },
   {
