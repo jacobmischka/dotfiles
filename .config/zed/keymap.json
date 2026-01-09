@@ -145,10 +145,6 @@
   {
     "context": "Editor && vim_mode == visual",
     "bindings": {
-      "c r s": "editor::ConvertToSnakeCase",
-      "c r c": "editor::ConvertToLowerCamelCase",
-      "c r p": "editor::ConvertToUpperCamelCase",
-      "c r k": "editor::ConvertToKebabCase",
       "S": "vim::PushAddSurrounds",
     },
   },
@@ -160,6 +156,11 @@
 
       "ctrl-j": "editor::MoveLineDown",
       "ctrl-k": "editor::MoveLineUp",
+
+      "c r s": "editor::ConvertToSnakeCase",
+      "c r c": "editor::ConvertToLowerCamelCase",
+      "c r p": "editor::ConvertToUpperCamelCase",
+      "c r k": "editor::ConvertToKebabCase",
     },
   },
   {
