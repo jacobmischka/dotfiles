@@ -85,12 +85,14 @@
     "zig": true,
   },
   "languages": {
-    "TypeScript": {
-      // "formatter": [{ "code_action": "source.fixAll.eslint" }, "auto"],
+    "TSX": {
       "code_actions_on_format": {
         "source.fixAll.eslint": true,
-        // "source.removeUnusedImports": true
-        // "source.organizeImports": true
+      },
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
       },
     },
     "Go": {
