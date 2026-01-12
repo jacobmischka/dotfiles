@@ -157,10 +157,10 @@
       "ctrl-j": "editor::MoveLineDown",
       "ctrl-k": "editor::MoveLineUp",
 
-      "c r s": "editor::ConvertToSnakeCase",
-      "c r c": "editor::ConvertToLowerCamelCase",
-      "c r p": "editor::ConvertToUpperCamelCase",
-      "c r k": "editor::ConvertToKebabCase",
+      "alt-c s": "editor::ConvertToSnakeCase",
+      "alt-c c": "editor::ConvertToLowerCamelCase",
+      "alt-c p": "editor::ConvertToUpperCamelCase",
+      "alt-c k": "editor::ConvertToKebabCase",
     },
   },
   {
