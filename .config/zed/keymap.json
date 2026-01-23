@@ -131,6 +131,7 @@
 
       "ctrl-t c": "pane::CloseActiveItem",
       "ctrl-t o": "pane::CloseOtherItems",
+      "ctrl-t a": "pane::CloseAllItems",
 
       "g r": "editor::FindAllReferences",
       "g i": "editor::GoToImplementation",
