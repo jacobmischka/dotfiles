@@ -28,7 +28,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Solarized Dark",
+    "dark": "Base16 Unikitty Dark",
   },
   "project_panel": {
     "auto_fold_dirs": false,
@@ -56,6 +56,8 @@
     "use_system_clipboard": "never",
   },
   "auto_install_extensions": {
+    "base16": true,
+    "catppuccin": true,
     "colored-zed-icons-theme": true,
     "csv": true,
     "dockerfile": true,
@@ -73,6 +75,7 @@
     "prisma": true,
     "proto": true,
     "rainbow-csv": true,
+    "rose-pine-theme": true,
     "scss": true,
     "solarized": true,
     "sql": true,
