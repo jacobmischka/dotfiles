@@ -1131,7 +1131,7 @@ let g:enable_italic_font = 1
 " Helpers to change between light and dark themes
 function! DarkTheme()
 	set background=dark
-	colorscheme base16-atlas
+	colorscheme base16-unikitty-dark
 	call OverrideHighlights()
 endfunction
 
