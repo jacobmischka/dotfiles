@@ -59,7 +59,7 @@
 	d = diff
 	sw = switch
 	st = stash
-	recent = branch --sort=committerdate --format='%(color:green)%(committerdate:short) %(color:cyan)%(refname:short)' --list
+	recent = branch --sort=-committerdate --format='%(color:green)%(committerdate:short) %(color:cyan)%(refname:short)' --list
 	merged = "!f(){ git branch --no-color --merged | egrep -v '(^\\*|main|master|dev|stable)'; }; f"
 	clean-merged = "!f(){ git merged | xargs git branch -d; }; f"
 [init]
