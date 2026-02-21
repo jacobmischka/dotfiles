@@ -20,7 +20,7 @@
     "dark": "Colored Zed Icons Theme Dark",
   },
   "theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Zedwaita Light",
     "dark": "Zedwaita Dark",
   },
