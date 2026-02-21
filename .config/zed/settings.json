@@ -7,7 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "restore_on_startup": "launchpad",
+  "vim_mode": true,
+  "base_keymap": "Atom",
+  "disable_ai": true,
+  "ui_font_size": 14.0,
+  "buffer_font_size": 12.0,
   "use_smartcase_search": true,
   "buffer_font_family": "FiraCode Nerd Font Mono",
   "icon_theme": {
@@ -15,21 +19,17 @@
     "light": "Colored Zed Icons Theme Light",
     "dark": "Colored Zed Icons Theme Dark",
   },
+  "theme": {
+    "mode": "light",
+    "light": "Zedwaita Light",
+    "dark": "Zedwaita Dark",
+  },
   "buffer_line_height": "standard",
-  "disable_ai": true,
   "soft_wrap": "editor_width",
   "minimap": {
     "show": "never",
   },
-  "vim_mode": true,
-  "base_keymap": "Atom",
-  "ui_font_size": 14.0,
-  "buffer_font_size": 12.0,
-  "theme": {
-    "mode": "dark",
-    "light": "One Light",
-    "dark": "Base16 Unikitty Dark",
-  },
+  "restore_on_startup": "launchpad",
   "project_panel": {
     "auto_fold_dirs": false,
     "auto_reveal_entries": false,
@@ -85,6 +85,7 @@
     "vue": true,
     "wat": true,
     "xml": true,
+    "zedwaita": true,
     "zig": true,
   },
   "languages": {
