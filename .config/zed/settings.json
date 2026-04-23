@@ -8,6 +8,21 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
 	"disable_ai": true,
+	"show_edit_predictions": false,
+	"edit_predictions": {
+		"provider": "zed",
+	},
+	"agent": {
+		"default_model": {
+			"provider": "zed.dev",
+			"model": "claude-sonnet-4-6",
+			"enable_thinking": true,
+			"effort": "medium",
+		},
+		"favorite_models": [],
+		"model_parameters": [],
+	},
+
 	"vim_mode": true,
 	"base_keymap": "Atom",
 	"ui_font_size": 16.0,
