@@ -7,22 +7,58 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"disable_ai": true,
+	"disable_ai": false,
 	"show_edit_predictions": false,
+	"agent_servers": {
+		"github-copilot-cli": {
+			"type": "registry",
+		},
+		"claude-acp": {
+			"default_config_options": {
+				"model": "claude-opus-4-7",
+			},
+			"env": {
+				"CLAUDE_CODE_USE_FOUNDRY": "1",
+				"ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-6",
+				"ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-7",
+				"ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5",
+			},
+			"default_model": "claude-opus-4-7",
+			"default_mode": "adaptive",
+			"favorite_config_option_values": {
+				"model": ["claude-opus-4-7", "claude-sonnet-4-6"],
+			},
+			"type": "registry",
+			"favorite_models": ["claude-opus-4-7"],
+		},
+	},
 	"edit_predictions": {
-		"provider": "zed",
+		"provider": "copilot",
 	},
 	"agent": {
-		"default_model": {
-			"provider": "zed.dev",
-			"model": "claude-sonnet-4-6",
-			"enable_thinking": true,
-			"effort": "medium",
-		},
-		"favorite_models": [],
+		"dock": "right",
+		"sidebar_side": "right",
+		"favorite_models": [
+			{
+				"model": "claude-opus-4-7",
+				"effort": "high",
+				"enable_thinking": true,
+				"provider": "anthropic",
+				"speed": "standard",
+			},
+		],
 		"model_parameters": [],
 	},
 
+	"outline_panel": {
+		"dock": "left",
+	},
+	"collaboration_panel": {
+		"dock": "left",
+	},
+	"git_panel": {
+		"dock": "left",
+	},
 	"vim_mode": true,
 	"base_keymap": "Atom",
 	"ui_font_size": 16.0,
@@ -46,6 +82,7 @@
 	},
 	"restore_on_startup": "launchpad",
 	"project_panel": {
+		"dock": "left",
 		"auto_fold_dirs": false,
 		"auto_reveal_entries": false,
 		"starts_open": false,
