@@ -118,6 +118,11 @@
 			"alt-j": "vim::InsertEmptyLineBelow",
 			"alt-k": "vim::InsertEmptyLineAbove",
 
+			"ctrl-m": "editor::ToggleBookmark",
+			"ctrl-alt-m": "editor::ViewBookmarks",
+			"[ ctrl-m": "editor::GoToPreviousBookmark",
+			"] ctrl-m": "editor::GoToNextBookmark",
+
 			"[ e": "editor::GoToPreviousDiagnostic",
 			"] e": "editor::GoToDiagnostic",
 
