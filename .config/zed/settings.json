@@ -81,9 +81,9 @@
 		"show": "never",
 	},
 	"restore_on_startup": "launchpad",
+	"cli_default_open_behavior": "existing_window",
 	"project_panel": {
 		"dock": "left",
-		"auto_fold_dirs": false,
 		"auto_reveal_entries": false,
 		"starts_open": false,
 	},
