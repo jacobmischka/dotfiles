@@ -15,21 +15,21 @@
 		},
 		"claude-acp": {
 			"default_config_options": {
-				"model": "claude-opus-4-7",
+				"model": "claude-opus-4-8",
 			},
 			"env": {
 				"CLAUDE_CODE_USE_FOUNDRY": "1",
 				"ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-6",
-				"ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-7",
+				"ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8",
 				"ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5",
 			},
-			"default_model": "claude-opus-4-7",
+			"default_model": "claude-opus-4-8",
 			"default_mode": "adaptive",
 			"favorite_config_option_values": {
-				"model": ["claude-opus-4-7", "claude-sonnet-4-6"],
+				"model": ["claude-opus-4-8", "claude-sonnet-4-6"],
 			},
 			"type": "registry",
-			"favorite_models": ["claude-opus-4-7"],
+			"favorite_models": ["claude-opus-4-8"],
 		},
 	},
 	"edit_predictions": {
@@ -40,7 +40,7 @@
 		"sidebar_side": "right",
 		"favorite_models": [
 			{
-				"model": "claude-opus-4-7",
+				"model": "claude-opus-4-8",
 				"effort": "high",
 				"enable_thinking": true,
 				"provider": "anthropic",
