@@ -14,22 +14,21 @@
 			"type": "registry",
 		},
 		"claude-acp": {
-			"default_config_options": {
-				"model": "claude-opus-4-8",
-			},
 			"env": {
 				"CLAUDE_CODE_USE_FOUNDRY": "1",
-				"ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-6",
-				"ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8",
-				"ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5",
+				// "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-6",
+				// "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8",
+				// "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5",
 			},
 			"default_model": "claude-opus-4-8",
 			"default_mode": "adaptive",
+			"default_config_options": {
+				"model": "claude-opus-4-8",
+			},
 			"favorite_config_option_values": {
-				"model": ["claude-opus-4-8", "claude-sonnet-4-6"],
+				"model": ["claude-opus-4-8", "claude-fable-5"],
 			},
 			"type": "registry",
-			"favorite_models": ["claude-opus-4-8"],
 		},
 	},
 	"edit_predictions": {
