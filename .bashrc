@@ -229,6 +229,10 @@ function pyenv-initter() {
 	fi
 }
 
+function killport() {
+	lsof -ti:"$1" | xargs kill -9
+}
+
 if [ -f ~/.bashrc.local ]; then
 	. ~/.bashrc.local
 fi
