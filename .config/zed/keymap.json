@@ -20,6 +20,12 @@
 
 			"ctrl-shift-j": "workspace::ToggleBottomDock",
 			"ctrl-alt-b": "workspace::ToggleRightDock",
+
+			"space p \\": "project_panel::ToggleFocus",
+			"space t \\": "project_panel::ToggleFocus",
+			"space o \\": "outline_panel::ToggleFocus",
+			"space g \\": "git_panel::ToggleFocus",
+			"space d \\": "debug_panel::ToggleFocus",
 		},
 	},
 	{
