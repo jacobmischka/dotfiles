@@ -12,8 +12,10 @@
 	"agent_servers": {
 		"codex-acp": {
 			"default_config_options": {
+				"mode": "workspace-write",
+				"fast-mode": true,
 				"model": "gpt-6-astra",
-				"reasoning_effort": "high",
+				"reasoning_effort": "xhigh",
 			},
 			"favorite_config_option_values": {
 				"model": ["gpt-6-astra"],
@@ -35,6 +37,9 @@
 		"dock": "right",
 		"favorite_models": [],
 		"model_parameters": [],
+		"use_modifier_to_send": true,
+		"expand_edit_card": false,
+		"expand_terminal_card": false,
 	},
 
 	"outline_panel": {
