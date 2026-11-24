@@ -84,6 +84,10 @@
 		"file_icons": true,
 		"show_diagnostics": "all",
 	},
+
+	"search": {
+		"search_on_type": false,
+	},
 	"colorize_brackets": true,
 	"always_treat_brackets_as_autoclosed": true,
 	// "auto_signature_help": false,
